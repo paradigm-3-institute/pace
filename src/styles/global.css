@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}

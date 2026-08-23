@@ -1,0 +1,58 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+
+const sections = (await getCollection("sections")).sort((a, b) => a.data.order - b.data.order);
+
+const rendered = await Promise.all(
+  sections.map(async (section) => ({
+    ...section,
+    Content: (await render(section)).Content,
+  })),
+);
+---
+
+<Layout title="Pacing" description="A field guide to spending your effort budget across a long distance.">
+  <aside class="hidden md:block fixed w-80 h-dvh overflow-auto bg-white">
+    <hgroup class="p-4 px-6">
+      <h1 class="text-5xl capitalize font-light grid gap-2">
+        <div>How</div>
+        <div class="-ml-2.5">to</div>
+        <div>pace</div>
+        <div class="-ml-2.5">the</div>
+        <div>frontier</div>
+      </h1>
+      <p class="mt-6 mb-10 italic text-2xl">A Research Agenda</p>
+    </hgroup>
+    <nav>
+      <ul class="text-3xl *:px-6 *:py-4 mb-8">
+        <li>Introduction</li>
+        <li>Why Pace?</li>
+        <li>Pace What?</li>
+        <li>Pace How?</li>
+        <li>Then What?</li>
+        <li>Conclusion</li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="px-6 md:px-10 md:pl-90 w-full py-32">
+    <header class="max-w-200 mx-auto mb-16 border-b border-slate-200 pb-10 dark:border-slate-800">
+      <h1 class="font-serif text-4xl leading-tight font-bold text-slate-900 sm:text-5xl dark:text-white">Pacing</h1>
+      <p class="mt-4 max-w-xl text-lg text-slate-500 dark:text-slate-400">
+        A field guide to spending a fixed effort budget across a distance that does not care how you feel at the start.
+      </p>
+    </header>
+
+    <article class="max-w-200 mx-auto">
+      {
+        rendered.map(({ id, data, Content }) => (
+          <section id={id} class="mb-16 last:mb-0">
+            <h2>{data.title}</h2>
+            <Content />
+          </section>
+        ))
+      }
+    </article>
+  </main>
+</Layout>
