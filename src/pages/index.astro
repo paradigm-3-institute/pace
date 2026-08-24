@@ -175,7 +175,14 @@ const sections = await Promise.all(
     setActive(id);
   };
 
+  let isFirstObserverCallback = true;
+
   const observer = new IntersectionObserver((entries) => {
+    if (isFirstObserverCallback) {
+      isFirstObserverCallback = false;
+      return;
+    }
+
     if (suppressObserver) return;
 
     for (const entry of entries) {
