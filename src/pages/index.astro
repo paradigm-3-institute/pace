@@ -1,15 +1,13 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getEntry, render } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 
-const sections = (await getCollection("sections")).sort((a, b) => a.data.order - b.data.order);
-
-const rendered = await Promise.all(
-  sections.map(async (section) => ({
-    ...section,
-    Content: (await render(section)).Content,
-  })),
-);
+const introduction = await render(await getEntry("sections", "01-introduction"));
+const whyPace = await render(await getEntry("sections", "02-why-pace"));
+const paceWhat = await render(await getEntry("sections", "03-pace-what"));
+const paceHow = await render(await getEntry("sections", "04-pace-how"));
+const thenWhat = await render(await getEntry("sections", "05-then-what"));
+const conclusion = await render(await getEntry("sections", "06-conclusion"));
 ---
 
 <Layout title="Pacing" description="A field guide to spending your effort budget across a long distance.">
@@ -17,21 +15,33 @@ const rendered = await Promise.all(
     <hgroup class="p-4 px-6">
       <h1 class="text-5xl capitalize font-light grid gap-2">
         <div>How</div>
-        <div class="-ml-2.5">to</div>
+        <div class="-ml-2">to</div>
         <div>pace</div>
-        <div class="-ml-2.5">the</div>
+        <div class="-ml-2">the</div>
         <div>frontier</div>
       </h1>
       <p class="mt-6 mb-10 italic text-2xl">A Research Agenda</p>
     </hgroup>
     <nav>
       <ul class="text-3xl *:px-6 *:py-4 mb-8">
-        <li>Introduction</li>
-        <li>Why Pace?</li>
-        <li>Pace What?</li>
-        <li>Pace How?</li>
-        <li>Then What?</li>
-        <li>Conclusion</li>
+        <li class="bg-introduction/10 text-introduction">
+          <a href="#introduction">Introduction</a>
+        </li>
+        <li class="bg-why-pace/10 text-why-pace">
+          <a href="#why-pace">Why Pace?</a>
+        </li>
+        <li class="bg-pace-what/10 text-pace-what">
+          <a href="#pace-what">Pace What?</a>
+        </li>
+        <li class="bg-pace-how/10 text-pace-how">
+          <a href="#pace-how">Pace How?</a>
+        </li>
+        <li class="bg-then-what/10 text-then-what">
+          <a href="#then-what">Then What?</a>
+        </li>
+        <li class="bg-conclusion/10 text-conclusion">
+          <a href="#conclusion">Conclusion</a>
+        </li>
       </ul>
     </nav>
   </aside>
@@ -45,14 +55,30 @@ const rendered = await Promise.all(
     </header>
 
     <article class="max-w-200 mx-auto">
-      {
-        rendered.map(({ id, data, Content }) => (
-          <section id={id} class="mb-16 last:mb-0">
-            <h2>{data.title}</h2>
-            <Content />
-          </section>
-        ))
-      }
+      <section id="introduction" class="mb-16 scroll-mt-10 rounded-lg p-6 bg-introduction/5">
+        <h2 class="text-introduction">Introduction</h2>
+        <introduction.Content />
+      </section>
+      <section id="why-pace" class="mb-16 scroll-mt-10 rounded-lg p-6 bg-why-pace/5">
+        <h2 class="text-why-pace">Why Pace?</h2>
+        <whyPace.Content />
+      </section>
+      <section id="pace-what" class="mb-16 scroll-mt-10 rounded-lg p-6 bg-pace-what/5">
+        <h2 class="text-pace-what">Pace What?</h2>
+        <paceWhat.Content />
+      </section>
+      <section id="pace-how" class="mb-16 scroll-mt-10 rounded-lg p-6 bg-pace-how/5">
+        <h2 class="text-pace-how">Pace How?</h2>
+        <paceHow.Content />
+      </section>
+      <section id="then-what" class="mb-16 scroll-mt-10 rounded-lg p-6 bg-then-what/5">
+        <h2 class="text-then-what">Then What?</h2>
+        <thenWhat.Content />
+      </section>
+      <section id="conclusion" class="mb-16 last:mb-0 scroll-mt-10 rounded-lg p-6 bg-conclusion/5">
+        <h2 class="text-conclusion">Conclusion</h2>
+        <conclusion.Content />
+      </section>
     </article>
   </main>
 </Layout>
