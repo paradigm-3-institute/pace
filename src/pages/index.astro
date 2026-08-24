@@ -237,7 +237,7 @@ const sections = await Promise.all(
       const r = lerpChannel(from.r, to.r, progress);
       const g = lerpChannel(from.g, to.g, progress);
       const b = lerpChannel(from.b, to.b, progress);
-      item.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+      item.style.setProperty("--nav-bg", `rgb(${r}, ${g}, ${b})`);
     });
   };
 
