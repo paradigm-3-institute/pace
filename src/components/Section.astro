@@ -12,7 +12,7 @@ const { id, title, textClass, content } = Astro.props;
 const { Content } = content;
 ---
 
-<section id={id} class:list={["py-12 last:mb-0"]}>
+<section id={id} class:list={["mb-12 -scroll-mt-8 last:mb-0"]}>
   <div class="max-w-200 mx-auto px-6 md:px-10">
     <h2>{title}</h2>
     <Content />

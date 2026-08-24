@@ -4,11 +4,36 @@ interface Props {
   bgClass: string;
   textClass: string;
   label: string;
+  sectionId: string;
 }
 
-const { href, bgClass, textClass, label } = Astro.props;
+const { href, bgClass, textClass, label, sectionId } = Astro.props;
 ---
 
-<li class:list={[textClass, bgClass]}>
+<li class:list={[textClass, bgClass, "nav-item last:rounded-br-3xl"]} data-section-id={sectionId}>
   <a class="px-7 py-5 block" href={href}>{label}</a>
 </li>
+
+<style>
+  .nav-item {
+    transition:
+      border-radius 300ms ease,
+      background-color 300ms ease;
+  }
+
+  .nav-item.no-transition {
+    transition: none;
+  }
+
+  .nav-item.is-active {
+    background: transparent;
+  }
+
+  .nav-item.is-active + .nav-item {
+    border-top-right-radius: 24px;
+  }
+
+  .nav-item:has(+ .nav-item.is-active) {
+    border-bottom-right-radius: 24px;
+  }
+</style>

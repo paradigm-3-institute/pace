@@ -43,8 +43,8 @@ const sections = await Promise.all(
   title="How to Pace The Frontier"
   description="A field guide to spending your effort budget across a long distance."
 >
-  <aside class="hidden md:block fixed w-76 h-dvh overflow-auto bg-[#FAFAFA]">
-    <hgroup class="p-7">
+  <aside class="hidden md:block fixed w-76 h-dvh overflow-auto">
+    <hgroup class="p-7 bg-[#FAFAFA]">
       <h1 class="text-5xl capitalize font-light grid gap-2">
         <div>How</div>
         <div class="-ml-2">to</div>
@@ -58,7 +58,7 @@ const sections = await Promise.all(
       <ul class="text-3xl mb-8">
         {
           sections.map(({ id, label, textClass, bgClass }) => (
-            <NavItem href={`#${id}`} bgClass={bgClass} label={label} textClass={textClass || bgClass} />
+            <NavItem href={`#${id}`} bgClass={bgClass} label={label} textClass={textClass || bgClass} sectionId={id} />
           ))
         }
       </ul>
@@ -66,7 +66,7 @@ const sections = await Promise.all(
   </aside>
 
   <main class="w-full md:pl-76 bg-linear-to-b from-[#30B0D6] to-white py-24">
-    <article class="bg-white mx-24 rounded-xl">
+    <article class="bg-white mx-24 rounded-xl py-24">
       {
         sections.map(({ id, label, textClass, content }) => (
           <Section id={id} title={label} textClass={textClass} content={content} />
@@ -75,3 +75,70 @@ const sections = await Promise.all(
     </article>
   </main>
 </Layout>
+
+<script>
+  const navItems = document.querySelectorAll<HTMLLIElement>(".nav-item");
+  const sections = document.querySelectorAll<HTMLElement>("main section[id]");
+  const headings = document.querySelectorAll<HTMLElement>("main section[id] h2");
+
+  let activeId: string | null = null;
+
+  const setActive = (id: string) => {
+    if (id === activeId) return;
+    activeId = id;
+    navItems.forEach((item) => {
+      item.classList.toggle("is-active", item.dataset.sectionId === id);
+    });
+  };
+
+  const applyHash = () => {
+    const id = window.location.hash.slice(1);
+    if (id) setActive(id);
+  };
+
+  const hashId = window.location.hash.slice(1);
+  const initialId = [...sections].some((section) => section.id === hashId) ? hashId : sections[0]?.id;
+
+  if (initialId) {
+    navItems.forEach((item) => item.classList.add("no-transition"));
+    setActive(initialId);
+    void document.body.offsetHeight;
+    requestAnimationFrame(() => {
+      navItems.forEach((item) => item.classList.remove("no-transition"));
+    });
+  }
+
+  window.addEventListener("hashchange", applyHash);
+
+  const dwellTimers = new Map<string, ReturnType<typeof setTimeout>>();
+
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      const id = entry.target.closest("section")?.id;
+      if (!id) continue;
+
+      if (entry.isIntersecting) {
+        if (!dwellTimers.has(id)) {
+          dwellTimers.set(
+            id,
+            setTimeout(() => {
+              dwellTimers.delete(id);
+              if (window.location.hash.slice(1) !== id) {
+                history.replaceState(null, "", `#${id}`);
+              }
+              setActive(id);
+            }, 1000),
+          );
+        }
+      } else {
+        const timer = dwellTimers.get(id);
+        if (timer) {
+          clearTimeout(timer);
+          dwellTimers.delete(id);
+        }
+      }
+    }
+  });
+
+  headings.forEach((heading) => observer.observe(heading));
+</script>
