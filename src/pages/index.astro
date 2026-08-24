@@ -97,6 +97,7 @@ const sections = await Promise.all(
   const navItems = document.querySelectorAll<HTMLLIElement>(".nav-item");
   const sections = document.querySelectorAll<HTMLElement>("main section[id]");
   const headings = document.querySelectorAll<HTMLElement>("main section[id] h2");
+  const sectionIds = [...sections].map((section) => section.id);
 
   let activeId: string | null = null;
 
@@ -108,72 +109,7 @@ const sections = await Promise.all(
     });
   };
 
-  const applyHash = () => {
-    const id = window.location.hash.slice(1);
-    if (id) setActive(id);
-  };
-
-  const hashId = window.location.hash.slice(1);
-  const initialId = [...sections].some((section) => section.id === hashId) ? hashId : sections[0]?.id;
-
-  if (initialId) {
-    navItems.forEach((item) => item.classList.add("no-transition"));
-    setActive(initialId);
-    void document.body.offsetHeight;
-    requestAnimationFrame(() => {
-      navItems.forEach((item) => item.classList.remove("no-transition"));
-    });
-  }
-
-  window.addEventListener("hashchange", applyHash);
-
-  let lastSeenId: string | null = initialId ?? null;
-  let suppressObserver = false;
-  let suppressDebounce: ReturnType<typeof setTimeout>;
-
-  const endSuppression = () => {
-    suppressObserver = false;
-    clearTimeout(suppressDebounce);
-    window.removeEventListener("scrollend", endSuppression);
-  };
-
-  const scheduleEndSuppression = () => {
-    clearTimeout(suppressDebounce);
-    suppressDebounce = setTimeout(endSuppression, 300);
-  };
-
-  navItems.forEach((item) => {
-    const link = item.querySelector("a");
-    link?.addEventListener("click", () => {
-      const id = item.dataset.sectionId;
-      if (!id) return;
-
-      suppressObserver = true;
-      lastSeenId = id;
-      setActive(id);
-
-      window.addEventListener("scrollend", endSuppression);
-      scheduleEndSuppression();
-    });
-  });
-
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (suppressObserver) scheduleEndSuppression();
-    },
-    { passive: true },
-  );
-
-  const sectionIds = [...sections].map((section) => section.id);
-
-  const activateSection = (id: string) => {
-    lastSeenId = id;
-    if (window.location.hash.slice(1) !== id) {
-      history.replaceState(null, "", `#${id}`);
-    }
-    setActive(id);
-  };
+  if (sectionIds[0]) setActive(sectionIds[0]);
 
   let isFirstObserverCallback = true;
 
@@ -183,20 +119,18 @@ const sections = await Promise.all(
       return;
     }
 
-    if (suppressObserver) return;
-
     for (const entry of entries) {
       const id = entry.target.closest("section")?.id;
       if (!id) continue;
 
       if (entry.isIntersecting) {
         // Heading has scrolled upward into view: activate its section.
-        activateSection(id);
+        setActive(id);
       } else if (entry.boundingClientRect.top > 0) {
         // Heading has scrolled back down out of view: we're back in the previous section.
         const index = sectionIds.indexOf(id);
         const previousId = sectionIds[index - 1];
-        if (previousId) activateSection(previousId);
+        if (previousId) setActive(previousId);
       }
     }
   });
@@ -229,11 +163,11 @@ const sections = await Promise.all(
     const totalHeight = document.documentElement.scrollHeight;
     if (totalHeight <= 0) return;
 
-    sections.forEach((section) => {
+    sections.forEach((section, rank) => {
       const item = document.querySelector<HTMLElement>(`.nav-item[data-section-id="${section.id}"]`);
       if (!item) return;
 
-      const progress = Math.min(Math.max(section.offsetTop / totalHeight, 0), 1);
+      const progress = Math.min(Math.max((section.offsetTop + (rank - 1) * 60) / totalHeight, 0), 1);
       const r = lerpChannel(from.r, to.r, progress);
       const g = lerpChannel(from.g, to.g, progress);
       const b = lerpChannel(from.b, to.b, progress);

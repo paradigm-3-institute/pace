@@ -16,27 +16,11 @@ const { href, textClass, label, sectionId } = Astro.props;
 <style>
   .nav-item {
     background-color: var(--nav-bg, transparent);
-    transition:
-      border-radius 300ms ease,
-      background-color 300ms ease;
-  }
-
-  .nav-item.no-transition {
-    transition: none;
+    transition: background-color 300ms ease;
   }
 
   .nav-item.is-active {
     background: transparent;
-    transition: background-color 300ms ease 500ms !important;
-  }
-
-  .nav-item.is-active + .nav-item {
-    border-top-right-radius: 24px;
-    transition: border-radius 300ms ease 500ms !important;
-  }
-
-  .nav-item:has(+ .nav-item.is-active) {
-    border-bottom-right-radius: 24px;
-    transition: border-radius 300ms ease 500ms !important;
+    transition: background-color 300ms ease 600ms;
   }
 </style>
