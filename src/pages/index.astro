@@ -111,30 +111,58 @@ const sections = await Promise.all(
   window.addEventListener("hashchange", applyHash);
 
   let lastSeenId: string | null = initialId ?? null;
-  let idleTimer: ReturnType<typeof setTimeout>;
+  let suppressObserver = false;
+  let suppressDebounce: ReturnType<typeof setTimeout>;
 
-  const scheduleActivate = () => {
-    clearTimeout(idleTimer);
-    idleTimer = setTimeout(() => {
-      if (lastSeenId && lastSeenId !== activeId) {
-        if (window.location.hash.slice(1) !== lastSeenId) {
-          history.replaceState(null, "", `#${lastSeenId}`);
-        }
-        setActive(lastSeenId);
-      }
-    }, 300);
+  const endSuppression = () => {
+    suppressObserver = false;
+    clearTimeout(suppressDebounce);
+    window.removeEventListener("scrollend", endSuppression);
   };
 
+  const scheduleEndSuppression = () => {
+    clearTimeout(suppressDebounce);
+    suppressDebounce = setTimeout(endSuppression, 300);
+  };
+
+  navItems.forEach((item) => {
+    const link = item.querySelector("a");
+    link?.addEventListener("click", () => {
+      const id = item.dataset.sectionId;
+      if (!id) return;
+
+      suppressObserver = true;
+      lastSeenId = id;
+      setActive(id);
+
+      window.addEventListener("scrollend", endSuppression);
+      scheduleEndSuppression();
+    });
+  });
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (suppressObserver) scheduleEndSuppression();
+    },
+    { passive: true },
+  );
+
   const observer = new IntersectionObserver((entries) => {
+    if (suppressObserver) return;
+
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
       const id = entry.target.closest("section")?.id;
       if (!id) continue;
+
       lastSeenId = id;
+      if (window.location.hash.slice(1) !== id) {
+        history.replaceState(null, "", `#${id}`);
+      }
+      setActive(id);
     }
   });
 
   headings.forEach((heading) => observer.observe(heading));
-
-  window.addEventListener("scroll", scheduleActivate, { passive: true });
 </script>

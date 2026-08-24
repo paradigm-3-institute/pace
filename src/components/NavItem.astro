@@ -27,13 +27,16 @@ const { href, bgClass, textClass, label, sectionId } = Astro.props;
 
   .nav-item.is-active {
     background: transparent;
+    transition: background-color 300ms ease 500ms !important;
   }
 
   .nav-item.is-active + .nav-item {
     border-top-right-radius: 24px;
+    transition: border-radius 300ms ease 500ms !important;
   }
 
   .nav-item:has(+ .nav-item.is-active) {
     border-bottom-right-radius: 24px;
+    transition: border-radius 300ms ease 500ms !important;
   }
 </style>
