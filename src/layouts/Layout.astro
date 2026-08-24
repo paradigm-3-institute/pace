@@ -19,7 +19,9 @@ const { title, description } = Astro.props;
     {description && <meta name="description" content={description} />}
     <title>{title}</title>
   </head>
-  <body class="text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-200">
+  <body>
+    <div class="fixed inset-x-0 top-0 -z-10 h-[50dvh] bg-[#30B0D6] pointer-events-none" aria-hidden="true"></div>
+    <div class="fixed inset-x-0 bottom-0 -z-10 h-[50dvh] bg-white pointer-events-none" aria-hidden="true"></div>
     <slot />
   </body>
 </html>

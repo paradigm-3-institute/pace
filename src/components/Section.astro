@@ -4,15 +4,15 @@ import type { CollectionEntry, RenderResult } from "astro:content";
 interface Props {
   id: string;
   title: string;
-  bgClass: string;
+  textClass: string;
   content: RenderResult;
 }
 
-const { id, title, bgClass, content } = Astro.props;
+const { id, title, textClass, content } = Astro.props;
 const { Content } = content;
 ---
 
-<section id={id} class:list={["py-12 last:mb-0 text-white/90", bgClass]}>
+<section id={id} class:list={["py-12 last:mb-0", "text-[#1B5B6E]"]}>
   <div class="max-w-200 mx-auto px-6 md:px-10">
     <h2>{title}</h2>
     <Content />

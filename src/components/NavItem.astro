@@ -2,12 +2,13 @@
 interface Props {
   href: string;
   bgClass: string;
+  textClass: string;
   label: string;
 }
 
-const { href, bgClass, label } = Astro.props;
+const { href, bgClass, textClass, label } = Astro.props;
 ---
 
-<li class:list={[" text-white/85", bgClass]}>
-  <a class="px-6 py-4 block" href={href}>{label}</a>
+<li class:list={[textClass, bgClass]}>
+  <a class="px-7 py-5 block" href={href}>{label}</a>
 </li>

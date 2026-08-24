@@ -5,12 +5,30 @@ import NavItem from "../components/NavItem.astro";
 import Section from "../components/Section.astro";
 
 const sectionMeta = [
-  { slug: "01-introduction", id: "introduction", label: "Introduction", bgClass: "bg-introduction" },
-  { slug: "02-why-pace", id: "why-pace", label: "Why Pace?", bgClass: "bg-why-pace" },
-  { slug: "03-pace-what", id: "pace-what", label: "Pace What?", bgClass: "bg-pace-what" },
-  { slug: "04-pace-how", id: "pace-how", label: "Pace How?", bgClass: "bg-pace-how" },
-  { slug: "05-then-what", id: "then-what", label: "Then What?", bgClass: "bg-then-what" },
-  { slug: "06-conclusion", id: "conclusion", label: "Conclusion", bgClass: "bg-conclusion" },
+  {
+    slug: "01-introduction",
+    id: "introduction",
+    label: "Introduction",
+    bgClass: "bg-introduction",
+    textClass: "text-conclusion",
+  },
+  { slug: "02-why-pace", id: "why-pace", label: "Why Pace?", bgClass: "bg-why-pace", textClass: "text-conclusion" },
+  { slug: "03-pace-what", id: "pace-what", label: "Pace What?", bgClass: "bg-pace-what", textClass: "text-conclusion" },
+  { slug: "04-pace-how", id: "pace-how", label: "Pace How?", bgClass: "bg-pace-how", textClass: "text-introduction" },
+  {
+    slug: "05-then-what",
+    id: "then-what",
+    label: "Then What?",
+    bgClass: "bg-then-what",
+    textClass: "text-introduction",
+  },
+  {
+    slug: "06-conclusion",
+    id: "conclusion",
+    label: "Conclusion",
+    bgClass: "bg-conclusion",
+    textClass: "text-introduction",
+  },
 ] as const;
 
 const sections = await Promise.all(
@@ -25,8 +43,8 @@ const sections = await Promise.all(
   title="How to Pace The Frontier"
   description="A field guide to spending your effort budget across a long distance."
 >
-  <aside class="hidden md:block fixed w-76 h-dvh overflow-auto bg-white">
-    <hgroup class="p-4 px-6">
+  <aside class="hidden md:block fixed w-76 h-dvh overflow-auto bg-[#FAFAFA]">
+    <hgroup class="p-7">
       <h1 class="text-5xl capitalize font-light grid gap-2">
         <div>How</div>
         <div class="-ml-2">to</div>
@@ -34,20 +52,24 @@ const sections = await Promise.all(
         <div class="-ml-2">the</div>
         <div>frontier</div>
       </h1>
-      <p class="mt-6 mb-10 italic text-2xl">A Research Agenda</p>
+      <!-- <p class="mt-6 italic text-2xl">A Research Agenda</p> -->
     </hgroup>
     <nav>
       <ul class="text-3xl mb-8">
-        {sections.map(({ id, label, bgClass }) => <NavItem href={`#${id}`} bgClass={bgClass} label={label} />)}
+        {
+          sections.map(({ id, label, textClass, bgClass }) => (
+            <NavItem href={`#${id}`} bgClass={bgClass} label={label} textClass={textClass || bgClass} />
+          ))
+        }
       </ul>
     </nav>
   </aside>
 
-  <main class="w-full md:pl-76">
+  <main class="w-full md:pl-76 bg-linear-to-b from-[#30B0D6] to-white">
     <article>
       {
-        sections.map(({ id, label, bgClass, content }) => (
-          <Section id={id} title={label} bgClass={bgClass} content={content} />
+        sections.map(({ id, label, textClass, content }) => (
+          <Section id={id} title={label} textClass={textClass} content={content} />
         ))
       }
     </article>
