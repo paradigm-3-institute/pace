@@ -3,31 +3,29 @@ import { getEntry, render } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import NavItem from "../components/NavItem.astro";
 import Section from "../components/Section.astro";
+import ColorEditor from "../components/ColorEditor.astro";
 
 const sectionMeta = [
   {
     slug: "01-introduction",
     id: "introduction",
     label: "Introduction",
-    bgClass: "bg-introduction",
-    textClass: "text-conclusion",
+    textClass: "text-light",
   },
-  { slug: "02-why-pace", id: "why-pace", label: "Why Pace?", bgClass: "bg-why-pace", textClass: "text-conclusion" },
-  { slug: "03-pace-what", id: "pace-what", label: "Pace What?", bgClass: "bg-pace-what", textClass: "text-conclusion" },
-  { slug: "04-pace-how", id: "pace-how", label: "Pace How?", bgClass: "bg-pace-how", textClass: "text-introduction" },
+  { slug: "02-why-pace", id: "why-pace", label: "Why Pace?", textClass: "text-light" },
+  { slug: "03-pace-what", id: "pace-what", label: "Pace What?", textClass: "text-light" },
+  { slug: "04-pace-how", id: "pace-how", label: "Pace How?", textClass: "text-dark" },
   {
     slug: "05-then-what",
     id: "then-what",
     label: "Then What?",
-    bgClass: "bg-then-what",
-    textClass: "text-introduction",
+    textClass: "text-dark",
   },
   {
     slug: "06-conclusion",
     id: "conclusion",
     label: "Conclusion",
-    bgClass: "bg-conclusion",
-    textClass: "text-introduction",
+    textClass: "text-dark",
   },
 ] as const;
 
@@ -44,7 +42,7 @@ const sections = await Promise.all(
   description="A field guide to spending your effort budget across a long distance."
 >
   <aside class="md:fixed w-full md:w-76 md:h-dvh overflow-auto">
-    <hgroup class="p-7 pb-8 bg-white">
+    <hgroup class="p-7 pb-8 bg-background">
       <h1 class="text-5xl capitalize font-light grid gap-2">
         <div>How</div>
         <div class="-ml-2">to</div>
@@ -57,8 +55,8 @@ const sections = await Promise.all(
     <nav>
       <ul class="text-3xl">
         {
-          sections.map(({ id, label, textClass, bgClass }) => (
-            <NavItem href={`#${id}`} bgClass={bgClass} label={label} textClass={textClass || bgClass} sectionId={id} />
+          sections.map(({ id, label, textClass }) => (
+            <NavItem href={`#${id}`} label={label} textClass={textClass} sectionId={id} />
           ))
         }
       </ul>
@@ -66,7 +64,7 @@ const sections = await Promise.all(
   </aside>
 
   <main class="w-full md:pl-82 md:pr-6 px-4 py-24">
-    <article class="max-w-220 2xl:max-w-260 bg-white mx-auto rounded-3xl p-2 lg:py-16 lg:px-12">
+    <article class="max-w-220 2xl:max-w-260 bg-background mx-auto rounded-3xl p-2 lg:py-16 lg:px-12">
       {
         sections.map(({ id, label, textClass, content }) => (
           <Section id={id} title={label} textClass={textClass} content={content} />
@@ -77,7 +75,7 @@ const sections = await Promise.all(
 
   <a
     href="#"
-    class="md:hidden fixed -bottom-1 -right-1 bg-then-what p-3 pr-2.5 pb-2.5 rounded-tl-3xl border-4 border-introduction"
+    class="md:hidden fixed -bottom-1 -right-1 bg-background p-3 pr-2.5 pb-2.5 rounded-tl-3xl border-4 border-from"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -85,12 +83,14 @@ const sections = await Promise.all(
       height="24"
       viewBox="0 0 24 24"
       fill="currentColor"
-      class="text-introduction"
+      class="text-from"
       ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
         d="M10.586 3l-6.586 6.586a2 2 0 0 0 -.434 2.18l.068 .145a2 2 0 0 0 1.78 1.089h2.586v7a2 2 0 0 0 2 2h4l.15 -.005a2 2 0 0 0 1.85 -1.995l-.001 -7h2.587a2 2 0 0 0 1.414 -3.414l-6.586 -6.586a2 2 0 0 0 -2.828 0z"
       ></path></svg
     >
   </a>
+
+  <ColorEditor />
 </Layout>
 
 <script>
@@ -202,4 +202,46 @@ const sections = await Promise.all(
   });
 
   headings.forEach((heading) => observer.observe(heading));
+
+  const hexToRgb = (hex: string): { r: number; g: number; b: number } | null => {
+    const normalized = hex.trim().replace("#", "");
+    const full =
+      normalized.length === 3
+        ? normalized
+            .split("")
+            .map((c) => c + c)
+            .join("")
+        : normalized;
+    if (full.length !== 6) return null;
+    const num = Number.parseInt(full, 16);
+    if (Number.isNaN(num)) return null;
+    return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+  };
+
+  const lerpChannel = (from: number, to: number, t: number) => Math.round(from + (to - from) * t);
+
+  const updateNavColors = () => {
+    const rootStyle = getComputedStyle(document.documentElement);
+    const from = hexToRgb(rootStyle.getPropertyValue("--color-from"));
+    const to = hexToRgb(rootStyle.getPropertyValue("--color-to"));
+    if (!from || !to) return;
+
+    const totalHeight = document.documentElement.scrollHeight;
+    if (totalHeight <= 0) return;
+
+    sections.forEach((section) => {
+      const item = document.querySelector<HTMLElement>(`.nav-item[data-section-id="${section.id}"]`);
+      if (!item) return;
+
+      const progress = Math.min(Math.max(section.offsetTop / totalHeight, 0), 1);
+      const r = lerpChannel(from.r, to.r, progress);
+      const g = lerpChannel(from.g, to.g, progress);
+      const b = lerpChannel(from.b, to.b, progress);
+      item.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    });
+  };
+
+  updateNavColors();
+  window.addEventListener("resize", updateNavColors);
+  window.addEventListener("colors-updated", updateNavColors);
 </script>

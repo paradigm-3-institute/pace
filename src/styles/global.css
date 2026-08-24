@@ -4,17 +4,17 @@
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
 
-  --color-introduction: #37b1d7;
-  --color-why-pace: #4cb7db;
-  --color-pace-what: #71c4e0;
-  --color-pace-how: #a7d9ec;
-  --color-then-what: #ddf1f8;
-  --color-conclusion: #fdfefe;
+  --color-from: #37b1d7;
+  --color-to: #ffffff;
+  --color-foreground: #257d97;
+  --color-background: #ffffff;
+  --color-light: #ffffff;
+  --color-dark: #37b1d7;
 }
 
 html {
   scroll-behavior: smooth;
-  color: #257d97;
+  color: var(--color-foreground);
 }
 
 article {
