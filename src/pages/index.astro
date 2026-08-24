@@ -43,8 +43,8 @@ const sections = await Promise.all(
   title="How to Pace The Frontier"
   description="A field guide to spending your effort budget across a long distance."
 >
-  <aside class="hidden md:block fixed w-76 h-dvh overflow-auto">
-    <hgroup class="p-7 bg-[#FAFAFA]">
+  <aside class="md:fixed w-full md:w-76 md:h-dvh overflow-auto">
+    <hgroup class="p-7 pb-8 bg-white">
       <h1 class="text-5xl capitalize font-light grid gap-2">
         <div>How</div>
         <div class="-ml-2">to</div>
@@ -55,7 +55,7 @@ const sections = await Promise.all(
       <!-- <p class="mt-6 italic text-2xl">A Research Agenda</p> -->
     </hgroup>
     <nav>
-      <ul class="text-3xl mb-8">
+      <ul class="text-3xl">
         {
           sections.map(({ id, label, textClass, bgClass }) => (
             <NavItem href={`#${id}`} bgClass={bgClass} label={label} textClass={textClass || bgClass} sectionId={id} />
@@ -65,8 +65,8 @@ const sections = await Promise.all(
     </nav>
   </aside>
 
-  <main class="w-full md:pl-76 py-24">
-    <article class="bg-white mx-24 rounded-xl py-24">
+  <main class="w-full md:pl-82 md:pr-6 px-4 py-24">
+    <article class="max-w-220 2xl:max-w-260 bg-white mx-auto rounded-3xl p-2 lg:py-16 lg:px-12">
       {
         sections.map(({ id, label, textClass, content }) => (
           <Section id={id} title={label} textClass={textClass} content={content} />
@@ -148,19 +148,32 @@ const sections = await Promise.all(
     { passive: true },
   );
 
+  const sectionIds = [...sections].map((section) => section.id);
+
+  const activateSection = (id: string) => {
+    lastSeenId = id;
+    if (window.location.hash.slice(1) !== id) {
+      history.replaceState(null, "", `#${id}`);
+    }
+    setActive(id);
+  };
+
   const observer = new IntersectionObserver((entries) => {
     if (suppressObserver) return;
 
     for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
       const id = entry.target.closest("section")?.id;
       if (!id) continue;
 
-      lastSeenId = id;
-      if (window.location.hash.slice(1) !== id) {
-        history.replaceState(null, "", `#${id}`);
+      if (entry.isIntersecting) {
+        // Heading has scrolled upward into view: activate its section.
+        activateSection(id);
+      } else if (entry.boundingClientRect.top > 0) {
+        // Heading has scrolled back down out of view: we're back in the previous section.
+        const index = sectionIds.indexOf(id);
+        const previousId = sectionIds[index - 1];
+        if (previousId) activateSection(previousId);
       }
-      setActive(id);
     }
   });
 

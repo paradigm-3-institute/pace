@@ -10,7 +10,10 @@ interface Props {
 const { href, bgClass, textClass, label, sectionId } = Astro.props;
 ---
 
-<li class:list={[textClass, bgClass, "nav-item last:rounded-br-3xl"]} data-section-id={sectionId}>
+<li
+  class:list={[textClass, bgClass, "nav-item last:rounded-b-3xl md:last:rounded-bl-none"]}
+  data-section-id={sectionId}
+>
   <a class="px-7 py-5 block" href={href}>{label}</a>
 </li>
 
