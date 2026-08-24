@@ -1,0 +1,13 @@
+---
+interface Props {
+  href: string;
+  bgClass: string;
+  label: string;
+}
+
+const { href, bgClass, label } = Astro.props;
+---
+
+<li class:list={[" text-white/85", bgClass]}>
+  <a class="px-6 py-4 block" href={href}>{label}</a>
+</li>

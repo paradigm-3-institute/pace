@@ -1,9 +1,9 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @plugin '@tailwindcss/typography';
 
 @theme {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-serif: 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
 
   --color-introduction: #0ea5e9;
   --color-why-pace: #f97316;
@@ -15,4 +15,22 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+article {
+  font-size: 18px;
+}
+
+article p {
+  margin-bottom: 24px;
+}
+
+article h2 {
+  font-size: 4em;
+  margin-bottom: 24px;
+}
+
+article h3 {
+  font-size: 2em;
+  margin-bottom: 24px;
 }
