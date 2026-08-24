@@ -65,8 +65,8 @@ const sections = await Promise.all(
     </nav>
   </aside>
 
-  <main class="w-full md:pl-76 bg-linear-to-b from-[#30B0D6] to-white">
-    <article>
+  <main class="w-full md:pl-76 bg-linear-to-b from-[#30B0D6] to-white py-24">
+    <article class="bg-white mx-24 rounded-xl">
       {
         sections.map(({ id, label, textClass, content }) => (
           <Section id={id} title={label} textClass={textClass} content={content} />
