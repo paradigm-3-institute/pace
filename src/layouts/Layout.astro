@@ -20,8 +20,36 @@ const { title, description } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <div class="fixed inset-x-0 top-0 -z-10 h-[50dvh] bg-[#30B0D6] pointer-events-none" aria-hidden="true"></div>
-    <div class="fixed inset-x-0 bottom-0 -z-10 h-[50dvh] bg-white pointer-events-none" aria-hidden="true"></div>
+    <div id="bg-fade" class="fixed inset-0 -z-10 pointer-events-none" aria-hidden="true"></div>
     <slot />
   </body>
 </html>
+
+<script>
+  const bg = document.getElementById("bg-fade");
+  const from = { r: 0x30, g: 0xb0, b: 0xd6 };
+  const to = { r: 255, g: 255, b: 255 };
+
+  let ticking = false;
+
+  const update = () => {
+    ticking = false;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = max > 0 ? Math.min(Math.max(window.scrollY / max, 0), 1) : 0;
+    const r = Math.round(from.r + (to.r - from.r) * progress);
+    const g = Math.round(from.g + (to.g - from.g) * progress);
+    const b = Math.round(from.b + (to.b - from.b) * progress);
+    if (bg) bg.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+  };
+
+  const onScroll = () => {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  };
+
+  update();
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", update);
+</script>
