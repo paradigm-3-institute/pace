@@ -1,0 +1,54 @@
+.prose {
+  font-size: 20px;
+  font-family: var(--font-serif);
+}
+
+.prose p {
+  margin-bottom: 24px;
+}
+
+.prose hgroup {
+  font-size: 3em;
+  font-family: var(--font-sans);
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  line-height: 1.1em;
+}
+
+.prose h1 {
+  color: var(--color-sidebar);
+  font-weight: 700;
+}
+
+.prose hgroup p {
+  text-align: right;
+  width: 100%;
+}
+
+.prose h2 {
+  font-size: 30px;
+  margin: 80px 6px 48px 6px;
+  letter-spacing: -0.03em;
+  padding: 12px;
+  border-top: solid 2px var(--color-sidebar);
+  border-bottom: solid 2px var(--color-sidebar);
+  text-align: center;
+  position: sticky;
+  top: 0px;
+  font-weight: 600;
+}
+
+@media (width >= 64rem /* 768px */) {
+  .prose h2 {
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    border: solid 2px var(--color-sidebar);
+  }
+}
+
+.prose h3 {
+  font-size: 2em;
+  margin-bottom: 24px;
+}

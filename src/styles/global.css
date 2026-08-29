@@ -19,30 +19,3 @@ html {
   color: var(--color-foreground);
   background: var(--color-from);
 }
-
-article {
-  font-size: 20px;
-}
-
-article p {
-  margin-bottom: 24px;
-}
-
-article h2 {
-  font-size: 30px;
-  margin-top: 80px;
-  margin-bottom: 48px;
-  letter-spacing: -0.03em;
-  padding: 12px;
-  border: solid 2px var(--color-sidebar);
-  width: calc(100% + 20px);
-  margin-left: -10px;
-  text-align: center;
-  position: sticky;
-  top: 0;
-}
-
-article h3 {
-  font-size: 2em;
-  margin-bottom: 24px;
-}
