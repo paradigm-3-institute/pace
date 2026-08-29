@@ -1,5 +1,4 @@
 .prose {
-  font-size: 19px;
   font-family: var(--font-serif);
 }
 
@@ -34,6 +33,8 @@
   padding: 12px;
   border-top: solid 2px var(--color-sidebar);
   border-bottom: solid 2px var(--color-sidebar);
+  border: solid 2px var(--color-sidebar);
+
   text-align: center;
   position: sticky;
   top: 0px;

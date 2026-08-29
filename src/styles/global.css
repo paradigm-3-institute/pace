@@ -15,7 +15,7 @@
 }
 
 html {
-  scroll-behavior: auto !important;
+  scroll-behavior: smooth;
   color: var(--color-foreground);
   background: var(--color-from);
 }
