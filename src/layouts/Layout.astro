@@ -1,4 +1,5 @@
 ---
+import { Font } from "astro:assets";
 import "../styles/global.css";
 
 interface Props {
@@ -18,57 +19,9 @@ const { title, description } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     {description && <meta name="description" content={description} />}
     <title>{title}</title>
+    <Font cssVariable="--font-satoshi" preload />
   </head>
   <body>
-    <div id="bg-fade" class="fixed inset-0 -z-10 pointer-events-none" aria-hidden="true"></div>
     <slot />
   </body>
 </html>
-
-<script>
-  const bg = document.getElementById("bg-fade");
-
-  const hexToRgb = (hex: string): { r: number; g: number; b: number } | null => {
-    const normalized = hex.trim().replace("#", "");
-    const full =
-      normalized.length === 3
-        ? normalized
-            .split("")
-            .map((c) => c + c)
-            .join("")
-        : normalized;
-    if (full.length !== 6) return null;
-    const num = Number.parseInt(full, 16);
-    if (Number.isNaN(num)) return null;
-    return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
-  };
-
-  let ticking = false;
-
-  const update = () => {
-    ticking = false;
-    const rootStyle = getComputedStyle(document.documentElement);
-    const from = hexToRgb(rootStyle.getPropertyValue("--color-from"));
-    const to = hexToRgb(rootStyle.getPropertyValue("--color-to"));
-    if (!bg || !from || !to) return;
-
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = max > 0 ? Math.min(Math.max(window.scrollY / max, 0), 1) : 0;
-    const r = Math.round(from.r + (to.r - from.r) * progress);
-    const g = Math.round(from.g + (to.g - from.g) * progress);
-    const b = Math.round(from.b + (to.b - from.b) * progress);
-    bg.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-  };
-
-  const onScroll = () => {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(update);
-    }
-  };
-
-  update();
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", update);
-  window.addEventListener("colors-updated", update);
-</script>

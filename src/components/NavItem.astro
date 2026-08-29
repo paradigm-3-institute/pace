@@ -9,18 +9,19 @@ interface Props {
 const { href, textClass, label, sectionId } = Astro.props;
 ---
 
-<li class:list={[textClass, "nav-item last:rounded-b-3xl md:last:rounded-bl-none"]} data-section-id={sectionId}>
-  <a class="px-7 py-5 block" href={href}>{label}</a>
+<li class:list={[textClass, "nav-item"]} data-section-id={sectionId}>
+  <a class="px-7 py-4 block" href={href}>{label}</a>
 </li>
 
 <style>
   .nav-item {
     background-color: var(--nav-bg, transparent);
-    transition: background-color 300ms ease;
+    transition: background-color 0ms none;
+    border-top: solid 1px var(--color-sidebar);
+    border-bottom: solid 1px var(--color-sidebar);
   }
 
   .nav-item.is-active {
-    background: transparent;
     transition: background-color 300ms ease 600ms;
   }
 </style>

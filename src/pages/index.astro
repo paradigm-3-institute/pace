@@ -3,7 +3,7 @@ import { getEntry, render } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import NavItem from "../components/NavItem.astro";
 import Section from "../components/Section.astro";
-import ColorEditor from "../components/ColorEditor.astro";
+import { Content as Intro } from "../content/index.md";
 
 const sectionMeta = [
   {
@@ -14,7 +14,7 @@ const sectionMeta = [
   },
   { slug: "02-why-pace", id: "why-pace", label: "Why Pace?", textClass: "text-light" },
   { slug: "03-pace-what", id: "pace-what", label: "Pace What?", textClass: "text-light" },
-  { slug: "04-pace-how", id: "pace-how", label: "Pace How?", textClass: "text-dark" },
+  { slug: "04-pace-how", id: "pace-how", label: "Pace How?", textClass: "text-light" },
   {
     slug: "05-then-what",
     id: "then-what",
@@ -25,6 +25,12 @@ const sectionMeta = [
     slug: "06-conclusion",
     id: "conclusion",
     label: "Conclusion",
+    textClass: "text-dark",
+  },
+  {
+    slug: "07-call-to-action",
+    id: "call-to-action",
+    label: "Call To Action",
     textClass: "text-dark",
   },
 ] as const;
@@ -41,17 +47,20 @@ const sections = await Promise.all(
   title="How to Pace The Frontier"
   description="A field guide to spending your effort budget across a long distance."
 >
-  <aside class="md:fixed w-full p-4 md:p-0 md:w-60 lg:w-76 md:h-dvh overflow-auto">
-    <hgroup class="p-7 pb-8 bg-background rounded-t-3xl md:rounded-none">
-      <h1 class="text-5xl capitalize font-light grid gap-2">
-        <div>How</div>
-        <div class="-ml-2">to</div>
-        <div>pace</div>
-        <div class="-ml-2">the</div>
-        <div>frontier</div>
-      </h1>
-      <!-- <p class="mt-6 italic text-2xl">A Research Agenda</p> -->
-    </hgroup>
+  <aside
+    class="md:fixed w-full p-4 md:p-0 md:w-60 lg:w-76 md:h-dvh overflow-auto bg-sidebar text-background border-r-2 border-r-sidebar"
+  >
+    <a href="#">
+      <hgroup class="p-7 pb-8">
+        <h1 class="text-5xl capitalize font-light grid gap-2">
+          <div>How</div>
+          <div class="-ml-2">to</div>
+          <div>pace</div>
+          <div class="-ml-2">the</div>
+          <div>frontier</div>
+        </h1>
+      </hgroup>
+    </a>
     <nav>
       <ul class="text-3xl">
         {
@@ -63,8 +72,12 @@ const sections = await Promise.all(
     </nav>
   </aside>
 
-  <main class="w-full md:pl-67 lg:pl-83 md:pr-6 px-4 py-8 lg:py-24">
-    <article class="max-w-220 2xl:max-w-260 bg-background mx-auto rounded-3xl p-2 lg:py-16 lg:px-12">
+  <main class="w-full md:pl-67 lg:pl-83 md:pr-6 py-8 lg:py-24">
+    <article
+      class="max-w-220 2xl:max-w-260 bg-background mx-auto lg:py-16 border-2 border-sidebar -outline-offset-8 outline-2 outline-sidebar"
+    >
+      <h1>How to Pace the Frontier <br /> A Research Agenda</h1>
+      <Intro />
       {
         sections.map(({ id, label, textClass, content }) => (
           <Section id={id} title={label} textClass={textClass} content={content} />
@@ -75,22 +88,14 @@ const sections = await Promise.all(
 
   <a
     href="#"
-    class="md:hidden fixed -bottom-1 -right-1 bg-background p-3 pr-2.5 pb-2.5 rounded-tl-3xl border-4 border-from"
+    class="md:hidden fixed -bottom-2 -right-2 bg-background p-4 border-2 border-sidebar text-sidebar outline-2 outline-sidebar -outline-offset-8"
   >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      class="text-from"
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
       ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
         d="M10.586 3l-6.586 6.586a2 2 0 0 0 -.434 2.18l.068 .145a2 2 0 0 0 1.78 1.089h2.586v7a2 2 0 0 0 2 2h4l.15 -.005a2 2 0 0 0 1.85 -1.995l-.001 -7h2.587a2 2 0 0 0 1.414 -3.414l-6.586 -6.586a2 2 0 0 0 -2.828 0z"
       ></path></svg
     >
   </a>
-
-  <ColorEditor />
 </Layout>
 
 <script>
@@ -164,14 +169,16 @@ const sections = await Promise.all(
     if (totalHeight <= 0) return;
 
     sections.forEach((section, rank) => {
-      const item = document.querySelector<HTMLElement>(`.nav-item[data-section-id="${section.id}"]`);
-      if (!item) return;
-
       const progress = Math.min(Math.max((section.offsetTop + (rank - 1) * 60) / totalHeight, 0), 1);
       const r = lerpChannel(from.r, to.r, progress);
       const g = lerpChannel(from.g, to.g, progress);
       const b = lerpChannel(from.b, to.b, progress);
-      item.style.setProperty("--nav-bg", `rgb(${r}, ${g}, ${b})`);
+      const color = `rgb(${r}, ${g}, ${b})`;
+
+      section.style.setProperty("--nav-bg", color);
+
+      const item = document.querySelector<HTMLElement>(`.nav-item[data-section-id="${section.id}"]`);
+      if (item) item.style.setProperty("--nav-bg", color);
     });
   };
 
