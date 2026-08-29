@@ -104,48 +104,7 @@ const sections = await Promise.all(
 </Layout>
 
 <script>
-  const navItems = document.querySelectorAll<HTMLLIElement>(".nav-item");
   const sections = document.querySelectorAll<HTMLElement>("main section[id]");
-  const headings = document.querySelectorAll<HTMLElement>("main section[id] h2");
-  const sectionIds = [...sections].map((section) => section.id);
-
-  let activeId: string | null = null;
-
-  const setActive = (id: string) => {
-    if (id === activeId) return;
-    activeId = id;
-    navItems.forEach((item) => {
-      item.classList.toggle("is-active", item.dataset.sectionId === id);
-    });
-  };
-
-  if (sectionIds[0]) setActive(sectionIds[0]);
-
-  let isFirstObserverCallback = true;
-
-  const observer = new IntersectionObserver((entries) => {
-    if (isFirstObserverCallback) {
-      isFirstObserverCallback = false;
-      return;
-    }
-
-    for (const entry of entries) {
-      const id = entry.target.closest("section")?.id;
-      if (!id) continue;
-
-      if (entry.isIntersecting) {
-        // Heading has scrolled upward into view: activate its section.
-        setActive(id);
-      } else if (entry.boundingClientRect.top > 0) {
-        // Heading has scrolled back down out of view: we're back in the previous section.
-        const index = sectionIds.indexOf(id);
-        const previousId = sectionIds[index - 1];
-        if (previousId) setActive(previousId);
-      }
-    }
-  });
-
-  headings.forEach((heading) => observer.observe(heading));
 
   const hexToRgb = (hex: string): { r: number; g: number; b: number } | null => {
     const normalized = hex.trim().replace("#", "");
@@ -170,11 +129,10 @@ const sections = await Promise.all(
     const to = hexToRgb(rootStyle.getPropertyValue("--color-to"));
     if (!from || !to) return;
 
-    const totalHeight = document.documentElement.scrollHeight;
-    if (totalHeight <= 0) return;
+    const lastIndex = sections.length - 1;
 
     sections.forEach((section, rank) => {
-      const progress = Math.min(Math.max((section.offsetTop + (rank - 1) * 60) / totalHeight, 0), 1);
+      const progress = lastIndex > 0 ? rank / lastIndex : 0;
       const r = lerpChannel(from.r, to.r, progress);
       const g = lerpChannel(from.g, to.g, progress);
       const b = lerpChannel(from.b, to.b, progress);
@@ -188,6 +146,5 @@ const sections = await Promise.all(
   };
 
   updateNavColors();
-  window.addEventListener("resize", updateNavColors);
   window.addEventListener("colors-updated", updateNavColors);
 </script>
