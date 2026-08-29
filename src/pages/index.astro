@@ -81,6 +81,17 @@ const sections = await Promise.all(
           <h1>How to Pace the Frontier</h1>
           <p>A Research Agenda</p>
         </hgroup>
+        <div class="text-center max-w-120 mx-auto mb-16">
+          Raymond Douglas, Charles Dillon, Nikola Datkova, Gavin Leech, Mathias Kirk Bonde & Shahar Avin
+        </div>
+        <blockquote class="mb-16!">
+          <p>
+            “Society at large may need the option to buy time to address emerging risks, develop security measures, and
+            strengthen oversight. But each company—and country—is under intense competitive pressure not to unilaterally
+            slow that acceleration. And today, the world lacks the technical and governance tools to deliberately pace
+            frontier-wide progress.”
+          </p>
+        </blockquote>
         <Intro />
       </div>
       {
@@ -102,49 +113,3 @@ const sections = await Promise.all(
     >
   </a>
 </Layout>
-
-<script>
-  const sections = document.querySelectorAll<HTMLElement>("main section[id]");
-
-  const hexToRgb = (hex: string): { r: number; g: number; b: number } | null => {
-    const normalized = hex.trim().replace("#", "");
-    const full =
-      normalized.length === 3
-        ? normalized
-            .split("")
-            .map((c) => c + c)
-            .join("")
-        : normalized;
-    if (full.length !== 6) return null;
-    const num = Number.parseInt(full, 16);
-    if (Number.isNaN(num)) return null;
-    return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
-  };
-
-  const lerpChannel = (from: number, to: number, t: number) => Math.round(from + (to - from) * t);
-
-  const updateNavColors = () => {
-    const rootStyle = getComputedStyle(document.documentElement);
-    const from = hexToRgb(rootStyle.getPropertyValue("--color-from"));
-    const to = hexToRgb(rootStyle.getPropertyValue("--color-to"));
-    if (!from || !to) return;
-
-    const lastIndex = sections.length - 1;
-
-    sections.forEach((section, rank) => {
-      const progress = lastIndex > 0 ? rank / lastIndex : 0;
-      const r = lerpChannel(from.r, to.r, progress);
-      const g = lerpChannel(from.g, to.g, progress);
-      const b = lerpChannel(from.b, to.b, progress);
-      const color = `rgb(${r}, ${g}, ${b})`;
-
-      section.style.setProperty("--nav-bg", color);
-
-      const item = document.querySelector<HTMLElement>(`.nav-item[data-section-id="${section.id}"]`);
-      if (item) item.style.setProperty("--nav-bg", color);
-    });
-  };
-
-  updateNavColors();
-  window.addEventListener("colors-updated", updateNavColors);
-</script>

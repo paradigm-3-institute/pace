@@ -1,10 +1,10 @@
 .prose {
   font-family: var(--font-serif);
+  line-height: 1.6;
+  overflow-wrap: break-word;
 }
 
-.prose p {
-  margin-bottom: 24px;
-}
+/* ---------- Headings ---------- */
 
 .prose hgroup {
   font-size: 3em;
@@ -16,14 +16,15 @@
   line-height: 1.1em;
 }
 
-.prose h1 {
-  color: var(--color-sidebar);
-  font-weight: 700;
-}
-
 .prose hgroup p {
   text-align: right;
   width: 100%;
+  margin: 0;
+}
+
+.prose h1 {
+  color: var(--color-sidebar);
+  font-weight: 700;
 }
 
 .prose h2 {
@@ -31,10 +32,7 @@
   margin: 80px 6px 48px 6px;
   letter-spacing: -0.03em;
   padding: 12px;
-  border-top: solid 2px var(--color-sidebar);
-  border-bottom: solid 2px var(--color-sidebar);
   border: solid 2px var(--color-sidebar);
-
   text-align: center;
   position: sticky;
   top: 0px;
@@ -55,4 +53,272 @@
   margin-top: 36px;
   margin-bottom: 20px;
   font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  text-wrap: pretty;
+}
+
+.prose h4 {
+  font-size: 24px;
+  font-family: var(--font-sans);
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.prose h5,
+.prose h6 {
+  font-size: 18px;
+  font-family: var(--font-sans);
+  margin-top: 28px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* First child of a content block shouldn't push down */
+.prose > *:first-child,
+.prose h2 + *,
+.prose h3 + *,
+.prose h4 + * {
+  margin-top: 0;
+}
+
+/* ---------- Text ---------- */
+
+.prose p {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.prose strong {
+  font-weight: 700;
+  color: var(--color-sidebar);
+}
+
+.prose em {
+  font-style: italic;
+}
+
+.prose a {
+  color: var(--color-sidebar);
+  text-decoration: underline;
+  text-decoration-thickness: 5px;
+  text-decoration-color: rgba(86, 106, 81, 0.4);
+  text-underline-offset: 1px;
+  text-decoration-skip-ink: none;
+  transition: text-decoration-offset 0.3s ease;
+  /*font-weight: 600;*/
+}
+
+.prose a:hover {
+  background-color: rgba(86, 106, 81, 0.2);
+  text-decoration-color: rgba(86, 106, 81, 0.6);
+
+  /*text-decoration-thickness: 28px;
+  text-underline-offset: -20px;*/
+}
+
+.prose del,
+.prose s {
+  text-decoration-line: line-through;
+}
+
+.prose sup,
+.prose sub {
+  font-size: 0.75em;
+  line-height: 0;
+}
+
+.prose abbr {
+  cursor: help;
+}
+
+/* ---------- Lists ---------- */
+
+.prose ul,
+.prose ol {
+  margin-top: 0;
+  margin-bottom: 24px;
+  padding-left: 1.6em;
+}
+
+.prose ul {
+  list-style: disc;
+}
+
+.prose ol {
+  list-style: decimal;
+}
+
+.prose li {
+  margin-bottom: 8px;
+  padding-left: 0.25em;
+}
+
+.prose li::marker {
+  color: var(--color-sidebar);
+}
+
+.prose li > ul,
+.prose li > ol {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.prose ul ul {
+  list-style: circle;
+}
+
+.prose ul ul ul {
+  list-style: square;
+}
+
+.prose li > p {
+  margin-bottom: 8px;
+}
+
+/* ---------- Quotes ---------- */
+
+.prose blockquote {
+  margin: 24px 0;
+  padding: 4px 0 4px 20px;
+  border-left: 3px solid var(--color-sidebar);
+  font-style: italic;
+  font-size: 1.1em;
+  color: color-mix(in srgb, var(--color-foreground) 85%, transparent);
+}
+
+.prose blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.prose blockquote cite {
+  display: block;
+  margin-top: 8px;
+  font-style: normal;
+  font-size: 0.875em;
+}
+
+/* ---------- Rules ---------- */
+
+.prose hr {
+  margin: 48px 0;
+  border: 0;
+  border-top: 2px solid var(--color-sidebar);
+}
+
+/* ---------- Code ---------- */
+
+.prose code {
+  font-family: ui-monospace, "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 0.875em;
+  background: color-mix(in srgb, var(--color-sidebar) 8%, transparent);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+
+.prose pre {
+  margin: 24px 0;
+  padding: 16px 20px;
+  background: var(--color-sidebar);
+  color: var(--color-dark);
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 0.875em;
+  line-height: 1.5;
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ---------- Media ---------- */
+
+.prose img,
+.prose video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 32px 0;
+}
+
+.prose figure {
+  margin: 32px 0;
+}
+
+.prose figure img,
+.prose figure video {
+  margin: 0;
+}
+
+.prose figcaption {
+  margin-top: 8px;
+  font-size: 0.875em;
+  font-family: var(--font-sans);
+  text-align: center;
+  color: color-mix(in srgb, var(--color-foreground) 75%, transparent);
+}
+
+/* ---------- Tables ---------- */
+
+.prose .table-wrapper,
+.prose table {
+  margin: 24px 0;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375em;
+  display: block;
+  overflow-x: auto;
+}
+
+.prose th,
+.prose td {
+  padding: 8px 12px;
+  border: 1px solid var(--color-sidebar);
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose th {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  background: color-mix(in srgb, var(--color-sidebar) 8%, transparent);
+}
+
+/* ---------- Misc ---------- */
+
+.prose kbd {
+  font-family: ui-monospace, "SF Mono", "Menlo", monospace;
+  font-size: 0.8125em;
+  padding: 0.1em 0.4em;
+  border: 1px solid var(--color-sidebar);
+  border-radius: 3px;
+  box-shadow: 0 1px 0 var(--color-sidebar);
+}
+
+.prose mark {
+  background: color-mix(in srgb, var(--color-from) 60%, yellow);
+  padding: 0 0.15em;
+}
+
+.prose dl {
+  margin: 24px 0;
+}
+
+.prose dt {
+  font-weight: 700;
+  color: var(--color-sidebar);
+}
+
+.prose dd {
+  margin: 0 0 12px 0;
+  padding-left: 1.5em;
 }

@@ -10,21 +10,17 @@ A pacing intervention is ultimately a sequence of steps; we reason about an inte
 
 Before we pace, the main challenge is recognising where there’s a need for it and its proper timing. Intervening too late means letting the threat play out; intervening too early means sacrificing potential benefits and political capital, and in some cases being less able to carry out complementary activities that depend on advanced AI.
 
-There are a few different sources of information to draw on. 
+There are a few different sources of information to draw on.
 
-1 Forecasting: effective predictions provide us warning signs of when dangerous capabilities are likely to emerge. Different forecasts shed light on different parts of potential dangers: for example, trends in training resources can be used to forecast the size and nature of the resulting required physical build-outs, while capability forecasts can predict models’ future behaviour, but neither one can replace the other. 
+1. Forecasting: effective predictions provide us warning signs of when dangerous capabilities are likely to emerge. Different forecasts shed light on different parts of potential dangers: for example, trends in training resources can be used to forecast the size and nature of the resulting required physical build-outs, while capability forecasts can predict models’ future behaviour, but neither one can replace the other. 
 
-⠀
-2 Model evaluations provide more direct information about the capabilities and propensities of specific models in specific circumstances, and can form the basis for extrapolation. That said, the correspondence between evaluations and real-world risks can be quite fraught and hard to predict: the jaggedness of AI capabilities means that individual evaluation performance often corresponds poorly to behaviour on organic tasks. Furthermore, evaluations can generally only set a lower bound on capability, because of the challenges of elicitation and the risk that models alter their behaviour in response to recognising they are being evaluated. 
+2. Model evaluations provide more direct information about the capabilities and propensities of specific models in specific circumstances, and can form the basis for extrapolation. That said, the correspondence between evaluations and real-world risks can be quite fraught and hard to predict: the jaggedness of AI capabilities means that individual evaluation performance often corresponds poorly to behaviour on organic tasks. Furthermore, evaluations can generally only set a lower bound on capability, because of the challenges of elicitation and the risk that models alter their behaviour in response to recognising they are being evaluated.
 
-⠀
-3 Incident reports provide us concrete evidence with ecological validity and lots of useful surprising detail, properties which both forecasting and evaluation often miss or fail to attempt. This is the best indicator that there is an immediate AI-induced problem, but of course by the time an incident has occurred, the space of possible pacing interventions has already drastically shrunk. But even relatively harmless incidents can expose unknown unknowns and more granular details, which can in turn reveal underexplored threats. Also, compared to evaluations and forecasting, real-world incidents can be more credible and legible to a broad range of actors.
+3. Incident reports provide us concrete evidence with ecological validity and lots of useful surprising detail, properties which both forecasting and evaluation often miss or fail to attempt. This is the best indicator that there is an immediate AI-induced problem, but of course by the time an incident has occurred, the space of possible pacing interventions has already drastically shrunk. But even relatively harmless incidents can expose unknown unknowns and more granular details, which can in turn reveal underexplored threats. Also, compared to evaluations and forecasting, real-world incidents can be more credible and legible to a broad range of actors.
 
-⠀
-4 Safety cases provide structured arguments that a system will remain within some acceptable risk parameters as long as certain prior conditions are met — for example, that certain features of a deployment context guarantee that a given harmful model capability cannot be accessed. This structure therefore makes it possible to turn a discussion of potential risk into a discussion of concrete underlying properties which can be directly scrutinised.
+4. Safety cases provide structured arguments that a system will remain within some acceptable risk parameters as long as certain prior conditions are met — for example, that certain features of a deployment context guarantee that a given harmful model capability cannot be accessed. This structure therefore makes it possible to turn a discussion of potential risk into a discussion of concrete underlying properties which can be directly scrutinised.
 
-⠀
-Forecasting, evaluations, incident reports, and safety cases perform different functions: respectively, to supply warning signs, to test certain bounded claims, to reveal models’ emerging behaviour, and to decompose threats into specific precursors. Alongside feeding into the question of whether to directly intervene, they can also feed into each other — incident reports can shape what gets evaluated, evaluations can form the basis for forecasts, and so on. Collectively they can provide a sense of how far away any given risk is, and this in turn can help actors to determine how urgently they need to prepare for costly measures.
+5. Forecasting, evaluations, incident reports, and safety cases perform different functions: respectively, to supply warning signs, to test certain bounded claims, to reveal models’ emerging behaviour, and to decompose threats into specific precursors. Alongside feeding into the question of whether to directly intervene, they can also feed into each other — incident reports can shape what gets evaluated, evaluations can form the basis for forecasts, and so on. Collectively they can provide a sense of how far away any given risk is, and this in turn can help actors to determine how urgently they need to prepare for costly measures.
 
 The extent of meaningful and effective communication between actors at different stages of development suggests what kind of preparations are needed. For example, if evaluative capacity is limited, then an actor would know that advance investment may be necessary. When communication breaks down, delays occur and the landscape evolves; the alternative to preparing now is not necessarily the same decision made later under the same conditions.
 
@@ -33,7 +29,7 @@ The challenge in deciding to trigger a pacing intervention is negotiating the te
 
 * **Speed + Legitimacy**: Pre-registered rules that automatically trigger. Unfortunately it is hard to know what exactly the rules should be, and such commitments can misfire.
 * **Legitimacy + Accuracy**: Careful deliberation between experts to form a considered judgment. Unfortunately this degree of care can take a lot of time.
-* 
+
 * **Accuracy + Speed**: The actors with the most information and expertise choose by fiat. Unfortunately these actors will often face incentives around the pace of progress that diverge from the broader public — it would be naive to expect them to simply regulate themselves.
 
 ⠀We can see this trilemma play out across the whole ecosystem of AI progress: governments have the coercive power to impose strong regulations but not necessarily the raw information needed to guide decisions, or the expertise to interpret such information; external evaluators can have the expertise but not the mandate; AI developers have the most information about their own progress but little reason to proactively internalise any negative externalities they produce, and a lot of other interests in how their competitors are regulated.
@@ -89,19 +85,14 @@ Suppose the goal is instead a pacing intervention that prevents models from supp
 
 **The exit scenario** may not involve any form of  public release. As a condition of restricted release, labs may need to prove that even where a model retains a dangerous capability, there is the capacity and will to reliably  vet their users and flag suspicious activity to the authorities. 
 ### 4.7 Open Research Questions
-**1** **What does the possibility space of exit scenarios look like?** Small-scale interventions may allow for immediate release, whereas exiting interventions impacting multiple sides of the economy and society may need to be staged. Some exits may require advanced prep. We need to understand our options to pick the best one per case. 
+1. **What does the possibility space of exit scenarios look like?** Small-scale interventions may allow for immediate release, whereas exiting interventions impacting multiple sides of the economy and society may need to be staged. Some exits may require advanced prep. We need to understand our options to pick the best one per case. 
 
-⠀
-**2** **What is the relationship between initiation and exit triggers?** Intuitively, the exit trigger should track whatever justified the intervention in the first place. But can that link break as conditions change? 
+2. **What is the relationship between initiation and exit triggers?** Intuitively, the exit trigger should track whatever justified the intervention in the first place. But can that link break as conditions change? 
 
-⠀
-**3** **How do the incentives of bound parties change across the lifecycle?** Pacing is first and foremost a coordination problem. The efficacy of any intervention will depend, amongst other things, on the predictability of actors (e.g. how well they can stick to the rule). Foreseeing possible disruptions to everyone’s motivations to cooperate strengthens control over and stability of pacing.
+3. **How do the incentives of bound parties change across the lifecycle?** Pacing is first and foremost a coordination problem. The efficacy of any intervention will depend, amongst other things, on the predictability of actors (e.g. how well they can stick to the rule). Foreseeing possible disruptions to everyone’s motivations to cooperate strengthens control over and stability of pacing.
 
-⠀
-**4** **Does a developer have the responsibility to follow up on the evidence if an intervention is triggered?** If an intervention conditionally prevents a developer from pursuing an R&D interest, and the developer decides against addressing the condition, abandons this interest, and chooses to invest the resources into a different R&D direction instead, was the intervention *successful*?
+4. **Does a developer have the responsibility to follow up on the evidence if an intervention is triggered?** If an intervention conditionally prevents a developer from pursuing an R&D interest, and the developer decides against addressing the condition, abandons this interest, and chooses to invest the resources into a different R&D direction instead, was the intervention *successful*?
 
-⠀
-**5** **What evidence could legitimise a speedy initiation (even at the cost of this evidence being disconfirmed later on)?** As always, we expect people to agree on high-level claims (“human-hunting motivations is threat enough to intervene”) and disagree on operationalisations (“what qualifies as human-hunting motivations?”).
+5. **What evidence could legitimise a speedy initiation (even at the cost of this evidence being disconfirmed later on)?** As always, we expect people to agree on high-level claims (“human-hunting motivations is threat enough to intervene”) and disagree on operationalisations (“what qualifies as human-hunting motivations?”).
 
-⠀
-**1** **How could we design simulations (dry runs) of an intervention (and how does this help us learn about failure modes)?**
+6. **How could we design simulations (dry runs) of an intervention (and how does this help us learn about failure modes)?**
