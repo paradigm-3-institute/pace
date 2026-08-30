@@ -17,7 +17,7 @@ All of these are plausible control surfaces to directly intervene on. Furthermor
 
 Different actors vary in their leverage over these control surfaces. Abstractly, states have the ability to enforce domestic laws, while developers have a richer understanding of many parts of the design process. More concretely, specific states and developers vary in which of these they have leverage over — there are some remarkably narrow bottlenecks in the AI ecosystem, like the reliance on a single Dutch multinational corporation for a critical part of the AI hardware manufacturing process.
 
-![A three-part AI R\&D production lifecycle from inputs and infrastructure, through capability development, to use and distribution, with an AI-assisted R\&D feedback loop.][image1]
+![A three-part AI R\&D production lifecycle from inputs and infrastructure, through capability development, to use and distribution, with an AI-assisted R\&D feedback loop.](/media/rd-feedback.png)
 
 One crucial distinction in the process of AI development is that part way through the resources shift in nature. Many of the early inputs are *rival* goods: resources which can only be used by one actor at a time. Compute, capital, and researcher time are scarce, are concentrated within a small number of identifiable organisations, and can be redirected. There are also non-rival goods which can be replicated at almost no cost, like training data, but they are not sufficient to make progress. Downstream, however, it is mostly non-rival goods, like weights, elicitation methods, and training algorithms (the notable downstream exception to this is inference compute, which is a rival good). These can all be easily copied, so the set of holders only grows.
 
@@ -33,7 +33,7 @@ Part of why this matters is that many interventions will be imperfect and leaky.
 
 The central issue in choosing a control surface is that a lot of the most useful information comes too late in the process of model creation. As development progresses — from training to evaluation to deployment — a greater quantity of useful information about the capabilities and risks becomes available. The problem is that the ability to respond effectively diminishes as the model progresses along the development chain, as many of the control surfaces cease to be available. Once a model has been trained, there is little to gain from restricting the algorithms used to train it. In particular, most of the rival components appear fairly early in the development process, so beyond a certain point there stop being rival places to intervene other than inference compute, which is unfortunately already very widely distributed.
 
-![][image2]
+![](/media/control-surfaces.png)
 
 ### 3.2 Targeting and trade-offs
 
@@ -41,13 +41,13 @@ Every pacing intervention divides activity in two. Some of it stops, slows or pr
 
 The selection can fail in two directions. A *false negative* is activity which contributes to the threat, but which is not caught by the intervention. A *false positive* is an activity caught by the intervention, but which does not contribute to the threat . Both errors can occur simultaneously: A classifier that aims to flag nefarious research related to manufacturing biological weapons, for example, may be triggered by the innocent questions of a biology student. At the same time, the classifier may fail to catch carefully designed questions that split up a dangerous avenue of inquiry into unassuming parts. 
 
-![][image3]
+![](/media/classifier.png)
 
 Interventions earlier in the development process will have wider-reaching effects, which generally means more false positives and fewer false negatives — in the limit, halting all AI development forever would indeed prevent all harms, but it would also prevent all benefits.
 
 For most threats, there are multiple distinct pathways to their realisation. A capability advance can come from more training compute, better algorithms, [more elaborate post-training](https://arxiv.org/abs/2310.06452), or better elicitation of a model’s existing latent capabilities. An intervention which targets one route but leaves the others open still allows some threat-relevant activity to continue even if the intervention is perfectly enforced.
 
-![][image4]
+![](/media/intervention.png)
 
 The quality of selection also changes over time. This is partly because actors adapt in response to interventions, as we discuss in (5). But even beyond that, the effectiveness of an intervention depends on empirical assumptions about the relationship between the control surface and the functional target. These assumptions may be changed by later progress. 
 
@@ -57,8 +57,9 @@ More generally, AI progress has complex feedback loops. At a very basic level, f
 
 For a given control surface, there will often be a three-way tradeoff between false positives, false negatives, and intrusiveness or oversight. Simply put, one can make an imperfect rule more or less broad, or one can invest in making the rule more accurate, by some mix of investing more energy in scrutinising individual cases and requiring more access to information about those cases, some of which might otherwise be private.  
  
+![](/media/draw-the-line.png)
 
-![][image5]Broader rules, which capture a higher fraction of threat relevant activity, carry with them greater economic costs, while narrower rules may be easier to circumvent and thus have fewer safety benefits.
+Broader rules, which capture a higher fraction of threat relevant activity, carry with them greater economic costs, while narrower rules may be easier to circumvent and thus have fewer safety benefits.
 
 Alongside interventions which directly cap or limit some resources, it is possible to intervene [indirectly](https://arxiv.org/abs/2501.17755)—to change an incentive and let the selection be performed by the actors themselves. This includes buying out or taxing specific resources like compute, or applying stricter liability for outcomes to model providers or other actors with control over capability access, such as cloud hosting services. These approaches can effectively draw on private information no regulator could extract: private plans, valuations, and alternatives. Ultimately this means indirect selection needs no surveillance to operate and thus is less intrusive. However, these interventions will still generally lead to false positives and negatives.
 

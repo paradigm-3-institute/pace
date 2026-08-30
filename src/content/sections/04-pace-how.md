@@ -6,7 +6,7 @@ order: 4
 
 A pacing intervention is ultimately a sequence of steps; we reason about an intervention from start to end and consider its many decision points and failure points. This lets us spot the supporting work required for an actual, sustained period of restraint.
 
-![][image6]
+![](/media/evidence-to-action.png)
 
 ### 4.1 Before pacing
 
