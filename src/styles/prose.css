@@ -9,7 +9,7 @@
 .prose hgroup {
   font-size: 3em;
   font-family: var(--font-sans);
-  margin-bottom: 40px;
+  margin-bottom: 80px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -313,32 +313,36 @@
   font-weight: 600;
   background: color-mix(in srgb, var(--color-sidebar) 8%, transparent);
 }
+
 /* ---------- Misc ---------- */
 
-.prose kbd {
-  font-family: ui-monospace, "SF Mono", "Menlo", monospace;
-  font-size: 0.8125em;
-  padding: 0.1em 0.4em;
-  border: 1px solid var(--color-sidebar);
-  border-radius: 3px;
-  box-shadow: 0 1px 0 var(--color-sidebar);
+.prose details {
+  margin: 36px 0;
+  width: calc(100% + calc(2 * var(--x-padding)) - 12px);
+  margin-left: calc(-1 * var(--x-padding) + 6px);
+  background-color: var(--color-why-pace-bg);
 }
 
-.prose mark {
-  background: color-mix(in srgb, var(--color-from) 60%, yellow);
-  padding: 0 0.15em;
+.prose details div {
+  padding: calc(var(--x-padding) - 6px);
+  padding-top: 24px;
+  padding-bottom: 4px;
+  border-bottom: solid 2px var(--color-conclusion-bg);
 }
 
-.prose dl {
-  margin: 24px 0;
+/*.prose details + details {
+  margin-top: 16px;
 }
 
-.prose dt {
-  font-weight: 700;
-  color: var(--color-sidebar);
-}
+.prose details:has(+ details) {
+  margin-bottom: 16px;
+}*/
 
-.prose dd {
-  margin: 0 0 12px 0;
-  padding-left: 1.5em;
+.prose summary {
+  padding: 12px 0px;
+  padding-left: calc(var(--x-padding) - 20px);
+  font-family: var(--font-sans);
+  background-color: var(--color-then-what-bg);
+  color: var(--color-from);
+  font-size: 1.2em;
 }

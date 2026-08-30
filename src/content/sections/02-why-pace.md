@@ -127,17 +127,32 @@ Rather than rely on voluntary, unilateral interventions, some contexts will requ
 
 While domestic coordination alone may not overcome international race dynamics, it may help create the trust and infrastructure—such as verification processes—necessary to make coordination work on an international scale.
 
-### 2.4 Applying “why pace?” Case A \- frontier training cap
+### 2.4 Applying “why pace?” 
 
-Frontier model progress has increasingly made AI systems capable of automating [their own](https://www.anthropic.com/institute/recursive-self-improvement) further improvement. Anthropic, for example, claimed that it was producing 8x as much code per researcher since the release of Mythos 5, when compared to the pre-2025 baseline, and that its own researchers estimated they were sped up by a factor of 4x, though Anthropic thinks that this was likely an overestimate. If this AI contribution to AI became sufficiently large, capability development could accelerate while also becoming less dependent on human researchers. The time available to evaluate successive systems might shrink, even as previously functional oversight measures break down and unexpected new risks emerge.
+<details>
+<summary> Case A – Frontier training cap
+</summary>
 
-One direct intervention aimed at slowing down this trajectory could be a cap on the compute budgets for training frontier models. This would impede one major source of capabilities progress, and could therefore help to extend the window of controllability before existing methods and systems are no longer capable of adequately supervising AI progress, and buy time to push on oversight measures: evaluation, security, and governance systems may be inadequate for development substantially accelerated by AI.
+<div>
 
-### 2.5 Applying “why pace?” Case B \- uplift to biological weapons
+  Frontier model progress has increasingly made AI systems capable of automating [their own](https://www.anthropic.com/institute/recursive-self-improvement) further improvement. Anthropic, for example, claimed that it was producing 8x as much code per researcher since the release of Mythos 5, when compared to the pre-2025 baseline, and that its own researchers estimated they were sped up by a factor of 4x, though Anthropic thinks that this was likely an overestimate. If this AI contribution to AI became sufficiently large, capability development could accelerate while also becoming less dependent on human researchers. The time available to evaluate successive systems might shrink, even as previously functional oversight measures break down and unexpected new risks emerge.
+  
+  One direct intervention aimed at slowing down this trajectory could be a cap on the compute budgets for training frontier models. This would impede one major source of capabilities progress, and could therefore help to extend the window of controllability before existing methods and systems are no longer capable of adequately supervising AI progress, and buy time to push on oversight measures: evaluation, security, and governance systems may be inadequate for development substantially accelerated by AI.
+  
+</div>
+</details>
+
+<details>
+<summary> Case B – Uplift to biological weapons
+</summary>
+<div>
 
 AI systems are increasingly able to aid some users in [developing biological weapons](https://arxiv.org/pdf/2506.13798). Governments and developers may face some lag in their ability to assess uplift, to restrict it in specific models, and to deploy model capabilities to develop countermeasures. Furthermore, releasing the weights of individual models removes any ability to regulate them if they turn out to provide an unacceptable degree of uplift.
 
 Complementary activities include better uplift evaluations, safeguards and unlearning, secure hosting, user authentication, controls on model weights, public-health preparedness, and international procedures for handling dangerous models and evidence.
+
+</div>
+</details>
 
 ### 2.6 Open research questions
 

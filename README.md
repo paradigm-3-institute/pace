@@ -4,8 +4,7 @@
 - ::selection color
 - Different colors for h2 backgrounds to adjust for size-color perception
 - Different colors for prose elements
-- Blockquote background
+  - Blockquote background
   - Link underline
   - Headings
 - Make all headings sticky (?)
-- Academic layout for author list
