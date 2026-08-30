@@ -50,3 +50,8 @@ html {
   padding-left: var(--x-padding);
   padding-right: var(--x-padding);
 }
+
+::selection {
+  background-color: var(--color-conclusion-bg);
+  color: var(--color-background);
+}

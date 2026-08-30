@@ -1,9 +1,7 @@
 ## todo
 - Pick a serif font
-- ::selection color
 - Different colors for prose elements
   - h2 backgrounds
-  - Blockquote background
   - Link background
   - h3 and h4 headings
   - Collapsibles
