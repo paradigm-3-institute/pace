@@ -1,11 +1,10 @@
 ## todo
 - Pick a serif font
-- Better link styling
 - ::selection color
 - Different colors for prose elements
   - h2 backgrounds
   - Blockquote background
-  - Link underline
+  - Link background
   - h3 and h4 headings
   - Collapsibles
 - Optimize images
