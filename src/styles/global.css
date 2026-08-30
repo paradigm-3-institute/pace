@@ -25,6 +25,7 @@
   --color-call-to-action-bg: rgb(4, 35, 1);
 
   --x-padding: 32px;
+  --x-padding-inside: calc(var(--x-padding) - 6px);
 }
 
 @media (width >= 48rem) {

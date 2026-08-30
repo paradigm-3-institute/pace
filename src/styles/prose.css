@@ -40,19 +40,35 @@
   text-align: center;
   position: sticky;
   top: 0px;
+  z-index: 2;
   font-weight: 600;
+}
+
+/* Each h3 + its content is wrapped in section.h3-section (rehype-sectionize-h3)
+   so the sticky heading below is bound to its own section and scrolls out of
+   view instead of stacking on the next one. */
+.prose .h3-section {
+  display: flow-root;
 }
 
 .prose h3 {
   font-size: 24px;
   font-family: var(--font-sans);
-  margin-top: 36px;
-  margin-bottom: 20px;
+  margin-top: 48px;
+  margin-bottom: 24px;
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.2;
   text-wrap: pretty;
   color: var(--color-conclusion-bg);
+  width: calc(100% + 2 * var(--x-padding-inside));
+  margin-left: calc(-1 * var(--x-padding-inside));
+  padding: 10px var(--x-padding-inside) 14px;
+  position: sticky;
+  top: 76px;
+  z-index: 1;
+  background-color: var(--color-background);
+  border-bottom: 2px solid var(--color-sidebar);
 }
 
 .prose h4 {
@@ -203,7 +219,7 @@
   font-style: italic;
   font-size: 1.1em;
   color: color-mix(in srgb, var(--color-foreground) 85%, transparent);
-  width: calc(100% + calc(2 * var(--x-padding)));
+  width: calc(100% + 2 * var(--x-padding));
   margin-left: calc(-1 * var(--x-padding));
   font-weight: 500;
 }
@@ -266,8 +282,8 @@
   max-width: unset;
   height: auto;
   margin: 36px 0;
-  width: calc(100% + calc(2 * var(--x-padding)) - 12px);
-  margin-left: calc(-1 * var(--x-padding) + 6px);
+  width: calc(100% + 2 * var(--x-padding-inside));
+  margin-left: calc(-1 * var(--x-padding-inside));
   border-top: 2px solid var(--color-conclusion-bg);
   border-bottom: 2px solid var(--color-conclusion-bg);
 }
@@ -316,15 +332,15 @@
 
 .prose details {
   margin: 36px 0;
-  width: calc(100% + calc(2 * var(--x-padding)) - 12px);
-  margin-left: calc(-1 * var(--x-padding) + 6px);
+  width: calc(100% + 2 * var(--x-padding-inside));
+  margin-left: calc(-1 * var(--x-padding-inside));
   background-color: var(--color-why-pace-bg);
   border-bottom: solid 2px var(--color-conclusion-bg);
   border-top: solid 2px var(--color-conclusion-bg);
 }
 
 .prose details div {
-  padding: calc(var(--x-padding) - 6px);
+  padding: calc(var(--x-padding-inside));
   padding-top: 24px;
   padding-bottom: 4px;
   border-top: solid 2px var(--color-conclusion-bg);
@@ -340,7 +356,7 @@
 
 .prose summary {
   padding: 12px 0px;
-  padding-left: calc(var(--x-padding) - 8px);
+  padding-left: var(--x-padding-inside);
   font-family: var(--font-sans);
   background-color: var(--color-pace-what-bg);
   color: var(--color-conclusion-bg);
