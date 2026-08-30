@@ -5,4 +5,4 @@ Part of how we have navigated AI progress so far is by pacing — that is, delib
 3. How does a pacing intervention start, progress, and end?
 4. What wider effects might pacing interventions have, for better or worse?
 
-Each of these broad topics brings with it important questions, noted at the end of each section. There are dozens of papers arguing for or against different kinds of pacing: This is all the more reason to want dispassionate research on the general dynamics at play.
+Each of these broad topics brings with it important questions, noted at the end of each section. There are [dozens](https://docs.google.com/document/d/1eGtXYS7vMSxlrFP5IWoXSEq8qA-_G2L8p9gbxZ0oSo4/edit?usp=sharing) of papers arguing for or against different kinds of pacing: This is all the more reason to want dispassionate research on the general dynamics at play.

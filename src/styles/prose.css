@@ -265,12 +265,10 @@
 .prose img,
 .prose video {
   display: block;
-  max-width: 100%;
+  max-width: unset;
   height: auto;
-  margin: 32px 0;
-  outline: solid 5px var(--color-why-pace-bg);
-  border: solid 2px var(--color-pace-what-bg);
-  border-radius: 4px;
+  width: calc(100% + calc(2 * var(--x-padding)) - 12px);
+  margin-left: calc(-1 * var(--x-padding) + 6px);
 }
 
 .prose figure {
@@ -294,6 +292,7 @@
 .prose .table-wrapper,
 .prose table {
   margin: 24px 0;
+  border-radius: 4px;
 }
 
 .prose table {

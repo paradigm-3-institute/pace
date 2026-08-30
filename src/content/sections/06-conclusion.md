@@ -1,7 +1,6 @@
 ---
 title: "Conclusion"
 order: 6
-summary: "Nisi ut aliquid ex ea commodi consequatur."
 ---
 
 Making the right choices about the pace of AI development will be critical for everything from national security to public health — indeed, the choices we make in the next few years may well ripple out for centuries or more. It is crucial that we do what we can now to make those choices go well. And though these choices are often inherently political, that is all the more reason to also want sober, dispassionate reckoning with the key considerations.
