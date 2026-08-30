@@ -51,15 +51,15 @@ const sections = await Promise.all(
     class="md:fixed w-full pb-2 md:w-70 md:h-dvh overflow-auto bg-sidebar text-background border-x-2 md:border-l-0 border-sidebar"
   >
     <a href="#">
-      <hgroup class="p-7 pb-8">
-        <h1 class="text-5xl capitalize font-light grid gap-2">
+      <div class="p-7 pb-8">
+        <div class="text-5xl capitalize font-light grid gap-2">
           <div>How</div>
           <div class="-ml-2">to</div>
           <div>pace</div>
           <div class="-ml-2">the</div>
           <div>frontier</div>
-        </h1>
-      </hgroup>
+        </div>
+      </div>
     </a>
     <nav>
       <ul class="text-3xl">
@@ -82,7 +82,7 @@ const sections = await Promise.all(
           <p>A Research Agenda</p>
         </hgroup>
         <div
-          class="flex justify-center gap-12 mx-auto mb-24 font-sans text-center font-semibold text-(--color-conclusion-bg)"
+          class="flex justify-center gap-12 mx-auto mb-20 font-sans text-center font-semibold text-(--color-conclusion-bg)"
         >
           <div class="flex flex-col gap-4 text-right">
             <div>Raymond Douglas</div>
@@ -117,8 +117,15 @@ const sections = await Promise.all(
   <a
     href="#"
     class="md:hidden fixed -bottom-2 -right-2 bg-background p-4 border-2 border-sidebar text-sidebar outline-2 outline-sidebar -outline-offset-8"
+    aria-label="Back to top"
   >
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
       ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
         d="M10.586 3l-6.586 6.586a2 2 0 0 0 -.434 2.18l.068 .145a2 2 0 0 0 1.78 1.089h2.586v7a2 2 0 0 0 2 2h4l.15 -.005a2 2 0 0 0 1.85 -1.995l-.001 -7h2.587a2 2 0 0 0 1.414 -3.414l-6.586 -6.586a2 2 0 0 0 -2.828 0z"
       ></path></svg

@@ -9,7 +9,7 @@
 .prose hgroup {
   font-size: 3em;
   font-family: var(--font-sans);
-  margin-bottom: 80px;
+  margin-bottom: 72px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -22,11 +22,13 @@
   width: 100%;
   margin: 0;
   color: var(--color-then-what-bg);
+  text-wrap: balance;
 }
 
 .prose h1 {
   color: var(--color-conclusion-bg);
   font-weight: 600;
+  text-wrap: balance;
 }
 
 .prose h2 {
@@ -321,28 +323,31 @@
   width: calc(100% + calc(2 * var(--x-padding)) - 12px);
   margin-left: calc(-1 * var(--x-padding) + 6px);
   background-color: var(--color-why-pace-bg);
+  border-bottom: solid 2px var(--color-conclusion-bg);
+  border-top: solid 2px var(--color-conclusion-bg);
 }
 
 .prose details div {
   padding: calc(var(--x-padding) - 6px);
   padding-top: 24px;
   padding-bottom: 4px;
-  border-bottom: solid 2px var(--color-conclusion-bg);
+  border-top: solid 2px var(--color-conclusion-bg);
 }
 
-/*.prose details + details {
-  margin-top: 16px;
+.prose details + details {
+  margin-top: -2px;
 }
 
 .prose details:has(+ details) {
-  margin-bottom: 16px;
-}*/
+  margin-bottom: 0px;
+}
 
 .prose summary {
   padding: 12px 0px;
-  padding-left: calc(var(--x-padding) - 20px);
+  padding-left: calc(var(--x-padding) - 8px);
   font-family: var(--font-sans);
-  background-color: var(--color-then-what-bg);
-  color: var(--color-from);
+  background-color: var(--color-pace-what-bg);
+  color: var(--color-conclusion-bg);
   font-size: 1.2em;
+  font-weight: 600;
 }
