@@ -69,6 +69,7 @@ In the case where an intervention is not working, staging is less justified, and
 Ending an intervention does not need to mean dismantling it entirely - it could make sense to retain some capacities that are slow to build – expertise, relationships, technical standards, communication channels, and so on – while lifting the biting aspects, such as invasive and exceptional powers and controls. 
 
 Restitution may also be in order when an intervention is lifted, to compensate the disproportionately harmed. This could also be dealt with ex-ante, depending on the mechanism involved.
+
 ### 4.5 Worked Example: Frontier pre-training
 Assume we have decided to implement a pacing intervention aimed at preventing labs from training models that can autonomously self-improvement and potentially lead to displacement of human operators from critical decision loops and ultimately loss of control.
 

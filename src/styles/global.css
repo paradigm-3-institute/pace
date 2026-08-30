@@ -23,6 +23,8 @@
   --color-then-what-bg: rgb(86, 106, 81);
   --color-conclusion-bg: rgb(45, 71, 41);
   --color-call-to-action-bg: rgb(4, 35, 1);
+
+  --x-padding: 64px;
 }
 
 html {

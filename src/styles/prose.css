@@ -14,24 +14,26 @@
   flex-direction: column;
   gap: 8px;
   line-height: 1.1em;
+  letter-spacing: -0.02em;
 }
 
 .prose hgroup p {
   text-align: right;
   width: 100%;
   margin: 0;
+  color: var(--color-then-what-bg);
 }
 
 .prose h1 {
-  color: var(--color-sidebar);
-  font-weight: 700;
+  color: var(--color-conclusion-bg);
+  font-weight: 600;
 }
 
 .prose h2 {
-  font-size: 30px;
+  font-size: 24px;
   margin: 80px 6px 48px 6px;
   letter-spacing: -0.03em;
-  padding: 12px;
+  padding: 6px;
   border: solid 2px var(--color-sidebar);
   text-align: center;
   position: sticky;
@@ -39,16 +41,8 @@
   font-weight: 600;
 }
 
-@media (width >= 64rem /* 768px */) {
-  .prose h2 {
-    width: calc(100% + 20px);
-    margin-left: -10px;
-    border: solid 2px var(--color-sidebar);
-  }
-}
-
 .prose h3 {
-  font-size: 30px;
+  font-size: 24px;
   font-family: var(--font-sans);
   margin-top: 36px;
   margin-bottom: 20px;
@@ -56,15 +50,17 @@
   letter-spacing: -0.02em;
   line-height: 1.2;
   text-wrap: pretty;
+  color: var(--color-conclusion-bg);
 }
 
 .prose h4 {
-  font-size: 24px;
-  font-family: var(--font-sans);
+  font-size: 22px;
+  font-family: var(--font-serif);
   margin-top: 32px;
   margin-bottom: 16px;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.25;
+  color: var(--color-then-what-bg);
 }
 
 .prose h5,
@@ -84,6 +80,26 @@
   margin-top: 0;
 }
 
+@media (width >= 64rem /* 768px */) {
+  .prose h2 {
+    font-size: 30px;
+    padding: 12px;
+  }
+
+  .prose h3 {
+    font-size: 30px;
+  }
+}
+
+@media (width >= 64rem /* 768px */) {
+  .prose h2 {
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    border: solid 2px var(--color-sidebar);
+    border-radius: 4px;
+  }
+}
+
 /* ---------- Text ---------- */
 
 .prose p {
@@ -101,22 +117,21 @@
 }
 
 .prose a {
-  color: var(--color-sidebar);
+  color: var(--color-conclusion-bg);
   text-decoration: underline;
   text-decoration-thickness: 5px;
   text-decoration-color: rgba(86, 106, 81, 0.4);
   text-underline-offset: 1px;
   text-decoration-skip-ink: none;
   transition: text-decoration-offset 0.3s ease;
-  /*font-weight: 600;*/
+  border-radius: 4px;
+  padding: 0px 2px;
+  margin: 0px -2px;
 }
 
 .prose a:hover {
   background-color: rgba(86, 106, 81, 0.2);
   text-decoration-color: rgba(86, 106, 81, 0.6);
-
-  /*text-decoration-thickness: 28px;
-  text-underline-offset: -20px;*/
 }
 
 .prose del,
@@ -157,7 +172,8 @@
 }
 
 .prose li::marker {
-  color: var(--color-sidebar);
+  color: var(--color-then-what-bg);
+  font-weight: 600;
 }
 
 .prose li > ul,
@@ -182,11 +198,16 @@
 
 .prose blockquote {
   margin: 24px 0;
-  padding: 4px 0 4px 20px;
-  border-left: 3px solid var(--color-sidebar);
+  padding: 20px 64px 20px 64px;
+  background-color: #d1d5c955;
+  border-left: 6px solid var(--color-conclusion-bg);
+  border-right: 6px solid var(--color-conclusion-bg);
   font-style: italic;
   font-size: 1.1em;
   color: color-mix(in srgb, var(--color-foreground) 85%, transparent);
+  width: calc(100% + 128px);
+  margin-left: -64px;
+  font-weight: 500;
 }
 
 .prose blockquote p:last-child {
@@ -195,9 +216,10 @@
 
 .prose blockquote cite {
   display: block;
-  margin-top: 8px;
-  font-style: normal;
-  font-size: 0.875em;
+  font-size: 0.92em;
+  text-align: right;
+  font-weight: 600;
+  font-family: var(--font-sans);
 }
 
 /* ---------- Rules ---------- */
@@ -249,19 +271,25 @@
 
 .prose figure {
   margin: 32px 0;
+  /*border: solid 6px var(--color-why-pace-bg);*/
+  border: solid 2px var(--color-conclusion-bg);
+  /*background-color: var(--color-why-pace-bg);*/
+  border-radius: 4px;
 }
 
 .prose figure img,
 .prose figure video {
   margin: 0;
+  border-radius: 2px 2px 0px 0px;
+  border-bottom: solid 2px var(--color-conclusion-bg);
 }
 
 .prose figcaption {
-  margin-top: 8px;
-  font-size: 0.875em;
+  font-size: 0.84em;
   font-family: var(--font-sans);
-  text-align: center;
-  color: color-mix(in srgb, var(--color-foreground) 75%, transparent);
+  padding: 8px 12px 8px 12px;
+  line-height: 1.4em;
+  color: var(--color-sidebar);
 }
 
 /* ---------- Tables ---------- */

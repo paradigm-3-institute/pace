@@ -10,7 +10,7 @@ To be worthwhile, pacing needs to enable *complementary activities* to be carrie
 We defer the ranking of pacing interventions (for instance their cost-effectiveness) to section §5; here we focus on why it might be a good or bad idea to seriously invest into pacing at all. 
 ### 2.1 Reasons to pace progress
 
-**2.1.1 Pacing lets us pay down safety debt**
+#### 2.1.1 Pacing lets us pay down safety debt
 
 If we assume that the capacity to cause harm posed by AI scales with its capability (especially as the capability reaches and surpasses human level), then the fact that capability advances faster than safety leads to increasing exposure (see 2.0.1)---and resilience alone is not enough (2.0.4). Pacing could help by allowing our protections to catch up to the current level of intelligence.
 
@@ -20,7 +20,8 @@ The resilience needed varies with the threat. Some protections like cyber resili
 
 Notably, in cases involving an evolving risk (like incremental increases in the capacity of AIs to evade oversight or incremental disruptions to the labour market) it may be preferable to *titrate*: to allow capabilities to gradually outrun our protection, in a controlled manner that caps the potential harm, so that we learn what type of protection is required. An unfortunate tension here is that titration is helpful when one cannot adapt without facing the risk - but this is the same as saying that we need titration when we lack the ability to predict risk, i.e. when we cannot confidently bound the degree of risk we will induce by titrating AI capability gains.
 
-**2.1.2 Pacing lets us avoid irreversible consequences**
+#### 2.1.2 Pacing lets us avoid irreversible consequences
+
 Some developments can make later intervention less effective or much harder. Pacing can preserve control over a decision even when the right decision is not yet clear, and give actors more room to reason through their options.
 
 For example, once model weights have been published, developers lose the ability to pull the model, add guardrails, or intervene on specific malicious usage — options that which frontier closed-weight developers have exercised several times in response to unexpected risks.
@@ -28,14 +29,14 @@ For example, once model weights have been published, developers lose the ability
 The threat of irreversibility must be invoked judiciously. Almost any restriction can be defended by invoking possible future harms. Pacing is most justifiable on these grounds when there are specific options that would disappear by default, and a positive case for how extra time could lead to a more considered decision.
 Irreversibility also cuts both ways. The prospect of enabling a rival to catch up or gain an unrecoverable lead can render an otherwise attractive pacing intervention unviable.
 
-**2.1.3 Unknowns**
+#### 2.1.3 Unknowns
 
 Despite our best efforts, we cannot predict all the potential effects of AI progress. Sometimes a system displays an unexpected capability or causes unexpected outcomes, and even without a clear picture of how one would remedy the situation, it is helpful to slow down and make sense of the situation. The immediate use of time is therefore inquiry: investigating what happened, perhaps reproducing the result, and determining which assumptions need to change.
 
 For example, OpenAI temporarily [halted](https://www.axios.com/2026/08/07/openai-astra-model-delay-cybersecurity-risks) internal development of its “Astra” model after discovering another unreleased model had broken out of a secure sandbox and launched a cyberattack on another company. The activity was unprecedented enough to warrant a sudden stop, even without a particular plan for how to respond, because reasonable security assumptions were violated and the prespecified preparedness threshold.
 This type of threat is inherently hard to fully plan for because it is a catch-all for the unexpected. The existence of this category highlights the need not just for specific intervention plans but for the capacity to quickly and effectively intervene in new ways that address changing situations.
 
-**2.2. Costs of the counterfactual**
+#### 2.2. Costs of the counterfactual
 * Race
   * This is how not pacing leads to race
   * What race results in: sloppier decisions, lower ethical standards (for obtaining inputs etc.)
