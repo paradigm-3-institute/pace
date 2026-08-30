@@ -24,11 +24,22 @@
   --color-conclusion-bg: rgb(45, 71, 41);
   --color-call-to-action-bg: rgb(4, 35, 1);
 
-  --x-padding: 64px;
+  --x-padding: 32px;
+}
+
+@media (width >= 48rem) {
+  :root {
+    --x-padding: 64px;
+  }
 }
 
 html {
   scroll-behavior: smooth;
   color: var(--color-foreground);
   background: var(--color-from);
+}
+
+.padded {
+  padding-left: var(--x-padding);
+  padding-right: var(--x-padding);
 }

@@ -39,13 +39,10 @@ For example, one very conservative way to prevent the emergence of a dangerous a
 More generally, AI progress is recursive. At a very basic level, frontier developers use their models to make money to make more models and hire more researchers. Increasingly, they also use their models to improve the quality of their research. This means that constraints at one point in the process can ripple out and have complex indirect effects.
 For a given control surface, there will often be a three-way tradeoff between false positives, false negatives, and intrusiveness or oversight. Simply put, one can make an imperfect rule more or less conservative, or one can invest in making the rule more accurate, by some mix of investing more energy in scrutinising individual cases and requiring more access to information about those cases, some of which might otherwise be private.
 
-<figure>
-  <img src="/media/draw-the-line.png"/>
-  <figcaption> 
-    Broader rules, which capture a higher fraction of threat relevant activity, carry with them greater economic costs, while narrower rules may be easier to circumvent and thus have fewer safety benefits. 
-</figcaption>
-</figure>
-    
+![](/media/draw-the-line.png)
+
+Broader rules, which capture a higher fraction of threat relevant activity, carry with them greater economic costs, while narrower rules may be easier to circumvent and thus have fewer safety benefits. 
+
 
 Alongside interventions which directly cap or limit some resources, it is possible to intervene indirectly — to change an incentive and let the selection be performed by the actors themselves. This includes buying out or taxing specific resources, or applying liability to outcomes. These approaches can effectively draw on private information no regulator could extract: private plans, valuations, and alternatives. Ultimately this means indirect selection needs no surveillance to operate. However, these interventions will still generally lead to false positives and negatives.
 The correct balance between these three constraints will depend on the goals of the intervention and the resources available. One critical point to bear in mind, though, is that for many interventions, the function is to buy time for some complementary activity which in some cases may risk being caught in the filter. For example, a filter which blocks requests that enable cybercrime may also prevent requests related to the testing and evaluation of dangerous cybercapabilities, undermining the nominal aim of mitigating the risk of cyberattacks. That is to say, it is difficult to target only ill-intentioned activity while admitting related safety research when they often draw on the same capabilities.

@@ -80,7 +80,7 @@
   margin-top: 0;
 }
 
-@media (width >= 64rem /* 768px */) {
+@media (width >= 48rem) {
   .prose h2 {
     font-size: 30px;
     padding: 12px;
@@ -91,7 +91,7 @@
   }
 }
 
-@media (width >= 64rem /* 768px */) {
+@media (width >= 64rem) {
   .prose h2 {
     width: calc(100% + 20px);
     margin-left: -10px;
@@ -198,15 +198,16 @@
 
 .prose blockquote {
   margin: 24px 0;
-  padding: 20px 64px 20px 64px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   background-color: #d1d5c955;
   border-left: 6px solid var(--color-conclusion-bg);
   border-right: 6px solid var(--color-conclusion-bg);
   font-style: italic;
   font-size: 1.1em;
   color: color-mix(in srgb, var(--color-foreground) 85%, transparent);
-  width: calc(100% + 128px);
-  margin-left: -64px;
+  width: calc(100% + calc(2 * var(--x-padding)));
+  margin-left: calc(-1 * var(--x-padding));
   font-weight: 500;
 }
 
@@ -267,21 +268,18 @@
   max-width: 100%;
   height: auto;
   margin: 32px 0;
+  outline: solid 5px var(--color-why-pace-bg);
+  border: solid 2px var(--color-pace-what-bg);
+  border-radius: 4px;
 }
 
 .prose figure {
   margin: 32px 0;
-  /*border: solid 6px var(--color-why-pace-bg);*/
-  border: solid 2px var(--color-conclusion-bg);
-  /*background-color: var(--color-why-pace-bg);*/
-  border-radius: 4px;
 }
 
 .prose figure img,
 .prose figure video {
   margin: 0;
-  border-radius: 2px 2px 0px 0px;
-  border-bottom: solid 2px var(--color-conclusion-bg);
 }
 
 .prose figcaption {
@@ -289,7 +287,6 @@
   font-family: var(--font-sans);
   padding: 8px 12px 8px 12px;
   line-height: 1.4em;
-  color: var(--color-sidebar);
 }
 
 /* ---------- Tables ---------- */
