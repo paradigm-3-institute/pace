@@ -52,9 +52,9 @@
 }
 
 .prose h3 {
-  font-size: 24px;
+  font-size: 22px;
   font-family: var(--font-sans);
-  margin-top: 48px;
+  margin-top: 32px;
   margin-bottom: 24px;
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -107,6 +107,7 @@
   .prose h3 {
     font-size: 30px;
     top: 76px;
+    padding: 10px var(--x-padding-inside) 12px;
   }
 }
 
@@ -139,6 +140,7 @@
   background-color: rgba(86, 106, 81, 0.2);
   border-radius: 4px;
   padding: 0px 3px;
+  margin: 0px -0.5px;
 }
 
 .prose a:hover {
