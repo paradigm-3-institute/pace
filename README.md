@@ -8,3 +8,5 @@
   - Link underline
   - h3 and h4 headings
   - Collapsibles
+- Optimize images
+- Add alt tags to images

@@ -39,6 +39,12 @@ html {
   background: var(--color-from);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 .padded {
   padding-left: var(--x-padding);
   padding-right: var(--x-padding);
