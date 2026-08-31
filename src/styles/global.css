@@ -58,6 +58,6 @@ html {
 }
 
 ::selection {
-  background-color: var(--color-conclusion-bg);
+  background-color: var(--color-then-what-bg);
   color: var(--color-background);
 }
