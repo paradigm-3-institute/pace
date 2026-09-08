@@ -1,0 +1,1870 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Pacing Tree: Walk the Cruxes</title>
+    <meta
+      name="description"
+      content="A branching walk through the cruxes that separate the camps arguing about how fast to build frontier AI."
+    />
+    <!-- Phosphor Icons, Light weight. To use a different weight, change the
+         two "light"s below to thin / regular / bold / fill / duotone, and the
+         ph-light prefix on each icon in content.js to match. -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/light/style.css"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- The map at the end is set in IBM Plex Mono, per its design bundle. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      /* =====================================================================
+         Everything here follows the essay's own stylesheets — the palette and
+         spacing from src/styles/global.css, the visual motifs from
+         src/styles/prose.css. The recurring devices there are:
+
+           · 2px borders in --color-sidebar, with a 4px radius
+           · headings in the sans face, body copy in the serif
+           · the collapsible pair: --color-pace-what-bg for the summary strip,
+             --color-why-pace-bg for the panel beneath it
+           · --color-then-what-bg for secondary text and list markers
+
+         The quiz is built out of those and nothing else.
+         ===================================================================== */
+
+      :root {
+        /* src/styles/global.css, same names */
+        --color-sidebar: #042301;
+        --color-background: #ffffff;
+        --color-from: #faf8f1;
+        --color-foreground: #333333;
+        --color-dark: #faf8f1;
+
+        /* the seven-section ramp, from --color-from to --color-to */
+        --color-introduction-bg: rgb(250, 248, 241);
+        --color-why-pace-bg: rgb(209, 213, 201);
+        --color-pace-what-bg: rgb(168, 177, 161);
+        --color-pace-how-bg: rgb(127, 142, 121);
+        --color-then-what-bg: rgb(86, 106, 81);
+        --color-conclusion-bg: rgb(45, 71, 41);
+        --color-call-to-action-bg: rgb(4, 35, 1);
+
+        --font-sans: Satoshi, ui-sans-serif, system-ui, -apple-system,
+          "Segoe UI", sans-serif;
+        --font-serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+
+        --x-padding: 32px;
+      }
+
+      @media (width >= 48rem) {
+        :root {
+          --x-padding: 64px;
+        }
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      html {
+        background: var(--color-from);
+        color: var(--color-foreground);
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+        font-family: var(--font-serif);
+        font-size: 16px;
+        line-height: 1.6;
+        overflow: hidden;
+      }
+
+      ::selection {
+        background-color: var(--color-then-what-bg);
+        color: var(--color-background);
+      }
+
+      .shell {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: calc(28px * var(--fs, 1)) var(--x-padding)
+          calc(28px * var(--fs, 1));
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Only if a screen still won't fit at the smallest size the fit pass
+         will go to — better a scrollbar than clipped words. */
+      .shell[data-overflowing="true"] {
+        overflow-y: auto;
+      }
+
+      .stage {
+        display: flex;
+        flex-direction: column;
+        /* Anchored to the top, not centred: centring moves the icon up and
+           down with the length of each question. */
+        justify-content: flex-start;
+      }
+
+      /* ---------- masthead ---------- */
+
+      .masthead {
+        margin-bottom: calc(24px * var(--fs, 1));
+        text-align: center;
+      }
+
+      .masthead p {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: var(--color-then-what-bg);
+      }
+
+      /* Each screen's parts arrive one after another rather than all at
+         once. `backwards` rather than `both` on purpose: it holds the opening
+         frame through the delay, then stops applying, which leaves the option
+         cards free to use transform for their hover. */
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .enter {
+        animation: rise 360ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .enter {
+          animation: none;
+        }
+      }
+
+      /* ---------- intro ---------- */
+
+      .intro {
+        text-align: center;
+        max-width: 34em;
+        margin: 0 auto;
+      }
+
+      /* Sized like the essay's hgroup: 3em, sans, tight tracking. */
+      .intro-title {
+        font-family: var(--font-sans);
+        font-size: calc(2.6em * var(--fs, 1));
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        font-weight: 600;
+        color: var(--color-conclusion-bg);
+        text-wrap: balance;
+        margin: 0;
+      }
+
+      .intro-text {
+        font-size: calc(17px * var(--fs, 1));
+        line-height: 1.6;
+        text-wrap: pretty;
+        margin: 24px 0 0;
+      }
+
+      .intro-note {
+        font-family: var(--font-sans);
+        font-size: calc(13px * var(--fs, 1));
+        line-height: 1.5;
+        color: var(--color-then-what-bg);
+        text-wrap: pretty;
+        margin: 20px 0 0;
+      }
+
+      .intro-actions {
+        margin-top: calc(26px * var(--fs, 1));
+      }
+
+      @media (width < 640px) {
+        .intro-title {
+          font-size: 2.1em;
+        }
+      }
+
+      /* ---------- question ---------- */
+
+      .stage {
+        flex: 1 0 auto;
+      }
+
+      /* The icon and kicker are pinned to the top of every screen: both are
+         a single line, so they land in the same place whatever the question
+         says. */
+      .q-head {
+        flex: none;
+      }
+
+      /* The question, its note and the cards share the rest of the height and
+         sit in the middle of it. */
+      .q-body {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .q-icon {
+        display: block;
+        text-align: center;
+        font-size: calc(52px * var(--fs, 1));
+        line-height: 1;
+        color: var(--color-conclusion-bg);
+        margin-bottom: 24px;
+      }
+
+      .kicker {
+        text-align: center;
+        font-family: var(--font-sans);
+        font-size: calc(13px * var(--fs, 1));
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        color: var(--color-then-what-bg);
+        margin: 0 0 16px;
+      }
+
+      /* The essay's h2 without its box: centred, sans, tight tracking. */
+      .stem {
+        font-family: var(--font-sans);
+        font-size: calc(21px * var(--fs, 1));
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        line-height: 1.25;
+        color: var(--color-conclusion-bg);
+        text-align: center;
+        text-wrap: balance;
+        max-width: 20em;
+        margin: 0 auto;
+      }
+
+      @media (width >= 48rem) {
+        .stem {
+          font-size: calc(26px * var(--fs, 1));
+        }
+      }
+
+      .help {
+        font-family: var(--font-sans);
+        font-size: calc(13px * var(--fs, 1));
+        line-height: 1.5;
+        color: var(--color-then-what-bg);
+        text-align: center;
+        text-wrap: pretty;
+        max-width: 40em;
+        margin: 16px auto 0;
+      }
+
+      .options {
+        display: grid;
+        grid-template-columns: repeat(var(--cols, 2), 1fr);
+        gap: calc(18px * var(--fs, 1));
+        margin-top: calc(30px * var(--fs, 1));
+      }
+
+      /* Three or more get tighter type before they get a scrollbar. */
+      .options[style*="--cols: 3"] .option-label {
+        font-size: calc(15.5px * var(--fs, 1));
+      }
+
+      @media (width < 900px) {
+        .options {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (width < 640px) {
+        .options {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Kept plain: the 2px rule and the 4px radius from prose.css, and
+         nothing inside it — no panel colour, no divider. */
+      .option {
+        appearance: none;
+        font: inherit;
+        color: inherit;
+        text-align: center;
+        padding: 22px 20px;
+        cursor: pointer;
+        background: transparent;
+        border: solid 2px var(--color-conclusion-bg);
+        border-radius: 4px;
+        transform-origin: center;
+        display: flex;
+        flex-direction: column;
+        gap: calc(8px * var(--fs, 1));
+        font-size: calc(13.5px * var(--fs, 1));
+        line-height: 1.55;
+        transition: transform 120ms ease;
+      }
+
+      .option-label {
+        display: block;
+        font-size: calc(17px * var(--fs, 1));
+        font-weight: 700;
+        line-height: 1.3;
+        color: var(--color-conclusion-bg);
+        text-wrap: balance;
+      }
+
+      .option-text {
+        margin: 0;
+        text-wrap: pretty;
+      }
+
+      .option:hover,
+      .option:focus-visible {
+        transform: scale(1.012);
+        outline: none;
+      }
+
+      /* ---------- the ending: the map ----------
+         Tokens, type and geometry from the Pacing Tree bundle. The map reads
+         as a printed diagram: radius 0, no shadows, no hover states, no
+         transitions, no focus rings. The only movement is the dots. */
+
+      @keyframes breathe {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.9;
+        }
+        50% {
+          transform: scale(1.5);
+          opacity: 1;
+        }
+      }
+
+      /* Per-dot drift; --dx/--dy are set on each dot. */
+      @keyframes drift {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+        50% {
+          transform: translate(var(--dx), var(--dy));
+        }
+      }
+
+      html[data-map="open"],
+      html[data-map="open"] body {
+        overflow: hidden;
+      }
+
+      .map-view {
+        --ink: #1a1a18;
+        --paper: #fbfbf9;
+        --line: #9a9a94;
+        --label: #5c5c58;
+        --dim: #8a8a84;
+        --accent: oklch(0.55 0.17 28);
+        --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+
+        position: fixed;
+        inset: 0;
+        z-index: 20;
+        display: flex;
+        background: var(--paper);
+        font-family: var(--mono);
+        color: var(--ink);
+      }
+
+      /* ---- the stage ---- */
+
+      .map-pane {
+        position: relative;
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        cursor: grab;
+        touch-action: none;
+      }
+
+      .map-pane:active {
+        cursor: grabbing;
+      }
+
+      /* A zero-sized anchor: every node carries its own map coordinates, so
+         the space itself only has to be moved and scaled. */
+      .map-space {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        transform-origin: 0 0;
+      }
+
+      .map-edges {
+        position: absolute;
+        overflow: visible;
+        pointer-events: none;
+      }
+
+      .map-labels {
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+      }
+
+      .map-caption {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        margin: 0;
+        font: 400 9.5px/1.4 var(--mono);
+        letter-spacing: 0.04em;
+        color: var(--dim);
+        pointer-events: none;
+      }
+
+      /* ---- arms ---- */
+
+      .arm {
+        fill: none;
+        stroke: var(--line);
+        stroke-width: 1;
+      }
+
+      .arm[data-dash="true"] {
+        stroke-dasharray: 4 4;
+      }
+
+      .arm-head {
+        fill: var(--line);
+      }
+
+      .arm-label {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        /* Both of these matter. Without the max-width the long labels run on;
+           without the width they collapse to their narrowest box, because an
+           absolutely positioned element in a zero-width layer has no width to
+           shrink to — which breaks even "1-50%" at its hyphen. */
+        width: max-content;
+        max-width: 187px;
+        padding: 3px 8px;
+        background: var(--paper);
+        font: 400 14.3px/1.35 var(--mono);
+        color: var(--label);
+        text-align: center;
+        text-wrap: pretty;
+      }
+
+      /* ---- a crux ---- */
+
+      .crux {
+        position: absolute;
+        width: 374px;
+        padding: 15px 20px;
+        box-sizing: border-box;
+        background: var(--paper);
+        border: 1px solid var(--ink);
+        border-radius: 0;
+        text-align: left;
+        cursor: default;
+      }
+
+      .crux-tag {
+        font: 700 12px/1 var(--mono);
+        letter-spacing: 0.14em;
+        color: var(--ink);
+        margin-bottom: 10px;
+      }
+
+      .crux-q {
+        font: 400 15.4px/1.5 var(--mono);
+        color: var(--ink);
+        text-wrap: pretty;
+      }
+
+      /* ---- a camp: no box, bare label ---- */
+
+      .camp {
+        position: absolute;
+        width: max-content;
+        padding: 3px 0;
+        font: 600 16.5px/1.3 var(--mono);
+        color: var(--ink);
+        white-space: nowrap;
+        text-align: center;
+        cursor: default;
+      }
+
+      .camp-label {
+        position: relative;
+        z-index: 1;
+      }
+
+      .camp-cloud {
+        position: absolute;
+        pointer-events: none;
+      }
+
+      .dot {
+        position: absolute;
+        border-radius: 50%;
+        background: var(--ink);
+      }
+
+      .dot[data-mine="true"] {
+        background: var(--accent);
+      }
+
+      /* ---- the detail panel ---- */
+
+      .map-panel {
+        width: 340px;
+        flex: none;
+        box-sizing: border-box;
+        border-left: 1px solid var(--ink);
+        background: var(--paper);
+        padding: 28px 26px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .panel-tag {
+        font: 700 10px/1 var(--mono);
+        letter-spacing: 0.14em;
+        color: var(--ink);
+      }
+
+      .panel-tag-sub {
+        margin-top: 6px;
+        color: var(--dim);
+      }
+
+      .panel-title {
+        font: 400 17px/1.5 var(--mono);
+        color: var(--ink);
+        text-wrap: pretty;
+      }
+
+      .panel-title-camp {
+        font-weight: 600;
+      }
+
+      .panel-sub,
+      .panel-note {
+        font: 400 11px/1.5 var(--mono);
+        color: var(--dim);
+        text-wrap: pretty;
+      }
+
+      .panel-body {
+        font: 400 13px/1.6 var(--mono);
+        color: var(--label);
+        text-wrap: pretty;
+      }
+
+      .panel-body a {
+        color: var(--ink);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        text-decoration-thickness: 1px;
+      }
+
+      .panel-list {
+        margin: 0;
+        padding-left: 1.2em;
+        font: 400 12px/1.6 var(--mono);
+        color: var(--label);
+      }
+
+      .panel-meter {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font: 400 10px/1 var(--mono);
+        letter-spacing: 0.06em;
+        color: var(--dim);
+      }
+
+      .panel-meter-squares {
+        display: flex;
+        gap: 4px;
+      }
+
+      .panel-meter-squares span {
+        width: 10px;
+        height: 10px;
+        border: 1px solid var(--ink);
+      }
+
+      .panel-meter-squares span[data-filled="true"] {
+        background: var(--ink);
+      }
+
+      .panel-actions {
+        margin-top: auto;
+        padding-top: 20px;
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+
+      .map-panel .btn {
+        font: 400 10px/1 var(--mono);
+        letter-spacing: 0.06em;
+        text-transform: none;
+        padding: 7px 10px;
+        border: 1px solid var(--ink);
+        border-radius: 0;
+        background: transparent;
+        color: var(--label);
+      }
+
+      @media (width < 900px) {
+        .map-view {
+          flex-direction: column;
+        }
+
+        .map-panel {
+          width: auto;
+          max-height: 40vh;
+          border-left: 0;
+          border-top: 1px solid var(--ink);
+        }
+      }
+
+      /* ---------- controls ---------- */
+
+      .controls {
+        margin-top: calc(24px * var(--fs, 1));
+        padding-top: calc(14px * var(--fs, 1));
+        border-top: 2px solid var(--color-sidebar);
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .controls:empty {
+        display: none;
+      }
+
+      .btn {
+        appearance: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        font-family: var(--font-sans);
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: var(--color-conclusion-bg);
+        background: transparent;
+        border: solid 2px var(--color-sidebar);
+        border-radius: 4px;
+        padding: 8px 18px;
+        cursor: pointer;
+        transition:
+          background-color 120ms ease,
+          color 120ms ease;
+      }
+
+      .btn:hover,
+      .btn:focus-visible {
+        background: var(--color-why-pace-bg);
+        outline: none;
+      }
+
+      .btn-icon {
+        font-size: 1.3em;
+        line-height: 1;
+        margin-top: -1px;
+      }
+
+      /* Reversed out, the way the essay sets its code blocks. */
+      .btn-primary {
+        font-size: 17px;
+        padding: 12px 26px;
+        background: var(--color-sidebar);
+        color: var(--color-dark);
+      }
+
+      .btn-primary:hover,
+      .btn-primary:focus-visible {
+        background: var(--color-conclusion-bg);
+        color: var(--color-dark);
+      }
+
+      .colophon {
+        margin-top: calc(20px * var(--fs, 1));
+        font-family: var(--font-sans);
+        font-size: 13px;
+        line-height: 1.5;
+        color: var(--color-then-what-bg);
+        text-wrap: pretty;
+      }
+
+      .fatal {
+        font-size: 17px;
+        line-height: 1.55;
+        color: var(--color-conclusion-bg);
+        padding: 16px 20px;
+        background: var(--color-why-pace-bg);
+        border-left: 6px solid var(--color-conclusion-bg);
+        text-wrap: pretty;
+      }
+
+      .fatal code {
+        font-family: ui-monospace, "SF Mono", "Menlo", "Consolas", monospace;
+        font-size: 0.875em;
+        background: color-mix(in srgb, var(--color-sidebar) 8%, transparent);
+        padding: 0.15em 0.4em;
+        border-radius: 3px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .option,
+        .tcamp-fill {
+          transition: none;
+        }
+
+        .option:hover,
+        .option:focus-visible {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="shell">
+      <header class="masthead" id="masthead">
+        <p id="masthead-text"></p>
+      </header>
+
+      <div class="stage" id="stage" aria-live="polite"></div>
+
+      <div class="controls" id="controls"></div>
+
+      <p class="colophon" id="colophon"></p>
+    </main>
+
+    <script type="module">
+      /* While editing locally, load the two content files under a URL that
+         changes every time, so an ordinary refresh always shows your latest
+         wording. Browsers cache imported modules hard enough that no-cache
+         headers alone don't always win. On a real domain the query is
+         dropped, so caching works normally there. */
+      const DEV = ["localhost", "127.0.0.1", ""].includes(location.hostname);
+      const V = DEV ? `?v=${Date.now()}` : "";
+
+      /* If content.js has a punctuation slip it won't parse, and the page
+         would otherwise render as a blank white screen with the reason buried
+         in the console. Catch it and say so on the page instead. */
+      let QUIZ_DATA, CONFIG;
+      try {
+        ({ QUIZ_DATA } = await import(`./content.js${V}`));
+        ({ CONFIG } = await import(`./config.js${V}`));
+      } catch (err) {
+        document.getElementById("stage").innerHTML =
+          '<p class="fatal"><strong>content.js could not be read.</strong><br>' +
+          "Usually a missing comma, a stray angle bracket, or a quote inside " +
+          'a "quoted" sentence. Press F12 and open the Console tab — the ' +
+          "error names the line.<br><br><code></code></p>";
+        document.querySelector(".fatal code").textContent = err.message;
+        document.getElementById("masthead").hidden = true;
+        throw err;
+      }
+
+      /* Live reload while editing: serve.py holds this request open and
+         answers the moment a file is saved, at which point we refresh. Does
+         nothing anywhere but localhost, and nothing at all if the page is
+         opened through some other server. */
+      if (DEV) {
+        (async function watchForEdits() {
+          for (;;) {
+            try {
+              const r = await fetch("/__reload");
+              if (!r.ok) return;
+              if ((await r.json()).changed) return location.reload();
+            } catch {
+              return; /* server stopped; stop asking */
+            }
+          }
+        })();
+      }
+
+      /* ---------------------------------------------------------------------
+         The Supabase layer. Everything here is optional: with no keys in
+         config.js the whole quiz runs exactly as before, offline and silent.
+         See SUPABASE.md.
+         ------------------------------------------------------------------- */
+      const SUPABASE_LIB = "https://esm.sh/@supabase/supabase-js@2.45.4";
+      const TOKEN_KEY = "pacing-tree-token";
+
+      const live = {
+        client: null,
+        ready: false,
+
+        configured() {
+          return Boolean(CONFIG.enabled && CONFIG.url && CONFIG.anonKey);
+        },
+
+        async init() {
+          if (!this.configured()) return false;
+          try {
+            const { createClient } = await import(SUPABASE_LIB);
+            this.client = createClient(CONFIG.url, CONFIG.anonKey, {
+              /* The client keeps no session of its own; the only thing this
+                 page stores is the single token below. */
+              auth: { persistSession: false, autoRefreshToken: false },
+            });
+            this.ready = true;
+          } catch (err) {
+            console.warn("[pacing-tree] Supabase client unavailable:", err);
+          }
+          return this.ready;
+        },
+
+        /* One random id per browser, so reloading doesn't inflate the count
+           and walking again updates your own row rather than adding one. It
+           identifies nothing and never leaves this page except as itself. */
+        token() {
+          try {
+            let t = localStorage.getItem(TOKEN_KEY);
+            if (!t) {
+              t = crypto.randomUUID();
+              localStorage.setItem(TOKEN_KEY, t);
+            }
+            return t;
+          } catch {
+            /* Private browsing, or storage blocked: still count the walk, we
+               just can't recognise this visitor a second time. */
+            return crypto.randomUUID();
+          }
+        },
+
+        async record(campId, path) {
+          if (!this.ready) return;
+          const { error } = await this.client.rpc("record_walk", {
+            p_token: this.token(),
+            p_camp_id: campId,
+            p_path: path,
+          });
+          if (error) console.warn("[pacing-tree] record_walk failed:", error);
+        },
+
+        async tallies() {
+          if (!this.ready) return null;
+          const { data, error } = await this.client.rpc("get_tallies");
+          if (error) {
+            console.warn("[pacing-tree] get_tallies failed:", error);
+            return null;
+          }
+          return data;
+        },
+
+        /* Calls onChange whenever anyone finishes a walk. Prefers the
+           websocket; drops to polling if it can't connect. Returns a stop(). */
+        watch(onChange) {
+          if (!this.ready) return () => {};
+
+          let timer = null;
+          let channel = null;
+          const startPolling = () => {
+            if (timer) return;
+            const every = Math.max(5, Number(CONFIG.pollSeconds) || 15) * 1000;
+            timer = setInterval(onChange, every);
+          };
+
+          if (CONFIG.realtime) {
+            channel = this.client
+              .channel("pacing-tree-walks")
+              .on(
+                "postgres_changes",
+                { event: "*", schema: "public", table: "walks" },
+                onChange,
+              )
+              .subscribe((status) => {
+                if (status === "CHANNEL_ERROR" || status === "TIMED_OUT") {
+                  startPolling();
+                }
+              });
+          } else {
+            startPolling();
+          }
+
+          return () => {
+            if (timer) clearInterval(timer);
+            if (channel) this.client.removeChannel(channel);
+          };
+        },
+      };
+
+      const stage = document.getElementById("stage");
+      const controls = document.getElementById("controls");
+      const masthead = document.getElementById("masthead");
+      const colophon = document.getElementById("colophon");
+
+      /* The fixed labels around the content, all editable in content.js. */
+      const UI = QUIZ_DATA.ui;
+      document.getElementById("masthead-text").textContent = UI.masthead;
+      colophon.textContent = UI.colophon;
+
+      /* history: one entry per answered question, in the order answered. */
+      let history = [];
+      let currentId = QUIZ_DATA.start;
+      let campId = null;
+
+      /* The order the options are shown in is drawn once per session per
+         question — so going Back and forward again doesn't shuffle the cards
+         under the reader. Each entry is a list of indexes into that question's
+         options in content.js.
+
+         Answers that form a scale are shuffled as a sequence: they keep their
+         order and the whole run is either read up or read down, decided by a
+         coin flip. Scrambling a scale would make a reader hunt for their
+         answer, while always printing it one way round would bias which end
+         gets picked. Everything else is shuffled freely. */
+      const order = {};
+      for (const [id, q] of Object.entries(QUIZ_DATA.questions)) {
+        const indexes = q.options.map((_, i) => i);
+        const isScale = q.options.every((o) => typeof o.rank === "number");
+
+        if (q.order === "fixed") {
+          /* left exactly as written in content.js */
+        } else if (isScale) {
+          const direction = Math.random() < 0.5 ? 1 : -1;
+          indexes.sort(
+            (a, b) => (q.options[a].rank - q.options[b].rank) * direction,
+          );
+        } else {
+          for (let i = indexes.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [indexes[i], indexes[j]] = [indexes[j], indexes[i]];
+          }
+        }
+        order[id] = indexes;
+      }
+
+      const el = (tag, className, text) => {
+        const node = document.createElement(tag);
+        if (className) node.className = className;
+        if (text !== undefined) node.textContent = text;
+        return node;
+      };
+
+      const NS = "http://www.w3.org/2000/svg";
+
+      /* Set while the map is open; called to stop live updates. */
+      let stopWatching = null;
+
+
+      function leaveResult() {
+        if (stopWatching) stopWatching();
+        stopWatching = null;
+        delete document.documentElement.dataset.map;
+      }
+
+      const STILL = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      /* Brings a screen's parts in one after the next, top to bottom. */
+      function stagger(parts, step = 55) {
+        if (STILL.matches) return;
+        parts.filter(Boolean).forEach((part, i) => {
+          part.classList.add("enter");
+          part.style.animationDelay = `${i * step}ms`;
+        });
+      }
+
+      /* Shrinks the type until the screen fits the window, so the page never
+         scrolls. Runs after every render and on resize. The map has its own
+         framing and opts out. */
+      const shell = document.querySelector(".shell");
+      const MIN_FS = 0.62;
+
+      function fitScreen() {
+        if (document.documentElement.dataset.map === "open") return;
+
+        shell.dataset.overflowing = "false";
+        let fs = 1;
+        shell.style.setProperty("--fs", "1");
+
+        const overflows = () => shell.scrollHeight > shell.clientHeight + 1;
+        while (overflows() && fs > MIN_FS) {
+          fs = Math.max(MIN_FS, fs - 0.04);
+          shell.style.setProperty("--fs", fs.toFixed(2));
+        }
+        if (overflows()) shell.dataset.overflowing = "true";
+      }
+
+      let fitPending = null;
+      window.addEventListener("resize", () => {
+        clearTimeout(fitPending);
+        fitPending = setTimeout(fitScreen, 120);
+      });
+
+      function chrome(visible) {
+        masthead.hidden = !visible;
+        colophon.hidden = !visible;
+      }
+
+      function renderIntro() {
+        leaveResult();
+        const intro = QUIZ_DATA.intro;
+        if (!intro) return fatal("There is no `intro` block.");
+
+        chrome(false);
+        stage.replaceChildren();
+
+        const wrap = el("div", "intro");
+
+        const icon = el("i", `q-icon ${intro.icon}`);
+        icon.setAttribute("aria-hidden", "true");
+        wrap.append(icon);
+
+        const kicker = intro.kicker ? el("p", "kicker", intro.kicker) : null;
+        const title = el("h2", "intro-title", intro.title);
+        const text = el("p", "intro-text", intro.text);
+        const note = intro.note ? el("p", "intro-note", intro.note) : null;
+        if (kicker) wrap.append(kicker);
+        wrap.append(title, text);
+        if (note) wrap.append(note);
+
+        const actions = el("div", "intro-actions");
+        const begin = button(intro.button, start);
+        begin.classList.add("btn-primary");
+        if (intro.buttonIcon) {
+          const mark = el("i", `btn-icon ${intro.buttonIcon}`);
+          mark.setAttribute("aria-hidden", "true");
+          begin.prepend(mark);
+        }
+        actions.append(begin);
+        wrap.append(actions);
+
+        stage.append(wrap);
+        controls.replaceChildren();
+        fitScreen();
+        stagger([icon, kicker, title, text, note, actions]);
+      }
+
+      function start() {
+        currentId = QUIZ_DATA.start;
+        renderQuestion();
+        window.scrollTo({ top: 0, behavior: "auto" });
+      }
+
+      function renderQuestion() {
+        leaveResult();
+        chrome(true);
+        const q = QUIZ_DATA.questions[currentId];
+        if (!q) return fatal(`No question with the id "${currentId}".`);
+
+        stage.replaceChildren();
+
+        const head = el("div", "q-head");
+        const icon = el("i", `q-icon ${q.icon}`);
+        icon.setAttribute("aria-hidden", "true");
+        head.append(icon);
+        const kicker = el("p", "kicker", q.kicker);
+        head.append(kicker);
+        stage.append(head);
+
+        const body = el("div", "q-body");
+        const stem = el("h2", "stem", q.stem);
+        const help = q.help ? el("p", "help", q.help) : null;
+        body.append(stem);
+        if (help) body.append(help);
+        stage.append(body);
+
+        const grid = el("div", "options");
+        /* One column per option on a wide screen; they stack on a narrow one. */
+        grid.style.setProperty("--cols", String(q.options.length));
+        const ordered = order[currentId].map((i) => q.options[i]);
+
+        for (const option of ordered) {
+          const card = el("button", "option");
+          card.type = "button";
+          card.append(el("span", "option-label", option.label));
+          card.append(el("p", "option-text", option.text));
+          card.addEventListener("click", () => choose(option));
+          grid.append(card);
+        }
+
+        body.append(grid);
+
+        controls.replaceChildren();
+        controls.append(button(UI.backButton, back));
+        fitScreen();
+        /* The cards last, one after another, so the eye reaches the question
+           before the answers arrive. */
+        stagger([icon, kicker, stem, help, ...grid.children]);
+      }
+
+      function choose(option) {
+        const q = QUIZ_DATA.questions[currentId];
+        history.push({
+          questionId: currentId,
+          kicker: q.kicker,
+          label: option.label,
+          /* The index in content.js, not the position on screen — so the
+             stored data stays meaningful when the copy is reworded. */
+          optionIndex: q.options.indexOf(option),
+        });
+
+        if (option.next) {
+          currentId = option.next;
+          renderQuestion();
+        } else {
+          campId = option.camp;
+          renderTree();
+        }
+        window.scrollTo({ top: 0, behavior: "auto" });
+      }
+
+      function back() {
+        campId = null;
+        const last = history.pop();
+        if (!last) return renderIntro();
+        currentId = last.questionId;
+        renderQuestion();
+        window.scrollTo({ top: 0, behavior: "auto" });
+      }
+
+      function restart() {
+        history = [];
+        campId = null;
+        renderIntro();
+        window.scrollTo({ top: 0, behavior: "auto" });
+      }
+
+      /* -------------------------------------------------------------------
+         The ending: the map.
+
+         The Pacing Tree map in plain DOM, SVG and canvas. React Flow is not
+         used — this project has no build step — so what it provided is
+         reimplemented here, keeping to the contracts in FIXES.md:
+
+           · handles: every node offers t/b/l/r, and every arm names the side
+             it leaves and arrives on, so nothing terminates in mid-air
+           · smoothstep at borderRadius 0: right-angled polylines
+           · edge labels as HTML with a real max-width, never SVG <text>,
+             which cannot wrap
+           · framing computed rather than fitted: fit across, hold a zoom
+             floor of 0.5, and let the reader pan down
+           · clouds absolutely positioned, outside their camp's layout box,
+             and folded into the bounds by hand or halt and entente clip
+
+         Positions are hand-tuned in QUIZ_DATA.map. Nothing here lays out.
+         ------------------------------------------------------------------- */
+
+      const FLOOR = 0.5; /* never render smaller than this; pan instead */
+      const MIN_ZOOM = 0.25;
+      const MAX_ZOOM = 2.5;
+      const ACCENT = "oklch(0.55 0.17 28)";
+
+      function renderTree() {
+        leaveResult();
+        chrome(false);
+        stage.replaceChildren();
+        controls.replaceChildren();
+        document.documentElement.dataset.map = "open";
+
+        const MAP = QUIZ_DATA.map;
+
+        const view = el("div", "map-view");
+        const pane = el("div", "map-pane");
+        const space = el("div", "map-space");
+        const svg = document.createElementNS(NS, "svg");
+        svg.setAttribute("class", "map-edges");
+        const labelLayer = el("div", "map-labels");
+        space.append(svg, labelLayer);
+        pane.append(space);
+
+        const caption = el("p", "map-caption");
+        pane.append(caption);
+
+        const panel = el("aside", "map-panel");
+        view.append(pane, panel);
+        stage.append(view);
+
+        /* ---- nodes ------------------------------------------------------ */
+
+        const nodes = new Map();
+
+        for (const [id, q] of Object.entries(QUIZ_DATA.questions)) {
+          const at = MAP.nodes[id];
+          if (!at) continue;
+          const box = el("div", "crux");
+          box.append(el("div", "crux-tag", q.tag || id));
+          box.append(el("div", "crux-q", q.stem));
+          box.style.left = `${at.x}px`;
+          box.style.top = `${at.y}px`;
+          box.addEventListener("click", () => select(id));
+          space.append(box);
+          nodes.set(id, { box, kind: "question" });
+        }
+
+        let seed = 0;
+        for (const [id, camp] of Object.entries(QUIZ_DATA.camps)) {
+          const at = MAP.nodes[id];
+          if (!at) continue;
+          seed += 1;
+
+          const box = el("div", "camp");
+          box.style.left = `${at.x}px`;
+          box.style.top = `${at.y}px`;
+
+          /* The cloud never enters the label's layout box, so the camp stays
+             label-sized at any n and the composition doesn't shift. */
+          const cloud = el("div", "camp-cloud");
+          cloud.dataset.cloud = "1";
+          const label = el("div", "camp-label", camp.title);
+          box.append(cloud, label);
+          box.addEventListener("click", () => select(id));
+          space.append(box);
+
+          nodes.set(id, {
+            box,
+            cloud,
+            label,
+            kind: "camp",
+            seed,
+            place: at.place || "above",
+          });
+        }
+
+        /* ---- arms ------------------------------------------------------- */
+
+        const arms = [];
+        for (const [id, q] of Object.entries(QUIZ_DATA.questions)) {
+          q.options.forEach((option, index) => {
+            const to = option.next || option.camp;
+            const spec = MAP.arms[`${id}:${index}`];
+            if (!to || !spec || !nodes.has(to)) return;
+            arms.push({ from: id, to, label: option.short || option.label, ...spec });
+          });
+        }
+        for (const extra of MAP.extras || []) {
+          if (nodes.has(extra.from) && nodes.has(extra.to)) arms.push({ ...extra });
+        }
+
+        /* ---- clouds ----------------------------------------------------- */
+
+        function cloudPoints(n, seedValue, perDot, mine) {
+          /* The design adds the reader's own dot on top of n, because there n
+             is a fixed sample that doesn't include them. Here n comes from the
+             database and already counts this walk, so the accent dot is one of
+             the n rather than an extra — otherwise the first person to finish
+             sees two dots for one response. */
+          const count = Math.max(1, Math.round(n / perDot));
+          const D = count > 900 ? 1.5 : count > 300 ? 2.2 : 3.2;
+          const SP = D * 1.35;
+
+          let s = seedValue * 9301 + 49297;
+          const rnd = () => {
+            s = (s * 9301 + 49297) % 233280;
+            return s / 233280;
+          };
+
+          /* The radius wobbles with angle, so a big cloud reads as an organic
+             clump rather than a perfect disc. */
+          const ph = [rnd() * 6.28, rnd() * 6.28, rnd() * 6.28];
+          const amp = [0.09 + rnd() * 0.05, 0.05 + rnd() * 0.03, 0.03];
+          const lobe = (th) =>
+            1 +
+            amp[0] * Math.sin(2 * th + ph[0]) +
+            amp[1] * Math.sin(3 * th + ph[1]) +
+            amp[2] * Math.sin(5 * th + ph[2]);
+
+          const pts = Array.from({ length: count }, (_, i) => {
+            const th = i * 2.39996 + seedValue + (rnd() - 0.5) * 0.5;
+            const rad = SP * Math.sqrt(i + 0.5) * (0.92 + rnd() * 0.16) * lobe(th);
+            return [Math.cos(th) * rad, Math.sin(th) * rad * 0.78];
+          });
+
+          const maxX = Math.max(6, ...pts.map((p) => Math.abs(p[0]))) + D;
+          const maxY = Math.max(6, ...pts.map((p) => Math.abs(p[1]))) + D;
+          return { pts, count, D, maxX, maxY };
+        }
+
+        const still = window.matchMedia("(prefers-reduced-motion: reduce)");
+        const liveDots = CONFIG.liveDots !== false && !still.matches;
+
+        function drawCloud(node, n, perDot, mine) {
+          const cloud = node.cloud;
+          cloud.replaceChildren();
+
+          /* A camp nobody has reached gets no cloud. The packing always
+             rounds up to one dot, which would otherwise read as one response
+             where there are none. */
+          if (n <= 0 && !mine) {
+            cloud.hidden = true;
+            cloud.style.width = "0px";
+            cloud.style.height = "0px";
+            return;
+          }
+          cloud.hidden = false;
+
+          const { pts, count, D, maxX, maxY } = cloudPoints(n, node.seed, perDot, mine);
+          cloud.style.width = `${maxX * 2}px`;
+          cloud.style.height = `${maxY * 2}px`;
+
+          /* One span per dot is fine in the hundreds; past that the main
+             thread stalls, so the blob is painted instead. */
+          if (count > 600) {
+            const cv = document.createElement("canvas");
+            const dpr = Math.min(2, window.devicePixelRatio || 1);
+            cv.width = maxX * 2 * dpr;
+            cv.height = maxY * 2 * dpr;
+            cv.style.width = `${maxX * 2}px`;
+            cv.style.height = `${maxY * 2}px`;
+            cv.style.display = "block";
+            const g = cv.getContext("2d");
+            g.scale(dpr, dpr);
+            g.fillStyle = "#1a1a18";
+            pts.forEach((p, i) => {
+              if (mine && i === pts.length - 1) return;
+              g.beginPath();
+              g.arc(maxX + p[0], maxY + p[1], D / 2, 0, 6.2832);
+              g.fill();
+            });
+            if (mine) {
+              const p = pts[pts.length - 1];
+              g.fillStyle = ACCENT;
+              g.beginPath();
+              g.arc(maxX + p[0], maxY + p[1], (D + 5.2) / 2, 0, 6.2832);
+              g.fill();
+            }
+            cloud.append(cv);
+          } else {
+            pts.forEach((p, i) => {
+              const own = mine && i === count - 1;
+              const d = own ? D + 5.2 : D;
+              const dot = el("span", "dot");
+              dot.style.left = `${maxX + p[0] - d / 2}px`;
+              dot.style.top = `${maxY + p[1] - d / 2}px`;
+              dot.style.width = `${d}px`;
+              dot.style.height = `${d}px`;
+              if (own) dot.dataset.mine = "true";
+
+              if (liveDots) {
+                const dur = (3.4 + ((i * 37 + node.seed * 11) % 45) / 10).toFixed(1);
+                const lag = -((i * 53 + node.seed * 7) % 90) / 10;
+                const ang = (i * 2.39996 + node.seed) * 1.7;
+                dot.style.setProperty("--dx", `${(Math.cos(ang) * 3.4).toFixed(2)}px`);
+                dot.style.setProperty("--dy", `${(Math.sin(ang) * 3.4).toFixed(2)}px`);
+                dot.style.animation = own
+                  ? "breathe 3.4s ease-in-out infinite"
+                  : `drift ${dur}s ease-in-out ${lag}s infinite`;
+              }
+              cloud.append(dot);
+            });
+          }
+
+          /* Placed numerically rather than by transform, so the box can be
+             folded straight into the bounds below. */
+          const w = maxX * 2;
+          const h = maxY * 2;
+          const lw = node.label.offsetWidth;
+          const lh = node.label.offsetHeight;
+          const spot = {
+            above: [(lw - w) / 2, -h - 5],
+            below: [(lw - w) / 2, lh + 5],
+            left: [-w - 9, (lh - h) / 2],
+            right: [lw + 9, (lh - h) / 2],
+          };
+          const [cx, cy] = spot[node.place] || spot.above;
+          cloud.style.left = `${cx}px`;
+          cloud.style.top = `${cy}px`;
+        }
+
+        /* ---- routing ---------------------------------------------------- */
+
+        function port(id, side) {
+          const box = nodes.get(id).box;
+          const x = box.offsetLeft;
+          const y = box.offsetTop;
+          const w = box.offsetWidth;
+          const h = box.offsetHeight;
+          if (side === "t") return { x: x + w / 2, y, dx: 0, dy: -1 };
+          if (side === "b") return { x: x + w / 2, y: y + h, dx: 0, dy: 1 };
+          if (side === "l") return { x, y: y + h / 2, dx: -1, dy: 0 };
+          return { x: x + w, y: y + h / 2, dx: 1, dy: 0 };
+        }
+
+        function orthogonal(a, b, turn) {
+          const STUB = 20;
+          /* Camps are bare words with no box, so an arrow that runs to the
+             node's edge lands on the glyphs. Stop it a little short. */
+          const GAP = 7;
+          const end = { x: b.x + b.dx * GAP, y: b.y + b.dy * GAP };
+          const p1 = { x: a.x + a.dx * STUB, y: a.y + a.dy * STUB };
+          const p2 = { x: b.x + b.dx * STUB, y: b.y + b.dy * STUB };
+          const points = [a, p1];
+          const aV = a.dx === 0;
+          const bV = b.dx === 0;
+          if (aV && bV) {
+            /* Facing each other, meet in the middle. Pointing the same way —
+               both out of the bottom, say — go round the outside instead, or
+               the arm runs back past its own target to reach it. */
+            const mid =
+              a.dy === b.dy
+                ? a.dy > 0
+                  ? Math.max(p1.y, p2.y)
+                  : Math.min(p1.y, p2.y)
+                : (p1.y + p2.y) / 2;
+            points.push({ x: p1.x, y: mid }, { x: p2.x, y: mid });
+          } else if (!aV && !bV) {
+            const mid =
+              a.dx === b.dx
+                ? a.dx > 0
+                  ? Math.max(p1.x, p2.x)
+                  : Math.min(p1.x, p2.x)
+                : (p1.x + p2.x) / 2;
+            points.push({ x: mid, y: p1.y }, { x: mid, y: p2.y });
+          } else if (aV) {
+            /* "late" (the default) carries on along the arm's own line and
+               turns near the target; "early" turns straight out of the box
+               and runs along the target's line instead. An arm can ask for
+               one in content.js; otherwise late is used unless it would
+               reverse the final approach. */
+            const early = turn === "early" || (turn !== "late" && (p1.x - p2.x) * -b.dx > 0);
+            points.push(early ? { x: p2.x, y: p1.y } : { x: p1.x, y: p2.y });
+          } else {
+            const early = turn === "early" || (turn !== "late" && (p1.y - p2.y) * -b.dy > 0);
+            points.push(early ? { x: p1.x, y: p2.y } : { x: p2.x, y: p1.y });
+          }
+          points.push(p2, end);
+          return points;
+        }
+
+        /* Halfway along the path, so a label always lands on its own line. */
+        function midpoint(points) {
+          const lengths = [];
+          let total = 0;
+          for (let i = 0; i < points.length - 1; i++) {
+            const len =
+              Math.abs(points[i + 1].x - points[i].x) +
+              Math.abs(points[i + 1].y - points[i].y);
+            lengths.push(len);
+            total += len;
+          }
+          let walked = 0;
+          for (let i = 0; i < lengths.length; i++) {
+            if (walked + lengths[i] >= total / 2) {
+              const t = lengths[i] ? (total / 2 - walked) / lengths[i] : 0;
+              return {
+                x: points[i].x + (points[i + 1].x - points[i].x) * t,
+                y: points[i].y + (points[i + 1].y - points[i].y) * t,
+              };
+            }
+            walked += lengths[i];
+          }
+          return points[0];
+        }
+
+        function drawArms(box) {
+          svg.style.left = `${box.x0}px`;
+          svg.style.top = `${box.y0}px`;
+          svg.setAttribute("width", String(box.w));
+          svg.setAttribute("height", String(box.h));
+          svg.setAttribute("viewBox", `${box.x0} ${box.y0} ${box.w} ${box.h}`);
+          svg.replaceChildren();
+          labelLayer.replaceChildren();
+
+          const defs = document.createElementNS(NS, "defs");
+          const marker = document.createElementNS(NS, "marker");
+          marker.setAttribute("id", "arrowhead");
+          marker.setAttribute("viewBox", "0 0 8 8");
+          marker.setAttribute("refX", "7");
+          marker.setAttribute("refY", "4");
+          marker.setAttribute("markerWidth", "14");
+          marker.setAttribute("markerHeight", "14");
+          marker.setAttribute("orient", "auto");
+          const head = document.createElementNS(NS, "path");
+          head.setAttribute("d", "M0 0 L8 4 L0 8 z");
+          head.setAttribute("class", "arm-head");
+          marker.append(head);
+          defs.append(marker);
+          svg.append(defs);
+
+          for (const arm of arms) {
+            const points = orthogonal(
+              port(arm.from, arm.sh),
+              port(arm.to, arm.th),
+              arm.turn,
+            );
+            const line = document.createElementNS(NS, "path");
+            line.setAttribute(
+              "d",
+              points.map((p, i) => `${i ? "L" : "M"} ${p.x} ${p.y}`).join(" "),
+            );
+            line.setAttribute("class", "arm");
+            line.dataset.dash = String(Boolean(arm.dash));
+            line.setAttribute("marker-end", "url(#arrowhead)");
+            svg.append(line);
+
+            if (!arm.label) continue;
+            const at = midpoint(points);
+            const tag = el("div", "arm-label", arm.label);
+            tag.style.left = `${at.x}px`;
+            tag.style.top = `${at.y + (arm.dy || 0)}px`;
+            labelLayer.append(tag);
+          }
+        }
+
+        /* ---- the viewport ------------------------------------------------ */
+
+        const vp = { x: 0, y: 0, zoom: 1 };
+
+        function applyViewport() {
+          space.style.transform =
+            `translate(${vp.x}px, ${vp.y}px) scale(${vp.zoom})`;
+        }
+
+        function bounds() {
+          let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+          for (const node of nodes.values()) {
+            const b = node.box;
+            x0 = Math.min(x0, b.offsetLeft);
+            y0 = Math.min(y0, b.offsetTop);
+            x1 = Math.max(x1, b.offsetLeft + b.offsetWidth);
+            y1 = Math.max(y1, b.offsetTop + b.offsetHeight);
+
+            /* Clouds sit outside their node's box; without this, halt (cloud
+               on the left) and entente (right-most) get clipped. */
+            if (node.cloud && !node.cloud.hidden && node.cloud.offsetWidth) {
+              const cx = b.offsetLeft + node.cloud.offsetLeft;
+              const cy = b.offsetTop + node.cloud.offsetTop;
+              x0 = Math.min(x0, cx);
+              y0 = Math.min(y0, cy);
+              x1 = Math.max(x1, cx + node.cloud.offsetWidth);
+              y1 = Math.max(y1, cy + node.cloud.offsetHeight);
+            }
+          }
+          const PAD = 30;
+          return {
+            x0: x0 - PAD,
+            y0: y0 - PAD,
+            w: x1 - x0 + PAD * 2,
+            h: y1 - y0 + PAD * 2,
+          };
+        }
+
+        function frame() {
+          const box = bounds();
+          if (!isFinite(box.w)) return;
+          drawArms(box);
+
+          const w = pane.clientWidth;
+          const h = pane.clientHeight;
+          const wFit = (w / box.w) * 0.94;
+          const hFit = (h / box.h) * 0.94;
+
+          /* Always fit across; the floor only buys legibility, by letting the
+             map run past the bottom and be panned to. */
+          vp.zoom = Math.min(wFit, Math.max(FLOOR, hFit));
+          vp.x = w / 2 - (box.x0 + box.w / 2) * vp.zoom;
+          vp.y =
+            vp.zoom > hFit
+              ? 24 - box.y0 * vp.zoom
+              : (h - box.h * vp.zoom) / 2 - box.y0 * vp.zoom;
+          applyViewport();
+        }
+
+        /* Drag to pan, wheel to zoom — the map is bigger than the pane
+           whenever the floor is holding it above the fitting zoom. */
+        let dragging = null;
+        pane.addEventListener("pointerdown", (event) => {
+          if (event.button !== 0) return;
+          dragging = { x: event.clientX, y: event.clientY, moved: false };
+          /* Deliberately no setPointerCapture here. Capturing on every press
+             retargets the click that follows to the pane, so a click on a
+             crux or a camp never reaches it. The capture is taken below, once
+             the pointer has actually moved and this is really a drag. */
+        });
+        pane.addEventListener("pointermove", (event) => {
+          if (!dragging) return;
+          const dx = event.clientX - dragging.x;
+          const dy = event.clientY - dragging.y;
+          if (!dragging.moved) {
+            if (Math.abs(dx) + Math.abs(dy) <= 3) return;
+            dragging.moved = true;
+            pane.setPointerCapture(event.pointerId);
+          }
+          vp.x += dx;
+          vp.y += dy;
+          dragging.x = event.clientX;
+          dragging.y = event.clientY;
+          applyViewport();
+        });
+        const endDrag = (event) => {
+          if (pane.hasPointerCapture(event.pointerId)) {
+            pane.releasePointerCapture(event.pointerId);
+          }
+          /* A drag must not also read as a click on whatever was underneath. */
+          const moved = dragging && dragging.moved;
+          dragging = null;
+          if (moved) {
+            pane.addEventListener("click", (e) => e.stopPropagation(), {
+              capture: true,
+              once: true,
+            });
+          }
+        };
+        pane.addEventListener("pointerup", endDrag);
+        pane.addEventListener("pointercancel", endDrag);
+
+        pane.addEventListener(
+          "wheel",
+          (event) => {
+            event.preventDefault();
+            const rect = pane.getBoundingClientRect();
+            const cx = event.clientX - rect.left;
+            const cy = event.clientY - rect.top;
+            const next = Math.min(
+              MAX_ZOOM,
+              Math.max(MIN_ZOOM, vp.zoom * Math.exp(-event.deltaY * 0.0012)),
+            );
+            /* Keep the point under the cursor where it is. */
+            vp.x = cx - (cx - vp.x) * (next / vp.zoom);
+            vp.y = cy - (cy - vp.y) * (next / vp.zoom);
+            vp.zoom = next;
+            applyViewport();
+          },
+          { passive: false },
+        );
+
+        /* ---- the panel --------------------------------------------------- */
+
+        let chosen = null;
+        let tallies = null;
+
+        function select(id) {
+          chosen = id;
+          drawPanel();
+        }
+
+        pane.addEventListener("click", (event) => {
+          if (event.target === pane || event.target === space) {
+            chosen = null;
+            drawPanel();
+            frame();
+          }
+        });
+
+        /* Turns [words](https://...) into real links and leaves everything
+           else as plain text. Nothing is ever parsed as HTML, and only http
+           and https addresses are linked. */
+        const LINK = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+
+        function richText(node, source) {
+          let at = 0;
+          for (const match of String(source).matchAll(LINK)) {
+            if (match.index > at) {
+              node.append(source.slice(at, match.index));
+            }
+            const link = el("a", null, match[1]);
+            link.href = match[2];
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            node.append(link);
+            at = match.index + match[0].length;
+          }
+          node.append(source.slice(at));
+          return node;
+        }
+
+        function drawPanel() {
+          panel.replaceChildren();
+
+          const q = chosen && QUIZ_DATA.questions[chosen];
+          const camp = chosen && QUIZ_DATA.camps[chosen];
+
+          panel.append(
+            el("div", "panel-tag", q ? q.tag || "" : camp ? UI.campWord : UI.detailWord),
+          );
+
+          if (q) {
+            panel.append(el("div", "panel-title", q.stem));
+            if (q.help) panel.append(el("div", "panel-note", q.help));
+          } else if (camp) {
+            panel.append(el("div", "panel-title panel-title-camp", camp.title));
+            if (camp.quote) panel.append(el("div", "panel-note", `“${camp.quote}”`));
+
+            const n = tallies ? Number(tallies.camps?.[chosen]) || 0 : 0;
+            const total = tallies ? Number(tallies.total) || 0 : 0;
+            if (total > 0) {
+              panel.append(
+                el(
+                  "div",
+                  "panel-sub",
+                  String(UI.campResponses)
+                    .replace("{n}", String(n))
+                    .replace("{total}", String(total))
+                    .replace("{pct}", String(Math.round((n / total) * 100))),
+                ),
+              );
+            }
+            if (typeof camp.meter === "number") {
+              const meter = el("div", "panel-meter");
+              meter.append(el("span", null, UI.throttleLabel));
+              const squares = el("span", "panel-meter-squares");
+              for (let i = 0; i < 5; i++) {
+                const sq = el("span");
+                sq.dataset.filled = String(i < camp.meter);
+                squares.append(sq);
+              }
+              meter.append(squares);
+              panel.append(meter);
+            }
+            if (camp.blurb) panel.append(el("div", "panel-body", camp.blurb));
+            if (camp.details) {
+              panel.append(richText(el("div", "panel-body"), camp.details));
+            }
+            if (camp.neighbors?.length) {
+              panel.append(el("div", "panel-tag panel-tag-sub", UI.neighborsHeading));
+              const list = el("ul", "panel-list");
+              for (const name of camp.neighbors) list.append(el("li", null, name));
+              panel.append(list);
+              panel.append(el("div", "panel-note", UI.neighborsCaveat));
+            }
+          } else {
+            panel.append(el("div", "panel-title", UI.detailEmpty));
+          }
+
+          /* No way back from the map: the walk is recorded by the time it
+             is drawn, so the only move from here is to start again. */
+          const actions = el("div", "panel-actions");
+          actions.append(button(UI.restartButton, restart));
+          panel.append(actions);
+        }
+
+        /* ---- the numbers -------------------------------------------------- */
+
+        function apply() {
+          const total = tallies ? Number(tallies.total) || 0 : 0;
+          const camps = tallies ? tallies.camps || {} : {};
+          const enough = total >= (Number(CONFIG.minVotesToShow) || 0);
+
+          /* One dot per response by default; several once that stops being
+             drawable. config.js can pin it. */
+          const perDot =
+            Number(CONFIG.perDot) > 0
+              ? Number(CONFIG.perDot)
+              : Math.max(1, Math.ceil(total / 1200));
+
+          for (const [id, node] of nodes) {
+            if (node.kind !== "camp") continue;
+            const n = enough ? Number(camps[id]) || 0 : 0;
+            drawCloud(node, n, perDot, enough && id === campId);
+          }
+
+          if (!live.configured()) caption.textContent = UI.treeOffline;
+          else if (!tallies) caption.textContent = "";
+          else if (!enough) caption.textContent = UI.resultsWaiting;
+          else {
+            caption.textContent = String(
+              perDot === 1 ? UI.mapCaption : UI.mapCaptionMany,
+            )
+              .replace("{per}", String(perDot))
+              .replace("{n}", String(total));
+          }
+
+          frame();
+          drawPanel();
+        }
+
+        drawPanel();
+        requestAnimationFrame(apply);
+
+        const observer = new ResizeObserver(() => frame());
+        observer.observe(pane);
+
+        if (!live.configured()) {
+          stopWatching = () => observer.disconnect();
+          return;
+        }
+
+        const refresh = async () => {
+          const fresh = await live.tallies();
+          if (!fresh) {
+            caption.textContent = UI.resultsUnavailable;
+            return;
+          }
+          tallies = fresh;
+          apply();
+        };
+
+        (async () => {
+          if (!(await live.init())) {
+            caption.textContent = UI.resultsUnavailable;
+            return;
+          }
+          await live.record(
+            campId,
+            history.map((step) => ({ q: step.questionId, i: step.optionIndex })),
+          );
+          await refresh();
+
+          /* Coalesce bursts: ten people finishing at once is one redraw. */
+          let pending = null;
+          const stopWatch = live.watch(() => {
+            clearTimeout(pending);
+            pending = setTimeout(refresh, 400);
+          });
+          stopWatching = () => {
+            stopWatch();
+            observer.disconnect();
+          };
+        })();
+      }
+
+      function button(text, onClick) {
+        const b = el("button", "btn", text);
+        b.type = "button";
+        b.addEventListener("click", onClick);
+        return b;
+      }
+
+      function fatal(message) {
+        stage.replaceChildren(
+          el("p", "fatal", `Content problem in content.js — ${message}`),
+        );
+        controls.replaceChildren();
+      }
+
+      renderIntro();
+    </script>
+  </body>
+</html>
