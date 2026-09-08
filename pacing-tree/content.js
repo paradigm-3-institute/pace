@@ -182,7 +182,7 @@ export const QUIZ_DATA = {
       tag: `CRUX 1A`,
       icon: "ph-light ph-rocket-launch",
       kicker: `Crux 01 · Transformation`,
-      stem: `Do you see frontier AI developing transformative powers within decades from now?`,
+      stem: `Do you see frontier AI developing transformative powers within the next two decades from now?`,
       help: `Transformative = automating most cognitive work, including AI research itself.`,
       options: [
         {
