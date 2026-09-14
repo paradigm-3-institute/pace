@@ -115,8 +115,8 @@ In the SQL editor:
 -- where walks land
 select * from camp_tallies order by votes desc;
 
--- how each crux split
-select * from crux_tallies order by question_id, option_index;
+-- how each branching point split
+select * from branching_point_tallies order by question_id, option_index;
 
 -- everything the result screen sees, in one object
 select get_tallies();

@@ -1,5 +1,5 @@
 -- =============================================================================
--- The Pacing Tree — Supabase schema
+-- Ways to Pace — Supabase schema
 -- -----------------------------------------------------------------------------
 -- Paste this whole file into the Supabase SQL editor and run it once.
 -- It is idempotent: running it again is safe and changes nothing.
@@ -78,8 +78,11 @@ create or replace view public.camp_tallies as
   from public.walks
   group by camp_id;
 
--- How each crux split, across everyone who reached it.
-create or replace view public.crux_tallies as
+-- How each branching point split, across everyone who reached it.
+-- (This view was once called crux_tallies; the old name is dropped so a
+-- re-run leaves nothing stale behind.)
+drop view if exists public.crux_tallies;
+create or replace view public.branching_point_tallies as
   select
     step ->> 'q'            as question_id,
     (step ->> 'i')::int     as option_index,
@@ -88,7 +91,7 @@ create or replace view public.crux_tallies as
   where jsonb_typeof(path) = 'array'
   group by 1, 2;
 
-grant select on public.camp_tallies, public.crux_tallies to anon, authenticated;
+grant select on public.camp_tallies, public.branching_point_tallies to anon, authenticated;
 
 
 -- ---------------------------------------------------------------------------
@@ -167,12 +170,12 @@ as $$
                 select jsonb_object_agg(camp_id, votes)
                 from public.camp_tallies
               ), '{}'::jsonb),
-    'cruxes', coalesce((
+    'branching_points', coalesce((
                 select jsonb_object_agg(question_id, counts)
                 from (
                   select question_id,
                          jsonb_object_agg(option_index::text, votes) as counts
-                  from public.crux_tallies
+                  from public.branching_point_tallies
                   group by question_id
                 ) grouped
               ), '{}'::jsonb)

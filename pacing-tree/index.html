@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>The Pacing Tree: Walk the Cruxes</title>
+    <title>Ways to Pace</title>
     <meta
       name="description"
-      content="A branching walk through the cruxes that separate the camps arguing about how fast to build frontier AI."
+      content="A walk through the branching points that separate the camps arguing about how fast to build frontier AI."
     />
     <!-- Phosphor Icons, Light weight. To use a different weight, change the
          two "light"s below to thin / regular / bold / fill / duotone, and the
@@ -351,7 +351,7 @@
       }
 
       /* ---------- the ending: the map ----------
-         Tokens, type and geometry from the Pacing Tree bundle. The map reads
+         Tokens, type and geometry from the quiz's map design bundle. The map reads
          as a printed diagram: radius 0, no shadows, no hover states, no
          transitions, no focus rings. The only movement is the dots. */
 
@@ -484,9 +484,9 @@
         text-wrap: pretty;
       }
 
-      /* ---- a crux ---- */
+      /* ---- a branching point ---- */
 
-      .crux {
+      .branching-point {
         position: absolute;
         width: 374px;
         padding: 15px 20px;
@@ -498,14 +498,14 @@
         cursor: default;
       }
 
-      .crux-tag {
+      .branching-point-tag {
         font: 700 12px/1 var(--mono);
         letter-spacing: 0.14em;
         color: var(--ink);
         margin-bottom: 10px;
       }
 
-      .crux-q {
+      .branching-point-q {
         font: 400 15.4px/1.5 var(--mono);
         color: var(--ink);
         text-wrap: pretty;
@@ -565,10 +565,6 @@
         color: var(--ink);
       }
 
-      .panel-tag-sub {
-        margin-top: 6px;
-        color: var(--dim);
-      }
 
       .panel-title {
         font: 400 17px/1.5 var(--mono);
@@ -580,7 +576,6 @@
         font-weight: 600;
       }
 
-      .panel-sub,
       .panel-note {
         font: 400 11px/1.5 var(--mono);
         color: var(--dim);
@@ -600,36 +595,10 @@
         text-decoration-thickness: 1px;
       }
 
-      .panel-list {
-        margin: 0;
-        padding-left: 1.2em;
-        font: 400 12px/1.6 var(--mono);
-        color: var(--label);
-      }
 
-      .panel-meter {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font: 400 10px/1 var(--mono);
-        letter-spacing: 0.06em;
-        color: var(--dim);
-      }
 
-      .panel-meter-squares {
-        display: flex;
-        gap: 4px;
-      }
 
-      .panel-meter-squares span {
-        width: 10px;
-        height: 10px;
-        border: 1px solid var(--ink);
-      }
 
-      .panel-meter-squares span[data-filled="true"] {
-        background: var(--ink);
-      }
 
       .panel-actions {
         margin-top: auto;
@@ -724,15 +693,6 @@
         color: var(--color-dark);
       }
 
-      .colophon {
-        margin-top: calc(20px * var(--fs, 1));
-        font-family: var(--font-sans);
-        font-size: 13px;
-        line-height: 1.5;
-        color: var(--color-then-what-bg);
-        text-wrap: pretty;
-      }
-
       .fatal {
         font-size: 17px;
         line-height: 1.55;
@@ -775,7 +735,6 @@
 
       <div class="controls" id="controls"></div>
 
-      <p class="colophon" id="colophon"></p>
     </main>
 
     <script type="module">
@@ -933,12 +892,10 @@
       const stage = document.getElementById("stage");
       const controls = document.getElementById("controls");
       const masthead = document.getElementById("masthead");
-      const colophon = document.getElementById("colophon");
 
       /* The fixed labels around the content, all editable in content.js. */
       const UI = QUIZ_DATA.ui;
       document.getElementById("masthead-text").textContent = UI.masthead;
-      colophon.textContent = UI.colophon;
 
       /* history: one entry per answered question, in the order answered. */
       let history = [];
@@ -1035,7 +992,6 @@
 
       function chrome(visible) {
         masthead.hidden = !visible;
-        colophon.hidden = !visible;
       }
 
       function renderIntro() {
@@ -1170,7 +1126,7 @@
       /* -------------------------------------------------------------------
          The ending: the map.
 
-         The Pacing Tree map in plain DOM, SVG and canvas. React Flow is not
+         The quiz's map in plain DOM, SVG and canvas. React Flow is not
          used — this project has no build step — so what it provided is
          reimplemented here, keeping to the contracts in FIXES.md:
 
@@ -1224,9 +1180,9 @@
         for (const [id, q] of Object.entries(QUIZ_DATA.questions)) {
           const at = MAP.nodes[id];
           if (!at) continue;
-          const box = el("div", "crux");
-          box.append(el("div", "crux-tag", q.tag || id));
-          box.append(el("div", "crux-q", q.stem));
+          const box = el("div", "branching-point");
+          box.append(el("div", "branching-point-tag", q.tag || id));
+          box.append(el("div", "branching-point-q", q.stem));
           box.style.left = `${at.x}px`;
           box.style.top = `${at.y}px`;
           box.addEventListener("click", () => select(id));
@@ -1610,7 +1566,7 @@
           dragging = { x: event.clientX, y: event.clientY, moved: false };
           /* Deliberately no setPointerCapture here. Capturing on every press
              retargets the click that follows to the pane, so a click on a
-             crux or a camp never reaches it. The capture is taken below, once
+             branching point or a camp never reaches it. The capture is taken below, once
              the pointer has actually moved and this is really a drag. */
         });
         pane.addEventListener("pointermove", (event) => {
@@ -1683,10 +1639,11 @@
           }
         });
 
-        /* Turns [words](https://...) into real links and leaves everything
-           else as plain text. Nothing is ever parsed as HTML, and only http
-           and https addresses are linked. */
-        const LINK = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+        /* Turns [words](https://...) into a link on those words, and a bare
+           https://... into a link shown as a short citation ("arxiv.org/…").
+           Everything else stays plain text: nothing is ever parsed as HTML,
+           and only http and https addresses are linked. */
+        const LINK = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)|(https?:\/\/[^\s)]+)/g;
 
         function richText(node, source) {
           let at = 0;
@@ -1694,11 +1651,35 @@
             if (match.index > at) {
               node.append(source.slice(at, match.index));
             }
-            const link = el("a", null, match[1]);
-            link.href = match[2];
+
+            let label, href, tail = "";
+            if (match[1]) {
+              label = match[1];
+              href = match[2];
+            } else {
+              href = match[3];
+              /* a full stop or comma after a bare address belongs to the
+                 sentence, not the link */
+              const punct = href.match(/[.,;:]+$/);
+              if (punct) {
+                tail = punct[0];
+                href = href.slice(0, -tail.length);
+              }
+              try {
+                const u = new URL(href);
+                label = u.hostname.replace(/^www\./, "") + (u.pathname.length > 1 ? "/…" : "");
+              } catch {
+                label = href;
+              }
+            }
+
+            const link = el("a", null, label);
+            link.href = href;
+            link.title = href;
             link.target = "_blank";
             link.rel = "noopener noreferrer";
             node.append(link);
+            if (tail) node.append(tail);
             at = match.index + match[0].length;
           }
           node.append(source.slice(at));
@@ -1718,46 +1699,13 @@
           if (q) {
             panel.append(el("div", "panel-title", q.stem));
             if (q.help) panel.append(el("div", "panel-note", q.help));
+            if (q.details) {
+              panel.append(richText(el("div", "panel-body"), q.details));
+            }
           } else if (camp) {
             panel.append(el("div", "panel-title panel-title-camp", camp.title));
-            if (camp.quote) panel.append(el("div", "panel-note", `“${camp.quote}”`));
-
-            const n = tallies ? Number(tallies.camps?.[chosen]) || 0 : 0;
-            const total = tallies ? Number(tallies.total) || 0 : 0;
-            if (total > 0) {
-              panel.append(
-                el(
-                  "div",
-                  "panel-sub",
-                  String(UI.campResponses)
-                    .replace("{n}", String(n))
-                    .replace("{total}", String(total))
-                    .replace("{pct}", String(Math.round((n / total) * 100))),
-                ),
-              );
-            }
-            if (typeof camp.meter === "number") {
-              const meter = el("div", "panel-meter");
-              meter.append(el("span", null, UI.throttleLabel));
-              const squares = el("span", "panel-meter-squares");
-              for (let i = 0; i < 5; i++) {
-                const sq = el("span");
-                sq.dataset.filled = String(i < camp.meter);
-                squares.append(sq);
-              }
-              meter.append(squares);
-              panel.append(meter);
-            }
-            if (camp.blurb) panel.append(el("div", "panel-body", camp.blurb));
             if (camp.details) {
               panel.append(richText(el("div", "panel-body"), camp.details));
-            }
-            if (camp.neighbors?.length) {
-              panel.append(el("div", "panel-tag panel-tag-sub", UI.neighborsHeading));
-              const list = el("ul", "panel-list");
-              for (const name of camp.neighbors) list.append(el("li", null, name));
-              panel.append(list);
-              panel.append(el("div", "panel-note", UI.neighborsCaveat));
             }
           } else {
             panel.append(el("div", "panel-title", UI.detailEmpty));

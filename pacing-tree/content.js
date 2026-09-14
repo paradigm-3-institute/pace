@@ -1,5 +1,5 @@
 /* ============================================================================
-   content.js — ALL the words for "The Pacing Tree: Walk the Cruxes"
+   content.js — ALL the words for "Ways to Pace"
    ----------------------------------------------------------------------------
    This is the only file you need to edit to change the quiz. No programming
    knowledge required — just keep the punctuation exactly as you find it:
@@ -23,11 +23,7 @@
 
    ui — the handful of fixed labels the screens use around your content.
        masthead   the small line above every question and the result.
-       colophon   the small line at the foot of the page.
        backButton / restartButton   the words on those two buttons.
-       throttleLabel  the word before the throttle squares.
-       neighborsHeading / neighborsCaveat   the heading and the small print
-                      over the list of published neighbours.
 
        The remaining labels appear only when live results are switched on in
        config.js.
@@ -40,9 +36,6 @@
        detailWord          the heading over the side panel before anything is
                            clicked, and detailEmpty the line beneath it.
        campWord            the heading over the panel when a camp is open.
-       campResponses       the count line under a camp's name. {n} is that
-                           camp's responses, {total} all of them, {pct} the
-                           share.
        treeOffline         shown under the tree when no database is connected.
 
    start: "c1"
@@ -56,9 +49,9 @@
                duotone all exist, but index.html loads one weight only, so
                changing weight means editing the stylesheet link there too.
        kicker  the small label printed above the question while walking,
-               e.g. "Crux 01 · Transformation".
+               e.g. "Branching Point 01 · Transformation".
        tag     the short label printed above the question on the map at the
-               end, e.g. "CRUX 2". Kept separate because the map has room for
+               end, e.g. "BRANCHING POINT 2". Kept separate because the map has room for
                far less than the quiz screen does.
        stem    the question itself, one or two sentences. Printed in full
                both on the quiz screen and in the map's boxes at the end.
@@ -67,6 +60,9 @@
                fit. Falls back to the stem if you leave it out.
        order   OPTIONAL. Set to "fixed" to stop the answers moving at all,
                for a question that must read one particular way.
+       details OPTIONAL. A longer passage about this branching point — what
+               people disagree on, and why — shown in the panel when it is
+               clicked on the map at the end. Not shown during the quiz.
        help    OPTIONAL. One or two sentences defining key terms, shown smaller
                and lighter beneath the stem. Delete the line if you don't want one.
        options a list of answers — two is the usual, three works too. Each has:
@@ -91,18 +87,12 @@
 
    camps — a list of destinations, each with its own id.
        title      the camp's name.
-       quote      OPTIONAL. A few words in the camp's own voice, printed under
-                  its name in the tree diagram.
-       meter      a whole number from 0 to 5 — how much throttle the camp wants.
-                  0 = full stop, 5 = full speed. Drawn as filled/empty squares
-                  in the panel a camp opens when you click it.
-       blurb      two sentences describing the camp, in a neutral register.
-       details    OPTIONAL. A longer passage, shown under the blurb in the
-                  panel the map opens. Write a link as [the words](https://...)
-                  — square brackets round the words, round brackets round the
-                  address, nothing between them. Anything else is printed as
-                  you typed it.
-       neighbors  a list of names of adjacent published thinkers or groups.
+       details    The passage shown in the panel a camp opens on the map.
+                  Write a link as [the words](https://...) — square brackets
+                  round the words, round brackets round the address, nothing
+                  between them. A bare address like https://example.org/page
+                  also becomes a link, shown as a short citation such as
+                  "example.org/…". Anything else is printed as you typed it.
 
    WHEN THE PAGE GOES BLANK
    ------------------------
@@ -144,24 +134,18 @@
 export const QUIZ_DATA = {
   intro: {
     icon: "ph-light ph-tree",
-    kicker: `The Pacing Tree`,
-    title: `Walk the Cruxes`,
-    text: `Experts who mostly agree that unrestricted AI progress poses significant risks to human societies still disagree on major cruxes of the pacing debate. We created this interactive tool as an invitation for you to consider your position on these cruxes and to give you an opportunity to compare others' views with your own.`,
-    note: `You'll be presented up to 6 questions about your predictions of AI futures. If you're on the fence or believe the answer is somewhere along the lines of "it depends", go with your gut or whatever option feels like a better fit.`,
+    kicker: `Quiz`,
+    title: `Ways to Pace`,
+    text: `Experts who mostly agree that unrestricted AI progress poses significant risks to human societies still disagree on major branching points of the pacing debate. We created this interactive tool as an invitation for you to consider your position on these branching points and to give you an opportunity to compare others' views with your own.`,
+    note: `You'll be presented with up to 6 questions about your predictions of AI futures. If you're on the fence or believe the answer is somewhere along the lines of "it depends", go with your gut or whatever option feels like a better fit.`,
     button: `Let's begin`,
     buttonIcon: "ph-light ph-rocket-launch",
   },
 
   ui: {
-    masthead: `Walk the cruxes`,
-    colophon:
-      `Your progress is not stored. Reload the page and the walk begins again from nothing.`,
+    masthead: `Ways to Pace`,
     backButton: `Back`,
     restartButton: `Start again`,
-    throttleLabel: `Throttle`,
-    neighborsHeading: `Nearest published neighbours`,
-    neighborsCaveat:
-      `This is the published position your answers sat closest to — a landmark for locating the argument, not a label for you.`,
 
     resultsWaiting:
       `The live tally appears once a few more people have walked the tree.`,
@@ -171,7 +155,6 @@ export const QUIZ_DATA = {
     detailWord: `DETAIL`,
     detailEmpty: `Click any question or camp on the map.`,
     campWord: `CAMP`,
-    campResponses: `{n} of {total} responses · {pct}%`,
     treeOffline: `Counts appear once this is connected to a database — see SUPABASE.md.`,
   },
 
@@ -179,45 +162,47 @@ export const QUIZ_DATA = {
 
   questions: {
     c1: {
-      tag: `CRUX 1A`,
+      tag: `BRANCHING POINT 1A`,
       icon: "ph-light ph-rocket-launch",
-      kicker: `Crux 01 · Transformation`,
+      kicker: `Branching Point 01 · Transformation`,
       stem: `Do you see frontier AI developing transformative powers within the next two decades from now?`,
+      details: `On this branching point, people often disagree on what counts as transformative, whether it’s possible for any intelligent entity to become transformative-level smart, and how fast AI can get there. For example, does AI have to be all that much more capable than humans to be transformative? Or does it just need to solve tasks comparably well but a lot faster and/or cheaper?`,
       help: `Transformative = automating most cognitive work, including AI research itself.`,
       options: [
         {
-          label: `Yes, plausibly.`,
+          label: `Yes, plausibly`,
           short: `yes`,
-          text: `Capability will keep hitting milestones predicted by scaling and task-horizon forecasts.`,
+          text: `AI capabilities will keep hitting milestones predicted by scaling and task-horizon forecasts.`,
           next: "c2",
         },
         {
-          label: `No (or not for a long time).`,
+          label: `No (or not for a long time)`,
           short: `not really`,
-          text: `Current methods hit diminishing returns or capability will not have a significant impact due to slow adoption/diffusion.`,
+          text: `Current methods will hit diminishing returns or capability will not have a significant impact due to slow adoption/diffusion.`,
           next: "c1b",
         },
       ],
     },
 
     c1b: {
-      tag: `CRUX 1B`,
+      tag: `BRANCHING POINT 1B`,
       icon: "ph-light ph-users-three",
-      kicker: `Crux 01B · General Harm`,
+      kicker: `Branching Point 01B · General Harm`,
       stem: `Is harm inherent to frontier AI development in its current form?`,
+      details: `This branching point opens the floor for conversation about what role AI (as a tool or the whole industry) plays in society (or what it’s doing to society). Is AI's reshaping of wealth, power, and cognition significant? If so, is it a harm to be prevented, or a potentially positive change for humanity to adapt to?`,
       help: `Harm could include effects we’re presently observing but also emergent harms. AI R&D in its current form means capped on inputs (chips, data, algorithms) with limited top-down regulation.`,
       options: [
         {
-          label: `Yes.`,
+          label: `Yes`,
           short: `yes!`,
           text: `We see worrisome impacts on labour, privacy, power, and discourse today. The damage will compound if left unaddressed.`,
           next: null,
           camp: "presentHarms",
         },
         {
-          label: `Not really.`,
+          label: `Not really`,
           short: `not any more than any other technology`,
-          text: `AI does not cause more harm than any other technology\u2014and if it does, the harm does not outweigh the benefits of AI progress or justify the cost of intervening.`,
+          text: `AI does not cause more harm than any other technology—and if it does, the harm does not outweigh the benefits of AI progress or justify the cost of intervening.`,
           next: null,
           camp: "normalTech",
         },
@@ -225,21 +210,22 @@ export const QUIZ_DATA = {
     },
 
     c2: {
-      tag: `CRUX 2`,
+      tag: `BRANCHING POINT 2`,
       icon: "ph-light ph-warning",
-      kicker: `Crux 02 · Default risk`,
+      kicker: `Branching Point 02 · Default risk`,
       stem: `If AI development continues at default speed, how likely is it to lead to lasting, irreversible, society-wide harm?`,
-      help: `This may include harms from misalignment (model doing bad stuff) or misuse (humans using models for bad stuff).`,
+      details: `This branching point calls into question whether it’s AI development that’s the problem. Do the current race dynamics leave no room for defences to keep up? Is there an alternative reality where identical AI development paired with adequate misuse controls and resilience measures effectively prevent catastrophic harm? Is the risk from current AI development likely? How about significant?`,
+      help: `This includes harms from misalignment (model doing bad stuff) or misuse (humans using models for bad stuff).`,
       options: [
         {
           label: `Substantial (1-50%)`,
           short: `1-50%`,
           rank: 2,
-          text: `Big time misalignment or misuse may be rather occasional, but human societies remain unequipped to avert or absorb the harms.`,
+          text: `Big time misalignment or misuse may be rare, but human societies remain unequipped to avert or absorb the harms.`,
           next: "c3",
         },
         {
-          label: `Negligible (\u22641%)`,
+          label: `Negligible (≤1%)`,
           short: `\u22641%`,
           rank: 1,
           text: `Models are getting mostly safer; misuse will not scale and/or human societies are resilient to substantial harms.`,
@@ -247,10 +233,10 @@ export const QUIZ_DATA = {
           camp: "accelerate",
         },
         {
-          label: `Near-certain (\u226550%)`,
+          label: `Near-certain (≥50%)`,
           short: `>50%`,
           rank: 3,
-          text: `Some sort of power-seeking behaviour or cases of misuse should be the default prediction.`,
+          text: `Some sort of power-seeking behaviour by AI or significant cases of misuse at scale should be the default prediction.`,
           next: null,
           camp: "halt",
         },
@@ -258,20 +244,21 @@ export const QUIZ_DATA = {
     },
 
     c3: {
-      tag: `CRUX 3`,
+      tag: `BRANCHING POINT 3`,
       icon: "ph-light ph-scales",
-      kicker: `Crux 03 · Moral Justification`,
+      kicker: `Branching Point 03 · Moral Justification`,
       stem: `Does the reward of reducing catastrophic risks morally justify the cost of pacing?`,
+      details: `This branching point asks people to identify what AI can do for humanity, and whether it’s worth foregoing. Can AI develop capabilities powerful enough to, say, cure cancer? Can it advance in research (and other beneficial capabilities) significantly faster than humans? If so, will any interventions that could prevent catastrophic risks associated with this progress save at least as many lives?`,
       help: `Reward = (mostly) crises averted. Cost = foregone benefits, money spent on infrastructure necessary for pacing, coordination efforts.`,
       options: [
         {
-          label: `Reducing risks justifies the costs.`,
+          label: `Reducing risks justifies the costs`,
           short: `yes`,
           text: `The value of human survival and flourishing is higher than what it'd cost to pace, esp. if people alive today and/or future generations count.`,
           next: "c4",
         },
         {
-          label: `Pacing's just too expensive.`,
+          label: `Pacing's just too expensive`,
           short: `not really`,
           text: `Delaying unprecedented benefits from advanced AI and/or allocating significant resources toward slowing AI R&D would be unreasonable or counterproductive.`,
           next: null,
@@ -281,21 +268,22 @@ export const QUIZ_DATA = {
     },
 
     c4: {
-      tag: `CRUX 4`,
+      tag: `BRANCHING POINT 4`,
       icon: "ph-light ph-hourglass-medium",
-      kicker: `Crux 04 · Instrumental Efficacy`,
+      kicker: `Branching Point 04 · Instrumental Efficacy`,
       stem: `How would more time change the risk?`,
+      details: `People who disagree on this branching point don’t necessarily disagree that AI could cause catastrophic harms worth preventing but rather that time is not the solution. Do we have the infrastructure to make use of more time, or do we need more solutions on the table first? Maybe good enough solutions can naturally keep pace with the development of potentially harmful capabilities?`,
       options: [
         {
-          label: `Time converts to safety.`,
+          label: `Time converts to safety`,
           short: `reduce`,
           text: `Our understanding of dangers, ability to control AI and/or defences need mostly just time.`,
           next: "c5",
         },
         {
-          label: `Time doesn't necessarily help (and might backfire).`,
+          label: `Time doesn't necessarily help (and might backfire)`,
           short: `unclear or might backfire`,
-          text: `We don't have a good enough idea to make use of extra time to arrive at more understanding, control, or better defences, <em>and</em> any attempts to artificially create time may just make the eventual release more dangerous.`,
+          text: `We don't have a good enough idea to make use of extra time to arrive at more understanding, control, or better defences, and any attempts to artificially create time may just make the eventual release more dangerous.`,
           next: null,
           camp: "entente",
         },
@@ -303,26 +291,27 @@ export const QUIZ_DATA = {
     },
 
     c5: {
-      tag: `CRUX 5`,
+      tag: `BRANCHING POINT 5`,
       icon: "ph-light ph-handshake",
-      kicker: `Crux 05 · Feasibility`,
+      kicker: `Branching Point 05 · Feasibility`,
       stem: `Can relevant actors meaningfully and sustainably coordinate to pace?`,
+      details: `This branching point shifts the conversation from justifying that pacing interventions can work to justifying that pacing interventions can work as part of a system. Is coordination required to make pacing work? How much can coordination between actors (e.g. in terms of international treaties) improve risk reduction? Who needs to be in on it? Do the current geopolitical and economic dynamics create an environment where actors are incentivised to cooperate in the long run (or are they likely to defect at the sight of inconvenience)?`,
       options: [
         {
-          label: `Probably.`,
+          label: `Probably`,
           short: `likely`,
           text: `Actors are incentivised to come to the table; verification/enforcement looks solvable/promising; precedents exist.`,
           next: "c6",
         },
         {
-          label: `No way.`,
+          label: `No way`,
           short: `unlikely`,
           text: `Actors are not incentivised to give up their current position and/or are likely to quickly defect on any agreement.`,
           next: null,
           camp: "dacc",
         },
         {
-          label: `Unclear but worth trying.`,
+          label: `Unclear but worth trying`,
           short: `unclear but worth trying`,
           text: `Actors may admittedly defect, but the fear of mutual distruction may also be enough to sustain cooperation.`,
           next: null,
@@ -332,13 +321,14 @@ export const QUIZ_DATA = {
     },
 
     c6: {
-      tag: `CRUX 6`,
+      tag: `BRANCHING POINT 6`,
       icon: "ph-light ph-percent",
-      kicker: `Crux 06 · Trade-offs`,
+      kicker: `Branching Point 06 · Trade-offs`,
       stem: `How much risk would pacing frontier AI need to avert to be worth it?`,
+      details: `At this point of the debate, most people agree that increasing safety measures is justified and necessary but will have different opinions on how much pacing is worth the trouble (as opposed to spending effort and money on other safety measures for example). Is any minimal risk reduction worth the attention? Can our effort take us further elsewhere? Do forecasts on risk reduction actually account for the right variables?`,
       options: [
         {
-          label: `Almost anything helps.`,
+          label: `Almost anything helps`,
           short: `anything helps`,
           rank: 1,
           text: `The risk is large enough that any improvement may save a lot of pain.`,
@@ -346,7 +336,7 @@ export const QUIZ_DATA = {
           camp: "pauseNow",
         },
         {
-          label: `It better be significant.`,
+          label: `It better be significant`,
           short: `it better be significant`,
           rank: 3,
           text: `Safe futures with AI are all or nothing OR we need to work harder to identify solutions that actually work before we spend our resources on them.`,
@@ -354,7 +344,7 @@ export const QUIZ_DATA = {
           camp: "coordinatedDelay",
         },
         {
-          label: `Small is enough.`,
+          label: `Small is enough`,
           short: `some`,
           rank: 2,
           text: `Committing what we reasonably can to improve our odds seems reasonable; smaller improvements may be enough over time.`,
@@ -416,83 +406,51 @@ export const QUIZ_DATA = {
   camps: {
     presentHarms: {
       title: `present harms`,
-      quote: `slow it — the harms are here`,
-      meter: 1,
-      blurb: `Restraint here rests on documented, present-tense harms: extractive training data, degraded labour conditions, surveillance, and concentrated corporate power. Speculative long-run scenarios are treated as a distraction from — and sometimes a marketing device for — the systems already deployed.`,
-      details: `People in this house generally agree that AI is a tool too powerful to turn a blind eye to as is—either because it has already reached sufficient capability to significantly destabilise societies, or because it doesn’t need to be super powerful to cause harm. Examples of present-day harms from AI that are arguably harmful enough to justify an intervention include: cybersecurity, labour displacement, human oversight on AI-made or AI-assisted decisions, inaccuracy, mental health implications, etc. This house might warns against the development of [fully autonomous agents](https://arxiv.org/abs/2502.02649), [implications of AI in consequential decision-making](https://arxiv.org/abs/2608.23642), or [impacts on the mental health of human societies](https://www.rand.org/news/press/2026/06/nearly-1-in-5-us-adolescents-and-young-adults-use-ai.html).`,
-      neighbors: [`Gebru / Bender / the DAIR lineage`],
+      details: `People in this house generally agree that AI is a tool too powerful to turn a blind eye to as is—either because it has already reached sufficient capability to significantly destabilise societies, or because it doesn’t need to be super powerful to cause harm. Examples of present-day harms from AI that are arguably harmful enough to justify an intervention include: cybersecurity, labour displacement, human oversight on AI-made or AI-assisted decisions, inaccuracy, mental health implications, etc. This house might warn against the development of [fully autonomous agents](https://arxiv.org/abs/2502.02649), [implications of AI in consequential decision-making](https://arxiv.org/abs/2608.23642), or [impacts on the mental health of human societies](https://www.rand.org/news/press/2026/06/nearly-1-in-5-us-adolescents-and-young-adults-use-ai.html). An important critique of this house is that the argument often does not look past the current capability, and any catastrophic outcomes, however improbable, fall outside its threat model. Pacing based on harms society could reasonably absorb in time furthermore blocks the feedback loop through which emerging harms would be identified, studied, and managed/prevented.`,
     },
 
     normalTech: {
       title: `normal technology`,
-      quote: `regulate uses, not models`,
-      meter: 4,
-      blurb: `AI is read as a general-purpose technology whose effects arrive at the speed institutions can absorb them, not at the speed of a training run. Governance should target deployments, liability, and downstream resilience rather than the models themselves or the pace of research.`,
-      neighbors: [`Narayanan & Kapoor`, `Acemoglu`],
+      details: `This impact-centred approach mostly considers the impact of AI on human societies rather than properties of the technology itself, and argues that the relevance of AI comes from adoption/diffusion of capabilities rather than research and development itself. This means that typical evidence of skyrocketing capability (e.g. benchmarks), amongst other things, does not alter the position because it rarely measures real-life use; despite steep development, the impacts on e.g. labour or education have been rather slow/gradual. It follows that AI is best understood the way we understand any prior technology. This leads to two main implications on regulating AI: (1) tools to regulate (e.g. policies) are already available and not dependent on defensive and control innovation, and (2) any regulation should be [targeted at use, not development](https://knightcolumbia.org/content/ai-as-normal-technology). Critics reply that just because adoption is slow and historically unexceptional, doesn’t mean the technology itself should be treated the same. Unlike previous technologies, which ran on deterministic steps a (trained) human could follow, AI reaches decisions in ways we cannot yet explain or backtrack. This means that harmful capability invisible before (and sometimes even at) inference may do its damage before any use-based regulations apply (see recent sandbox escapes).`,
     },
 
     accelerate: {
       title: `accelerate`,
-      quote: `floor it`,
-      meter: 5,
-      blurb: `Catastrophic risk is judged low enough that the dominant term in the ledger is the good that arrives sooner — health, growth, and capability compounding for people alive now. On this view restraint is the costly and unproven intervention, and the burden of proof sits with those proposing it.`,
-      neighbors: [`Andreessen`, `e/acc`, `Mechanize / Barnett`],
+      details: `People in this camp see AI as the route to [greater prosperity, scientific progress](https://a16z.com/the-techno-optimist-manifesto/) and [freedom from work](https://www.mechanize.work/blog/life-after-work/). They either see the risks associated as negligible, or think that the cost of slowing down is too great given the benefits they expect. A consequence of this is that while mitigations of particular risks may be acceptable to this camp, slowing down progress is a moral disaster, as it puts cures for diseases and improvements in the human condition further from reach, and out of reach entirely of those who will die in the lag between when the benefits would have arrived in the counterfactual, and when they actually do. Some of this camp do see non-negligible risks of extinction, but due to either a belief that slowing down would achieve very little, or particular views on population ethics which make extinction seem relatively less bad (see Schubert, also Frick for plausible counterarguments). One objection to this position is that it lacks informed consent from its subjects (few claim to hold this position) and also that they think citizens generally hold similar views (rather, they make normative claims themselves).`,
     },
 
     halt: {
       title: `halt`,
-      quote: `shut it all down`,
-      meter: 0,
-      blurb: `If the default outcome of building superintelligence with current understanding is ruin, then no exchange rate applies and no amount of delay is too expensive. The ask is an enforced stop to frontier training worldwide, treated as the only response proportionate to the estimate.`,
-      neighbors: [`MIRI — Yudkowsky & Soares`],
+      details: `People in this camp argue that the current AI research and development necessarily creates a race dynamic that ends only with the development of artificial superintelligence, which, if developed, is likely to [pursue undesirable goals](https://intelligence.org/the-problem/) and, by extension, harms (or kills) many humans. With the same breath, people in this camp often add that to prevent the development of ASI before we know how to control it, we need to complement technical research with [policy solutions](https://intelligence.org/wp-content/uploads/2025/05/AI-Governance-to-Avoid-Extinction.pdf), as frontier AI labs [will not regulate on their own accord](https://theconversation.com/if-we-dont-control-the-ai-industry-it-could-end-up-controlling-us-warn-two-chilling-new-books-266067). A standing problem for this camp is that most of its arguments only hold if we assume that humanity will in fact develop superintelligence—but most fail for regular use. The problem with ASI, however, is that it is generally quite hard to define (e.g. AI that has superhuman capability in maths could be very underwhelming at planning; ASI could be a moving goalpost; etc.), and therefore it is difficult to create policies targeted at preventing the invention of ASI. This camp often ends up using proxies like compute usage at frontier labs to specify when the halt should trigger; yet (a) the threshold’s significance decays as compute efficiency increases, and (b) the industry has no incentive to obey.`,
     },
 
     entente: {
       title: `entente`,
-      quote: `win the race, spend the lead`,
-      meter: 4,
-      blurb: `The risk is taken seriously, but unilateral slowing is read as transferring the frontier to less careful hands rather than removing the hazard. Safety is therefore pursued from a position of lead: hard security, internal safeguards, and a coalition that arrives first and sets the terms.`,
-      neighbors: [`Amodei`, `Aschenbrenner`],
+      details: `This camp considers who will win the AI race to be of paramount importance in whether it will result in good outcomes (Amodei). They worry that unilateral restraint by responsible actors could lead to less responsible ones racing ahead—and that coordinated restraint is not achievable (or at least not soon enough). They see a coalition led by the US exercising greater control over supply chains and securing its technological advantage over its rivals (China) (Aschenbrenner). Critiques state that achieving technological advantage can backfire if states have no means (policies and/or institutions) to force powerful actors to use the accumulated wealth for the betterment of human societies—and mechanisms like this (beyond regular corporate taxes or reputational pressure) do not yet exist.`,
     },
 
     dacc: {
       title: `d/acc`,
-      quote: `accelerate defense only`,
-      meter: 4,
-      blurb: `If the pace cannot be held down by agreement, the remaining lever is what gets built rather than how fast. Effort goes into defensive, decentralising and verification-friendly technology, so that the world the frontier arrives into is harder to knock over.`,
-      neighbors: [`Buterin`],
+      details: `People in this camp typically don’t expect AI development to stop: either because we can’t (e.g. coordination demands make it infeasible) or because we shouldn’t ([the cost of foregone benefits is too high](https://vitalik.eth.limo/general/2023/11/27/techno_optimism.html)). However, they also recognise that our current technologies will not suffice to protect humanity from the harms AI can potentially create and want a future with [maximum AI benefit and least possible downside](https://defacc.substack.com/p/what-is-defacc-anyway). The strategy that follows is differential acceleration: let AI development progress (incl. at a rapid pace) but channel a growing share of effort into building resilient societies (e.g. accelerating defensive capability in cyber and bio, or developing infrastructure that contains failures instead of propagating/cascading them). In order for this strategy to work, however, it must deliver fast, and that often disqualifies coordinated, government-run or government-mediated efforts. Main critiques of this camp include: (1) the fact that many dangerous AI capabilities are dual-use, and it would be non-trivial to accelerate defensive capabilities only, (2) claims that defence is only good if diffused, and diffusion may be too slow to outpace dangerous capabilities, and (3) scepticism that defensive infrastructure developed outside frontier labs can be competitive with offensive capabilities developed on the inside.`,
     },
 
     buildOption: {
       title: `build the option`,
-      quote: `build brakes, decide later`,
-      meter: 3,
-      blurb: `A durable pace looks unenforceable today, so the work is to build what would make it enforceable later: compute accounting, verification mechanisms, evaluations, and the institutions to run them. The brake is constructed and tested now so that it exists if the evidence ever warrants pulling it.`,
-      neighbors: [`Pacing the Frontier signatories`],
+      details: `This camp sees it as prudent to build the machinery for pacing before circumstances force us into a decision to pace (and we potentially do a worse job due to being unprepared). This agreement on preparation can cut across wide differences in opinion on how and when pacing would be appropriate. The canonical statement of this position comes from the Pacing the Frontier statement signed by employees of leading AI labs. Useful preparation could be infrastructure for verifying and monitoring compute usage, international agreements on governance and triggers for pacing. A weakness of this approach is that a lack of agreement on triggers for pacing and appropriate measures means the steps taken may prove less useful when they are needed—an intervention prepared now might not meet the challenge of having the necessary impact when needed.`,
     },
 
     pauseNow: {
       title: `pause now`,
-      quote: `stop giant runs, worldwide`,
-      meter: 0,
-      blurb: `Frontier scaling is treated as an unacceptable gamble taken without the consent of those exposed to it, and the threshold for stopping has already been met. The ask is a moratorium on the largest training runs in advance of any particular warning shot, on the grounds that waiting for one may mean waiting too long.`,
-      neighbors: [`PauseAI`, `the FLI lineage`],
     },
 
     coordinatedDelay: {
       title: `coordinated delay`,
-      quote: `a deal to delay ASI`,
-      meter: 2,
-      blurb: `Delay is worth buying, but only in the quantities that a genuine agreement between the leading states and labs can deliver. The work is diplomatic and verificatory: making a jointly observed slowdown attractive enough to sign and legible enough to check.`,
-      neighbors: [`AI Futures Project (Plan A)`],
+      details: `On the one hand, this camp’s main premise is that it is in no one’s best interest to [race towards ASI under the current conditions](https://ai-2040.com/). On the other hand, people in this camp typically expect unilateral regulation not to be particularly helpful in preventing the race to the bottom: they create unnecessary distrust, and actors will find their way around regulations they’re unhappy with anyway. This does not mean there is no hope—merely that this hope would need to be coordinated and, by extension, difficult to secure and probably expensive (e.g. require political will, durable institutions, and infrastructure that may not be there). Because of the high expected returns, though, proponents of this camp may find the cost justified. This camp has two main weaknesses: a thin discourse (few concrete proposals for how coordination would work are on the table, some of which we’re hoping to address through our work), and, more pragmatically, the absence of infrastructure to enforce compliance (or timely plans to build it).`,
     },
 
     tripwires: {
       title: `if-then tripwires`,
-      quote: `pause when tripwires fire`,
-      meter: 2,
-      blurb: `Delay is a scarce resource to be spent where it buys the most, bound to specified capability thresholds rather than left open-ended. Development continues until an agreed tripwire fires, at which point pre-committed responses take effect.`,
-      neighbors: [`the RSP school`, `Karnofsky`],
+      details: `This camp holds that there isn’t necessarily a need to universally hold off on AI R&D, but some exceptionally dangerous capabilities call for (and justify) exceptionally strong interventions. Such interventions (a.k.a. tripwires) must be specified now, for a couple of reasons: (a) harms from advanced AI may be too large and arrive too fast for reactive interventions to matter, and (b) pre-agreed interventions are actionable even in crises (e.g. during chaos or disagreement). Tripwires also answer the sceptics’ concern that top-down interventions are too intrusive, for they never trigger unless a pre-agreed concern becomes real. Furthermore, because tripwires restrict particular activities at particular companies—rather than blanket-constrain all actors—they may attract trailing competitors: the rules slow their faster rivals and give them room to close the gap. Tripwires' major weakness is that they only guard against harms we could imagine, arriving by routes we could imagine, potentially yielding many false negatives; and that they rely on proxies for danger (eval scores, [compute thresholds](https://metr.org/blog/2023-09-26-rsp/)) rather than danger itself, potentially yielding many false positives (each weakening the will to maintain them). Additionally, tripwires today exist only as voluntary frameworks, self-monitored by frontier developers, and a path to making compliance mandatory remains unspecified.`,
     },
   },
 };

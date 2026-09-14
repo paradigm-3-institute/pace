@@ -106,7 +106,7 @@ class Handler(SimpleHTTPRequestHandler):
 handler = partial(Handler, directory=str(ROOT))
 
 with ThreadingHTTPServer(("127.0.0.1", PORT), handler) as httpd:
-    print(f"The Pacing Tree -> http://localhost:{PORT}/   (Ctrl+C to stop)")
+    print(f"Ways to Pace -> http://localhost:{PORT}/   (Ctrl+C to stop)")
     print("Live reload is on: save content.js and the tab refreshes itself.")
     try:
         httpd.serve_forever()
