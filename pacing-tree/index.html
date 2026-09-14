@@ -175,6 +175,90 @@
         margin: 0 auto;
       }
 
+      /* ---------- extra questions ---------- */
+
+      .choices {
+        display: flex;
+        flex-direction: column;
+        gap: calc(10px * var(--fs, 1));
+        max-width: 26em;
+        width: 100%;
+        margin: calc(28px * var(--fs, 1)) auto 0;
+      }
+
+      .choice {
+        appearance: none;
+        font: inherit;
+        color: var(--color-conclusion-bg);
+        font-size: calc(16px * var(--fs, 1));
+        font-weight: 700;
+        text-align: center;
+        padding: calc(14px * var(--fs, 1)) 20px;
+        cursor: pointer;
+        background: transparent;
+        border: solid 2px var(--color-conclusion-bg);
+        border-radius: 4px;
+        transform-origin: center;
+        transition: transform 120ms ease;
+      }
+
+      .choice:hover,
+      .choice:focus-visible {
+        transform: scale(1.012);
+        outline: none;
+      }
+
+      .choice[data-chosen="true"] {
+        background: var(--color-why-pace-bg);
+      }
+
+      .other-row {
+        display: flex;
+        gap: 10px;
+        max-width: 26em;
+        width: 100%;
+        margin: calc(14px * var(--fs, 1)) auto 0;
+      }
+
+      /* The box keeps its space whether or not it is showing, so choosing
+         an answer that needs it doesn't shove the buttons about; it only
+         fades in. (An author display rule beats the hidden attribute, which
+         is why this rule exists at all.) */
+      .other-row {
+        transition: opacity 180ms ease;
+      }
+
+      .other-row[hidden] {
+        display: flex;
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      .other-input {
+        flex: 1 1 auto;
+        min-width: 0;
+        font: inherit;
+        font-size: calc(16px * var(--fs, 1));
+        color: var(--color-foreground);
+        background: var(--color-background);
+        border: solid 2px var(--color-sidebar);
+        border-radius: 4px;
+        padding: 10px 14px;
+      }
+
+      .other-input:focus {
+        outline: none;
+        border-color: var(--color-conclusion-bg);
+      }
+
+      /* The divider sits in the middle of the screen, like a question's body. */
+      .divider {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
       /* Sized like the essay's hgroup: 3em, sans, tight tracking. */
       .intro-title {
         font-family: var(--font-sans);
@@ -687,8 +771,13 @@
         color: var(--color-dark);
       }
 
-      .btn-primary:hover,
-      .btn-primary:focus-visible {
+      .btn-primary:disabled {
+        opacity: 0.35;
+        cursor: default;
+      }
+
+      .btn-primary:not(:disabled):hover,
+      .btn-primary:not(:disabled):focus-visible {
         background: var(--color-conclusion-bg);
         color: var(--color-dark);
       }
@@ -832,12 +921,13 @@
           }
         },
 
-        async record(campId, path) {
+        async record(campId, path, answers) {
           if (!this.ready) return;
           const { error } = await this.client.rpc("record_walk", {
             p_token: this.token(),
             p_camp_id: campId,
             p_path: path,
+            p_survey: answers || {},
           });
           if (error) console.warn("[pacing-tree] record_walk failed:", error);
         },
@@ -901,6 +991,9 @@
       let history = [];
       let currentId = QUIZ_DATA.start;
       let campId = null;
+
+      /* Answers to the extra questions, by question id. Stored with the walk. */
+      let survey = {};
 
       /* The order the options are shown in is drawn once per session per
          question — so going Back and forward again doesn't shuffle the cards
@@ -1102,9 +1195,188 @@
           renderQuestion();
         } else {
           campId = option.camp;
-          renderTree();
+          renderDivider();
         }
         window.scrollTo({ top: 0, behavior: "auto" });
+      }
+
+      /* Whether an extra question is asked, given the answers so far. */
+      function surveyApplies(q) {
+        const gate = q.showIf;
+        if (!gate) return true;
+        const answer = survey[gate.question];
+        if ("chose" in gate) return Boolean(answer) && answer.index === gate.chose;
+        if ("choseNot" in gate) return !answer || answer.index !== gate.choseNot;
+        return true;
+      }
+
+      /* The next question that applies, walking from `from` in `direction`.
+         Past either end means there are none left that way. */
+      function surveyStep(from, direction) {
+        const questions = QUIZ_DATA.survey?.questions || [];
+        let i = from;
+        while (i >= 0 && i < questions.length && !surveyApplies(questions[i])) {
+          i += direction;
+        }
+        return i;
+      }
+
+      /* One extra question at a time, in the order written, skipping any
+         whose showIf isn't met. Choosing an answer moves on at once; an
+         "other" answer opens a box first. Any of them can be skipped. When
+         they run out, the map. */
+      function renderSurvey(wanted) {
+        const questions = QUIZ_DATA.survey?.questions || [];
+        const index = surveyStep(wanted, 1);
+        if (index >= questions.length) return renderTree();
+        const q = questions[index];
+
+        /* numbered among the questions that apply right now */
+        const asked = questions.filter(surveyApplies);
+
+        leaveResult();
+        chrome(true);
+        stage.replaceChildren();
+        controls.replaceChildren();
+
+        const head = el("div", "q-head");
+        if (q.icon) {
+          const icon = el("i", `q-icon ${q.icon}`);
+          icon.setAttribute("aria-hidden", "true");
+          head.append(icon);
+        }
+        const kicker = el(
+          "p",
+          "kicker",
+          String(UI.surveyKicker)
+            .replace("{n}", String(asked.indexOf(q) + 1))
+            .replace("{total}", String(asked.length)),
+        );
+        head.append(kicker);
+        stage.append(head);
+
+        const body = el("div", "q-body");
+        const stem = el("h2", "stem", q.stem);
+        body.append(stem);
+        const help = q.help ? el("p", "help", q.help) : null;
+        if (help) body.append(help);
+
+        const list = el("div", "choices");
+        const previous = survey[q.id];
+
+        /* The box an "other" answer opens. One box serves every such
+           option; which one is active decides the prompt and what is saved. */
+        let active = null;
+        const otherRow = el("div", "other-row");
+        otherRow.hidden = true;
+        const otherInput = document.createElement("input");
+        otherInput.type = "text";
+        otherInput.className = "other-input";
+        otherInput.maxLength = 120;
+        otherInput.setAttribute("aria-label", q.stem);
+        const otherGo = button(UI.continueButton, () => {
+          const text = otherInput.value.trim();
+          if (!text || active === null) return otherInput.focus();
+          const option = q.options[active];
+          survey[q.id] = { answer: option.label, index: active, detail: text };
+          renderSurvey(index + 1);
+        });
+        otherGo.classList.add("btn-primary");
+        otherGo.disabled = true;
+        /* Continue wakes up as soon as there is something to continue with. */
+        otherInput.addEventListener("input", () => {
+          otherGo.disabled = otherInput.value.trim() === "";
+        });
+        otherInput.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" && !otherGo.disabled) otherGo.click();
+        });
+        otherRow.append(otherInput, otherGo);
+
+        const choices = [];
+        const mark = (i) => {
+          for (const c of choices) delete c.dataset.chosen;
+          choices[i].dataset.chosen = "true";
+        };
+        const open = (i) => {
+          active = i;
+          otherInput.placeholder = q.options[i].placeholder || UI.otherPlaceholder;
+          otherRow.hidden = false;
+        };
+
+        q.options.forEach((option, i) => {
+          const choice = el("button", "choice", option.label);
+          choice.type = "button";
+          choice.addEventListener("click", () => {
+            mark(i);
+            if (option.other) {
+              open(i);
+              otherInput.focus();
+              return;
+            }
+            survey[q.id] = { answer: option.label, index: i };
+            renderSurvey(index + 1);
+          });
+          choices.push(choice);
+          list.append(choice);
+        });
+
+        /* coming back to a question shows what was chosen before */
+        if (previous && q.options[previous.index]) {
+          mark(previous.index);
+          if (q.options[previous.index].other) {
+            open(previous.index);
+            otherInput.value = previous.detail || "";
+            otherGo.disabled = otherInput.value.trim() === "";
+          }
+        }
+
+        body.append(list);
+        if (q.options.some((o) => o.other)) body.append(otherRow);
+        stage.append(body);
+
+        /* Back to the previous extra question, or the divider; and Skip. */
+        controls.append(
+          button(UI.backButton, () => {
+            const previousIndex = surveyStep(index - 1, -1);
+            if (previousIndex < 0) renderDivider();
+            else renderSurvey(previousIndex);
+          }),
+        );
+        controls.append(
+          button(UI.skipButton, () => {
+            delete survey[q.id];
+            renderSurvey(index + 1);
+          }),
+        );
+
+        fitScreen();
+        stagger([head.firstChild, kicker, stem, help, ...list.children]);
+      }
+
+      /* The page between the last branching point and what follows it. One
+         button, no way back: the camp is decided by the time this shows. */
+      function renderDivider() {
+        leaveResult();
+        chrome(true);
+        stage.replaceChildren();
+        controls.replaceChildren();
+
+        const copy = QUIZ_DATA.survey?.intro;
+        if (!copy) return renderTree();
+
+        const wrap = el("div", "intro divider");
+        const text = el("p", "intro-text", copy.text);
+        wrap.append(text);
+
+        const actions = el("div", "intro-actions");
+        const go = button(copy.button, () => renderSurvey(0));
+        go.classList.add("btn-primary");
+        actions.append(go);
+        wrap.append(actions);
+
+        stage.append(wrap);
+        fitScreen();
+        stagger([text, actions]);
       }
 
       function back() {
@@ -1119,6 +1391,7 @@
       function restart() {
         history = [];
         campId = null;
+        survey = {};
         renderIntro();
         window.scrollTo({ top: 0, behavior: "auto" });
       }
@@ -1782,6 +2055,7 @@
           await live.record(
             campId,
             history.map((step) => ({ q: step.questionId, i: step.optionIndex })),
+            survey,
           );
           await refresh();
 

@@ -33,6 +33,16 @@ create table if not exists public.walks (
   created_at  timestamptz not null default now()
 );
 
+-- Answers to the extra questions asked after the tree, keyed by question id.
+-- `answer` is the option's label and `index` its position in content.js
+-- (from 0), so rewording an option doesn't invalidate what was recorded.
+-- `detail` is present when the option opened a box and something was typed:
+--   {"location": {"answer": "London", "index": 2}}
+--   {"location": {"answer": "Other", "index": 4, "detail": "Berlin"}}
+-- Absent keys were skipped. Added after the first version, hence the ALTER.
+alter table public.walks
+  add column if not exists survey jsonb not null default '{}'::jsonb;
+
 create index if not exists walks_camp_id_idx on public.walks (camp_id);
 create index if not exists walks_created_at_idx on public.walks (created_at desc);
 
@@ -101,10 +111,16 @@ grant select on public.camp_tallies, public.branching_point_tallies to anon, aut
 -- Records a completed walk, or updates the one this token already recorded.
 -- SECURITY DEFINER: it runs as the owner, which is why it can touch `voters`
 -- when the caller cannot. Every argument is validated before use.
+--
+-- The three-argument version from the first release is dropped first: with
+-- both in place, a call by name would be ambiguous.
+drop function if exists public.record_walk(uuid, text, jsonb);
+
 create or replace function public.record_walk(
   p_token   uuid,
   p_camp_id text,
-  p_path    jsonb default '[]'::jsonb
+  p_path    jsonb default '[]'::jsonb,
+  p_survey  jsonb default '{}'::jsonb
 )
 returns uuid
 language plpgsql
@@ -114,6 +130,7 @@ as $$
 declare
   v_walk_id uuid;
   v_path    jsonb := coalesce(p_path, '[]'::jsonb);
+  v_survey  jsonb := coalesce(p_survey, '{}'::jsonb);
 begin
   if p_token is null then
     raise exception 'a token is required';
@@ -127,11 +144,16 @@ begin
     raise exception 'path must be an array of at most 32 steps';
   end if;
 
+  -- a small object: a few short answers, never a document
+  if jsonb_typeof(v_survey) <> 'object' or pg_column_size(v_survey) > 4096 then
+    raise exception 'survey must be a small object';
+  end if;
+
   select walk_id into v_walk_id from public.voters where token = p_token;
 
   if v_walk_id is null then
-    insert into public.walks (camp_id, path)
-    values (p_camp_id, v_path)
+    insert into public.walks (camp_id, path, survey)
+    values (p_camp_id, v_path, v_survey)
     returning id into v_walk_id;
 
     insert into public.voters (token, walk_id)
@@ -140,6 +162,7 @@ begin
     update public.walks
        set camp_id = p_camp_id,
            path = v_path,
+           survey = v_survey,
            created_at = now()
      where id = v_walk_id;
 
@@ -152,8 +175,8 @@ begin
 end;
 $$;
 
-revoke all on function public.record_walk(uuid, text, jsonb) from public;
-grant execute on function public.record_walk(uuid, text, jsonb) to anon, authenticated;
+revoke all on function public.record_walk(uuid, text, jsonb, jsonb) from public;
+grant execute on function public.record_walk(uuid, text, jsonb, jsonb) to anon, authenticated;
 
 
 -- Everything the result screen needs, in one round trip.

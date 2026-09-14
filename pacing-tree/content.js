@@ -21,9 +21,40 @@
        buttonIcon  OPTIONAL. A Phosphor icon shown just before those
                words. Delete the line for a button with no icon.
 
+   survey — what comes after the last branching point.
+       intro      the divider page shown before the extra questions: `text`
+                  is the paragraph, `button` the words on its one button.
+       questions  a list, asked in the order written (never shuffled). Each:
+                    id       a short name the answer is stored under, e.g.
+                             "location". Letters and underscores only; keep
+                             it once people have answered.
+                    icon     OPTIONAL. A Phosphor icon, as for the branching
+                             points.
+                    stem     the question.
+                    help     OPTIONAL. A smaller line beneath it.
+                    options  the answers, each with a `label`. Any option
+                             marked `other: true` opens a box for the reader
+                             to type into when chosen; `placeholder` is the
+                             grey prompt inside that box. Several options
+                             in one question can do this.
+                    showIf   OPTIONAL. Asks this question only after a given
+                             answer to an earlier one:
+                               showIf: { question: "experience", chose: 0 }
+                             shows it to those who picked the FIRST option
+                             (options count from 0) of the question with id
+                             "experience"; `choseNot: 0` shows it to everyone
+                             else, including anyone who skipped that one.
+                  Answers are stored with the walk. Every one of these can be
+                  skipped; the reader's camp is already decided by now.
+
    ui — the handful of fixed labels the screens use around your content.
        masthead   the small line above every question and the result.
        backButton / restartButton   the words on those two buttons.
+       continueButton / skipButton  the buttons on the extra questions.
+       otherPlaceholder  the grey prompt inside an "other" box, for options
+                         that don't set their own `placeholder`.
+       surveyKicker      the small line above an extra question; {n} and
+                         {total} become the numbers.
 
        The remaining labels appear only when live results are switched on in
        config.js.
@@ -133,7 +164,7 @@
 
 export const QUIZ_DATA = {
   intro: {
-    icon: "ph-light ph-tree",
+    icon: "ph-light ph-compass",
     kicker: `Quiz`,
     title: `Ways to Pace`,
     text: `Experts who mostly agree that unrestricted AI progress poses significant risks to human societies still disagree on major branching points of the pacing debate. We created this interactive tool as an invitation for you to consider your position on these branching points and to give you an opportunity to compare others' views with your own.`,
@@ -142,10 +173,79 @@ export const QUIZ_DATA = {
     buttonIcon: "ph-light ph-rocket-launch",
   },
 
+  /* The page shown once the last branching point is answered, before the
+     extra questions and the map. */
+  survey: {
+    intro: {
+      text: `Before we show you where your position on pacing sits relative to others', help us turn individual answers into a better picture of the field by answering a few extra questions.`,
+      button: `Let's go!`,
+    },
+
+    questions: [
+      {
+        id: "location",
+        icon: "ph-light ph-map-pin",
+        stem: `Do you happen to be based in one of the following areas?`,
+        options: [
+          { label: `Bay Area` },
+          { label: `DC` },
+          { label: `London` },
+          { label: `Prague` },
+          { label: `Other`, other: true, placeholder: `Where, then?` },
+        ],
+      },
+      {
+        id: "experience",
+        icon: "ph-light ph-shield-check",
+        stem: `How much experience do you have with AI safety?`,
+        options: [
+          { label: `Working on it full time!` },
+          { label: `A hobbyist contributor` },
+          { label: `Am AI-safety-curious` },
+          { label: `Heard of it, not involved` },
+          { label: `Never heard` },
+        ],
+      },
+      {
+        id: "ais_kind",
+        icon: "ph-light ph-flask",
+        stem: `What kind of AIS do you work on?`,
+        /* only for those who chose the first answer above */
+        showIf: { question: "experience", chose: 0 },
+        options: [
+          { label: `Technical alignment` },
+          { label: `Evaluations, red-teaming, or security` },
+          { label: `AI governance and policy` },
+          { label: `Field-building, grantmaking, or operations` },
+          { label: `Something else`, other: true, placeholder: `What, then?` },
+        ],
+      },
+      {
+        id: "day_job",
+        icon: "ph-light ph-briefcase",
+        stem: `What best describes your day job?`,
+        /* for everyone else */
+        showIf: { question: "experience", choseNot: 0 },
+        options: [
+          { label: `Technical research or engineering` },
+          { label: `Policy, government, or law` },
+          { label: `Academia or research`, other: true, placeholder: `Which area?` },
+          { label: `Journalism, writing, or communications` },
+          { label: `Student`, other: true, placeholder: `Which area?` },
+          { label: `Something else`, other: true, placeholder: `What, then?` },
+        ],
+      },
+    ],
+  },
+
   ui: {
     masthead: `Ways to Pace`,
     backButton: `Back`,
     restartButton: `Start again`,
+    continueButton: `Continue`,
+    skipButton: `Skip`,
+    otherPlaceholder: `Tell us more`,
+    surveyKicker: `Extra question {n} of {total}`,
 
     resultsWaiting:
       `The live tally appears once a few more people have walked the tree.`,
@@ -222,7 +322,7 @@ export const QUIZ_DATA = {
           short: `1-50%`,
           rank: 2,
           text: `Big time misalignment or misuse may be rare, but human societies remain unequipped to avert or absorb the harms.`,
-          next: "c3",
+          next: "c4",
         },
         {
           label: `Negligible (≤1%)`,
@@ -244,9 +344,9 @@ export const QUIZ_DATA = {
     },
 
     c3: {
-      tag: `BRANCHING POINT 3`,
+      tag: `BRANCHING POINT 4`,
       icon: "ph-light ph-scales",
-      kicker: `Branching Point 03 · Moral Justification`,
+      kicker: `Branching Point 04 · Moral Justification`,
       stem: `Does the reward of reducing catastrophic risks morally justify the cost of pacing?`,
       details: `This branching point asks people to identify what AI can do for humanity, and whether it’s worth foregoing. Can AI develop capabilities powerful enough to, say, cure cancer? Can it advance in research (and other beneficial capabilities) significantly faster than humans? If so, will any interventions that could prevent catastrophic risks associated with this progress save at least as many lives?`,
       help: `Reward = (mostly) crises averted. Cost = foregone benefits, money spent on infrastructure necessary for pacing, coordination efforts.`,
@@ -255,7 +355,7 @@ export const QUIZ_DATA = {
           label: `Reducing risks justifies the costs`,
           short: `yes`,
           text: `The value of human survival and flourishing is higher than what it'd cost to pace, esp. if people alive today and/or future generations count.`,
-          next: "c4",
+          next: "c5",
         },
         {
           label: `Pacing's just too expensive`,
@@ -268,9 +368,9 @@ export const QUIZ_DATA = {
     },
 
     c4: {
-      tag: `BRANCHING POINT 4`,
+      tag: `BRANCHING POINT 3`,
       icon: "ph-light ph-hourglass-medium",
-      kicker: `Branching Point 04 · Instrumental Efficacy`,
+      kicker: `Branching Point 03 · Instrumental Efficacy`,
       stem: `How would more time change the risk?`,
       details: `People who disagree on this branching point don’t necessarily disagree that AI could cause catastrophic harms worth preventing but rather that time is not the solution. Do we have the infrastructure to make use of more time, or do we need more solutions on the table first? Maybe good enough solutions can naturally keep pace with the development of potentially harmful capabilities?`,
       options: [
@@ -278,7 +378,7 @@ export const QUIZ_DATA = {
           label: `Time converts to safety`,
           short: `reduce`,
           text: `Our understanding of dangers, ability to control AI and/or defences need mostly just time.`,
-          next: "c5",
+          next: "c3",
         },
         {
           label: `Time doesn't necessarily help (and might backfire)`,
@@ -360,16 +460,16 @@ export const QUIZ_DATA = {
       c1: { x: 350, y: -60 },
       c1b: { x: -60, y: 120 },
       c2: { x: 350, y: 200 },
-      c3: { x: 350, y: 400 },
-      c4: { x: 350, y: 570 },
+      c3: { x: 350, y: 570 },
+      c4: { x: 350, y: 400 },
       c5: { x: 350, y: 740 },
       c6: { x: 350, y: 990 },
 
       presentHarms: { x: -250, y: 410, place: "below" },
       normalTech: { x: 43, y: 430, place: "below" },
-      accelerate: { x: 870, y: 215, place: "above" },
+      accelerate: { x: 1120, y: 215, place: "above" },
       halt: { x: -200, y: 735, place: "left" },
-      entente: { x: 990, y: 580, place: "above" },
+      entente: { x: 990, y: 410, place: "above" },
       dacc: { x: 896, y: 880, place: "above" },
       buildOption: { x: -80, y: 840, place: "below" },
       pauseNow: { x: 203, y: 1240, place: "below" },
@@ -397,10 +497,7 @@ export const QUIZ_DATA = {
       "c6:2": { sh: "b", th: "t" },
     },
 
-    extras: [
-      { from: "c6", to: "halt", sh: "l", th: "b", label: ``, dash: true },
-      { from: "c6", to: "entente", sh: "r", th: "r", label: `≲0`, dash: true },
-    ],
+    extras: [],
   },
 
   camps: {

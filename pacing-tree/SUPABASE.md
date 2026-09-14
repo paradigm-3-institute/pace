@@ -87,6 +87,7 @@ One row per completed walk:
 | ------------ | ----------------------------------------- |
 | `camp_id`    | `"coordinatedDelay"`                      |
 | `path`       | `[{"q":"c1","i":0},{"q":"c2","i":0}, …]`  |
+| `survey`     | `{"location": {"answer": "London", "index": 2}}` |
 | `created_at` | `2026-09-04 14:02:11+00`                  |
 
 `i` is the option's index in `content.js` — `0` for the first option, `1` for
@@ -96,6 +97,21 @@ data collected so far.** Reordering the two options within a question would
 invalidate it; adding or removing a question would not, and neither does
 changing an option's `rank`, which only affects the order the cards are shown
 in.
+
+`survey` holds the answers to the extra questions after the tree, keyed by
+each question's `id` from `content.js`. Each answer records the option's
+`answer` (its label) and `index` (its position, from 0 — stable if you reword
+it). When an option opened a text box, what was typed is in `detail`. A skipped
+question is simply absent.
+
+```sql
+-- where people are: listed choices, with typed places where given
+select coalesce(survey -> 'location' ->> 'detail',
+                survey -> 'location' ->> 'answer') as place,
+       count(*)
+from walks
+group by 1 order by 2 desc;
+```
 
 No IP address, no user agent, no session, no cookie. The one thing the browser
 keeps is a random id in `localStorage` under `pacing-tree-token`, which maps to
