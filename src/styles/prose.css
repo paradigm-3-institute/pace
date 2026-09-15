@@ -1,5 +1,16 @@
 .prose {
+  /* The body size, and the one number the headings scale from. It is a
+     variable in px rather than an em so it can be reused in calc()
+     below: an em inside a custom property resolves where the property
+     is *used*, which for the h3's sticky offset would be the h3. */
+  --prose-size: 17px;
+  --h2-size: calc(var(--prose-size) * 1.4);
+  --h2-pad: 6px;
+  /* The h2 is sticky and the h3 sticks beneath it, so the h3's offset is
+     the h2's rendered height: line box + padding + 2px borders. */
+  --h2-height: calc(var(--h2-size) * 1.6 + 2 * var(--h2-pad) + 4px);
   font-family: var(--font-serif);
+  font-size: var(--prose-size);
   line-height: 1.6;
   overflow-wrap: break-word;
 }
@@ -32,10 +43,10 @@
 }
 
 .prose h2 {
-  font-size: 24px;
+  font-size: var(--h2-size);
   margin: 80px 6px 48px 6px;
-  letter-spacing: -0.03em;
-  padding: 6px;
+  letter-spacing: -0.01em;
+  padding: var(--h2-pad);
   border: solid 2px var(--color-sidebar);
   text-align: center;
   position: sticky;
@@ -52,12 +63,12 @@
 }
 
 .prose h3 {
-  font-size: 22px;
+  font-size: 1.3em;
   font-family: var(--font-sans);
   margin-top: 32px;
   margin-bottom: 24px;
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   line-height: 1.2;
   text-wrap: pretty;
   color: var(--color-conclusion-bg);
@@ -65,14 +76,14 @@
   margin-left: calc(-1 * var(--x-padding-inside));
   padding: 10px var(--x-padding-inside) 14px;
   position: sticky;
-  top: 54px;
+  top: var(--h2-height);
   z-index: 1;
   background-color: var(--color-background);
   border-bottom: 2px solid var(--color-sidebar);
 }
 
 .prose h4 {
-  font-size: 24px;
+  font-size: 1.25em;
   font-family: var(--font-serif);
   margin-top: 32px;
   margin-bottom: 16px;
@@ -83,7 +94,7 @@
 
 .prose h5,
 .prose h6 {
-  font-size: 18px;
+  font-size: 0.95em;
   font-family: var(--font-sans);
   margin-top: 28px;
   margin-bottom: 12px;
@@ -99,15 +110,21 @@
 }
 
 @media (width >= 48rem) {
-  .prose h2 {
-    font-size: 30px;
-    padding: 12px;
+  .prose {
+    --prose-size: 19px;
+    --h2-size: calc(var(--prose-size) * 1.6);
+    --h2-pad: 12px;
   }
 
   .prose h3 {
-    font-size: 30px;
-    top: 76px;
+    font-size: 1.6em;
     padding: 10px var(--x-padding-inside) 12px;
+  }
+}
+
+@media (width >= 96rem) {
+  .prose {
+    --prose-size: 21px;
   }
 }
 
@@ -360,10 +377,10 @@
 
 .prose summary {
   padding: 12px 0px;
-  padding-left: var(--x-padding-inside);
+  padding-left: calc(var(--x-padding-inside) * 0.6);
   font-family: var(--font-sans);
   background-color: var(--color-pace-what-bg);
-  color: var(--color-conclusion-bg);
+  color: var(--color-call-to-action-bg);
   font-size: 1.2em;
   font-weight: 600;
 }
@@ -375,9 +392,9 @@
 .prose .footnotes {
   margin-top: 48px;
   padding-top: 16px;
-  border-top: 2px solid var(--color-sidebar);
-  font-size: 0.85em;
-  color: var(--color-then-what-bg);
+  border-top: 2px solid var(--color-why-pace-bg);
+  font-size: 0.82em;
+  font-family: var(--font-sans);
 }
 
 .prose .footnotes h2 {
@@ -397,8 +414,8 @@
   padding-left: 1.4em;
 }
 
-.prose .footnotes li + li {
-  margin-top: 8px;
+.prose .footnotes li {
+  margin-top: 12px;
 }
 
 .prose .footnotes p {
@@ -412,7 +429,7 @@
 
 .prose [data-footnote-ref] {
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 800;
   padding: 0 0.15em;
 }
 
@@ -420,4 +437,11 @@
 .prose .footnotes li:target {
   background: var(--color-why-pace-bg);
   border-radius: 3px;
+}
+
+/* Jumping to a footnote, or back to its marker, lands below the stuck
+   h2 and h3, which together cover up to about 150px. */
+.prose [data-footnote-ref],
+.prose .footnotes li {
+  scroll-margin-top: 170px;
 }

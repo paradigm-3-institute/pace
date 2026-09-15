@@ -6,8 +6,5 @@
 
 ## todo
 - Re-design author list
-- Pick a serif font
-- Different colors for prose elements
-  - Collapsibles
 - Optimize images
-- Add alt tags to images
+- Redesign quiz

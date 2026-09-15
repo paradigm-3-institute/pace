@@ -31,7 +31,7 @@
   --color-appendices-bg: rgb(4, 35, 1);
 
   --font-sans: var(--font-satoshi), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-serif: var(--font-body-serif), "Iowan Old Style", "Palatino Linotype", Georgia, serif;
 
   --x-padding: 32px;
 }

@@ -48,7 +48,7 @@ By contrast, for a rival good like computing hardware, an oversight body could b
 
 This highlights a recurring tradeoff. Control surfaces earlier in the chain are easier to observe and constrain, but further removed from the eventual harm, forcing interventions to be blunt. Later surfaces are often more amenable to precise targeting, but can be more difficult to intervene on and less robust. 
 
-![](/media/control-surfaces.png)
+![A diagram showing AI development control surfaces across the development and deployment chain.](/media/control-surfaces.png)
 
 ### 3.2 Targeting and tradeoffs
 
@@ -60,7 +60,7 @@ Interventions earlier in the development process can have wider-reaching downstr
 
 For most threats, there are multiple distinct pathways to their realization. A capability advance can come from more training compute, better algorithms, [more elaborate post-training](https://arxiv.org/abs/2310.06452), or better elicitation of a model’s existing latent capabilities. An intervention which targets one route but leaves the others open still allows threat-relevant activity to continue even if the intervention is perfectly enforced.
 
-![](/media/intervention.png)
+![A diagram showing how a pacing intervention affects different pathways to dangerous AI capabilities.](/media/intervention.png)
 
 The quality of selection also changes over time. This is partly because actors adapt in response to interventions, as we discuss in §5. But even beyond that, the effectiveness of an intervention depends on empirical assumptions about the relationship between the control surface and the hazard. These assumptions may be changed by later progress. 
 
@@ -69,7 +69,7 @@ For example, one conservative way to prevent the emergence of a dangerous advanc
 For a given control surface, there will often be a three-way tradeoff between false positives, false negatives, and intrusiveness or oversight. Simply put, one can make an imperfect intervention more or less broad, or one can invest in making the intervention more accurate, by some mix of investing more energy in scrutinizing individual cases and requiring more access to information about those cases, some of which might otherwise be private.  
  
 
-![](/media/draw-the-line.png)
+![A diagram illustrating the tradeoff between false positives, false negatives, and intervention intrusiveness.](/media/draw-the-line.png)
 
 Broader interventions, which capture a higher fraction of threat-relevant activity, carry with them greater economic costs, while narrower interventions may be easier to circumvent and thus have fewer safety benefits.
 
@@ -89,7 +89,9 @@ Coordination is more sustainable when compliance can be checked without needing 
 
 Unfortunately, while information about model capabilities and threat models accumulates steeply along the arc of model development, coordination can become more difficult. The information that can be gained about a system nearing deployment is often nonstandardized and difficult to make legible (i.e. the internal testing protocols and mitigation mechanisms at one lab may not look the same as at another, even if they point at the same targets). Upstream, however, information on goods like compute, which are produced by very few companies in relatively few places, can be easily [made legible, verified and shared](https://arxiv.org/abs/2408.16074), making coordination easier. As a result, coordinating actors will tend to select upstream control surfaces: the crude and high-false-positive side of the arc provides a source of surfaces better suited to coordination.
 
-### 3.4 Case A: a cap on frontier training {#3.4-case-a:-a-cap-on-frontier-training}
+<details>
+  <summary> Case A: A cap on frontier training </summary>
+  <div>
 
 Suppose the concern is that AI systems may substantially accelerate or automate AI R\&D before adequate means of control exist. The hazard is a transition toward AI-driven development which outpaces developers’ ability to control it. 
 
@@ -103,7 +105,13 @@ Here we choose a per-model cap covering pretraining and post-training. Developer
 
 **Coordination:** Compute usage is a comparatively legible surface, if actors can be required to share records. [Many](https://arxiv.org/abs/2604.04712) [proposals](https://s3.us-east-1.amazonaws.com/files.cnas.org/documents/CNAS-Report-Tech-Secure-Chips-Jan-24-finalb.pdf) for governing compute usage and tracking chips [exist](https://arxiv.org/abs/2505.03742); it appears the technical problems involved are feasible to solve, but more work is still needed before this can be implemented. The coordination required involves figuring out who has authority over verifying compliance, who is included under the scope of the policy (which individual developers, and which nations), and how to respond to capability gains by non-participants so that continued participation remains preferable to defection.
 
-### 3.5 Case B: restricting access to dangerous biological capabilities
+  </div>
+</details>
+
+
+<details>
+  <summary> Case B: Restricting access to dangerous biological capabilities </summary>
+  <div>
 
 Suppose instead that the concern is the diffusion of AI assistance that materially increases users’ ability to develop biological weapons. Here the hazard is more about access and usage than training. 
 
@@ -118,6 +126,9 @@ In cases where usage restriction is the target, there are more obviously tangibl
 **Coordination:** The control surface here is less widely legible than in the compute cap example, and relies upon the existence of a trustworthy evaluator with sufficient expertise to make determinations. Participating governments would need to agree on evaluation standards, and recognize qualified evaluators. Difficulties again arise with what to do about non-covered actors, though in the case of narrow restrictions on usage compliance may be less costly for model providers than with broad restrictions, since the majority of their customers might see limited gains from access to these capabilities anyway, and exceptions could plausibly be tailored for legitimate cases.
 
 There is also a risk that, once an open model with a given level of capabilities exists, subsequently attempting to control it may achieve substantially less and may not justify ongoing costs, so the policy may be brittle in the long run.
+
+  </div>
+</details>
 
 ### 3.6 Open Research Questions
 

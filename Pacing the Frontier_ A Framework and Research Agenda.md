@@ -150,8 +150,6 @@ But beyond this, it burned investor trust and disincentivized investments in nuc
 
 It is likewise possible that pacing will not have the trust of those in AI because they are correct in predicting it will be hard to undo if the risk is found to be low. 
 
-### 
-
 ### **2.2 Why pace more?**
 
 #### **2.2.1 AI threats take time to understand and mitigate**

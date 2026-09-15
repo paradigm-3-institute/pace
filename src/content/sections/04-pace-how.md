@@ -5,7 +5,7 @@ order: 4
 
 A pacing intervention is ultimately a sequence of steps; we reason about an intervention from start to end and consider its many decision points and failure points. This lets us spot the supporting work required for an actual, sustained period of restraint[^5].
 
-![](/media/evidence-to-action.png)
+![A diagram showing how evidence can fail to influence pacing action.](/media/evidence-to-action.png)
 
 Figure X: How evidence can fail to influence action
 
@@ -90,7 +90,9 @@ Ending an intervention need not mean dismantling it entirely. It could make sens
 
 Table: Key decisions per stage of an intervention’s lifecycle
 
-### 4.5 Case A: a cap on frontier training
+<details>
+  <summary> Case A: A cap on frontier training </summary>
+  <div>
 
 **Before pacing,** governments should recognize that they are hoping to slow development before it outpaces developers’ and authorities’ oversight capacity. Thus they must make judgment calls about when developers are sufficiently close to the dangerous threshold to justify intervention. A problem is that the predictive tools they could use to detect relevant signals are hard to interpret: to take one scenario, some forecasts may predict imminent self improvement, while others disagree. 
 
@@ -104,7 +106,12 @@ Ongoing reviews could be conducted to establish whether pacing is still warrante
 
 However, if there does appear to be a hard capabilities threshold under a certain compute threshold, insufficient progress is made on assurance of safety, and the controls are sufficiently widely adopted, it may be that it would be desirable for these restrictions to persist indefinitely. 
 
-### 4.6 Case B: restricting access to dangerous biological capabilities
+  </div>
+</details>
+
+<details>
+  <summary> Case B: Restricting access to dangerous biological capabilities </summary>
+  <div>
 
 **Before pacing**, labs may be required to make their models available to third-party evaluators for pre-release evaluations of potential capabilities that would provide uplift to a malign actor (e.g. to debug a failing synthesis protocol, or piece together a dangerous method from scattered dual-use sources). A biological capability is far harder to recall once it reaches the public than to withhold beforehand, so reaching a certain threshold on the evaluations should block deployment outright, unless safeguards can be demonstrated to mitigate the risk. This is particularly important for open weight models, where release is difficult to reverse.
 
@@ -113,6 +120,9 @@ However, if there does appear to be a hard capabilities threshold under a certai
 **During pacing,** monitoring bodies should audit access logs to confirm adherence to access restrictions, and confirm that any investigation is led by independent evaluators qualified to judge biological uplift, rather than the labs themselves. Ongoing monitoring to ensure latent capabilities are not easily elicited by jailbreaking methods may also be part of this puzzle.
 
 **Ending pacing** may not involve any form of public release. As a condition of restricted release, labs may need to prove that even where a model retains a dangerous capability, there is the capacity and will to reliably vet their users and flag suspicious activity to the authorities. 
+
+  </div>
+</details>
 
 ### 4.7 Open Research Questions
 

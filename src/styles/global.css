@@ -2,7 +2,7 @@
 
 @theme {
   --font-sans: var(--font-satoshi), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-serif: var(--font-body-serif), "Iowan Old Style", "Palatino Linotype", Georgia, serif;
 
   --color-sidebar: #042301;
   --color-background: #ffffff;
@@ -59,6 +59,6 @@ html {
 }
 
 ::selection {
-  background-color: var(--color-then-what-bg);
+  background-color: var(--color-call-to-action-bg);
   color: var(--color-background);
 }
