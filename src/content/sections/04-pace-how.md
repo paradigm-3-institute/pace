@@ -5,7 +5,7 @@ order: 4
 
 A pacing intervention is ultimately a sequence of steps; we reason about an intervention from start to end and consider its many decision points and failure points. This lets us spot the supporting work required for an actual, sustained period of restraint[^5].
 
-![A diagram showing how evidence can fail to influence pacing action.](/media/evidence-to-action.png)
+![A diagram showing how evidence can fail to influence pacing action.](/media/evidence-to-action.webp)
 
 Figure X: How evidence can fail to influence action
 
