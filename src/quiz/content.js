@@ -48,7 +48,6 @@
                   skipped; the reader's camp is already decided by now.
 
    ui — the handful of fixed labels the screens use around your content.
-       masthead   the small line above every question and the result.
        backButton / restartButton   the words on those two buttons.
        continueButton / skipButton  the buttons on the extra questions.
        otherPlaceholder  the grey prompt inside an "other" box, for options
@@ -240,7 +239,6 @@ export const QUIZ_DATA = {
   },
 
   ui: {
-    masthead: `Ways to Pace`,
     backButton: `Back`,
     restartButton: `Start again`,
     continueButton: `Continue`,

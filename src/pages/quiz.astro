@@ -35,7 +35,7 @@ const socialImageURL = new URL("/card.png", Astro.url);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -64,29 +64,41 @@ const socialImageURL = new URL("/card.png", Astro.url);
     <Font cssVariable="--font-plex-mono" />
   </head>
 
-  <body>
-    <aside class="sidebar">
-      <a href="/" class="sidebar-title" aria-label="How to Pace the Frontier">
+  <body class="h-full overflow-hidden flex flex-col font-serif text-[16px] leading-[1.6] md:pl-70">
+    <!-- The essay's sidebar (src/pages/index.astro): same width, padding
+         and type, with the quiz's title and its opening paragraph in place
+         of the table of contents. Fixed down the left from md; a block
+         across the top below it, where the title runs on one line to
+         leave room for the screen beneath. -->
+    <aside class="flex-none select-none bg-sidebar text-background font-sans p-7 pb-6 md:pb-8 md:fixed md:inset-y-0 md:left-0 md:w-70 md:overflow-auto">
+      <h1 class="flex gap-[0.25em] text-[32px] leading-none font-light md:grid md:gap-2 md:text-5xl">
         <span>Ways</span>
-        <span class="sidebar-title-small">to</span>
+        <span class="md:-ml-0.5">to</span>
         <span>Pace</span>
+      </h1>
+      <a class="inline-block mt-6 text-(--color-pace-how-bg) hover:text-(--color-why-pace-bg)" href="/">
+        ← Back to paper
       </a>
-      <p class="sidebar-text">
-        Experts who mostly agree that unrestricted AI progress poses significant risks to human societies still disagree
-        on major branching points of the pacing debate. We created this interactive tool as an invitation for you to
-        consider your position on these branching points and to give you an opportunity to compare others' views with
-        your own.
-      </p>
+      <div class="mt-7 grid gap-7 antialiased">
+        <p>
+          Experts who mostly agree that unrestricted AI progress poses significant risks to human societies still
+          disagree on major branching points of the pacing debate.
+        </p>
+        <p>
+          We created this interactive tool as an invitation for you to consider your position on these branching points
+          and to give you an opportunity to compare others' views with your own.
+        </p>
+      </div>
     </aside>
 
-    <main class="shell">
-      <header class="masthead" id="masthead">
-        <p id="masthead-text"></p>
-      </header>
+    <!-- Scrolls on its own if a screen is taller than the window, so the
+         sidebar stays put. -->
+    <main class="flex flex-1 min-h-0 w-full max-w-[860px] mx-auto flex-col overflow-y-auto pt-16 pb-7 px-(--x-padding)">
+      <!-- Anchored to the top, not centred: centring would move the icon
+           up and down with the length of each question. -->
+      <div class="flex flex-auto flex-col justify-start" id="stage" aria-live="polite"></div>
 
-      <div class="stage" id="stage" aria-live="polite"></div>
-
-      <div class="controls" id="controls"></div>
+      <div class="mt-6 flex flex-wrap gap-3 empty:hidden" id="controls"></div>
     </main>
 
     <script src="../quiz/quiz.js"></script>

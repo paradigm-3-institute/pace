@@ -6,5 +6,3 @@
 
 ## todo
 - Re-design author list
-- Optimize images
-- Redesign quiz

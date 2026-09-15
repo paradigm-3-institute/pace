@@ -1,495 +1,64 @@
 /* =====================================================================
-   Everything here follows the essay's own stylesheets — the palette and
-   spacing from src/styles/global.css, the visual motifs from
-   src/styles/prose.css. The recurring devices there are:
+   Ways to Pace — the quiz's stylesheet.
 
-     · 2px borders in --color-sidebar, with a 4px radius
-     · headings in the sans face, body copy in the serif
-     · the collapsible pair: --color-pace-what-bg for the summary strip,
-       --color-why-pace-bg for the panel beneath it
-     · --color-then-what-bg for secondary text and list markers
+   The screens are styled with Tailwind utilities in quiz.astro and
+   src/quiz/*.js, on top of the essay's tokens from global.css. What is
+   left here is what utilities express badly:
 
-   The quiz is built out of those and nothing else.
+     · the entrance animation
+     · the Phosphor icon masks
+     · the map at the end, a printed-diagram design with SVG arms,
+       positioned nodes and animated dots, all driven by data attributes
+       and per-element variables from map.js
    ===================================================================== */
 
-:root {
-  /* src/styles/global.css, same names */
-  --color-sidebar: #042301;
-  --color-background: #ffffff;
-  --color-from: #faf8f1;
-  --color-foreground: #333333;
-  --color-dark: #faf8f1;
+@import "./global.css";
 
-  /* the eight-section ramp, from --color-from to --color-to */
-  --color-introduction-bg: rgb(250, 248, 241);
-  --color-why-pace-bg: rgb(215, 218, 207);
-  --color-pace-what-bg: rgb(180, 187, 172);
-  --color-pace-how-bg: rgb(145, 157, 138);
-  --color-then-what-bg: rgb(109, 126, 104);
-  --color-conclusion-bg: rgb(74, 96, 70);
-  --color-call-to-action-bg: rgb(39, 65, 35);
-  --color-appendices-bg: rgb(4, 35, 1);
-
-  --font-sans: var(--font-satoshi), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-serif: var(--font-body-serif), "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-
-  --x-padding: 32px;
-}
-
-@media (width >= 48rem) {
-  :root {
-    --x-padding: 64px;
+@theme {
+  /* Each screen's parts arrive one after another. `backwards` rather
+     than `both` on purpose: it holds the opening frame through the delay,
+     then stops applying, which leaves the cards free to use transform for
+     their hover. */
+  --animate-rise: rise 360ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+/* ---------- Phosphor icons ----------
+   Rendered from per-icon SVG masks that quiz.astro inlines at build time.
+   Sized and coloured by font-size and color, the same way the icon font
+   was. */
 
-html,
-body {
-  height: 100%;
-}
-
-html {
-  background: var(--color-from);
-  color: var(--color-foreground);
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: var(--font-serif);
-  font-size: 16px;
-  line-height: 1.6;
-  overflow: hidden;
-}
-
-::selection {
-  background-color: var(--color-then-what-bg);
-  color: var(--color-background);
-}
-
-/* ---------- sidebar ----------
-   The essay's sidebar (src/pages/index.astro), same width, padding and
-   type, with the quiz's title and its opening paragraph in place of the
-   table of contents. Fixed down the left from the md breakpoint, a block
-   across the top below it. */
-
-:root {
-  --sidebar-width: 280px; /* md:w-70 */
-}
-
-.sidebar {
-  background: var(--color-sidebar);
-  color: var(--color-background);
-  font-family: var(--font-sans);
-  padding: 28px 28px 32px; /* p-7 pb-8 */
-  user-select: none;
-  flex: none;
-}
-
-.sidebar-title {
-  display: grid;
-  gap: 8px;
-  font-size: 48px; /* text-5xl */
-  line-height: 1;
-  font-weight: 300;
-  color: inherit;
-  text-decoration: none;
-}
-
-.sidebar-title-small {
-  margin-left: -2px;
-}
-
-.sidebar-text {
-  margin: 32px 0 0;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-  text-wrap: pretty;
-  opacity: 0.7;
-}
-
-/* Below md the sidebar sits above the quiz, which takes the remaining
-   height; the fit pass below shrinks each screen into what is left. */
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-@media (width < 48rem) {
-  .sidebar {
-    padding-bottom: 24px;
-  }
-  /* One line, not stacked: the quiz doesn't scroll, so the header has
-     to leave room for the screen beneath it. */
-  .sidebar-title {
-    display: flex;
-    gap: 0.25em;
-    font-size: 32px;
-  }
-  .sidebar-title-small {
-    margin-left: 0;
-  }
-  .sidebar-text {
-    margin-top: 16px;
-    font-size: 13px;
-  }
-}
-
-@media (width >= 48rem) {
-  .sidebar {
-    position: fixed;
-    inset: 0 auto 0 0;
-    width: var(--sidebar-width);
-    overflow: auto;
-  }
-  body {
-    padding-left: var(--sidebar-width);
-  }
-}
-
-.shell {
-  flex: 1;
-  min-height: 0;
-  width: 100%;
-  max-width: 860px;
-  margin: 0 auto;
-  padding: calc(28px * var(--fs, 1)) var(--x-padding) calc(28px * var(--fs, 1));
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Only if a screen still won't fit at the smallest size the fit pass
-   will go to — better a scrollbar than clipped words. */
-.shell[data-overflowing="true"] {
-  overflow-y: auto;
-}
-
-.stage {
-  display: flex;
-  flex-direction: column;
-  /* Anchored to the top, not centred: centring moves the icon up and
-     down with the length of each question. */
-  justify-content: flex-start;
-}
-
-/* ---------- masthead ---------- */
-
-.masthead {
-  margin-bottom: calc(24px * var(--fs, 1));
-  text-align: center;
-}
-
-.masthead p {
-  margin: 0;
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--color-then-what-bg);
-}
-
-/* Each screen's parts arrive one after another rather than all at
-   once. `backwards` rather than `both` on purpose: it holds the opening
-   frame through the delay, then stops applying, which leaves the option
-   cards free to use transform for their hover. */
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.enter {
-  animation: rise 360ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .enter {
-    animation: none;
-  }
-}
-
-/* ---------- intro ---------- */
-
-.intro {
-  text-align: center;
-  max-width: 34em;
-  margin: 0 auto;
-}
-
-/* ---------- extra questions ---------- */
-
-.choices {
-  display: flex;
-  flex-direction: column;
-  gap: calc(10px * var(--fs, 1));
-  max-width: 26em;
-  width: 100%;
-  margin: calc(28px * var(--fs, 1)) auto 0;
-}
-
-.choice {
-  appearance: none;
-  font: inherit;
-  color: var(--color-conclusion-bg);
-  font-size: calc(16px * var(--fs, 1));
-  font-weight: 700;
-  text-align: center;
-  padding: calc(14px * var(--fs, 1)) 20px;
-  cursor: pointer;
-  background: transparent;
-  border: solid 2px var(--color-conclusion-bg);
-  border-radius: 4px;
-  transform-origin: center;
-  transition: transform 120ms ease;
-}
-
-.choice:hover,
-.choice:focus-visible {
-  transform: scale(1.012);
-  outline: none;
-}
-
-.choice[data-chosen="true"] {
-  background: var(--color-why-pace-bg);
-}
-
-.other-row {
-  display: flex;
-  gap: 10px;
-  max-width: 26em;
-  width: 100%;
-  margin: calc(14px * var(--fs, 1)) auto 0;
-}
-
-/* The box keeps its space whether or not it is showing, so choosing
-   an answer that needs it doesn't shove the buttons about; it only
-   fades in. (An author display rule beats the hidden attribute, which
-   is why this rule exists at all.) */
-.other-row {
-  transition: opacity 180ms ease;
-}
-
-.other-row[hidden] {
-  display: flex;
-  visibility: hidden;
-  opacity: 0;
-}
-
-.other-input {
-  flex: 1 1 auto;
-  min-width: 0;
-  font: inherit;
-  font-size: calc(16px * var(--fs, 1));
-  color: var(--color-foreground);
-  background: var(--color-background);
-  border: solid 2px var(--color-sidebar);
-  border-radius: 4px;
-  padding: 10px 14px;
-}
-
-.other-input:focus {
-  outline: none;
-  border-color: var(--color-conclusion-bg);
-}
-
-/* The divider sits in the middle of the screen, like a question's body. */
-.divider {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Sized like the essay's hgroup: 3em, sans, tight tracking. */
-.intro-title {
-  font-family: var(--font-sans);
-  font-size: calc(2.6em * var(--fs, 1));
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  font-weight: 600;
-  color: var(--color-conclusion-bg);
-  text-wrap: balance;
-  margin: 0;
-}
-
-.intro-text {
-  font-size: calc(17px * var(--fs, 1));
-  line-height: 1.6;
-  text-wrap: pretty;
-  margin: 24px 0 0;
-}
-
-.intro-note {
-  font-family: var(--font-sans);
-  font-size: calc(13px * var(--fs, 1));
-  line-height: 1.5;
-  color: var(--color-then-what-bg);
-  text-wrap: pretty;
-  margin: 20px 0 0;
-}
-
-.intro-actions {
-  margin-top: calc(26px * var(--fs, 1));
-}
-
-@media (width < 640px) {
-  .intro-title {
-    font-size: 2.1em;
-  }
-}
-
-/* ---------- question ---------- */
-
-.stage {
-  flex: 1 0 auto;
-}
-
-/* The icon and kicker are pinned to the top of every screen: both are
-   a single line, so they land in the same place whatever the question
-   says. */
-.q-head {
-  flex: none;
-}
-
-/* The question, its note and the cards share the rest of the height and
-   sit in the middle of it. */
-.q-body {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.q-icon {
-  display: block;
-  text-align: center;
-  font-size: calc(52px * var(--fs, 1));
-  line-height: 1;
-  color: var(--color-conclusion-bg);
-  margin-bottom: 24px;
-}
-
-.kicker {
-  text-align: center;
-  font-family: var(--font-sans);
-  font-size: calc(13px * var(--fs, 1));
-  font-weight: 600;
-  color: var(--color-then-what-bg);
-  margin: 0 0 16px;
-}
-
-/* The essay's h2 without its box: centred, sans, tight tracking. */
-.stem {
-  font-family: var(--font-sans);
-  font-size: calc(21px * var(--fs, 1));
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.25;
-  color: var(--color-conclusion-bg);
-  text-align: center;
-  text-wrap: balance;
-  max-width: 20em;
-  margin: 0 auto;
-}
-
-@media (width >= 48rem) {
-  .stem {
-    font-size: calc(26px * var(--fs, 1));
-  }
-}
-
-.help {
-  font-family: var(--font-sans);
-  font-size: calc(13px * var(--fs, 1));
-  line-height: 1.5;
-  color: var(--color-then-what-bg);
-  text-align: center;
-  text-wrap: pretty;
-  max-width: 40em;
-  margin: 16px auto 0;
-}
-
-.options {
-  display: grid;
-  grid-template-columns: repeat(var(--cols, 2), 1fr);
-  gap: calc(18px * var(--fs, 1));
-  margin-top: calc(30px * var(--fs, 1));
-}
-
-/* Three or more get tighter type before they get a scrollbar. */
-.options[style*="--cols: 3"] .option-label {
-  font-size: calc(15.5px * var(--fs, 1));
-}
-
-@media (width < 900px) {
-  .options {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (width < 640px) {
-  .options {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Kept plain: the 2px rule and the 4px radius from prose.css, and
-   nothing inside it — no panel colour, no divider. */
-.option {
-  appearance: none;
-  font: inherit;
-  color: inherit;
-  text-align: center;
-  padding: 22px 20px;
-  cursor: pointer;
-  background: transparent;
-  border: solid 2px var(--color-conclusion-bg);
-  border-radius: 4px;
-  transform-origin: center;
-  display: flex;
-  flex-direction: column;
-  gap: calc(8px * var(--fs, 1));
-  font-size: calc(13.5px * var(--fs, 1));
-  line-height: 1.55;
-  transition: transform 120ms ease;
-}
-
-.option-label {
-  display: block;
-  font-size: calc(17px * var(--fs, 1));
-  font-weight: 700;
-  line-height: 1.3;
-  color: var(--color-conclusion-bg);
-  text-wrap: balance;
-}
-
-.option-text {
-  margin: 0;
-  text-wrap: pretty;
-}
-
-.option:hover,
-.option:focus-visible {
-  transform: scale(1.012);
-  outline: none;
+.ph-thin::before,
+.ph-light::before,
+.ph-regular::before,
+.ph-bold::before,
+.ph-fill::before,
+.ph-duotone::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  background-color: currentColor;
+  -webkit-mask: center / contain no-repeat;
+  mask: center / contain no-repeat;
 }
 
 /* ---------- the ending: the map ----------
-   Tokens, type and geometry from the quiz's map design bundle. The map reads
-   as a printed diagram: radius 0, no shadows, no hover states, no
-   transitions, no focus rings. The only movement is the dots. */
+   Tokens, type and geometry from the quiz's map design bundle. The map
+   reads as a printed diagram: radius 0, no shadows, no hover states, no
+   transitions, no focus rings. The only movement is the dots. Plain CSS
+   on purpose: the nodes, arms and dots are positioned and animated from
+   map.js through data attributes and per-element variables. */
 
 @keyframes breathe {
   0%,
@@ -514,11 +83,6 @@ body {
   }
 }
 
-html[data-map="open"],
-html[data-map="open"] body {
-  overflow: hidden;
-}
-
 .map-view {
   --ink: #1a1a18;
   --paper: #fbfbf9;
@@ -531,14 +95,20 @@ html[data-map="open"] body {
   position: fixed;
   inset: 0;
   z-index: 20;
-  /* Leaves the sidebar in view; the map pans, so it loses nothing. */
-  @media (width >= 48rem) {
-    left: var(--sidebar-width);
-  }
   display: flex;
   background: var(--paper);
   font-family: var(--mono);
   color: var(--ink);
+
+  /* Leaves the sidebar (md:w-70) in view; the map pans, so it loses
+     nothing. */
+  @media (width >= 48rem) {
+    left: 17.5rem;
+  }
+
+  @media (width < 900px) {
+    flex-direction: column;
+  }
 }
 
 /* ---- the stage ---- */
@@ -697,6 +267,13 @@ html[data-map="open"] body {
   display: flex;
   flex-direction: column;
   gap: 14px;
+
+  @media (width < 900px) {
+    width: auto;
+    max-height: 40vh;
+    border-left: 0;
+    border-top: 1px solid var(--ink);
+  }
 }
 
 .panel-tag {
@@ -755,141 +332,12 @@ html[data-map="open"] body {
   text-underline-offset: 2px;
 }
 
-.map-panel .btn {
+.map-btn {
   font: 400 10px/1 var(--mono);
   letter-spacing: 0.06em;
-  text-transform: none;
   padding: 7px 10px;
   border: 1px solid var(--ink);
-  border-radius: 0;
   background: transparent;
   color: var(--label);
-}
-
-@media (width < 900px) {
-  .map-view {
-    flex-direction: column;
-  }
-
-  .map-panel {
-    width: auto;
-    max-height: 40vh;
-    border-left: 0;
-    border-top: 1px solid var(--ink);
-  }
-}
-
-/* ---------- controls ---------- */
-
-.controls {
-  margin-top: calc(24px * var(--fs, 1));
-  padding-top: calc(14px * var(--fs, 1));
-  border-top: 2px solid var(--color-sidebar);
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.controls:empty {
-  display: none;
-}
-
-.btn {
-  appearance: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  font-family: var(--font-sans);
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--color-conclusion-bg);
-  background: transparent;
-  border: solid 2px var(--color-sidebar);
-  border-radius: 4px;
-  padding: 8px 18px;
   cursor: pointer;
-  transition:
-    background-color 120ms ease,
-    color 120ms ease;
-}
-
-.btn:hover,
-.btn:focus-visible {
-  background: var(--color-why-pace-bg);
-  outline: none;
-}
-
-.btn-icon {
-  font-size: 1.3em;
-  line-height: 1;
-  margin-top: -1px;
-}
-
-/* Reversed out, the way the essay sets its code blocks. */
-.btn-primary {
-  font-size: 17px;
-  padding: 12px 26px;
-  background: var(--color-sidebar);
-  color: var(--color-dark);
-}
-
-.btn-primary:disabled {
-  opacity: 0.35;
-  cursor: default;
-}
-
-.btn-primary:not(:disabled):hover,
-.btn-primary:not(:disabled):focus-visible {
-  background: var(--color-conclusion-bg);
-  color: var(--color-dark);
-}
-
-.fatal {
-  font-size: 17px;
-  line-height: 1.55;
-  color: var(--color-conclusion-bg);
-  padding: 16px 20px;
-  background: var(--color-why-pace-bg);
-  border-left: 6px solid var(--color-conclusion-bg);
-  text-wrap: pretty;
-}
-
-.fatal code {
-  font-family: ui-monospace, "SF Mono", "Menlo", "Consolas", monospace;
-  font-size: 0.875em;
-  background: color-mix(in srgb, var(--color-sidebar) 8%, transparent);
-  padding: 0.15em 0.4em;
-  border-radius: 3px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .option,
-  .tcamp-fill {
-    transition: none;
-  }
-
-  .option:hover,
-  .option:focus-visible {
-    transform: none;
-  }
-}
-
-/* Phosphor icon classes, rendered from per-icon SVG masks that quiz.astro
-   inlines at build time. Sized and coloured by font-size and color, the same
-   way the icon font was. */
-.ph-thin::before,
-.ph-light::before,
-.ph-regular::before,
-.ph-bold::before,
-.ph-fill::before,
-.ph-duotone::before {
-  content: "";
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  vertical-align: -0.125em;
-  background-color: currentColor;
-  -webkit-mask: center / contain no-repeat;
-  mask: center / contain no-repeat;
 }

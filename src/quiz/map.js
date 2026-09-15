@@ -1,7 +1,7 @@
 import { QUIZ_DATA } from "./content.js";
 import { CONFIG } from "./config.js";
 import { live } from "./live.js";
-import { el, NS, button, stage, controls, chrome } from "./dom.js";
+import { el, NS, button, stage, controls } from "./dom.js";
 import { dispatch } from "./store.js";
 import { restart } from "./state.js";
 
@@ -45,7 +45,6 @@ const ACCENT = "oklch(0.55 0.17 28)";
 
 export function renderTree(state) {
   leaveMap();
-  chrome(false);
   stage.replaceChildren();
   controls.replaceChildren();
   document.documentElement.dataset.map = "open";
@@ -614,7 +613,7 @@ export function renderTree(state) {
     /* No way back from the map: the walk is recorded by the time it
        is drawn, so the only move from here is to start again. */
     const actions = el("div", "panel-actions");
-    actions.append(button(UI.restartButton, () => dispatch(restart)));
+    actions.append(button(UI.restartButton, () => dispatch(restart), "map"));
     panel.append(actions);
     if (UI.mapNote) panel.append(richText(el("div", "panel-foot"), UI.mapNote));
   }

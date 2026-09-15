@@ -5,8 +5,6 @@
 
 export const stage = document.getElementById("stage");
 export const controls = document.getElementById("controls");
-export const masthead = document.getElementById("masthead");
-const shell = document.querySelector(".shell");
 
 export const NS = "http://www.w3.org/2000/svg";
 
@@ -17,8 +15,28 @@ export const el = (tag, className, text) => {
   return node;
 };
 
-export function button(text, onClick) {
-  const b = el("button", "btn", text);
+/* The quiz's buttons: the essay's 2px rule and 4px radius, in sans.
+   "primary" is reversed out, the way the essay sets its code blocks.
+   "map" is the printed-diagram style the map's panel uses (quiz.css). */
+const BUTTON = {
+  default: [
+    "inline-flex items-center gap-[9px] cursor-pointer rounded-sm border-2 border-sidebar",
+    "font-sans text-[15px] font-semibold tracking-[-0.02em] px-[18px] py-2",
+    "bg-transparent text-(--color-conclusion-bg) transition-colors duration-120",
+    "hover:bg-(--color-why-pace-bg) focus-visible:bg-(--color-why-pace-bg) focus-visible:outline-none",
+  ].join(" "),
+  primary: [
+    "inline-flex items-center gap-[9px] cursor-pointer rounded-sm border-2 border-sidebar",
+    "font-sans text-[17px] font-semibold tracking-[-0.02em] px-[26px] py-3",
+    "bg-sidebar text-dark transition-colors duration-120",
+    "hover:bg-(--color-conclusion-bg) focus-visible:bg-(--color-conclusion-bg) focus-visible:outline-none",
+    "disabled:cursor-default disabled:hover:bg-sidebar",
+  ].join(" "),
+  map: "map-btn",
+};
+
+export function button(text, onClick, variant = "default") {
+  const b = el("button", BUTTON[variant], text);
   b.type = "button";
   b.addEventListener("click", onClick);
   return b;
@@ -32,13 +50,14 @@ export function icon(className, classes) {
   return i;
 }
 
-/* The masthead shows on the question screens and not on the covers. */
-export function chrome(visible) {
-  masthead.hidden = !visible;
-}
-
 export function fatal(message) {
-  stage.replaceChildren(el("p", "fatal", `Content problem in content.js — ${message}`));
+  stage.replaceChildren(
+    el(
+      "p",
+      "text-[17px] leading-[1.55] text-pretty px-5 py-4 bg-(--color-why-pace-bg) text-(--color-conclusion-bg) border-l-[6px] border-(--color-conclusion-bg)",
+      `Content problem in content.js — ${message}`,
+    ),
+  );
   controls.replaceChildren();
 }
 
@@ -48,33 +67,7 @@ const STILL = window.matchMedia("(prefers-reduced-motion: reduce)");
 export function stagger(parts, step = 55) {
   if (STILL.matches) return;
   parts.filter(Boolean).forEach((part, i) => {
-    part.classList.add("enter");
+    part.classList.add("animate-rise");
     part.style.animationDelay = `${i * step}ms`;
   });
 }
-
-/* Shrinks the type until the screen fits the window, so the page never
-   scrolls. Runs after every render and on resize. The map has its own
-   framing and opts out. */
-const MIN_FS = 0.62;
-
-export function fitScreen() {
-  if (document.documentElement.dataset.map === "open") return;
-
-  shell.dataset.overflowing = "false";
-  let fs = 1;
-  shell.style.setProperty("--fs", "1");
-
-  const overflows = () => shell.scrollHeight > shell.clientHeight + 1;
-  while (overflows() && fs > MIN_FS) {
-    fs = Math.max(MIN_FS, fs - 0.04);
-    shell.style.setProperty("--fs", fs.toFixed(2));
-  }
-  if (overflows()) shell.dataset.overflowing = "true";
-}
-
-let fitPending = null;
-window.addEventListener("resize", () => {
-  clearTimeout(fitPending);
-  fitPending = setTimeout(fitScreen, 120);
-});
