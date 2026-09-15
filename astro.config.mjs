@@ -27,5 +27,15 @@ export default defineConfig({
         ],
       },
     },
+    {
+      /* The quiz's map is set in IBM Plex Mono. Fetched from Google Fonts at
+         build time and served from this site, like Satoshi above. */
+      provider: fontProviders.google(),
+      name: "IBM Plex Mono",
+      cssVariable: "--font-plex-mono",
+      weights: [400, 600],
+      styles: ["normal"],
+      subsets: ["latin"],
+    },
   ],
 });

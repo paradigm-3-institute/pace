@@ -49,7 +49,7 @@ seconds, which works perfectly well.
 ## 4. Paste your keys
 
 **Project Settings → API** gives you a project URL and an `anon` `public` key.
-Put both into `config.js`:
+Put both into `src/quiz/config.js`:
 
 ```js
 url: "https://yourproject.supabase.co",
@@ -172,12 +172,11 @@ Open the browser console; every failure is logged with a `[pacing-tree]` prefix.
 
 ## Local development
 
-The page uses ES modules, so it must be served over http — opening
-`index.html` from the file system won't work. From this folder:
+The quiz is the `/quiz` page of the Astro site. From the repository root:
 
 ```sh
-python serve.py
+pnpm dev
 ```
 
-then visit <http://localhost:5173/>. That server also reloads open tabs when
-you save, which a plain `python -m http.server` does not.
+then visit <http://localhost:4321/quiz>. Saving `content.js` or `config.js`
+reloads the page.

@@ -1,5 +1,5 @@
 /* ============================================================================
-   config.js — where the quiz connects to Supabase
+   config.js — where the quiz connects to Supabase (served at /quiz)
    ----------------------------------------------------------------------------
    Fill in the two values below and live results switch themselves on. Leave
    them as they are and the quiz still works perfectly — it simply doesn't

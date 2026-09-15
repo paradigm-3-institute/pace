@@ -366,3 +366,57 @@
   font-size: 1.2em;
   font-weight: 600;
 }
+
+/* ---------- Footnotes ----------
+   GFM footnotes (remark-gfm) land at the end of each section as
+   section.footnotes with an h2 "Footnotes" label meant for screen readers. */
+
+.prose .footnotes {
+  margin-top: 48px;
+  padding-top: 16px;
+  border-top: 2px solid var(--color-sidebar);
+  font-size: 0.85em;
+  color: var(--color-then-what-bg);
+}
+
+.prose .footnotes h2 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.prose .footnotes ol {
+  margin-bottom: 0;
+  padding-left: 1.4em;
+}
+
+.prose .footnotes li + li {
+  margin-top: 8px;
+}
+
+.prose .footnotes p {
+  margin-bottom: 0;
+}
+
+.prose .footnotes [data-footnote-backref] {
+  text-decoration: none;
+  margin-left: 0.25em;
+}
+
+.prose [data-footnote-ref] {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0 0.15em;
+}
+
+.prose :target[data-footnote-ref],
+.prose .footnotes li:target {
+  background: var(--color-why-pace-bg);
+  border-radius: 3px;
+}

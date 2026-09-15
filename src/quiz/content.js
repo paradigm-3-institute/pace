@@ -130,8 +130,8 @@
    WHEN THE PAGE GOES BLANK
    ------------------------
    A blank page always means this file has a punctuation slip, never that
-   something else broke. The page will now tell you so and name the line, and
-   the browser console (F12) has the same message.
+   something else broke. While running `pnpm dev`, the error overlay names
+   the line; `pnpm build` refuses to build and says the same.
 
    Only three things can cause it:
 

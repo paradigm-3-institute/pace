@@ -1,0 +1,93 @@
+---
+import { readFileSync } from "node:fs";
+import { createRequire } from "node:module";
+import { Font } from "astro:assets";
+import "../styles/quiz.css";
+import contentSource from "../quiz/content.js?raw";
+
+/* Phosphor icons, self-hosted. Rather than loading the whole icon font, this
+   scans src/quiz/content.js for every `ph-<weight> ph-<name>` it mentions,
+   reads just those SVGs from @phosphor-icons/core at build time, and inlines
+   them as CSS masks. The icon classes in content.js keep working unchanged;
+   to use another weight, change "ph-light" there to thin / regular / bold /
+   fill / duotone. Browse the set at https://phosphoricons.com. */
+const require = createRequire(import.meta.url);
+const iconRefs = new Set(
+  [...contentSource.matchAll(/\bph-(thin|light|regular|bold|fill|duotone)\s+ph-([a-z0-9-]+)/g)].map(
+    (m) => `${m[1]}/${m[2]}`,
+  ),
+);
+const iconCSS = [...iconRefs]
+  .map((ref) => {
+    const [weight, name] = ref.split("/");
+    const file = weight === "regular" ? `${name}.svg` : `${name}-${weight}.svg`;
+    const svg = readFileSync(require.resolve(`@phosphor-icons/core/assets/${weight}/${file}`), "utf8");
+    const uri = `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
+    return `.ph-${weight}.ph-${name}::before{-webkit-mask-image:${uri};mask-image:${uri}}`;
+  })
+  .join("\n");
+
+const title = "Ways to Pace";
+const description =
+  "A walk through the branching points that separate the camps arguing about how fast to build frontier AI.";
+const canonicalURL = new URL(Astro.url.pathname, Astro.url);
+const socialImageURL = new URL("/card.png", Astro.url);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#042301" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="How to Pace the Frontier" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={socialImageURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageURL} />
+
+    <style is:global set:html={iconCSS}></style>
+
+    <Font cssVariable="--font-satoshi" preload />
+    <Font cssVariable="--font-plex-mono" />
+  </head>
+
+  <body>
+    <aside class="sidebar">
+      <a href="/" class="sidebar-title" aria-label="How to Pace the Frontier">
+        <span>Ways</span>
+        <span class="sidebar-title-small">to</span>
+        <span>Pace</span>
+      </a>
+      <p class="sidebar-text">
+        Experts who mostly agree that unrestricted AI progress poses significant risks to human societies still
+        disagree on major branching points of the pacing debate. We created this interactive tool as an invitation
+        for you to consider your position on these branching points and to give you an opportunity to compare
+        others' views with your own.
+      </p>
+    </aside>
+
+    <main class="shell">
+      <header class="masthead" id="masthead">
+        <p id="masthead-text"></p>
+      </header>
+
+      <div class="stage" id="stage" aria-live="polite"></div>
+
+      <div class="controls" id="controls"></div>
+    </main>
+
+    <script src="../quiz/quiz.js"></script>
+  </body>
+</html>
