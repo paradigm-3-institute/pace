@@ -33,6 +33,12 @@ const sectionMeta = [
     label: "Call To Action",
     textClass: "text-dark antialiased",
   },
+  {
+    slug: "08-appendices",
+    id: "appendices",
+    label: "Appendices",
+    textClass: "text-dark antialiased",
+  },
 ] as const;
 
 const sections = await Promise.all(
@@ -47,9 +53,7 @@ const sections = await Promise.all(
   title="How to Pace The Frontier"
   description="A field guide to spending your effort budget across a long distance."
 >
-  <aside
-    class="md:fixed w-full pb-2 md:w-70 md:h-dvh overflow-auto bg-sidebar text-background border-x-2 md:border-l-0 border-sidebar select-none"
-  >
+  <aside class="md:fixed w-full pb-2 md:w-70 md:h-dvh overflow-auto bg-sidebar text-background border-x-2 md:border-l-0 border-sidebar select-none">
     <a href="#">
       <div class="p-7 pb-8">
         <div class="text-5xl font-light grid gap-2">
@@ -63,38 +67,37 @@ const sections = await Promise.all(
     </a>
     <nav>
       <ul class="text-3xl">
-        {
-          sections.map(({ id, label, textClass }) => (
-            <NavItem href={`#${id}`} label={label} textClass={textClass} sectionId={id} />
-          ))
-        }
+        {sections.map(({ id, label, textClass }) => (
+          <NavItem href={`#${id}`} label={label} textClass={textClass} sectionId={id} />
+        ))}
       </ul>
     </nav>
   </aside>
 
   <main class="w-full md:pl-70 lg:pl-77 lg:pr-6 lg:py-24 border-2 border-sidebar md:border-none">
-    <article
-      class="prose max-w-222 2xl:max-w-260 text-[17px] md:text-[19px] 2xl:text-[21px] bg-background mx-auto py-8 md:py-16 lg:border-2 border-sidebar -outline-offset-8 outline-2 outline-sidebar rounded-sm"
-    >
+    <article class="prose max-w-222 2xl:max-w-260 text-[17px] md:text-[19px] 2xl:text-[21px] bg-background mx-auto py-8 md:py-16 lg:border-2 border-sidebar -outline-offset-8 outline-2 outline-sidebar rounded-sm">
       <div class="padded">
         <hgroup>
           <h1>How to Pace the Frontier</h1>
           <p>A Research Agenda</p>
         </hgroup>
-        <div
-          class="flex justify-center gap-12 mx-auto mb-20 font-sans text-center font-semibold text-(--color-conclusion-bg)"
+        <!-- <div
+          class="grid grid-cols-2 gap-x-12 gap-y-4 mx-auto mb-20 max-w-fit font-sans font-semibold text-(--color-conclusion-bg) *:odd:text-right *:even:text-left"
         >
-          <div class="flex flex-col gap-4 text-right">
-            <div>Raymond Douglas</div>
-            <div>Nikola Datkova</div>
-            <div>Charles Dillon</div>
-          </div>
-          <div class="flex flex-col gap-4 text-left">
-            <div>Mathias Kirk Bonde</div>
-            <div>Gavin Leech</div>
-            <div>Shahar Avin</div>
-          </div>
-        </div>
+          <div>Raymond Douglas*</div>
+          <div>Charles Dillon*</div>
+          <div>Nikola Moore*</div>
+          <div>Gavin Leech*</div>
+          <div>Mathias Kirk Bonde</div>
+          <div>Rohit Krishnan</div>
+          <div>Noah Perez</div>
+          <div>Nathan Young</div>
+          <div>Cormac Slade Byrd</div>
+          <div>Stephen Casper</div>
+          <div>Jan Kulveit</div>
+          <div>David Duvenaud</div>
+          <div class="col-span-2 text-center!">Shahar Avin✝</div>
+        </div> -->
         <blockquote class="padded mb-16!">
           <p>
             “Society at large may need the option to buy time to address emerging risks, develop security measures, and
@@ -102,15 +105,16 @@ const sections = await Promise.all(
             slow that acceleration. And today, the world lacks the technical and governance tools to deliberately pace
             frontier-wide progress.”
           </p>
-          <cite> – <a href="https://www.pacingthefrontier.com/">1,367 employees</a> of frontier AI companies </cite>
+          <cite>
+            {" "}
+            – <a href="https://www.pacingthefrontier.com/">1,367 employees</a> of frontier AI companies{" "}
+          </cite>
         </blockquote>
         <Intro />
       </div>
-      {
-        sections.map(({ id, label, textClass, content }) => (
-          <Section id={id} title={label} textClass={textClass} content={content} />
-        ))
-      }
+      {sections.map(({ id, label, textClass, content }) => (
+        <Section id={id} title={label} textClass={textClass} content={content} />
+      ))}
     </article>
   </main>
 
@@ -126,9 +130,9 @@ const sections = await Promise.all(
       viewBox="0 0 24 24"
       fill="currentColor"
       aria-hidden="true"
-      ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-        d="M10.586 3l-6.586 6.586a2 2 0 0 0 -.434 2.18l.068 .145a2 2 0 0 0 1.78 1.089h2.586v7a2 2 0 0 0 2 2h4l.15 -.005a2 2 0 0 0 1.85 -1.995l-.001 -7h2.587a2 2 0 0 0 1.414 -3.414l-6.586 -6.586a2 2 0 0 0 -2.828 0z"
-      ></path></svg
     >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M10.586 3l-6.586 6.586a2 2 0 0 0 -.434 2.18l.068 .145a2 2 0 0 0 1.78 1.089h2.586v7a2 2 0 0 0 2 2h4l.15 -.005a2 2 0 0 0 1.85 -1.995l-.001 -7h2.587a2 2 0 0 0 1.414 -3.414l-6.586 -6.586a2 2 0 0 0 -2.828 0z"></path>
+    </svg>
   </a>
 </Layout>

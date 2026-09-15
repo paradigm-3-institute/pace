@@ -1,7 +1,3 @@
-# **THIS IS PUBLISHING TOMORROW, PLEASE ONLY MAKE MINOR SUGGESTIONS NOW**
-
-# 
-
 # **Pacing the Frontier: A Framework and Research Agenda**
 
 Raymond Douglas\*, Charles Dillon\*, Nikola Moore\*, Gavin Leech\*, Mathias Kirk Bonde, Rohit Krishnan, Noah Perez, Nathan Young, Cormac Slade Byrd, Stephen Casper, Jan Kulveit, David Duvenaud, & Shahar Avin✝[^1]

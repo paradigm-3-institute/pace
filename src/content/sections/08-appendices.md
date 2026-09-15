@@ -116,7 +116,7 @@ One simple task for the pacing field is to have serious up-to-date research on e
 36. Coordinated-pause trigger and duration across signatories ([Alaga & Schuett 2023](https://arxiv.org/abs/2310.00374))  
 37. Lead-margin reporting: months between top lab and next ([Epoch](https://epoch.ai/gradient-updates/keeping-up-with-the-gpts/); [Karnofsky 2022](https://www.cold-takes.com/racing-through-a-minefield-the-ai-deployment-problem/))
 
-**Dangerous capabilities evals**
+#### Dangerous capabilities evals
 
 38. Pretraining data filtering for CBRN, cyber-offence and self-replication content ([O'Brien et al. 2025, Deep Ignorance](https://arxiv.org/abs/2508.06601)  
 39. Verified unlearning of specified capabilities \[held-out test suite\] ([Li et al. 2024, WMDP](https://arxiv.org/abs/2403.03218)  
@@ -150,7 +150,7 @@ One simple task for the pacing field is to have serious up-to-date research on e
 55. Deployment tax by capability tier ([Calero-Forero 2026](https://www.lesswrong.com/posts/qns9i7RZwxAAGGsjD/how-should-you-slow-down-ai-progress-if-it-becomes-necessary))  
 56. Liability allocation between deployer and developer for autonomous services ([Weil 2024](https://ssrn.com/abstract=4694006))
 
-**Autonomy**
+#### Autonomy
 
 57. Agent permission tiers ([Shavit et al. 2023, OpenAI](https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf); [Chan et al. 2024](https://arxiv.org/abs/2401.13138))  
 58. Spend limits per agent and per task ([Shavit et al. 2023, OpenAI](https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf))  
@@ -159,28 +159,28 @@ One simple task for the pacing field is to have serious up-to-date research on e
 61. Agent identifiers and action-log retention ([Chan et al. 2024](https://arxiv.org/abs/2401.13138)  
 62. Kill-switch latency requirement ([Orseau & Armstrong 2016](https://intelligence.org/files/Interruptibility.pdf); [Shavit et al. 2023, OpenAI](https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf))
 
-**Multi-agent**
+#### Multi-agent
 
 63. Instance-count reporting per deployment ([Chan et al. 2024](https://arxiv.org/abs/2401.13138))  
 64. Agent-to-agent communication logging with steganography checks ([Motwani et al. 2024](https://arxiv.org/abs/2402.07510))
 
-**Robotics**
+#### Robotics
 
 65. Certification and fleet registration for embodied agents ([EU Machinery Regulation 2023/1230](https://eur-lex.europa.eu/eli/reg/2023/1230/oj))
 
-**Safety research**
+#### Safety research
 
 66. Minimum fraction of total compute reserved for safety research, above a total compute threshold ([OpenAI 2023)](https://openai.com/index/introducing-superalignment/)  
 67. Minimum safety headcount as a ratio of total research headcount ([AI Lab Watch](https://ailabwatch.org))  
 68. External safety compute grants (minimum FLOP/year given to independent labs) ([NAIRR](https://nairrpilot.org))
 
-**Evaluation**
+#### Evaluation
 
 69. Third-party evaluator access depth ([Casper et al. 2024](https://arxiv.org/abs/2401.14446)  
 70. Elicitation budget per dangerous-capability eval \[FLOP, engineer-hours\] ([METR elicitation protocol](https://metr.github.io/autonomy-evals-guide/elicitation-protocol/); [Barnett & Thiergart 2024](https://arxiv.org/abs/2411.12820)  
 71. Sandbagging detection protocol \[noise injection, fine-tuning elicitation\] ([van der Weij et al. 2024](https://arxiv.org/abs/2406.07358)
 
-**Transparency and audit**
+#### Transparency and audit
 
 72. Required “AI Assurance Level” for developers in the frontier tier ([Brundage et al. 2026](https://arxiv.org/abs/2601.11699))  
 73. Embedded auditors running regular audits with non-public access ([Brundage et al. 2026](https://arxiv.org/abs/2601.11699))  
@@ -189,13 +189,13 @@ One simple task for the pacing field is to have serious up-to-date research on e
 76. Incident reporting deadline ([SB 53 §22757.13](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53))  
 77. Statutory whistleblower channel and protection ([SB 53](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53); [Right to Warn letter 2024](https://righttowarn.ai))
 
-**Governance response**
+#### Governance response
 
 78. Indexing compute thresholds to measured algorithmic progress ([Heim & Koessler 2024](https://arxiv.org/abs/2405.10799); [Epoch 2025)](https://epoch.ai/blog/model-counts-compute-thresholds)  
 79. Legislation with automatic clause triggers: e.g. once an eval result is shown, legal obligations come into force ([Karnofsky 2024](https://carnegieendowment.org/research/2024/09/if-then-commitments-for-ai-risk-reduction))  
 80. Regulator capacity ([CAISI](https://www.nist.gov/caisi); [UK AISI](https://www.aisi.gov.uk); [IFP 2026](https://ifp.org/funding-for-caisi/))
 
-**Coordination**
+#### Coordination
 
 81. Treaty verifications: chip registry, datacentre inspections, interconnect bandwidth limits ([Scher & Thiergart 2024](https://arxiv.org/abs/2506.15867); [Baker et al. 2025](https://arxiv.org/abs/2507.15916))  
 82. Training-run declarations exchanged between states ([Shavit 2023](https://arxiv.org/abs/2303.11341); [Baker et al. 2025](https://arxiv.org/abs/2507.15916))  

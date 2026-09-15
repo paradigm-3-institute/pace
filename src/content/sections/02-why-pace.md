@@ -14,7 +14,7 @@ Section §5 gives a more comprehensive assessment of the benefits and costs of p
 
 ### **2.1 Why pace less?**
 
-#### **2.1.1 Pacing means waiting longer for very good things**
+#### 2.1.1 Pacing means waiting longer for very good things
 
 AI progress so far has had some [highly positive](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6569938) direct impacts: software development is far  [faster](https://www.nber.org/papers/w35275) and cheaper, access to information and advice has widened in every domain of life, and tools like [machine translation](https://arxiv.org/abs/2409.02391), automatic paperwork [filling](https://www.statnews.com/2026/04/01/ai-ambient-scribes-modest-time-savings-clinical-documentation/), and [scientific assistance](https://ai.google/static/documents/AI-in-Science.pdf) save society vast amounts of time.
 
@@ -22,7 +22,7 @@ Many observers expect significant impacts on economic growth from future AI prog
 
 Reducing the rate of frontier AI progress would delay these enormous benefits. People might well counterfactually suffer and die from [progress not happening as fast](https://nickbostrom.com/papers/the-fable-of-the-dragon-tyrant/).[^2] Thus, the case for pacing more must be weighed against this opportunity cost.
 
-**2.1.2 Pacing can directly cause bad outcomes**
+#### 2.1.2 Pacing can directly cause bad outcomes
 
 Aside from the potential value sacrificed, pacing interventions can very directly cause harm. We highlight three particularly significant risks:
 
@@ -84,7 +84,7 @@ For example, OpenAI temporarily [halted](https://www.axios.com/2026/08/07/openai
 
 Unexpected threats are hard to fully plan for. The existence of this category points to the need not just for specific intervention plans but for the capacity to quickly and effectively intervene in new ways that address changing situations.
 
-**2.2.3 AI progress can create lose-lose situations**
+#### 2.2.3 AI progress can create lose-lose situations
 
 Advances in AI could create situations where several parties are in competition in a way that is inherently unstable and destructive. If highly autonomous systems could conduct AI research much more quickly without humans in the loop, there would be strong pressure for developers to allow them to do so. Even those concerned about risks from the absence of oversight could find it too costly to unilaterally refrain from these speedups.
 
