@@ -15,14 +15,15 @@
 }
 
 :root {
-  /* Even split from --color-from to --color-to across the 7 sections */
+  /* Even split from --color-from to --color-to across the 8 sections */
   --color-introduction-bg: rgb(250, 248, 241);
-  --color-why-pace-bg: rgb(209, 213, 201);
-  --color-pace-what-bg: rgb(168, 177, 161);
-  --color-pace-how-bg: rgb(127, 142, 121);
-  --color-then-what-bg: rgb(86, 106, 81);
-  --color-conclusion-bg: rgb(45, 71, 41);
-  --color-call-to-action-bg: rgb(4, 35, 1);
+  --color-why-pace-bg: rgb(215, 218, 207);
+  --color-pace-what-bg: rgb(180, 187, 172);
+  --color-pace-how-bg: rgb(145, 157, 138);
+  --color-then-what-bg: rgb(109, 126, 104);
+  --color-conclusion-bg: rgb(74, 96, 70);
+  --color-call-to-action-bg: rgb(39, 65, 35);
+  --color-appendices-bg: rgb(4, 35, 1);
 
   --x-padding: 32px;
   --x-padding-inside: calc(var(--x-padding) - 8px);

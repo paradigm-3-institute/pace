@@ -1,7 +1,7 @@
 
 Uncoordinated decisions by companies and governments are already haphazardly pacing AI. To make good decisions about the pace of AI progress, practitioners, policymakers, and the public need a richer understanding of the options and the dynamics that pacing interventions create. This piece surveys the range of interventions aimed at moderating the pace of AI development, deployment, and diffusion, and proposes a detailed research agenda clarifying the tradeoffs and likely effects of each. Now is the time for a dedicated field of pacing research, moving beyond one-off proposals and scenarios towards a flexible capacity to quickly and effectively intervene.
 
-<h4 style="text-align: center; margin-top: 40px; margin-bottom: 24px; font-size: 28px"> Executive Summary </h4>
+<h4 style="text-align: center; margin-top: 44px; margin-bottom: 24px; font-size: 32px"> Executive Summary </h4>
 
 
 The discussion around pacing usually focuses on handling the most extreme risks in the face of race dynamics. However, we think that even for the goal of handling these highest-stakes cases it's useful to take a broad view of pacing—one that encompasses all interventions aimed at moderating the pace of AI development, deployment, or diffusion. This perspective has a few natural implications worth highlighting:

@@ -20,17 +20,17 @@
   --color-foreground: #333333;
   --color-dark: #faf8f1;
 
-  /* the seven-section ramp, from --color-from to --color-to */
+  /* the eight-section ramp, from --color-from to --color-to */
   --color-introduction-bg: rgb(250, 248, 241);
-  --color-why-pace-bg: rgb(209, 213, 201);
-  --color-pace-what-bg: rgb(168, 177, 161);
-  --color-pace-how-bg: rgb(127, 142, 121);
-  --color-then-what-bg: rgb(86, 106, 81);
-  --color-conclusion-bg: rgb(45, 71, 41);
-  --color-call-to-action-bg: rgb(4, 35, 1);
+  --color-why-pace-bg: rgb(215, 218, 207);
+  --color-pace-what-bg: rgb(180, 187, 172);
+  --color-pace-how-bg: rgb(145, 157, 138);
+  --color-then-what-bg: rgb(109, 126, 104);
+  --color-conclusion-bg: rgb(74, 96, 70);
+  --color-call-to-action-bg: rgb(39, 65, 35);
+  --color-appendices-bg: rgb(4, 35, 1);
 
-  --font-sans: var(--font-satoshi), ui-sans-serif, system-ui, -apple-system,
-    "Segoe UI", sans-serif;
+  --font-sans: var(--font-satoshi), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
 
   --x-padding: 32px;
@@ -107,10 +107,11 @@ body {
 
 .sidebar-text {
   margin: 32px 0 0;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.5;
-  font-weight: 450;
+  font-weight: 400;
   text-wrap: pretty;
+  opacity: 0.7;
 }
 
 /* Below md the sidebar sits above the quiz, which takes the remaining
@@ -158,8 +159,7 @@ body {
   width: 100%;
   max-width: 860px;
   margin: 0 auto;
-  padding: calc(28px * var(--fs, 1)) var(--x-padding)
-    calc(28px * var(--fs, 1));
+  padding: calc(28px * var(--fs, 1)) var(--x-padding) calc(28px * var(--fs, 1));
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -705,7 +705,6 @@ html[data-map="open"] body {
   color: var(--ink);
 }
 
-
 .panel-title {
   font: 400 17px/1.5 var(--mono);
   color: var(--ink);
@@ -734,11 +733,6 @@ html[data-map="open"] body {
   text-underline-offset: 2px;
   text-decoration-thickness: 1px;
 }
-
-
-
-
-
 
 .panel-actions {
   margin-top: auto;

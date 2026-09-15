@@ -14,7 +14,9 @@ const { href, textClass, label, sectionId } = Astro.props;
   data-section-id={sectionId}
   style={`background-color: var(--color-${sectionId}-bg);`}
 >
-  <a class="px-7 py-4 block" href={href}>{label}</a>
+  <a class="px-6 py-4 block" href={href}>
+    {label}
+  </a>
 </li>
 
 <style>

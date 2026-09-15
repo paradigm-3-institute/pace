@@ -12,7 +12,7 @@ More pragmatically, pacing will only happen if actors make effective pacing inte
 
 Section §5 gives a more comprehensive assessment of the benefits and costs of pacing, taking into account second-order effects of the interventions required to make pacing effective.
 
-### **2.1 Why pace less?**
+### 2.1 Why pace less?
 
 #### 2.1.1 Pacing means waiting longer for very good things
 
@@ -32,7 +32,7 @@ Aside from the potential value sacrificed, pacing interventions can very directl
 
 [**Races**](https://link.springer.com/article/10.1007/s00146-015-0590-y) **to the bottom**. In situations involving several competing actors where pacing is competitively costly, the less cautious actors can pull ahead while the more scrupulous ones fall behind. This makes it much harder to manage risks which only depend on the least safe actor, like the proliferation of dangerous capabilities in open-weight models. Even actors who are concerned about risks have to balance immediate harms against the risk of falling behind and losing influence. We discuss this further in §2.3.
 
-#### **2.1.3 Good pacing can get in the way of better pacing**
+#### 2.1.3 Good pacing can get in the way of better pacing
 
 If different interventions rely on the same scarce resources like finite political capital or technical expertise, then aiming for the best forms of pacing becomes all the more important.
 
@@ -42,7 +42,7 @@ Indeed, AIs themselves are likely to be an important tool in addressing risks. F
 
 The strength of this argument depends on how feasible the better options actually are and how scarce the resources actually are. A major empirical question for pacing is how far in advance those in a position to act will see the risks and how quickly they will be able to react, as we discuss in §4.1 and §4.2.
 
-#### **2.1.4 Pacing historically has been hard to undo**
+#### 2.1.4 Pacing historically has been hard to undo
 
 Many technologies have been regulated in a way that slows development, ranging from germline genetic engineering and geoengineering—which have been de facto banned for decades—to nuclear power and flight. 
 
@@ -54,9 +54,9 @@ It is likewise possible that pacing will not have the trust of those in AI becau
 
 ### 
 
-### **2.2 Why pace more?**
+### 2.2 Why pace more?
 
-#### **2.2.1 AI threats take time to understand and mitigate**
+#### 2.2.1 AI threats take time to understand and mitigate
 
 As AI systems become more advanced and distributed, they create new risks which need mitigating. Sometimes the risks come faster than the mitigations, and so the relevant actors will benefit from extra time to adjust.
 
@@ -74,7 +74,7 @@ In cases featuring an evolving risk (such as progressive increases in the capaci
 
 Where the harm is potentially catastrophic and irreversible, however, there might not be an opportunity to learn from mistakes. If waiting merely postpones benefits, then there is an asymmetry between the cost of going too fast versus too slow which strengthens the case for greater precaution.
 
-#### **2.2.2 AI threats can be sudden and unpredictable**
+#### 2.2.2 AI threats can be sudden and unpredictable
 
 Predicting all the potential effects of AI progress is extremely challenging even in the short term. Sometimes a system displays an unexpected capability or causes unexpected outcomes, and even without a clear picture of how one would remedy the situation, it may be helpful to slow the activity implicated in the warning and try to make sense of the situation. This has a few benefits. Firstly, it means that capacity can be redirected toward understanding the situation and its broader implications. Secondly, it means that there is less chance of further unexpected outcomes. Thirdly, it buys time to more carefully make decisions which might otherwise be hard to reverse.
 
@@ -92,7 +92,7 @@ A similar problem would arise if governments could enhance their military capabi
 
 In such situations, the natural incentives would pull toward a lot of value being lost. Once such situations arise, they bring with them the challenge of coordinating against those incentives. But it is also possible to avoid entering those situations: to deliberately avoid creating technologies that produce these dynamics, or to delay their creation until other complementary technologies can mitigate the risk.
 
-### **2.3. Actors and their incentives around pacing**
+### 2.3. Actors and their incentives around pacing
 
 Beyond the reasons humanity has for favoring or opposing pacing interventions, individual actors will naturally weigh their own self-interest when considering interventions. Managing AI progress is difficult due to this tension between one’s own interests and those of the collective (e.g. when frontier labs must decide how much detail to share about internal safety incidents, or when states choose how much to automate their military).
 
@@ -142,7 +142,7 @@ Rather than rely on voluntary, unilateral interventions, some contexts will requ
 
 It is not a given that coordinated pacing would actually be good for the world. One risk is that actors coordinate *against* the common good. Without an authority capable of constraining all relevant actors,the only ways to pace (without merely ceding power to another actor) are either to coordinate, or to have a lead you can afford to burn.
 
-### **2.4 Case A: a cap on frontier training**
+### 2.4 Case A: a cap on frontier training
 
 Frontier model progress has increasingly made AI systems capable of automating their own further improvement. Anthropic, for example, has [claimed](https://www.anthropic.com/institute/recursive-self-improvement) that it is producing 8x as much code per researcher since the release of Mythos 5, when compared to the pre-2025 baseline, and that its own researchers estimated they were sped up by a factor of 4x, though [Anthropic thinks](https://metr.org/notes/2026-07-08-anthropic-researcher-uplift/) that this was likely an overestimate. If this AI contribution to AI became sufficiently large, capability development could accelerate while also becoming less dependent on human researchers. The time available to evaluate successive systems might shrink, even as previously functional oversight measures break down and unexpected new risks emerge.
 
@@ -150,7 +150,7 @@ One direct intervention aimed at slowing down this trajectory could be a cap on 
 
 Such a cap would also delay beneficial capabilities (including AI-assisted safety research). Governments and developers would be more likely to support this intervention if they knew their competitors faced similar constraints, and there was a clear path to lifting the cap given specific progress. Loopholes and adaptations that would reduce the intended effect on capabilities are [known to exist](https://epochai.substack.com/p/three-issues-undermining-compute). The case for the cap therefore is very sensitive to how credibly it will constrain competitors, and what can be achieved during its implementation.
 
-### **2.5 Case B: restricting access to dangerous biological capabilities**
+### 2.5 Case B: restricting access to dangerous biological capabilities
 
 AI systems are increasingly able to aid some users in [developing biological weapons](https://arxiv.org/pdf/2506.13798). Governments and developers may face some lag in their ability to assess uplift, to restrict it in specific models, and to deploy model capabilities to develop countermeasures. Restrictions could include safeguards on publicly available models, with access to less restricted versions remaining gated (as with Anthropic’s [release](https://www.anthropic.com/news/claude-fable-5-mythos-5) of Fable 5 and Mythos 5). Furthermore, releasing the weights of individual models removes any ability to regulate them if they turn out to provide an unacceptable degree of uplift.
 
@@ -158,7 +158,7 @@ Pacing could buy time for better uplift evaluations, safeguards and unlearning, 
 
 These interventions could complement controls on biological materials and laboratory infrastructure, though the value depends on how much marginal protection they add. They could also impede legitimate biological research for those without access to the less-restricted model versions.
 
-### **2.6 Open Research Questions**
+### 2.6 Open Research Questions
 
 * **How much, and in what ways, would more time allow us to better manage various AI risks?** What are the bottlenecks to mitigation or adaptation of different AI risks? What factors other than time influence AI risk management? What risk management efforts can be taken now, and which can only be taken once certain AI capability or adoption thresholds are crossed?  Related work:  
   * *MacAskill & Moorhouse (2025), [Preparing for the Intelligence Explosion](https://www.forethought.org/research/preparing-for-the-intelligence-explosion)* Explicitly sorts "grand challenges" by whether they need calendar time, human deliberation, or just more AI.  

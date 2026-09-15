@@ -78,7 +78,7 @@ Many of these decisions will need to be made quickly, without all the relevant i
 
 It is therefore extremely important that those in a position to pace are provided with a clear user’s manual of all the options and tradeoffs available, not just a set of [exemplar](https://ai-2040.com/) pacing proposals. Given the unpredictable nature of AI progress and its geopolitical context, the specific pacing dilemmas that come up in real life are likely to differ substantially from anything we can write down today, and may rely on private information only available to a small set of actors. If we want those decisions to be sensible, we need to provide a strategic decision-making framework ahead of time.
 
-Mountains of research exist on specific topics relevant to pacing (e.g. [model evaluations](https://arxiv.org/abs/2305.15324), [capability forecasting](https://arxiv.org/abs/2502.15850v2), [compute monitoring](https://arxiv.org/abs/2303.11341)), and on [proposals](https://arxiv.org/pdf/2505.04592) [for](https://ai-2040.com/) [specific](https://www.narrowpath.co/) [interventions](https://arxiv.org/abs/2503.05628). But there is comparatively [little](https://blog.aifutures.org/p/how-to-pace-the-us-frontier) on the overall question: what effects pacing interventions will have in different circumstances. This piece gives a broad account of the whole area and a [list](#appendix:-all-open-questions) of open questions to anchor a dedicated field of AI pacing.
+Mountains of research exist on specific topics relevant to pacing (e.g. [model evaluations](https://arxiv.org/abs/2305.15324), [capability forecasting](https://arxiv.org/abs/2502.15850v2), [compute monitoring](https://arxiv.org/abs/2303.11341)), and on [proposals](https://arxiv.org/pdf/2505.04592) [for](https://ai-2040.com/) [specific](https://www.narrowpath.co/) [interventions](https://arxiv.org/abs/2503.05628). But there is comparatively [little](https://blog.aifutures.org/p/how-to-pace-the-us-frontier) on the overall question: what effects pacing interventions will have in different circumstances. This piece gives a broad account of the whole area and a [list](#81-appendix-all-open-questions) of open questions to anchor a dedicated field of AI pacing.
 
 Inquiries into pacing are naturally in danger of being politicized: indeed, hundreds of millions of dollars have already been spent on advocacy on [both](https://techcrunch.com/2026/08/31/a-group-funded-by-andreessen-horowitz-and-brockman-plan-data-center-ads-to-sway-midterms/) [sides](https://publicfirstaction.us/news/public-first-action-and-defending-our-values-pac-launch-first-ads-supporting-responsible-ai-regulation-cgpew) of the debate. But that is all the more reason to encourage dispassionate research and a shared understanding of the practical implications.
 
@@ -638,7 +638,7 @@ Many interventions will vest some enforcement power in a governing body or monit
 
 Liability- or insurance-based schemes will distribute these powers across auditors and existing legal systems such as courts—similar concerns will exist around their access to information and the privacy of those subject to their scrutiny.
 
-![][image7]
+![][/media/failure-modes.png]
 
 #### 5.3.1 Control, regulatory capture and misuse
 

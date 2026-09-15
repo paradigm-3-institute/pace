@@ -203,7 +203,7 @@ One simple task for the pacing field is to have serious up-to-date research on e
 
 ### 8.3 Appendix: Bibliography
 
-### Recent
+#### Recent
 
 * Finke (2026), *International Agreements to Limit Frontier AI: Objectives and Exit.* [arXiv](https://arxiv.org/abs/2607.16224)  
 * Larsen, Dean, Halstead, Lifland, Greenblatt & Kokotajlo (2026). *AI 2040: Plan A*. [AI Futures Project](https://ai-2040.com/)   
@@ -211,7 +211,7 @@ One simple task for the pacing field is to have serious up-to-date research on e
 * Fist et al (2026). *How Should the US Prepare for Increasingly Automated AI R\&D?*. [Institute for Progress](https://ifp.org/preparing-for-ai-research-automation/).  
 * Koopmanschap, Barten (2026), *How to Catch a GPU: A Taxonomy of Verification and Enforcement Mechanisms for International AI Agreements.* [arXiv](https://arxiv.org/abs/2607.22619)
 
-### Foundations
+#### Foundations
 
 * Bostrom (2002). *Existential Risks: Analyzing Human Extinction Scenarios and Related Hazards*. Journal of Evolution and Technology 9\. [nickbostrom.com](https://nickbostrom.com/existential/risks)  
 * Shulman (2009). *Arms Control and Intelligence Explosions*. ECAP. [intelligence.org](https://intelligence.org/files/ArmsControl.pdf)  
@@ -225,14 +225,14 @@ One simple task for the pacing field is to have serious up-to-date research on e
 * Barnett & Scher (2025). *AI Governance to Avoid Extinction: The Strategic Landscape and Actionable Research Questions*. MIRI Technical Governance Team. [arXiv:2505.04592](https://arxiv.org/abs/2505.04592)  
 * Favaro & Clark (2026). *When AI Builds Itself*. Anthropic Institute. [anthropic.com](https://www.anthropic.com/institute/recursive-self-improvement)
 
-### Economics 
+#### Economics
 
 * Aschenbrenner (2020). *Existential Risk and Growth*. GPI Working Paper 6-2020. [leopoldaschenbrenner.github.io](https://leopoldaschenbrenner.github.io/xriskandgrowth/ExistentialRiskAndGrowth050.pdf)  
 * Sandbrink, Hobbs, Swett, Dafoe & Sandberg (2022). *Differential Technology Development: An Innovation Governance Consideration for Navigating Technology Risks*. SSRN. [ssrn.com](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4213670)  
 * Jones (2024). *The A.I. Dilemma: Growth versus Existential Risk*. AER: Insights 6(4). [nber.org (WP 31837\)](https://www.nber.org/papers/w31837)   
 * Trammell & Aschenbrenner (2024). *Existential Risk and Growth*. GPI Working Paper 13-2024. [philiptrammell.com](https://philiptrammell.com/static/Existential_Risk_and_Growth.pdf) 
 
-### The pause debate
+#### The pause debate
 
 * Grace (2022). *Let's Think About Slowing Down AI*. AI Impacts / LessWrong. [lesswrong.com](https://www.lesswrong.com/posts/uFNgRumrDTpBfQGrs/let-s-think-about-slowing-down-ai)  
 * Belrose (2023). [*AI Pause Will Likely Backfire*](https://forum.effectivealtruism.org/posts/JYEAL8g7ArqGoTaX6/ai-pause-will-likely-backfire).   
@@ -241,7 +241,7 @@ One simple task for the pacing field is to have serious up-to-date research on e
 * Katzke & Futerman (2024). *The Manhattan Trap: Why a Race to Artificial Superintelligence Is Self-Defeating*. Convergence Analysis. [arXiv:2501.14749](https://arxiv.org/abs/2501.14749)  
 * Larsen, Dean, Halstead, Lifland, Greenblatt & Kokotajlo (2026). *AI 2040: Plan A*. AI Futures Project. [ai-2040.com](https://ai-2040.com/)
 
-### International agreements
+#### International agreements
 
 * Ho, Barnhart, Trager, Bengio, Brundage, Casovan, Haas, Nemitz, Sastry, Weller, Zhang & Zhang (2023). *International Institutions for Advanced AI*. [arXiv:2307.04699](https://arxiv.org/abs/2307.04699)  
 * Trager, Harack, Reuel, Carnegie, Heim, Ho, Kreps, Lall, Larter, Ó hÉigeartaigh, Staffell & Villalobos (2023). *International Governance of Civilian AI: A Jurisdictional Certification Approach*. [arXiv:2308.15514](https://arxiv.org/abs/2308.15514)  
@@ -249,7 +249,7 @@ One simple task for the pacing field is to have serious up-to-date research on e
 * Emery-Xu, Jordan & Trager (2025). *International Governance of Advancing Artificial Intelligence*. AI & Society 40\. [doi:10.1007/s00146-024-02050-7](https://doi.org/10.1007/s00146-024-02050-7)  
 * Finke (2026). *International Agreements to Limit Frontier AI: Objectives and Exit*. TAIGR @ ICML 2026\. [arXiv:2607.16224](https://arxiv.org/abs/2607.16224)
 
-### Deterrence
+#### Deterrence
 
 * Hendrycks, Schmidt & Wang (2025). *Superintelligence Strategy: Expert Version*. [arXiv:2503.05628](https://arxiv.org/abs/2503.05628)  
 * Rehman, Mueller, Mazarr et al. (2025). *Seeking Stability in the Competition for AI Advantage*. RAND commentary. [rand.org](https://www.rand.org/pubs/commentary/2025/03/seeking-stability-in-the-competition-for-ai-advantage.html)  
@@ -258,7 +258,7 @@ One simple task for the pacing field is to have serious up-to-date research on e
 * Hendrycks & Khoja (2025). *AI Deterrence Is Our Best Option*. AI Frontiers. [ai-frontiers.org](https://ai-frontiers.org/articles/ai-deterrence-is-our-best-option)  
 * Delaney (2025). *Crucial Considerations in ASI Deterrence*. IAPS. [iaps.ai](https://www.iaps.ai/research/crucial-considerations-in-asi-deterrence)
 
-### Verification
+#### Verification
 
 * Brundage et al. (2020). *Toward Trustworthy AI Development: Mechanisms for Supporting Verifiable Claims*. [arXiv:2004.07213](https://arxiv.org/abs/2004.07213)  
 * Baker (2023). *Nuclear Arms Control Verification and Lessons for AI Treaties*. [arXiv:2304.04123](https://arxiv.org/abs/2304.04123)  
@@ -267,7 +267,7 @@ One simple task for the pacing field is to have serious up-to-date research on e
 * Koopmanschap & Barten (2026). *How to Catch a GPU: A Taxonomy of Verification and Enforcement Mechanisms for International AI Agreements*. Existential Risk Observatory. [arXiv:2607.22619](https://arxiv.org/abs/2607.22619)  
 * Choussat & Khoja (2026). *An International AI Slowdown Is Ready Whenever Politicians Are*. AI Frontiers. [ai-frontiers.org](https://ai-frontiers.org/articles/an-international-ai-slowdown-is-ready-whenever-politicians-are)
 
-### Compute governance
+#### Compute governance
 
 * Shavit (2023). *What Does It Take to Catch a Chinchilla? Verifying Rules on Large-Scale Neural Network Training via Compute Monitoring*. [arXiv:2303.11341](https://arxiv.org/abs/2303.11341)  
 * Egan & Heim (2023). *Oversight for Frontier AI through a Know-Your-Customer Scheme for Compute Providers*. [arXiv:2310.13625](https://arxiv.org/abs/2310.13625)  
@@ -281,7 +281,7 @@ One simple task for the pacing field is to have serious up-to-date research on e
 * Hooker (2024). *On the Limitations of Compute Thresholds as a Governance Strategy*. [arXiv:2407.05694](https://arxiv.org/abs/2407.05694)   
 * Ord (2025). *Inference Scaling Reshapes AI Governance.* [arXiv](https://arxiv.org/abs/2503.05705)
 
-### Developer commitments
+#### Developer commitments
 
 * Shevlane, Farquhar, Garfinkel, Phuong, Whittlestone, Leung et al. (2023). *Model Evaluation for Extreme Risks*. [arXiv:2305.15324](https://arxiv.org/abs/2305.15324)  
 * Clymer, Gabrieli, Krueger & Larsen (2024). *Safety Cases: How to Justify the Safety of Advanced AI Systems*. [arXiv:2403.10462](https://arxiv.org/abs/2403.10462)  

@@ -11,9 +11,9 @@ In this section we consider these impacts, because they matter in themselves and
 
 We consider these impacts radiating outward from the pacing intervention through society, and forward in time from the enactment of the pacing intervention.
 
-![][image6]
+![](/media/then-what.png)
 
-### **5.1 Covered developers**
+### 5.1 Covered developers
 
 As the center of AI progress, frontier model developers are the actors most directly impacted by pacing interventions. Intervention will change the constraints these developers face but not their objectives: the competitive pressures described in §2.3 persist, and developers will re-optimize against the new rule. The practical content of an intervention is therefore the rule, plus the developers' best response to it. But we can anticipate the form of such responses from earlier attempts to restrain arms races: for instance, when the 1922 Washington Treaty [capped](https://www.usni.org/magazines/proceedings/1926/may/washington-treaties-1922) naval cruisers at 10,000 tons and 8-inch guns, the signatories built "[treaty cruisers](https://www.globalsecurity.org/military/systems/ship/treaty-cruiser.htm)" that sat exactly at those limits.
 
@@ -59,7 +59,7 @@ Shaping can be prosocial: developers may plug loopholes in the monitoring mechan
 
 **Seeking compensation***.* Those who are affected by interventions may make efforts to secure compensation for losses they incur. See §5.4.2.
 
-### **5.2 Shifts in relative power** 
+### 5.2 Shifts in relative power
 
 #### National governments and international competition
 
@@ -87,7 +87,7 @@ There may also be a chilling effect from the existence proof provided by the pac
 
 Many interventions (e.g. our worked example on biological threats) will also have to contend with misuse: third parties who use diffused AI capabilities to ill ends, for instance by developing biological weapons or committing cybercrimes. These actors can also be expected to adapt to any intervention, though primarily by trying to circumvent it from the outside.
 
-### **5.3 Pacing governance structures**
+### 5.3 Pacing governance structures
 
 The main effect of pacing on the new governance mechanisms is to make them exist, or to invest new powers in existing bodies.
 
@@ -95,7 +95,7 @@ Many interventions will vest some enforcement power in a governing body or monit
 
 Liability- or insurance-based schemes will distribute these powers across auditors and existing legal systems such as courts—similar concerns will exist around their access to information and the privacy of those subject to their scrutiny.
 
-![][image7]
+![](/media/failure-modes.png)
 
 #### 5.3.1 Control, regulatory capture and misuse
 
@@ -119,7 +119,7 @@ But there is a clear risk to contend with: crises can justify legitimately neces
 
 In general, how competently the governing machinery is run and how well received its actions are will affect its durability and popularity. The machinery should thus be thought of not just as a means of carrying out the intervention, but also as one of its effects, and predictable failure modes should be weighed against expected benefits in deciding whether to implement it. 
 
-### **5.4 Impact on AI investment and global markets**
+### 5.4 Impact on AI investment and global markets
 
 AI capital investments are already a major factor in the global economy. Investment in the inputs to AI progress (chips, datacenter construction, power infrastructure, and the AI developers themselves) is heavily contingent on the expected benefits and usefulness of the outputs, and so anything which affects the pace of capabilities progress will bear heavily on these investment decisions, and shift their attractiveness. 
 
@@ -145,7 +145,7 @@ Anticipating these effects and carefully designing rules can help minimize the d
 
 Actors whose assets are stranded or whose expected revenue is cut will seek compensation. This could take the form of direct payments, buyout of their compute stock (see §3.2), tax treatment, government contracts, guaranteed access to restricted markets, or exemptions. Compensation reduces the incentive to defect, and could be framed as public procurement if the freed compute goes to safety or defensive research. But it has three costs: (1) it transfers public funds to the actors being restrained; (2) it creates a constituency with an interest in the intervention continuing, which bears on the exit problems in §4.4; and (3) it creates moral hazard: actors who expect compensation may invest in anticipation of a buyout.
 
-### **5.5 Impact on norms and culture**
+### 5.5 Impact on norms and culture
 
 And lastly, how does the pacing intervention reshape the norms and culture surrounding interventions in R\&D, both future interventions in frontier AI R\&D and interventions in R\&D more broadly? If an intervention yields intended and desirable outcomes, is it making it easier for future regulations to land well? In other words, are “good” interventions being normalized? How much of a risk is there that pacing interventions in AI R\&D might have a global chilling effect on growth and progress?
 
@@ -171,7 +171,7 @@ On the other hand, public attitudes toward the governments are likely to be much
 
 We should keep in mind that frontier AI pacing interventions would not be the first controversial tech policy area. Norms around tech policy have been shaped by the experience of industry and government policies around GMOs, civil nuclear, stem cells, and gain-of-function research, and have contributed to broader societal attitudes towards "progress" or "precaution". The viability of pacing interventions will depend on these pre-existing attitudes and the degree of politicisation, but also the impacts of a pacing intervention, successful or otherwise, could impact the narratives and relative power of these different camps in societies around the world.
 
-### **5.6 Case A: a cap on frontier training**
+### 5.6 Case A: a cap on frontier training
 
 Here we again consider a coordinated ceiling on frontier training compute, applying initially to training activity by actors based in participating jurisdictions.
 
@@ -193,7 +193,7 @@ Beyond this, the majority of the changed incentives discussed in §5.1 from a ge
 
 **Investment and markets.** The relative attractiveness of frontier developer and compute investments will likely decrease. Finding ways to safely repurpose compute may smooth implementation significantly.
 
-### **5.7  Case B: restricting access to dangerous biological capabilities**
+### 5.7  Case B: restricting access to dangerous biological capabilities
 
 Here we again consider a red line under which models that materially uplift biological-weapons capability cannot be deployed or widely released without restrictions.
 
@@ -213,7 +213,7 @@ A further redirection is simply for actors to move away from biological capabili
 
 **Investment and markets.** The effects in this domain depend on the magnitude of the effects on the covered actors’ business models, but relative to other interventions this intervention seems low-impact here.
 
-### **5.8 Open Research Questions**
+### 5.8 Open Research Questions
 
 * **What compensation schemes could make pacing interventions more desirable for actors who stand to lose financially from them?** What are the precedents for such compensation, how could they be funded, and what secondary impacts might they have?  
   * *Srivastav & Zaehringer (2024), [The Economics of Coal Phaseouts](https://arxiv.org/abs/2406.14238)*  

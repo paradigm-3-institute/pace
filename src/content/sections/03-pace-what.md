@@ -12,7 +12,7 @@ For any particular threat model, there is rarely one lever which maps cleanly an
 
 In general, interventions that target control surfaces [earlier in the AI R\&D process](https://arxiv.org/abs/2402.08797) (e.g. interventions on access to chips) tend to have broader impacts, a higher likelihood of lowering risks, a higher likelihood of harming beneficial progress, and less capacity to leverage information generated in the R\&D process. This makes them much less likely to be targeted at very specific harms. Conversely, interventions that target control surfaces later in the AI R\&D process (e.g. inference-stage “[safeguards](https://arxiv.org/abs/2403.08501)” or [access controls](https://arxiv.org/abs/2403.08501)) are much more able to leverage information and therefore be more targeted at specific harms, but are also more likely to be circumvented (as the harmful artifact already exists). 
 
-### **3.1 Control surfaces of AI progress**
+### 3.1 Control surfaces of AI progress
 
 #### The AI development and deployment chain
 
@@ -50,7 +50,7 @@ This highlights a recurring tradeoff. Control surfaces earlier in the chain are 
 
 ![](/media/control-surfaces.png)
 
-### **3.2 Targeting and tradeoffs**
+### 3.2 Targeting and tradeoffs
 
 Consider a pacing intervention targeting some subset of inputs to the production of dangerous AI capability. Its effects extend beyond the inputs it directly restricts. Inputs that *substitute* for the targeted one absorb the freed compute, labor and so on, and receive more investment, while inputs that *complement* it contract along with the restricted ones. Capping, e.g. frontier training runs does not slow AI development in strict proportion to the amount of training forgone; rather, it slows by that amount net of whatever the developers recover by substituting with algorithmic efficiency, data-quality and inference-time scaling. The effectiveness of an intervention therefore depends on how easily developers can substitute other inputs for those being restricted. Where those alternatives inputs are non-rival and harder to observe, an intervention may have the effect of pushing more effort towards less governable inputs.
 
@@ -79,7 +79,7 @@ The correct balance between tolerating false positives, false negatives and intr
 
 Since essentially all control surfaces suffer from these tradeoffs, often the best route to a given outcome will involve several different control surfaces working in parallel, such as a cheap intervention with few false positives and many false negatives, coupled with a more demanding one that can catch some of the false negatives which slip through the previous one. Relatedly, in fast-moving situations it may be preferable to quickly enforce conservative interventions with many false positives, and use the breathing room to implement more careful and calibrated ones.
 
-### **3.3 Coordinated interventions**
+### 3.3 Coordinated interventions
 
 In cases where an intervention requires coordination among multiple actors, some control surfaces and interventions make this easier than others.
 
@@ -89,7 +89,7 @@ Coordination is more sustainable when compliance can be checked without needing 
 
 Unfortunately, while information about model capabilities and threat models accumulates steeply along the arc of model development, coordination can become more difficult. The information that can be gained about a system nearing deployment is often nonstandardized and difficult to make legible (i.e. the internal testing protocols and mitigation mechanisms at one lab may not look the same as at another, even if they point at the same targets). Upstream, however, information on goods like compute, which are produced by very few companies in relatively few places, can be easily [made legible, verified and shared](https://arxiv.org/abs/2408.16074), making coordination easier. As a result, coordinating actors will tend to select upstream control surfaces: the crude and high-false-positive side of the arc provides a source of surfaces better suited to coordination.
 
-### **3.4 Case A: a cap on frontier training** {#3.4-case-a:-a-cap-on-frontier-training}
+### 3.4 Case A: a cap on frontier training {#3.4-case-a:-a-cap-on-frontier-training}
 
 Suppose the concern is that AI systems may substantially accelerate or automate AI R\&D before adequate means of control exist. The hazard is a transition toward AI-driven development which outpaces developers’ ability to control it. 
 
@@ -103,7 +103,7 @@ Here we choose a per-model cap covering pretraining and post-training. Developer
 
 **Coordination:** Compute usage is a comparatively legible surface, if actors can be required to share records. [Many](https://arxiv.org/abs/2604.04712) [proposals](https://s3.us-east-1.amazonaws.com/files.cnas.org/documents/CNAS-Report-Tech-Secure-Chips-Jan-24-finalb.pdf) for governing compute usage and tracking chips [exist](https://arxiv.org/abs/2505.03742); it appears the technical problems involved are feasible to solve, but more work is still needed before this can be implemented. The coordination required involves figuring out who has authority over verifying compliance, who is included under the scope of the policy (which individual developers, and which nations), and how to respond to capability gains by non-participants so that continued participation remains preferable to defection.
 
-### **3.5 Case B: restricting access to dangerous biological capabilities**
+### 3.5 Case B: restricting access to dangerous biological capabilities
 
 Suppose instead that the concern is the diffusion of AI assistance that materially increases users’ ability to develop biological weapons. Here the hazard is more about access and usage than training. 
 
@@ -119,7 +119,7 @@ In cases where usage restriction is the target, there are more obviously tangibl
 
 There is also a risk that, once an open model with a given level of capabilities exists, subsequently attempting to control it may achieve substantially less and may not justify ongoing costs, so the policy may be brittle in the long run.
 
-### **3.6 Open Research Questions**
+### 3.6 Open Research Questions
 
 * **How should hazards be translated into covered activity for pacing interventions?** Risks we would like to target, such as uncontrolled automation of AI R\&D and bioweapon uplift, build up over various stages of AI research, development and deployment; capabilities will initially emerge at some point in training, and we may want to avoid such a point being reached, or we may care more about wider deployment (especially if capabilities have positive use cases we want to preserve). Research should compare candidate boundaries.  
   * [*Shevlane et al. (2023), Model Evaluation for Extreme Risks*](https://arxiv.org/abs/2305.15324)  
