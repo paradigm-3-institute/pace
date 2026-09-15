@@ -692,6 +692,19 @@
         flex-wrap: wrap;
       }
 
+      .panel-foot {
+        margin-top: 14px;
+        font: 400 10px/1.5 var(--mono);
+        color: var(--dim);
+        text-wrap: pretty;
+      }
+
+      .panel-foot a {
+        color: var(--dim);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
       .map-panel .btn {
         font: 400 10px/1 var(--mono);
         letter-spacing: 0.06em;
@@ -1916,7 +1929,8 @@
            https://... into a link shown as a short citation ("arxiv.org/…").
            Everything else stays plain text: nothing is ever parsed as HTML,
            and only http and https addresses are linked. */
-        const LINK = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)|(https?:\/\/[^\s)]+)/g;
+        const LINK =
+          /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)|(https?:\/\/[^\s)]+)|([\w.+-]+@[\w-]+(?:\.[\w-]+)+)/g;
 
         function richText(node, source) {
           let at = 0;
@@ -1929,6 +1943,10 @@
             if (match[1]) {
               label = match[1];
               href = match[2];
+            } else if (match[4]) {
+              /* a bare email address, shown as itself */
+              label = match[4];
+              href = `mailto:${match[4]}`;
             } else {
               href = match[3];
               /* a full stop or comma after a bare address belongs to the
@@ -1989,6 +2007,7 @@
           const actions = el("div", "panel-actions");
           actions.append(button(UI.restartButton, restart));
           panel.append(actions);
+          if (UI.mapNote) panel.append(richText(el("div", "panel-foot"), UI.mapNote));
         }
 
         /* ---- the numbers -------------------------------------------------- */

@@ -55,6 +55,8 @@
                          that don't set their own `placeholder`.
        surveyKicker      the small line above an extra question; {n} and
                          {total} become the numbers.
+       mapNote           the small line at the foot of the map's side panel.
+                         An email address in it becomes a link.
 
        The remaining labels appear only when live results are switched on in
        config.js.
@@ -190,7 +192,6 @@ export const QUIZ_DATA = {
           { label: `Bay Area` },
           { label: `DC` },
           { label: `London` },
-          { label: `Prague` },
           { label: `Other`, other: true, placeholder: `Where, then?` },
         ],
       },
@@ -200,7 +201,7 @@ export const QUIZ_DATA = {
         stem: `How much experience do you have with AI safety?`,
         options: [
           { label: `Working on it full time!` },
-          { label: `A hobbyist contributor` },
+          { label: `A hobby contributor` },
           { label: `Am AI-safety-curious` },
           { label: `Heard of it, not involved` },
           { label: `Never heard` },
@@ -246,6 +247,7 @@ export const QUIZ_DATA = {
     skipButton: `Skip`,
     otherPlaceholder: `Tell us more`,
     surveyKicker: `Extra question {n} of {total}`,
+    mapNote: `If you notice a way to improve our quiz, email nikola@arbresearch.com`,
 
     resultsWaiting:
       `The live tally appears once a few more people have walked the tree.`,
@@ -290,7 +292,7 @@ export const QUIZ_DATA = {
       kicker: `Branching Point 01B · General Harm`,
       stem: `Is harm inherent to frontier AI development in its current form?`,
       details: `This branching point opens the floor for conversation about what role AI (as a tool or the whole industry) plays in society (or what it’s doing to society). Is AI's reshaping of wealth, power, and cognition significant? If so, is it a harm to be prevented, or a potentially positive change for humanity to adapt to?`,
-      help: `Harm could include effects we’re presently observing but also emergent harms. AI R&D in its current form means capped on inputs (chips, data, algorithms) with limited top-down regulation.`,
+      help: `Harm could include effects we’re presently observing but also emergent harm. AI R&D in its current form means capped on inputs (chips, data, algorithms) with limited top-down regulation.`,
       options: [
         {
           label: `Yes`,
@@ -315,20 +317,20 @@ export const QUIZ_DATA = {
       kicker: `Branching Point 02 · Default risk`,
       stem: `If AI development continues at default speed, how likely is it to lead to lasting, irreversible, society-wide harm?`,
       details: `This branching point calls into question whether it’s AI development that’s the problem. Do the current race dynamics leave no room for defences to keep up? Is there an alternative reality where identical AI development paired with adequate misuse controls and resilience measures effectively prevent catastrophic harm? Is the risk from current AI development likely? How about significant?`,
-      help: `This includes harms from misalignment (model doing bad stuff) or misuse (humans using models for bad stuff).`,
+      help: `This includes harm from misalignment (model doing bad stuff) or misuse (humans using models for bad stuff).`,
       options: [
         {
           label: `Substantial (1-50%)`,
           short: `1-50%`,
           rank: 2,
-          text: `Big time misalignment or misuse may be rare, but human societies remain unequipped to avert or absorb the harms.`,
+          text: `Big time misalignment or misuse may be rare, but human societies remain unequipped to avert or absorb the harm.`,
           next: "c4",
         },
         {
           label: `Negligible (≤1%)`,
           short: `\u22641%`,
           rank: 1,
-          text: `Models are getting mostly safer; misuse will not scale and/or human societies are resilient to substantial harms.`,
+          text: `Models are getting mostly safer; misuse will not scale and/or human societies are resilient to substantial harm.`,
           next: null,
           camp: "accelerate",
         },
@@ -372,7 +374,7 @@ export const QUIZ_DATA = {
       icon: "ph-light ph-hourglass-medium",
       kicker: `Branching Point 03 · Instrumental Efficacy`,
       stem: `How would more time change the risk?`,
-      details: `People who disagree on this branching point don’t necessarily disagree that AI could cause catastrophic harms worth preventing but rather that time is not the solution. Do we have the infrastructure to make use of more time, or do we need more solutions on the table first? Maybe good enough solutions can naturally keep pace with the development of potentially harmful capabilities?`,
+      details: `People who disagree on this branching point don’t necessarily disagree that AI could cause catastrophic harm worth preventing but rather that time is not the solution. Do we have the infrastructure to make use of more time, or do we need more solutions on the table first? Maybe good enough solutions can naturally keep pace with the development of potentially harmful capabilities?`,
       options: [
         {
           label: `Time converts to safety`,
@@ -502,8 +504,8 @@ export const QUIZ_DATA = {
 
   camps: {
     presentHarms: {
-      title: `present harms`,
-      details: `People in this house generally agree that AI is a tool too powerful to turn a blind eye to as is—either because it has already reached sufficient capability to significantly destabilise societies, or because it doesn’t need to be super powerful to cause harm. Examples of present-day harms from AI that are arguably harmful enough to justify an intervention include: cybersecurity, labour displacement, human oversight on AI-made or AI-assisted decisions, inaccuracy, mental health implications, etc. This house might warn against the development of [fully autonomous agents](https://arxiv.org/abs/2502.02649), [implications of AI in consequential decision-making](https://arxiv.org/abs/2608.23642), or [impacts on the mental health of human societies](https://www.rand.org/news/press/2026/06/nearly-1-in-5-us-adolescents-and-young-adults-use-ai.html). An important critique of this house is that the argument often does not look past the current capability, and any catastrophic outcomes, however improbable, fall outside its threat model. Pacing based on harms society could reasonably absorb in time furthermore blocks the feedback loop through which emerging harms would be identified, studied, and managed/prevented.`,
+      title: `present harm`,
+      details: `People in this house generally agree that AI is a tool too powerful to turn a blind eye to as is—either because it has already reached sufficient capability to significantly destabilise societies, or because it doesn’t need to be super powerful to cause harm. Examples of present-day harm from AI that are arguably harmful enough to justify an intervention include: cybersecurity, labour displacement, human oversight on AI-made or AI-assisted decisions, inaccuracy, mental health implications, etc. This house might warn against the development of [fully autonomous agents](https://arxiv.org/abs/2502.02649), [implications of AI in consequential decision-making](https://arxiv.org/abs/2608.23642), or [impacts on the mental health of human societies](https://www.rand.org/news/press/2026/06/nearly-1-in-5-us-adolescents-and-young-adults-use-ai.html). An important critique of this house is that the argument often does not look past the current capability, and any catastrophic outcomes, however improbable, fall outside its threat model. Pacing based on harm society could reasonably absorb in time furthermore blocks the feedback loop through which emerging harm would be identified, studied, and managed/prevented.`,
     },
 
     normalTech: {
@@ -528,7 +530,7 @@ export const QUIZ_DATA = {
 
     dacc: {
       title: `d/acc`,
-      details: `People in this camp typically don’t expect AI development to stop: either because we can’t (e.g. coordination demands make it infeasible) or because we shouldn’t ([the cost of foregone benefits is too high](https://vitalik.eth.limo/general/2023/11/27/techno_optimism.html)). However, they also recognise that our current technologies will not suffice to protect humanity from the harms AI can potentially create and want a future with [maximum AI benefit and least possible downside](https://defacc.substack.com/p/what-is-defacc-anyway). The strategy that follows is differential acceleration: let AI development progress (incl. at a rapid pace) but channel a growing share of effort into building resilient societies (e.g. accelerating defensive capability in cyber and bio, or developing infrastructure that contains failures instead of propagating/cascading them). In order for this strategy to work, however, it must deliver fast, and that often disqualifies coordinated, government-run or government-mediated efforts. Main critiques of this camp include: (1) the fact that many dangerous AI capabilities are dual-use, and it would be non-trivial to accelerate defensive capabilities only, (2) claims that defence is only good if diffused, and diffusion may be too slow to outpace dangerous capabilities, and (3) scepticism that defensive infrastructure developed outside frontier labs can be competitive with offensive capabilities developed on the inside.`,
+      details: `People in this camp typically don’t expect AI development to stop: either because we can’t (e.g. coordination demands make it infeasible) or because we shouldn’t ([the cost of foregone benefits is too high](https://vitalik.eth.limo/general/2023/11/27/techno_optimism.html)). However, they also recognise that our current technologies will not suffice to protect humanity from the harm AI can potentially create and want a future with [maximum AI benefit and least possible downside](https://defacc.substack.com/p/what-is-defacc-anyway). The strategy that follows is differential acceleration: let AI development progress (incl. at a rapid pace) but channel a growing share of effort into building resilient societies (e.g. accelerating defensive capability in cyber and bio, or developing infrastructure that contains failures instead of propagating/cascading them). In order for this strategy to work, however, it must deliver fast, and that often disqualifies coordinated, government-run or government-mediated efforts. Main critiques of this camp include: (1) the fact that many dangerous AI capabilities are dual-use, and it would be non-trivial to accelerate defensive capabilities only, (2) claims that defence is only good if diffused, and diffusion may be too slow to outpace dangerous capabilities, and (3) scepticism that defensive infrastructure developed outside frontier labs can be competitive with offensive capabilities developed on the inside.`,
     },
 
     buildOption: {
@@ -538,6 +540,7 @@ export const QUIZ_DATA = {
 
     pauseNow: {
       title: `pause now`,
+      details: `This camp views AI development as a disaster in the making: AI’s present and near-future impacts on many/all aspects of society are [substantial](https://pauseai.info/risks) as is, and yet it is the best it will ever be. AI is too powerful and unpredictable for anyone (incl. people who built it!) to understand or control it. This camp calls for an [immediate, global, verifiable pause on further frontier development](https://pauseai.info/). The target of this intervention is frontier developers of general-purpose AI—not small- and mid-scale developers, narrow AI applications, or safety research. On this account, [compute trackability](https://futureoflife.org/open-letter/pause-giant-ai-experiments/) makes pausing feasible, though to enforce it over time requires more [cooperation on governance](https://report2025.seismic.org/media/documents/On_the_Razors_Edge_Seismic_Report_2025.pdf) measures that may not yet exist. A weakness of an immediate blanket pause, however feasible and verifiable, is that pausing at every cost doesn’t guarantee that the time will be used wisely and/or that there will be any improvements after the pause’s end. Furthermore, compute is just a proxy for capability, which may decay over time as compute efficiency improves or fail from the outset due to existing latent capabilities.`,
     },
 
     coordinatedDelay: {
@@ -547,7 +550,7 @@ export const QUIZ_DATA = {
 
     tripwires: {
       title: `if-then tripwires`,
-      details: `This camp holds that there isn’t necessarily a need to universally hold off on AI R&D, but some exceptionally dangerous capabilities call for (and justify) exceptionally strong interventions. Such interventions (a.k.a. tripwires) must be specified now, for a couple of reasons: (a) harms from advanced AI may be too large and arrive too fast for reactive interventions to matter, and (b) pre-agreed interventions are actionable even in crises (e.g. during chaos or disagreement). Tripwires also answer the sceptics’ concern that top-down interventions are too intrusive, for they never trigger unless a pre-agreed concern becomes real. Furthermore, because tripwires restrict particular activities at particular companies—rather than blanket-constrain all actors—they may attract trailing competitors: the rules slow their faster rivals and give them room to close the gap. Tripwires' major weakness is that they only guard against harms we could imagine, arriving by routes we could imagine, potentially yielding many false negatives; and that they rely on proxies for danger (eval scores, [compute thresholds](https://metr.org/blog/2023-09-26-rsp/)) rather than danger itself, potentially yielding many false positives (each weakening the will to maintain them). Additionally, tripwires today exist only as voluntary frameworks, self-monitored by frontier developers, and a path to making compliance mandatory remains unspecified.`,
+      details: `This camp holds that there isn’t necessarily a need to universally hold off on AI R&D, but some exceptionally dangerous capabilities call for (and justify) exceptionally strong interventions. Such interventions (a.k.a. tripwires) must be specified now, for a couple of reasons: (a) harm from advanced AI may be too large and arrive too fast for reactive interventions to matter, and (b) pre-agreed interventions are actionable even in crises (e.g. during chaos or disagreement). Tripwires also answer the sceptics’ concern that top-down interventions are too intrusive, for they never trigger unless a pre-agreed concern becomes real. Furthermore, because tripwires restrict particular activities at particular companies—rather than blanket-constrain all actors—they may attract trailing competitors: the rules slow their faster rivals and give them room to close the gap. Tripwires' major weakness is that they only guard against harm we could imagine, arriving by routes we could imagine, potentially yielding many false negatives; and that they rely on proxies for danger (eval scores, [compute thresholds](https://metr.org/blog/2023-09-26-rsp/)) rather than danger itself, potentially yielding many false positives (each weakening the will to maintain them). Additionally, tripwires today exist only as voluntary frameworks, self-monitored by frontier developers, and a path to making compliance mandatory remains unspecified.`,
     },
   },
 };
