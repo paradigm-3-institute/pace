@@ -4,15 +4,20 @@ import tailwindcss from "@tailwindcss/vite";
 import rehypeSectionizeH3 from "./src/plugins/rehype-sectionize-h3.js";
 import rehypeExternalLinks from "./src/plugins/rehype-external-links.js";
 
+import preact from "@astrojs/preact";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://pacing.tech",
+
   markdown: {
     rehypePlugins: [rehypeSectionizeH3, rehypeExternalLinks],
   },
+
   vite: {
     plugins: [tailwindcss()],
   },
+
   fonts: [
     {
       provider: fontProviders.local(),
@@ -53,4 +58,6 @@ export default defineConfig({
       subsets: ["latin"],
     },
   ],
+
+  integrations: [preact()],
 });

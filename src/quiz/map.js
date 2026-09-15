@@ -1,22 +1,16 @@
 import { QUIZ_DATA } from "./content.js";
 import { CONFIG } from "./config.js";
 import { live } from "./live.js";
-import { el, NS, button, stage, controls } from "./dom.js";
-import { dispatch } from "./store.js";
-import { restart } from "./state.js";
 
 const UI = QUIZ_DATA.ui;
+const NS = "http://www.w3.org/2000/svg";
 
-/* Set while the map is open; called to stop live updates. */
-let stopWatching = null;
-
-/* Every other screen calls this first, so leaving the map always stops
-   its websocket or polling and restores the page's own framing. */
-export function leaveMap() {
-  if (stopWatching) stopWatching();
-  stopWatching = null;
-  delete document.documentElement.dataset.map;
-}
+const el = (tag, className, text) => {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text !== undefined) node.textContent = text;
+  return node;
+};
 
 /* -------------------------------------------------------------------
    The ending: the map.
@@ -43,12 +37,11 @@ const MIN_ZOOM = 0.25;
 const MAX_ZOOM = 2.5;
 const ACCENT = "oklch(0.55 0.17 28)";
 
-export function renderTree(state) {
-  leaveMap();
-  stage.replaceChildren();
-  controls.replaceChildren();
-  document.documentElement.dataset.map = "open";
-
+/* Draws the map into `container` for the walk in `state`, records the
+   walk, and keeps the tallies live. Returns a function that stops the
+   live updates; the Map component calls it on unmount. */
+export function mountMap(container, state, onRestart) {
+  let stopWatching = () => {};
   const MAP = QUIZ_DATA.map;
 
   const view = el("div", "map-view");
@@ -65,7 +58,7 @@ export function renderTree(state) {
 
   const panel = el("aside", "map-panel");
   view.append(pane, panel);
-  stage.append(view);
+  container.append(view);
 
   /* ---- nodes ------------------------------------------------------ */
 
@@ -613,7 +606,10 @@ export function renderTree(state) {
     /* No way back from the map: the walk is recorded by the time it
        is drawn, so the only move from here is to start again. */
     const actions = el("div", "panel-actions");
-    actions.append(button(UI.restartButton, () => dispatch(restart), "map"));
+    const again = el("button", "map-btn", UI.restartButton);
+    again.type = "button";
+    again.addEventListener("click", onRestart);
+    actions.append(again);
     panel.append(actions);
     if (UI.mapNote) panel.append(richText(el("div", "panel-foot"), UI.mapNote));
   }
@@ -660,8 +656,7 @@ export function renderTree(state) {
   observer.observe(pane);
 
   if (!live.configured()) {
-    stopWatching = () => observer.disconnect();
-    return;
+    return () => observer.disconnect();
   }
 
   const refresh = async () => {
@@ -692,9 +687,11 @@ export function renderTree(state) {
       clearTimeout(pending);
       pending = setTimeout(refresh, 400);
     });
-    stopWatching = () => {
-      stopWatch();
-      observer.disconnect();
-    };
+    stopWatching = stopWatch;
   })();
+
+  return () => {
+    stopWatching();
+    observer.disconnect();
+  };
 }

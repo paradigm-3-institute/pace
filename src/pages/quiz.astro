@@ -4,6 +4,7 @@ import { createRequire } from "node:module";
 import { Font } from "astro:assets";
 import "../styles/quiz.css";
 import contentSource from "../quiz/content.js?raw";
+import Quiz from "../quiz/Quiz.jsx";
 
 /* Phosphor icons, self-hosted. Rather than loading the whole icon font, this
    scans src/quiz/content.js for every `ph-<weight> ph-<name>` it mentions,
@@ -35,7 +36,7 @@ const socialImageURL = new URL("/card.png", Astro.url);
 ---
 
 <!doctype html>
-<html lang="en" class="h-full">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -64,14 +65,14 @@ const socialImageURL = new URL("/card.png", Astro.url);
     <Font cssVariable="--font-plex-mono" />
   </head>
 
-  <body class="h-full overflow-hidden flex flex-col font-serif text-[16px] leading-[1.6] md:pl-70">
+  <body class="font-serif text-[16px] leading-[1.6] md:pl-70">
     <!-- The essay's sidebar (src/pages/index.astro): same width, padding
          and type, with the quiz's title and its opening paragraph in place
          of the table of contents. Fixed down the left from md; a block
          across the top below it, where the title runs on one line to
          leave room for the screen beneath. -->
-    <aside class="flex-none select-none bg-sidebar text-background font-sans p-7 pb-6 md:pb-8 md:fixed md:inset-y-0 md:left-0 md:w-70 md:overflow-auto">
-      <h1 class="flex gap-[0.25em] text-[32px] leading-none font-light md:grid md:gap-2 md:text-5xl">
+    <aside class="select-none bg-sidebar text-background font-sans p-7 pb-6 md:pb-8 md:fixed md:inset-y-0 md:left-0 md:w-70 md:overflow-auto">
+      <h1 class="gap-[0.25em] font-light grid text-5xl leading-none">
         <span>Ways</span>
         <span class="md:-ml-0.5">to</span>
         <span>Pace</span>
@@ -79,7 +80,7 @@ const socialImageURL = new URL("/card.png", Astro.url);
       <a class="inline-block mt-6 text-(--color-pace-how-bg) hover:text-(--color-why-pace-bg)" href="/">
         ← Back to paper
       </a>
-      <div class="mt-7 grid gap-7 antialiased">
+      <div class="mt-7 grid gap-6 antialiased">
         <p>
           Experts who mostly agree that unrestricted AI progress poses significant risks to human societies still
           disagree on major branching points of the pacing debate.
@@ -91,16 +92,10 @@ const socialImageURL = new URL("/card.png", Astro.url);
       </div>
     </aside>
 
-    <!-- Scrolls on its own if a screen is taller than the window, so the
-         sidebar stays put. -->
-    <main class="flex flex-1 min-h-0 w-full max-w-[860px] mx-auto flex-col overflow-y-auto pt-16 pb-7 px-(--x-padding)">
-      <!-- Anchored to the top, not centred: centring would move the icon
-           up and down with the length of each question. -->
-      <div class="flex flex-auto flex-col justify-start" id="stage" aria-live="polite"></div>
-
-      <div class="mt-6 flex flex-wrap gap-3 empty:hidden" id="controls"></div>
+    <!-- client:only, not client:load: the option order is shuffled per
+         visit, so a server render would never match the client's. -->
+    <main class="flex w-full max-w-[860px] mx-auto flex-col pt-16 pb-7 px-(--x-padding)">
+      <Quiz client:only="preact" />
     </main>
-
-    <script src="../quiz/quiz.js"></script>
   </body>
 </html>
