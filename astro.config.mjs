@@ -2,12 +2,13 @@
 import { defineConfig, fontProviders } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import rehypeSectionizeH3 from "./src/plugins/rehype-sectionize-h3.js";
+import rehypeExternalLinks from "./src/plugins/rehype-external-links.js";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://pacing.tech",
   markdown: {
-    rehypePlugins: [rehypeSectionizeH3],
+    rehypePlugins: [rehypeSectionizeH3, rehypeExternalLinks],
   },
   vite: {
     plugins: [tailwindcss()],
