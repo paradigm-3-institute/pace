@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="1208" viewBox="0 0 480 1208" role="img" aria-labelledby="ttl dsc">
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="1152" viewBox="0 0 480 1152" role="img" aria-labelledby="ttl dsc">
   <title id="ttl">How evidence can become action, and where it can stall</title>
   <desc id="dsc">Six steps from evidence to action: detect, interpret, decide, execute, check, and retarget or exit, grouped into before pacing, activation, and during or ending. Between each step the process can stall: no recognised recipient, no usable basis for a call, no one able or willing to act, no observation or verification, no review or exit rule.</desc>
   <defs>
@@ -54,109 +54,107 @@
       .tv { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 14px; fill: #2b3a55; }
     </style>
   </defs>
-  <rect width="480" height="1208" fill="#f3f6f9"/>
-  <rect width="480" height="1208" fill="url(#grid)"/>
-  <text class="hd" x="240.0" y="27.0" text-anchor="middle" dominant-baseline="central" >HOW EVIDENCE CAN BECOME ACTION —</text>
-  <text class="hd" x="240.0" y="45.0" text-anchor="middle" dominant-baseline="central" >AND WHERE IT CAN STALL</text>
-  <rect class="band" x="14" y="76" width="22" height="316" />
-  <text class="ph" x="25" y="234.0" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 25 234.0)">BEFORE PACING</text>
-  <rect class="band" x="14" y="472" width="22" height="316" />
-  <text class="ph" x="25" y="630.0" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 25 630.0)">ACTIVATION</text>
-  <rect class="band" x="14" y="868" width="22" height="316" />
-  <text class="ph" x="25" y="1026.0" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 25 1026.0)">DURING / ENDING</text>
-  <rect class="box" x="52" y="76" width="400" height="118" />
-  <rect class="" x="52" y="160" width="400" height="34" fill="#e4ebf2"/>
-  <rect class="outline" x="52" y="76" width="400" height="118" />
-  <line class="sep" x1="52" y1="110" x2="452" y2="110"/>
-  <text class="hd" x="252.0" y="93" text-anchor="middle" dominant-baseline="central" >DETECT</text>
-  <text class="b2" x="252.0" y="127.0" text-anchor="middle" dominant-baseline="central" >Forecasts, evaluations</text>
-  <text class="b2" x="252.0" y="145.0" text-anchor="middle" dominant-baseline="central" >or incidents</text>
-  <text class="lb" x="252.0" y="170" text-anchor="middle" dominant-baseline="central" font-size="7px">OUTPUT</text>
-  <text class="ef" x="252.0" y="184" text-anchor="middle" dominant-baseline="central" >RECOGNISED SIGNAL</text>
-  <line class="arr" x1="110" y1="194" x2="110" y2="262"/>
-  <polygon class="head" points="102,260 118,260 110,274"/>
-  <circle class="note" cx="110" cy="234.0" r="9"/>
-  <path d="M106 230.0 L114 238.0 M114 230.0 L106 238.0" stroke="#d0503c" stroke-width="1.6"/>
-  <line class="rl" x1="119" y1="234.0" x2="150" y2="234.0"/>
-  <rect class="note" x="150.0" y="216.0" width="302" height="36" />
-  <text class="rd" x="301" y="228.0" text-anchor="middle" dominant-baseline="central" >NO RECOGNISED</text>
-  <text class="rd" x="301" y="240.0" text-anchor="middle" dominant-baseline="central" >RECIPIENT</text>
-  <rect class="box" x="52" y="274" width="400" height="118" />
-  <rect class="" x="52" y="358" width="400" height="34" fill="#e4ebf2"/>
-  <rect class="outline" x="52" y="274" width="400" height="118" />
-  <line class="sep" x1="52" y1="308" x2="452" y2="308"/>
-  <text class="hd" x="252.0" y="291" text-anchor="middle" dominant-baseline="central" >INTERPRET</text>
-  <text class="b2" x="252.0" y="325.0" text-anchor="middle" dominant-baseline="central" >Assess the signal</text>
-  <text class="b2" x="252.0" y="343.0" text-anchor="middle" dominant-baseline="central" >against a trigger</text>
-  <text class="lb" x="252.0" y="368" text-anchor="middle" dominant-baseline="central" font-size="7px">OUTPUT</text>
-  <text class="ef" x="252.0" y="382" text-anchor="middle" dominant-baseline="central" >DECISION BASIS</text>
-  <line class="arr" x1="110" y1="392" x2="110" y2="460"/>
-  <polygon class="head" points="102,458 118,458 110,472"/>
-  <circle class="note" cx="110" cy="432.0" r="9"/>
-  <path d="M106 428.0 L114 436.0 M114 428.0 L106 436.0" stroke="#d0503c" stroke-width="1.6"/>
-  <line class="rl" x1="119" y1="432.0" x2="150" y2="432.0"/>
-  <rect class="note" x="150.0" y="414.0" width="302" height="36" />
-  <text class="rd" x="301" y="426.0" text-anchor="middle" dominant-baseline="central" >NO USABLE BASIS</text>
-  <text class="rd" x="301" y="438.0" text-anchor="middle" dominant-baseline="central" >FOR A CALL</text>
-  <rect class="box" x="52" y="472" width="400" height="118" />
-  <rect class="" x="52" y="556" width="400" height="34" fill="#e4ebf2"/>
-  <rect class="outline" x="52" y="472" width="400" height="118" />
-  <line class="sep" x1="52" y1="506" x2="452" y2="506"/>
-  <text class="hd" x="252.0" y="489" text-anchor="middle" dominant-baseline="central" >DECIDE</text>
-  <text class="b2" x="252.0" y="523.0" text-anchor="middle" dominant-baseline="central" >Someone able to affect conduct</text>
-  <text class="b2" x="252.0" y="541.0" text-anchor="middle" dominant-baseline="central" >makes a meaningful call</text>
-  <text class="lb" x="252.0" y="566" text-anchor="middle" dominant-baseline="central" font-size="7px">OUTPUT</text>
-  <text class="ef" x="252.0" y="580" text-anchor="middle" dominant-baseline="central" >ACTIONABLE DECISION</text>
-  <line class="arr" x1="110" y1="590" x2="110" y2="658"/>
-  <polygon class="head" points="102,656 118,656 110,670"/>
-  <circle class="note" cx="110" cy="630.0" r="9"/>
-  <path d="M106 626.0 L114 634.0 M114 626.0 L106 634.0" stroke="#d0503c" stroke-width="1.6"/>
-  <line class="rl" x1="119" y1="630.0" x2="150" y2="630.0"/>
-  <rect class="note" x="150.0" y="612.0" width="302" height="36" />
-  <text class="rd" x="301" y="624.0" text-anchor="middle" dominant-baseline="central" >NO ONE ABLE OR</text>
-  <text class="rd" x="301" y="636.0" text-anchor="middle" dominant-baseline="central" >WILLING TO ACT</text>
-  <rect class="box" x="52" y="670" width="400" height="118" />
-  <rect class="" x="52" y="754" width="400" height="34" fill="#e4ebf2"/>
-  <rect class="outline" x="52" y="670" width="400" height="118" />
-  <line class="sep" x1="52" y1="704" x2="452" y2="704"/>
-  <text class="hd" x="252.0" y="687" text-anchor="middle" dominant-baseline="central" >EXECUTE</text>
-  <text class="b2" x="252.0" y="721.0" text-anchor="middle" dominant-baseline="central" >Covered actors</text>
-  <text class="b2" x="252.0" y="739.0" text-anchor="middle" dominant-baseline="central" >change conduct</text>
-  <text class="lb" x="252.0" y="764" text-anchor="middle" dominant-baseline="central" font-size="7px">OUTPUT</text>
-  <text class="ef" x="252.0" y="778" text-anchor="middle" dominant-baseline="central" >OPERATIONAL EFFECT</text>
-  <line class="arr" x1="110" y1="788" x2="110" y2="856"/>
-  <polygon class="head" points="102,854 118,854 110,868"/>
-  <circle class="note" cx="110" cy="828.0" r="9"/>
-  <path d="M106 824.0 L114 832.0 M114 824.0 L106 832.0" stroke="#d0503c" stroke-width="1.6"/>
-  <line class="rl" x1="119" y1="828.0" x2="150" y2="828.0"/>
-  <rect class="note" x="150.0" y="810.0" width="302" height="36" />
-  <text class="rd" x="301" y="822.0" text-anchor="middle" dominant-baseline="central" >NO OBSERVATION</text>
-  <text class="rd" x="301" y="834.0" text-anchor="middle" dominant-baseline="central" >OR VERIFICATION</text>
-  <rect class="box" x="52" y="868" width="400" height="118" />
-  <rect class="" x="52" y="952" width="400" height="34" fill="#e4ebf2"/>
-  <rect class="outline" x="52" y="868" width="400" height="118" />
-  <line class="sep" x1="52" y1="902" x2="452" y2="902"/>
-  <text class="hd" x="252.0" y="885" text-anchor="middle" dominant-baseline="central" >CHECK</text>
-  <text class="b2" x="252.0" y="919.0" text-anchor="middle" dominant-baseline="central" >Verify compliance;</text>
-  <text class="b2" x="252.0" y="937.0" text-anchor="middle" dominant-baseline="central" >assess new evidence</text>
-  <text class="lb" x="252.0" y="962" text-anchor="middle" dominant-baseline="central" font-size="7px">OUTPUT</text>
-  <text class="ef" x="252.0" y="976" text-anchor="middle" dominant-baseline="central" >REVIEW FINDING</text>
-  <line class="arr" x1="110" y1="986" x2="110" y2="1054"/>
-  <polygon class="head" points="102,1052 118,1052 110,1066"/>
-  <circle class="note" cx="110" cy="1026.0" r="9"/>
-  <path d="M106 1022.0 L114 1030.0 M114 1022.0 L106 1030.0" stroke="#d0503c" stroke-width="1.6"/>
-  <line class="rl" x1="119" y1="1026.0" x2="150" y2="1026.0"/>
-  <rect class="note" x="150.0" y="1008.0" width="302" height="36" />
-  <text class="rd" x="301" y="1020.0" text-anchor="middle" dominant-baseline="central" >NO REVIEW OR</text>
-  <text class="rd" x="301" y="1032.0" text-anchor="middle" dominant-baseline="central" >EXIT RULE</text>
-  <rect class="box" x="52" y="1066" width="400" height="118" />
-  <rect class="" x="52" y="1150" width="400" height="34" fill="#e4ebf2"/>
-  <rect class="outline" x="52" y="1066" width="400" height="118" />
-  <line class="sep" x1="52" y1="1100" x2="452" y2="1100"/>
-  <text class="hd" x="252.0" y="1083" text-anchor="middle" dominant-baseline="central" >RETARGET OR EXIT</text>
-  <text class="b2" x="252.0" y="1117.0" text-anchor="middle" dominant-baseline="central" >Continue · retarget</text>
-  <text class="b2" x="252.0" y="1135.0" text-anchor="middle" dominant-baseline="central" >Stage resumption · end</text>
-  <text class="lb" x="252.0" y="1160" text-anchor="middle" dominant-baseline="central" font-size="7px">OUTPUT</text>
-  <text class="ef" x="252.0" y="1174" text-anchor="middle" dominant-baseline="central" >REVISED DIRECTION</text>
+  <rect width="480" height="1152" fill="#f3f6f9"/>
+  <rect width="480" height="1152" fill="url(#grid)"/>
+  <rect class="band" x="14" y="20" width="22" height="316" />
+  <text class="ph" x="25" y="178.0" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 25 178.0)">BEFORE PACING</text>
+  <rect class="band" x="14" y="416" width="22" height="316" />
+  <text class="ph" x="25" y="574.0" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 25 574.0)">ACTIVATION</text>
+  <rect class="band" x="14" y="812" width="22" height="316" />
+  <text class="ph" x="25" y="970.0" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 25 970.0)">DURING / ENDING</text>
+  <rect class="box" x="52" y="20" width="400" height="118" />
+  <rect class="" x="52" y="104" width="400" height="34" fill="#e4ebf2"/>
+  <rect class="outline" x="52" y="20" width="400" height="118" />
+  <line class="sep" x1="52" y1="54" x2="452" y2="54"/>
+  <text class="hd" x="252.0" y="37" text-anchor="middle" dominant-baseline="central" >DETECT</text>
+  <text class="b2" x="252.0" y="71.0" text-anchor="middle" dominant-baseline="central" >Forecasts, evaluations</text>
+  <text class="b2" x="252.0" y="89.0" text-anchor="middle" dominant-baseline="central" >or incidents</text>
+  <text class="lb" x="252.0" y="114" text-anchor="middle" dominant-baseline="central" font-size="7px">OUTPUT</text>
+  <text class="ef" x="252.0" y="128" text-anchor="middle" dominant-baseline="central" >RECOGNISED SIGNAL</text>
+  <line class="arr" x1="110" y1="138" x2="110" y2="206"/>
+  <polygon class="head" points="102,204 118,204 110,218"/>
+  <circle class="note" cx="110" cy="178.0" r="9"/>
+  <path d="M106 174.0 L114 182.0 M114 174.0 L106 182.0" stroke="#d0503c" stroke-width="1.6"/>
+  <line class="rl" x1="119" y1="178.0" x2="150" y2="178.0"/>
+  <rect class="note" x="150.0" y="160.0" width="302" height="36" />
+  <text class="rd" x="301" y="172.0" text-anchor="middle" dominant-baseline="central" >NO RECOGNISED</text>
+  <text class="rd" x="301" y="184.0" text-anchor="middle" dominant-baseline="central" >RECIPIENT</text>
+  <rect class="box" x="52" y="218" width="400" height="118" />
+  <rect class="" x="52" y="302" width="400" height="34" fill="#e4ebf2"/>
+  <rect class="outline" x="52" y="218" width="400" height="118" />
+  <line class="sep" x1="52" y1="252" x2="452" y2="252"/>
+  <text class="hd" x="252.0" y="235" text-anchor="middle" dominant-baseline="central" >INTERPRET</text>
+  <text class="b2" x="252.0" y="269.0" text-anchor="middle" dominant-baseline="central" >Assess the signal</text>
+  <text class="b2" x="252.0" y="287.0" text-anchor="middle" dominant-baseline="central" >against a trigger</text>
+  <text class="lb" x="252.0" y="312" text-anchor="middle" dominant-baseline="central" font-size="7px">OUTPUT</text>
+  <text class="ef" x="252.0" y="326" text-anchor="middle" dominant-baseline="central" >DECISION BASIS</text>
+  <line class="arr" x1="110" y1="336" x2="110" y2="404"/>
+  <polygon class="head" points="102,402 118,402 110,416"/>
+  <circle class="note" cx="110" cy="376.0" r="9"/>
+  <path d="M106 372.0 L114 380.0 M114 372.0 L106 380.0" stroke="#d0503c" stroke-width="1.6"/>
+  <line class="rl" x1="119" y1="376.0" x2="150" y2="376.0"/>
+  <rect class="note" x="150.0" y="358.0" width="302" height="36" />
+  <text class="rd" x="301" y="370.0" text-anchor="middle" dominant-baseline="central" >NO USABLE BASIS</text>
+  <text class="rd" x="301" y="382.0" text-anchor="middle" dominant-baseline="central" >FOR A CALL</text>
+  <rect class="box" x="52" y="416" width="400" height="118" />
+  <rect class="" x="52" y="500" width="400" height="34" fill="#e4ebf2"/>
+  <rect class="outline" x="52" y="416" width="400" height="118" />
+  <line class="sep" x1="52" y1="450" x2="452" y2="450"/>
+  <text class="hd" x="252.0" y="433" text-anchor="middle" dominant-baseline="central" >DECIDE</text>
+  <text class="b2" x="252.0" y="467.0" text-anchor="middle" dominant-baseline="central" >Someone able to affect conduct</text>
+  <text class="b2" x="252.0" y="485.0" text-anchor="middle" dominant-baseline="central" >makes a meaningful call</text>
+  <text class="lb" x="252.0" y="510" text-anchor="middle" dominant-baseline="central" font-size="7px">OUTPUT</text>
+  <text class="ef" x="252.0" y="524" text-anchor="middle" dominant-baseline="central" >ACTIONABLE DECISION</text>
+  <line class="arr" x1="110" y1="534" x2="110" y2="602"/>
+  <polygon class="head" points="102,600 118,600 110,614"/>
+  <circle class="note" cx="110" cy="574.0" r="9"/>
+  <path d="M106 570.0 L114 578.0 M114 570.0 L106 578.0" stroke="#d0503c" stroke-width="1.6"/>
+  <line class="rl" x1="119" y1="574.0" x2="150" y2="574.0"/>
+  <rect class="note" x="150.0" y="556.0" width="302" height="36" />
+  <text class="rd" x="301" y="568.0" text-anchor="middle" dominant-baseline="central" >NO ONE ABLE OR</text>
+  <text class="rd" x="301" y="580.0" text-anchor="middle" dominant-baseline="central" >WILLING TO ACT</text>
+  <rect class="box" x="52" y="614" width="400" height="118" />
+  <rect class="" x="52" y="698" width="400" height="34" fill="#e4ebf2"/>
+  <rect class="outline" x="52" y="614" width="400" height="118" />
+  <line class="sep" x1="52" y1="648" x2="452" y2="648"/>
+  <text class="hd" x="252.0" y="631" text-anchor="middle" dominant-baseline="central" >EXECUTE</text>
+  <text class="b2" x="252.0" y="665.0" text-anchor="middle" dominant-baseline="central" >Covered actors</text>
+  <text class="b2" x="252.0" y="683.0" text-anchor="middle" dominant-baseline="central" >change conduct</text>
+  <text class="lb" x="252.0" y="708" text-anchor="middle" dominant-baseline="central" font-size="7px">OUTPUT</text>
+  <text class="ef" x="252.0" y="722" text-anchor="middle" dominant-baseline="central" >OPERATIONAL EFFECT</text>
+  <line class="arr" x1="110" y1="732" x2="110" y2="800"/>
+  <polygon class="head" points="102,798 118,798 110,812"/>
+  <circle class="note" cx="110" cy="772.0" r="9"/>
+  <path d="M106 768.0 L114 776.0 M114 768.0 L106 776.0" stroke="#d0503c" stroke-width="1.6"/>
+  <line class="rl" x1="119" y1="772.0" x2="150" y2="772.0"/>
+  <rect class="note" x="150.0" y="754.0" width="302" height="36" />
+  <text class="rd" x="301" y="766.0" text-anchor="middle" dominant-baseline="central" >NO OBSERVATION</text>
+  <text class="rd" x="301" y="778.0" text-anchor="middle" dominant-baseline="central" >OR VERIFICATION</text>
+  <rect class="box" x="52" y="812" width="400" height="118" />
+  <rect class="" x="52" y="896" width="400" height="34" fill="#e4ebf2"/>
+  <rect class="outline" x="52" y="812" width="400" height="118" />
+  <line class="sep" x1="52" y1="846" x2="452" y2="846"/>
+  <text class="hd" x="252.0" y="829" text-anchor="middle" dominant-baseline="central" >CHECK</text>
+  <text class="b2" x="252.0" y="863.0" text-anchor="middle" dominant-baseline="central" >Verify compliance;</text>
+  <text class="b2" x="252.0" y="881.0" text-anchor="middle" dominant-baseline="central" >assess new evidence</text>
+  <text class="lb" x="252.0" y="906" text-anchor="middle" dominant-baseline="central" font-size="7px">OUTPUT</text>
+  <text class="ef" x="252.0" y="920" text-anchor="middle" dominant-baseline="central" >REVIEW FINDING</text>
+  <line class="arr" x1="110" y1="930" x2="110" y2="998"/>
+  <polygon class="head" points="102,996 118,996 110,1010"/>
+  <circle class="note" cx="110" cy="970.0" r="9"/>
+  <path d="M106 966.0 L114 974.0 M114 966.0 L106 974.0" stroke="#d0503c" stroke-width="1.6"/>
+  <line class="rl" x1="119" y1="970.0" x2="150" y2="970.0"/>
+  <rect class="note" x="150.0" y="952.0" width="302" height="36" />
+  <text class="rd" x="301" y="964.0" text-anchor="middle" dominant-baseline="central" >NO REVIEW OR</text>
+  <text class="rd" x="301" y="976.0" text-anchor="middle" dominant-baseline="central" >EXIT RULE</text>
+  <rect class="box" x="52" y="1010" width="400" height="118" />
+  <rect class="" x="52" y="1094" width="400" height="34" fill="#e4ebf2"/>
+  <rect class="outline" x="52" y="1010" width="400" height="118" />
+  <line class="sep" x1="52" y1="1044" x2="452" y2="1044"/>
+  <text class="hd" x="252.0" y="1027" text-anchor="middle" dominant-baseline="central" >RETARGET OR EXIT</text>
+  <text class="b2" x="252.0" y="1061.0" text-anchor="middle" dominant-baseline="central" >Continue · retarget</text>
+  <text class="b2" x="252.0" y="1079.0" text-anchor="middle" dominant-baseline="central" >Stage resumption · end</text>
+  <text class="lb" x="252.0" y="1104" text-anchor="middle" dominant-baseline="central" font-size="7px">OUTPUT</text>
+  <text class="ef" x="252.0" y="1118" text-anchor="middle" dominant-baseline="central" >REVISED DIRECTION</text>
 
 </svg>

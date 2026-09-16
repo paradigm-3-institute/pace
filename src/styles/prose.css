@@ -281,6 +281,18 @@
   margin-bottom: 0;
 }
 
+/* On phones the summary runs edge to edge, like the figures. */
+@media (width < 48rem) {
+  .prose .exec-summary {
+    width: calc(100% + 2 * var(--x-padding-inside));
+    margin-left: calc(-1 * var(--x-padding-inside));
+    padding: 24px var(--x-padding-inside);
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+  }
+}
+
 /* Links to third-party AI summaries of the piece, at the end of the
    executive summary: a centred label over a row of icon pills. */
 .prose .ai-summaries {

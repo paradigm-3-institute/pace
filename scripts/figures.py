@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""Generate the portrait (mobile) versions of the essay's figures.
+"""Generate the essay's diagram figures as SVG, in two orientations.
 
-The desktop figures are wide, left-to-right diagrams that become unreadable
-once the article is narrower than ~700px. Each function below re-lays the
-same content out top-to-bottom, in the same visual language as the existing
-SVG figures (grid background, mono headings, serif body text), and writes it
-to public/media/<name>.mobile.svg. The figure plugin swaps these in on narrow
-viewports.
+Each figure has a wide, left-to-right layout (public/media/<name>.svg) and a
+portrait one for narrow viewports (public/media/<name>.mobile.svg); the
+figure plugin swaps the portrait one in on viewports narrower than 1024px.
+Both share one visual language: grid background, mono headings, serif body
+text. The two causal graphs' wide versions are hand-written SVGs kept
+alongside; only their portrait versions come from here.
 
-Run:  python3 scripts/mobile-figures.py
+Run:  python3 scripts/figures.py
 """
 
 from pathlib import Path
@@ -167,9 +167,24 @@ def marker(cx, cy, kind="x", cls="note", stroke="#d0503c"):
     return out
 
 
-def write(name, content):
-    (OUT / f"{name}.mobile.svg").write_text(content)
-    print("wrote", name)
+def write(name, content, wide=False):
+    file = OUT / (f"{name}.svg" if wide else f"{name}.mobile.svg")
+    file.write_text(content)
+    print("wrote", file.name)
+
+
+def wrap(text, width):
+    """Greedy word wrap to at most `width` characters per line."""
+    lines, cur = [], ""
+    for word in text.split():
+        if cur and len(cur) + 1 + len(word) > width:
+            lines.append(cur)
+            cur = word
+        else:
+            cur = f"{cur} {word}".strip()
+    if cur:
+        lines.append(cur)
+    return lines
 
 
 # ---------------------------------------------------------------------------
@@ -334,7 +349,7 @@ def control_surfaces():
     W = 512
     x0, hw, cw = 14, 142, 86
     hh, rh = 64, 52
-    b = text(W / 2, 30, "RANKING OF AI CONTROL SURFACES", "hd")
+    b = ""
 
     def table(y, cols):
         out = ""
@@ -355,15 +370,11 @@ def control_surfaces():
                 out += text(cx + cw / 2, ry + rh / 2, g[c], "tv")
         return out, y + hh + rh * len(SURFACES)
 
-    t, y = table(60, [0, 1, 2, 3])
+    t, y = table(20, [0, 1, 2, 3])
     b += t
     t, y = table(y + 30, [4, 5, 6, 7])
     b += t
-    ly = y + 40
-    for lx, col, lab in ((70, "#6f9a80", "HIGH / FAVOURABLE"), (218, "#a9a49d", "MEDIUM / MIXED"), (350, "#e07160", "LOW / UNFAVOURABLE")):
-        b += f'  <circle cx="{lx}" cy="{ly}" r="6" fill="{col}"/>\n'
-        b += text(lx + 12, ly, lab, "ph", "start")
-    H = ly + 30
+    H = y + 20
     return svg(
         W, H, "Ranking of AI control surfaces",
         "A table grading eight control surfaces (chip supply, compute access, training runs, training "
@@ -470,8 +481,8 @@ def draw_the_line():
     W = 480
     px, pw = 20, 440
     sx, sw, sh = 36, 408, 200
-    b = tlines(W / 2, 38, ["HOW YOU DRAW THE LINE SHAPES WHAT", "YOU CATCH (AND WHAT YOU MISS)"], "hd", 18)
-    y = 74
+    b = ""
+    y = 20
     for title, desc, pts, stats in RULES:
         h = 400
         b += rect(px, y, pw, h)
@@ -533,8 +544,8 @@ PHASES = [("BEFORE PACING", 0, 1), ("ACTIVATION", 2, 3), ("DURING / ENDING", 4, 
 def evidence_to_action():
     W = 480
     x, w, bh, gap = 52, 400, 118, 80
-    b = tlines(W / 2, 36, ["HOW EVIDENCE CAN BECOME ACTION —", "AND WHERE IT CAN STALL"], "hd", 18)
-    tops = [76 + i * (bh + gap) for i in range(6)]
+    b = ""
+    tops = [20 + i * (bh + gap) for i in range(6)]
     for name, a, z in PHASES:
         y1, y2 = tops[a], tops[z] + bh
         b += rect(14, y1, 22, y2 - y1, "band")
@@ -701,13 +712,344 @@ def failure_modes():
     )
 
 
+# ===========================================================================
+# Wide (desktop) layouts
+# ===========================================================================
+
+def rd_feedback_wide():
+    W, H = 1330, 350
+    y, h = 110, 200
+    b = ""
+    b += node(40, y, 250, h, ["INPUTS &", "INFRASTRUCTURE"], ["compute · data · power", "capital · researchers"])
+    b += harrow(y + h / 2, 290, 330)
+
+    def stage(x, w, title, cols, shaded_last=False):
+        cw = w / len(cols)
+        out = rect(x, y, w, h)
+        if shaded_last:
+            out += rect(x + w - cw, y + 40, cw, h - 40, "", 'fill="#d6e4f2"')
+        out += rect(x, y, w, h, "outline")
+        out += line(x, y + 40, x + w, y + 40)
+        out += text(x + w / 2, y + 20, title, "hd")
+        for i, (hd, bd) in enumerate(cols):
+            cx = x + cw * i
+            if i:
+                out += line(cx, y + 40, cx, y + h)
+                out += line(cx - 16, y + h - 22, cx + 16, y + h - 22, "sm") + head(cx + 26, y + h - 22, "right", "smhead", 8, 5)
+            out += tlines(cx + cw / 2, y + 66, hd, "hs", 16)
+            cls = "bi" if bd == ["output"] else "bd"
+            out += tlines(cx + cw / 2, y + 130, bd, cls, 22)
+        return out
+
+    b += stage(330, 520, "CAPABILITY DEVELOPMENT", [
+        (["ALGORITHMIC", "R&D"], ["algorithms", "experiments"]),
+        (["PRE-TRAINING"], ["training runs"]),
+        (["POST-TRAINING"], ["fine-tuning", "elicitation"]),
+        (["MODEL /", "WEIGHTS"], ["output"]),
+    ], shaded_last=True)
+    b += harrow(y + h / 2, 850, 890)
+    b += stage(890, 400, "USE & DISTRIBUTION", [
+        (["INTERNAL", "USE"], ["research", "operation"]),
+        (["DEPLOYMENT"], ["models", "services"]),
+        (["ACCESS &", "DIFFUSION"], ["release", "downstream use"]),
+    ])
+    # feedback from use back into algorithmic R&D
+    b += path(f"M950 {y} V72 Q950 60 938 60 H407 Q395 60 395 72 V{y - 14}", "fb")
+    b += head(395, y, "down", "fbhead")
+    b += text(670, 48, "AI-ASSISTED R&D FEEDBACK", "lb")
+    return svg(W, H, "AI R&D production lifecycle", RD_DESC, b)
+
+
+RD_DESC = (
+    "Inputs and infrastructure feed capability development (algorithmic R&D, pre-training, "
+    "post-training, producing model weights), which feeds use and distribution (internal use, "
+    "deployment, access and diffusion). Use feeds back into algorithmic R&D as AI-assisted "
+    "R&D feedback."
+)
+
+CRITERIA_WIDE = [
+    ["RISK", "LINKAGE"], ["RISK", "COVERAGE"], ["TARGETING", "PRECISION"], ["EASE OF", "MEASURE-", "MENT"],
+    ["EXTERNAL", "VERIFIABILITY"], ["ACTOR", "CONCENTRATION"], ["CIRCUMVENTION", "RESISTANCE"],
+    ["INTERVENTION", "LEAD TIME"],
+]
+
+
+def control_surfaces_wide():
+    W = 1240
+    x0, hw, cw, hh, rh = 20, 190, 126, 90, 70
+    b = ""
+    y = 20
+    b += rect(x0, y, hw, hh, "cell", 'fill="#f7f9fb"')
+    b += tlines(x0 + hw / 2, y + hh / 2, ["CONTROL", "SURFACE"], "th", 13)
+    for j, crit in enumerate(CRITERIA_WIDE):
+        cx = x0 + hw + cw * j
+        b += rect(cx, y, cw, hh, "cell", 'fill="#f7f9fb"')
+        b += tlines(cx + cw / 2, y + hh / 2, crit, "th", 13)
+    for i, (name, grades) in enumerate(SURFACES):
+        ry = y + hh + rh * i
+        b += rect(x0, ry, hw, rh, "cell", 'fill="#f7f9fb"')
+        b += text(x0 + hw / 2, ry + rh / 2, name, "rh")
+        for j, g in enumerate(grades.split()):
+            cx = x0 + hw + cw * j
+            b += rect(cx, ry, cw, rh, "cell", f'fill="{GRADE_FILL[g]}"')
+            b += text(cx + cw / 2, ry + rh / 2, g, "tv")
+    return svg(W, y + hh + rh * len(SURFACES) + 20, "Ranking of AI control surfaces", CS_DESC, b)
+
+
+CS_DESC = (
+    "A table grading eight control surfaces (chip supply, compute access, training runs, training "
+    "data, research methods, model weights, model access, deployment) as high, medium or low on "
+    "risk linkage, risk coverage, targeting precision, ease of measurement, external verifiability, "
+    "actor concentration, circumvention resistance and intervention lead time."
+)
+
+
+def intervention_wide():
+    W, H = 1360, 430
+    pw, ph = 640, 380
+    nw, nh = 136, 56
+    c1, c2, c3 = 30, 205, 380            # column offsets of the three nodes
+
+    def small(x, y, lines, cls="box", tcls="hs"):
+        return rect(x, y, nw, nh, cls) + tlines(x + nw / 2, y + nh / 2, lines, tcls, 15)
+
+    def panel(x, title, after):
+        y = 25
+        ra, rb = y + 80, y + 200          # rows A and B
+        cx_cap, cy_cap = x + 560, y + 168  # capability centre
+        out = rect(x, y, pw, ph)
+        out += line(x, y + 40, x + pw, y + 40)
+        out += text(x + pw / 2, y + 20, title, "hd")
+        out += small(x + c1, ra, ["pathway A"]) + small(x + c1, rb, ["pathway B"])
+        out += small(x + c2, rb, ["alternate route"])
+        out += rect(cx_cap - nw / 2, cy_cap - nh / 2, nw, nh) + text(cx_cap, cy_cap, "capability", "hs")
+        out += harrow(ra + nh / 2, x + c1 + nw, x + c2)
+        out += harrow(rb + nh / 2, x + c1 + nw, x + c2)
+        # alternate route -> capability
+        out += path(f"M{x + c2 + nw} {rb + nh / 2} H{cx_cap} V{cy_cap + nh / 2 + 12}")
+        out += head(cx_cap, cy_cap + nh / 2, "up")
+        if not after:
+            out += small(x + c2, ra, ["targeted step"], "red", "redt")
+            out += small(x + c3, ra, ["route-specific", "effect"])
+            out += harrow(ra + nh / 2, x + c2 + nw, x + c3)
+            out += path(f"M{x + c3 + nw} {ra + nh / 2} H{cx_cap} V{cy_cap - nh / 2 - 12}")
+            out += head(cx_cap, cy_cap - nh / 2, "down")
+            out += text(x + pw / 2, y + 345, "Two different pathways can lead to the same capability.", "cap")
+        else:
+            out += rect(x + c2, ra, nw, nh, "ghost")
+            out += line(x + c2, ra, x + c2 + nw, ra + nh, "cross") + line(x + c2 + nw, ra, x + c2, ra + nh, "cross")
+            out += rect(x + c2, ra, nw, nh, "red", 'fill="none" stroke-dasharray="5 4"')
+            out += text(x + c2 + nw / 2, ra + nh / 2, "targeted step", "redt")
+            out += rect(x + c3, ra, nw, nh, "ghost")
+            out += line(x + c3, ra, x + c3 + nw, ra + nh, "cross") + line(x + c3 + nw, ra, x + c3, ra + nh, "cross")
+            out += tlines(x + c3 + nw / 2, ra + nh / 2, ["route-specific", "effect"], "ghostt", 15)
+            out += harrow(ra + nh / 2, x + c2 + nw, x + c3, "fb", "fbhead")
+            out += path(f"M{x + c3 + nw} {ra + nh / 2} H{cx_cap} V{cy_cap - nh / 2 - 12}", "fb")
+            out += head(cx_cap, cy_cap - nh / 2, "down", "fbhead")
+            # intervention marker above the targeted step
+            mx, my = x + c2 + 40, y + 52
+            out += f'  <circle cx="{mx}" cy="{my}" r="6" fill="none" stroke="#c0392b" stroke-width="1.5"/>\n'
+            out += f'  <path d="M{mx} {my - 9} V{my + 9} M{mx - 9} {my} H{mx + 9}" stroke="#c0392b" stroke-width="1.2"/>\n'
+            out += text(mx + 14, my, "intervention", "redl", "start")
+            out += line(x + c2 + nw / 2, my + 10, x + c2 + nw / 2, ra - 2, "rl")
+            # annotations
+            out += rect(x + 450, y + 44, 170, 34, "dn") + text(x + 535, y + 61, "this route is blocked", "bi")
+            out += line(x + 535, y + 78, x + 535, ra + nh / 2 - 2, "cross")
+            out += rect(x + 420, y + 290, 200, 34, "dn") + text(x + 520, y + 307, "alternate route still works", "bi")
+            out += line(x + 520, y + 290, x + 520, rb + nh / 2 + 2, "cross")
+            out += text(x + pw / 2, y + 345, "Blocking one step can remove one route without removing the capability.", "cap")
+        return out
+
+    b = panel(30, "BEFORE INTERVENTION", False) + panel(690, "AFTER BLOCKING THE TARGETED STEP", True)
+    return svg(W, H, "Effect of blocking a targeted step", INT_DESC, b)
+
+
+INT_DESC = (
+    "Before intervention, pathway A runs through a targeted step and a route-specific effect to a "
+    "capability, and pathway B reaches the same capability through an alternate route. After "
+    "blocking the targeted step, that route is blocked but the alternate route still works: "
+    "blocking one step can remove one route without removing the capability."
+)
+
+
+def draw_the_line_wide():
+    W, H = 1300, 500
+    pw, ph = 400, 366
+    b = ""
+    y = 20
+    for k, (title, desc, pts, stats) in enumerate(RULES):
+        px = 30 + k * 420
+        sx, sw, sy, sh = px + 16, pw - 32, y + 100, 170
+        b += rect(px, y, pw, ph)
+        b += line(px, y + 36, px + pw, y + 36)
+        b += text(px + pw / 2, y + 18, title, "hd")
+        b += text(px + pw / 2, y + 58, desc, "b2")
+        b += f'  <circle class="dot-b" cx="{px + 70}" cy="{y + 82}" r="4"/>\n' + text(px + 80, y + 82, "threat-relevant activity", "b3", "start")
+        b += f'  <circle class="dot-g" cx="{px + 230}" cy="{y + 82}" r="4"/>\n' + text(px + 240, y + 82, "other or benign activity", "b3", "start")
+        P = [(sx + u * sw, sy + v * sh) for u, v in pts]
+        poly = " ".join(f"{X:.1f},{Y:.1f}" for X, Y in P)
+        b += f'  <polygon class="cons" points="{sx},{sy} {poly} {sx + sw},{sy}"/>\n'
+        b += f'  <polygon class="open" points="{sx},{sy + sh} {poly} {sx + sw},{sy + sh}"/>\n'
+        b += f'  <polyline class="line" points="{poly}"/>\n'
+        for u, v in BLUE:
+            b += f'  <circle class="dot-b" cx="{sx + u * sw:.1f}" cy="{sy + v * sh:.1f}" r="4.5"/>\n'
+        for u, v in GREY:
+            b += f'  <circle class="dot-g" cx="{sx + u * sw:.1f}" cy="{sy + v * sh:.1f}" r="4.5"/>\n'
+        b += text(sx + 8, sy + 12, "CONSTRAINED", "st", "start")
+        b += text(sx + sw - 8, sy + sh - 12, "LEFT OPEN", "st", "end")
+        b += line(px + 28, sy + sh + 14, px + pw - 28, sy + sh + 14, "thin")
+        for i, (lab, val) in enumerate(zip(("THREAT-RELEVANT ACTIVITY MISSED", "OTHER ACTIVITY CONSTRAINED", "CASE-LEVEL INFORMATION REQUIRED"), stats)):
+            ly = sy + sh + 32 + 20 * i
+            b += text(px + 28, ly, lab, "st", "start")
+            b += text(px + pw - 28, ly, val, "sv", "end")
+    fy = y + ph + 24
+    b += rect(30, fy, W - 60, 50, "band", 'stroke-dasharray="6 4" stroke="#8a95a3" fill="#f7f9fb"')
+    b += text(W / 2, fy + 25, "Broader and narrower rules trade false positives against false negatives. "
+              "Better targeting can reduce both, but requires more information and oversight.", "b2")
+    return svg(W, fy + 50 + 24, "How you draw the line shapes what you catch", DTL_DESC, b)
+
+
+DTL_DESC = (
+    "Three panels compare a broader rule, a narrower rule and a more targeted rule on the same "
+    "scatter of threat-relevant and benign activity. The broader rule misses fewer threats but "
+    "constrains more other activity; the narrower rule misses more threats but constrains less; "
+    "the targeted rule does well on both but requires more case-level information."
+)
+
+
+def evidence_to_action_wide():
+    W = 1450
+    sw, gap, y, bh = 210, 30, 75, 150
+    b = ""
+    xs = [20 + i * (sw + gap) for i in range(6)]
+    for name, a, z in PHASES:
+        x1, x2 = xs[a], xs[z] + sw
+        b += rect(x1, 20, x2 - x1, 30, "band") + text((x1 + x2) / 2, 35, name, "ph")
+    for i, (title, body, output) in enumerate(STEPS):
+        x = xs[i]
+        b += rect(x, y, sw, bh)
+        b += rect(x, y + bh - 38, sw, 38, "", 'fill="#e4ebf2"')
+        b += rect(x, y, sw, bh, "outline")
+        b += line(x, y + 34, x + sw, y + 34)
+        b += text(x + sw / 2, y + 17, title, "hd")
+        b += tlines(x + sw / 2, y + 73, wrap(" ".join(body), 24), "b2", 17)
+        b += text(x + sw / 2, y + bh - 27, "OUTPUT", "lb", extra='font-size="7px"')
+        b += text(x + sw / 2, y + bh - 12, output, "ef")
+        if i < 5:
+            cy = y + 75
+            cx = x + sw + gap / 2
+            b += harrow(cy, x + sw, x + sw + gap)
+            b += marker(cx, cy)
+            b += line(cx, cy + 9, cx, y + bh + 30, "rl")
+            b += stall(cx, y + bh + 30, STALLS[i], w=170, h=44)
+    return svg(W, y + bh + 30 + 44 + 30, "How evidence can become action, and where it can stall", ETA_DESC, b)
+
+
+ETA_DESC = (
+    "Six steps from evidence to action: detect, interpret, decide, execute, check, and retarget or "
+    "exit, grouped into before pacing, activation, and during or ending. Between each step the "
+    "process can stall: no recognised recipient, no usable basis for a call, no one able or "
+    "willing to act, no observation or verification, no review or exit rule."
+)
+
+
+def effect_box_wide(x, y, w, title, body, label, effect, nlines):
+    """As effect_box, but padded to `nlines` so a row of boxes shares a height."""
+    effect = wrap(" ".join([effect] if isinstance(effect, str) else effect), round(w / 9))
+    eh = 52
+    h = 36 + 12 + 19 * nlines + 10 + eh
+    out = rect(x, y, w, h)
+    out += rect(x, y + h - eh, w, eh, "", 'fill="#e4ebf2"')
+    out += rect(x, y, w, h, "outline")
+    out += line(x, y + 36, x + w, y + 36)
+    out += text(x + w / 2, y + 18, title, "hd")
+    out += tlines(x + w / 2, y + 48 + 19 * (nlines - 1) / 2 + 9, body, "b2", 19)
+    ey = y + h - eh
+    out += text(x + w / 2, ey + 12, label, "lb", extra='font-size="7px"')
+    out += tlines(x + w / 2, ey + 12 + (eh - 12) / 2, effect, "ef", 15)
+    return out, y + h
+
+
+def then_what_wide():
+    W = 1500
+    bw, gap, y = 220, 30, 75
+    bodies = [wrap(" ".join(body), 26) for _, body, *_ in STAGES]
+    n = max(map(len, bodies))
+    b = rect(15, 20, 300, 34, "band") + text(165, 37, "OUTWARDS THROUGH SOCIETY", "ph")
+    b += harrow(37, 330, 1485)
+    for i, ((title, _, label, effect, timing), body) in enumerate(zip(STAGES, bodies)):
+        x = 15 + i * (bw + gap)
+        box, yb = effect_box_wide(x, y, bw, title, body, label, effect, n)
+        b += box
+        b += rect(x, yb + 16, bw, 44, "band") + tlines(x + bw / 2, yb + 38, wrap(" ".join(timing), 24), "ph", 13)
+        if i < len(STAGES) - 1:
+            b += harrow(y + (yb - y) / 2, x + bw, x + bw + gap)
+    return svg(W, yb + 16 + 44 + 24, "Effects of a pacing intervention, outward through society", TW_DESC, b)
+
+
+TW_DESC = (
+    "Six stages, outward through society and forward in time: the rule as written; covered developers "
+    "re-optimising; relative power shifting as others read the pace; governance machinery that may "
+    "outlast the rule; investment and markets repricing on expectation; and norms and culture that set "
+    "the terms for the next intervention."
+)
+
+MACHINERY = (
+    "Enforcement power vested in a governing body (§4): some mix of access to private information, "
+    "discretionary power to restrict other actors, and infrastructure for observation or verification."
+)
+
+
+def failure_modes_wide():
+    W = 1500
+    bw, gap, y = 330, 40, 70
+    bodies = [wrap(MACHINERY, 42)] + [wrap(" ".join(body), 42) for _, body, *_ in MODES]
+    n = max(map(len, bodies))
+    b = rect(30, 20, bw, 30, "band") + text(30 + bw / 2, 35, "CREATED BY THE RULE", "ph")
+    b += rect(400, 20, W - 430, 30, "band") + text(400 + (W - 430) / 2, 35, "PREDICTABLE FAILURE MODES", "ph")
+    box, yb = effect_box_wide(30, y, bw, "THE MACHINERY", bodies[0], "EFFECT", "A NEW ACTOR WITH POWER AND INFORMATION", n)
+    b += box
+    b += path(f"M360 {y + (yb - y) / 2} H372 Q380 {y + (yb - y) / 2} 380 {y + (yb - y) / 2 - 8} V43 Q380 35 388 35 H{400 - 12}")
+    b += head(400, 35, "right")
+    for k, ((title, _, effect, notes), body) in enumerate(zip(MODES, bodies[1:])):
+        x = 400 + k * (bw + gap)
+        box, yb = effect_box_wide(x, y, bw, title, body, "EFFECT", effect, n)
+        b += box
+        m = len(notes)
+        nw = bw if m == 1 else (bw - 10) / 2
+        wrapped = [(kind, wrap(" ".join(lines), 26 if m == 1 else 19)) for kind, lines in notes]
+        nh = 24 + 12 * max(len(l) for _, l in wrapped)
+        for j, (kind, lines) in enumerate(wrapped):
+            cx = x + nw / 2 + j * (nw + 10)
+            red = kind == "x"
+            b += line(cx, yb, cx, yb + 12, "rl" if red else "bll")
+            b += marker(cx, yb + 21, kind, "note" if red else "noteb", "#d0503c" if red else "#4a6b8f")
+            b += line(cx, yb + 30, cx, yb + 42, "rl" if red else "bll")
+            b += stall(cx, yb + 42, lines, "note" if red else "noteb", "rd" if red else "bl", w=nw, h=nh)
+    return svg(W, yb + 42 + nh + 30, "Failure modes in pacing governance structures", FM_DESC, b)
+
+
+FM_DESC = (
+    "The rule creates enforcement machinery: a new actor with power and information. Its predictable "
+    "failure modes are control, capture and misuse (used for purposes beyond the rule that justified "
+    "it, such as surveillance powers turned on lawful research); behavioural distortions (optimised "
+    "for the test, not the underlying risk); and persistence and precedent (outlasting the rule that "
+    "created it, with emergency powers outstaying their welcome, though sometimes with useful "
+    "spillover into diplomacy and national strategy)."
+)
+
+
 if __name__ == "__main__":
     write("causal_graph_1", causal_graph_1())
     write("causal_graph_2", causal_graph_2())
-    write("rd-feedback", rd_feedback())
-    write("control-surfaces", control_surfaces())
-    write("intervention", intervention())
-    write("draw-the-line", draw_the_line())
-    write("evidence-to-action", evidence_to_action())
-    write("then-what", then_what())
-    write("failure-modes", failure_modes())
+    for name, portrait, landscape in (
+        ("rd-feedback", rd_feedback, rd_feedback_wide),
+        ("control-surfaces", control_surfaces, control_surfaces_wide),
+        ("intervention", intervention, intervention_wide),
+        ("draw-the-line", draw_the_line, draw_the_line_wide),
+        ("evidence-to-action", evidence_to_action, evidence_to_action_wide),
+        ("then-what", then_what, then_what_wide),
+        ("failure-modes", failure_modes, failure_modes_wide),
+    ):
+        write(name, portrait())
+        write(name, landscape(), wide=True)

@@ -27,14 +27,16 @@
 
   --x-padding: 32px;
   /* Full-bleed elements (sticky headings, images, collapsibles) run out to
-     this. It stops short of the article's inset outline so they meet the
+     this. On phones there is no frame, so they run to the screen edge; from
+     md up it stops short of the article's inset outline so they meet the
      inner line instead of painting over it. */
-  --x-padding-inside: calc(var(--x-padding) - 8px);
+  --x-padding-inside: var(--x-padding);
 }
 
 @media (width >= 48rem) {
   :root {
     --x-padding: 64px;
+    --x-padding-inside: calc(var(--x-padding) - 8px);
   }
 }
 

@@ -1,0 +1,242 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="484" viewBox="0 0 1300 484" role="img" aria-labelledby="ttl dsc">
+  <title id="ttl">How you draw the line shapes what you catch</title>
+  <desc id="dsc">Three panels compare a broader rule, a narrower rule and a more targeted rule on the same scatter of threat-relevant and benign activity. The broader rule misses fewer threats but constrains more other activity; the narrower rule misses more threats but constrains less; the targeted rule does well on both but requires more case-level information.</desc>
+  <defs>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#e2e8ee" stroke-width="1"/>
+    </pattern>
+    <style>
+      .hd { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; fill: #1e2833; }
+      .hs { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; fill: #1e2833; }
+      .lb { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 10px; font-weight: 700; letter-spacing: 1px; fill: #6b7482; }
+      .ph { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; fill: #4f6a8a; }
+      .rd { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9.5px; font-weight: 700; letter-spacing: 1px; fill: #c0392b; }
+      .bl { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9.5px; font-weight: 700; letter-spacing: 1px; fill: #3f5f85; }
+      .bd { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 16px; fill: #2f3b4b; }
+      .b2 { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 14px; fill: #2f3b4b; }
+      .b3 { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 12px; fill: #2f3b4b; }
+      .bi { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 13px; font-style: italic; fill: #6b7482; }
+      .ef { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 12px; font-weight: 700; fill: #1e2833; }
+      .box { fill: #fdfdfe; stroke: #1e2833; stroke-width: 2.5; }
+      .box-out { fill: #d6e4f2; stroke: #1e2833; stroke-width: 2.5; }
+      .outline { fill: none; stroke: #1e2833; stroke-width: 2.5; }
+      .cell { stroke: #1e2833; stroke-width: 1.5; }
+      .sep { stroke: #1e2833; stroke-width: 2; }
+      .thin { stroke: #c5ccd4; stroke-width: 1; }
+      .arr { stroke: #1e2833; stroke-width: 3.5; fill: none; }
+      .head { fill: #1e2833; }
+      .fb { stroke: #7d8794; stroke-width: 2.5; fill: none; stroke-dasharray: 8 6; }
+      .fbhead { fill: #7d8794; }
+      .sm { stroke: #8a95a3; stroke-width: 2; fill: none; }
+      .smhead { fill: #8a95a3; }
+      .band { fill: #eef3f8; stroke: #9fb3c8; stroke-width: 1.2; }
+      .note { fill: #fbeae6; stroke: #d0503c; stroke-width: 1.2; }
+      .noteb { fill: #eaf0f6; stroke: #4a6b8f; stroke-width: 1.2; }
+      .rl { stroke: #d0503c; stroke-width: 1.2; fill: none; stroke-dasharray: 4 3; }
+      .bll { stroke: #4a6b8f; stroke-width: 1.2; fill: none; stroke-dasharray: 4 3; }
+      .dn { fill: #f7f9fb; stroke: #8a95a3; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .red { fill: #fdfdfe; stroke: #c0392b; stroke-width: 2; }
+      .redt { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; fill: #c0392b; }
+      .redl { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; fill: #c0392b; }
+      .ghost { fill: #eceff2; stroke: #8a95a3; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .ghostt { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; fill: #8a95a3; }
+      .cross { stroke: #b5bcc5; stroke-width: 1.2; stroke-dasharray: 4 3; }
+      .cap { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; letter-spacing: 0.3px; fill: #2f3b4b; }
+      .dot-b { fill: #5b7fa6; }
+      .dot-g { fill: #a9a9a9; }
+      .cons { fill: #dfe7ef; }
+      .open { fill: #ebe9e5; }
+      .line { stroke: #1e2833; stroke-width: 1.8; fill: none; stroke-dasharray: 6 4; }
+      .st { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9px; font-weight: 700; letter-spacing: 1px; fill: #4f6a8a; }
+      .sv { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 13px; font-weight: 700; fill: #1e2833; }
+      .th { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.5px; fill: #2b3a55; }
+      .rh { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 13px; font-weight: 700; fill: #2b3a55; }
+      .tv { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 14px; fill: #2b3a55; }
+    </style>
+  </defs>
+  <rect width="1300" height="484" fill="#f3f6f9"/>
+  <rect width="1300" height="484" fill="url(#grid)"/>
+  <rect class="box" x="30" y="20" width="400" height="366" />
+  <line class="sep" x1="30" y1="56" x2="430" y2="56"/>
+  <text class="hd" x="230.0" y="38" text-anchor="middle" dominant-baseline="central" >BROADER RULE</text>
+  <text class="b2" x="230.0" y="78" text-anchor="middle" dominant-baseline="central" >Constrains a wider range of activity.</text>
+  <circle class="dot-b" cx="100" cy="102" r="4"/>
+  <text class="b3" x="110" y="102" text-anchor="start" dominant-baseline="central" >threat-relevant activity</text>
+  <circle class="dot-g" cx="260" cy="102" r="4"/>
+  <text class="b3" x="270" y="102" text-anchor="start" dominant-baseline="central" >other or benign activity</text>
+  <polygon class="cons" points="46,120 46.0,276.4 414.0,225.4 414,120"/>
+  <polygon class="open" points="46,290 46.0,276.4 414.0,225.4 414,290"/>
+  <polyline class="line" points="46.0,276.4 414.0,225.4"/>
+  <circle class="dot-b" cx="112.2" cy="150.6" r="4.5"/>
+  <circle class="dot-b" cx="138.0" cy="167.6" r="4.5"/>
+  <circle class="dot-b" cx="163.8" cy="140.4" r="4.5"/>
+  <circle class="dot-b" cx="185.8" cy="157.4" r="4.5"/>
+  <circle class="dot-b" cx="211.6" cy="137.0" r="4.5"/>
+  <circle class="dot-b" cx="237.4" cy="150.6" r="4.5"/>
+  <circle class="dot-b" cx="259.4" cy="133.6" r="4.5"/>
+  <circle class="dot-b" cx="274.2" cy="154.0" r="4.5"/>
+  <circle class="dot-b" cx="303.6" cy="145.5" r="4.5"/>
+  <circle class="dot-b" cx="333.0" cy="162.5" r="4.5"/>
+  <circle class="dot-b" cx="358.8" cy="140.4" r="4.5"/>
+  <circle class="dot-b" cx="377.2" cy="171.0" r="4.5"/>
+  <circle class="dot-b" cx="127.0" cy="184.6" r="4.5"/>
+  <circle class="dot-b" cx="193.2" cy="191.4" r="4.5"/>
+  <circle class="dot-b" cx="222.6" cy="179.5" r="4.5"/>
+  <circle class="dot-b" cx="248.4" cy="198.2" r="4.5"/>
+  <circle class="dot-b" cx="285.2" cy="188.0" r="4.5"/>
+  <circle class="dot-b" cx="311.0" cy="171.0" r="4.5"/>
+  <circle class="dot-b" cx="340.4" cy="196.5" r="4.5"/>
+  <circle class="dot-b" cx="259.4" cy="227.1" r="4.5"/>
+  <circle class="dot-b" cx="167.4" cy="171.0" r="4.5"/>
+  <circle class="dot-b" cx="90.2" cy="171.0" r="4.5"/>
+  <circle class="dot-g" cx="82.8" cy="225.4" r="4.5"/>
+  <circle class="dot-g" cx="119.6" cy="242.4" r="4.5"/>
+  <circle class="dot-g" cx="156.4" cy="222.0" r="4.5"/>
+  <circle class="dot-g" cx="200.6" cy="247.5" r="4.5"/>
+  <circle class="dot-g" cx="230.0" cy="218.6" r="4.5"/>
+  <circle class="dot-g" cx="266.8" cy="256.0" r="4.5"/>
+  <circle class="dot-g" cx="296.2" cy="232.2" r="4.5"/>
+  <circle class="dot-g" cx="333.0" cy="225.4" r="4.5"/>
+  <circle class="dot-g" cx="369.8" cy="252.6" r="4.5"/>
+  <circle class="dot-g" cx="395.6" cy="222.0" r="4.5"/>
+  <circle class="dot-g" cx="101.2" cy="269.6" r="4.5"/>
+  <circle class="dot-g" cx="174.8" cy="273.0" r="4.5"/>
+  <circle class="dot-g" cx="248.4" cy="276.4" r="4.5"/>
+  <circle class="dot-g" cx="322.0" cy="269.6" r="4.5"/>
+  <circle class="dot-g" cx="377.2" cy="259.4" r="4.5"/>
+  <circle class="dot-g" cx="149.0" cy="199.9" r="4.5"/>
+  <circle class="dot-g" cx="219.0" cy="205.0" r="4.5"/>
+  <circle class="dot-g" cx="358.8" cy="213.5" r="4.5"/>
+  <text class="st" x="54" y="132" text-anchor="start" dominant-baseline="central" >CONSTRAINED</text>
+  <text class="st" x="406" y="278" text-anchor="end" dominant-baseline="central" >LEFT OPEN</text>
+  <line class="thin" x1="58" y1="304" x2="402" y2="304"/>
+  <text class="st" x="58" y="322" text-anchor="start" dominant-baseline="central" >THREAT-RELEVANT ACTIVITY MISSED</text>
+  <text class="sv" x="402" y="322" text-anchor="end" dominant-baseline="central" >FEWER</text>
+  <text class="st" x="58" y="342" text-anchor="start" dominant-baseline="central" >OTHER ACTIVITY CONSTRAINED</text>
+  <text class="sv" x="402" y="342" text-anchor="end" dominant-baseline="central" >MORE</text>
+  <text class="st" x="58" y="362" text-anchor="start" dominant-baseline="central" >CASE-LEVEL INFORMATION REQUIRED</text>
+  <text class="sv" x="402" y="362" text-anchor="end" dominant-baseline="central" >LOWER</text>
+  <rect class="box" x="450" y="20" width="400" height="366" />
+  <line class="sep" x1="450" y1="56" x2="850" y2="56"/>
+  <text class="hd" x="650.0" y="38" text-anchor="middle" dominant-baseline="central" >NARROWER RULE</text>
+  <text class="b2" x="650.0" y="78" text-anchor="middle" dominant-baseline="central" >Constrains a narrower range of activity.</text>
+  <circle class="dot-b" cx="520" cy="102" r="4"/>
+  <text class="b3" x="530" y="102" text-anchor="start" dominant-baseline="central" >threat-relevant activity</text>
+  <circle class="dot-g" cx="680" cy="102" r="4"/>
+  <text class="b3" x="690" y="102" text-anchor="start" dominant-baseline="central" >other or benign activity</text>
+  <polygon class="cons" points="466,120 466.0,225.4 834.0,171.0 834,120"/>
+  <polygon class="open" points="466,290 466.0,225.4 834.0,171.0 834,290"/>
+  <polyline class="line" points="466.0,225.4 834.0,171.0"/>
+  <circle class="dot-b" cx="532.2" cy="150.6" r="4.5"/>
+  <circle class="dot-b" cx="558.0" cy="167.6" r="4.5"/>
+  <circle class="dot-b" cx="583.8" cy="140.4" r="4.5"/>
+  <circle class="dot-b" cx="605.8" cy="157.4" r="4.5"/>
+  <circle class="dot-b" cx="631.6" cy="137.0" r="4.5"/>
+  <circle class="dot-b" cx="657.4" cy="150.6" r="4.5"/>
+  <circle class="dot-b" cx="679.4" cy="133.6" r="4.5"/>
+  <circle class="dot-b" cx="694.2" cy="154.0" r="4.5"/>
+  <circle class="dot-b" cx="723.6" cy="145.5" r="4.5"/>
+  <circle class="dot-b" cx="753.0" cy="162.5" r="4.5"/>
+  <circle class="dot-b" cx="778.8" cy="140.4" r="4.5"/>
+  <circle class="dot-b" cx="797.2" cy="171.0" r="4.5"/>
+  <circle class="dot-b" cx="547.0" cy="184.6" r="4.5"/>
+  <circle class="dot-b" cx="613.2" cy="191.4" r="4.5"/>
+  <circle class="dot-b" cx="642.6" cy="179.5" r="4.5"/>
+  <circle class="dot-b" cx="668.4" cy="198.2" r="4.5"/>
+  <circle class="dot-b" cx="705.2" cy="188.0" r="4.5"/>
+  <circle class="dot-b" cx="731.0" cy="171.0" r="4.5"/>
+  <circle class="dot-b" cx="760.4" cy="196.5" r="4.5"/>
+  <circle class="dot-b" cx="679.4" cy="227.1" r="4.5"/>
+  <circle class="dot-b" cx="587.4" cy="171.0" r="4.5"/>
+  <circle class="dot-b" cx="510.2" cy="171.0" r="4.5"/>
+  <circle class="dot-g" cx="502.8" cy="225.4" r="4.5"/>
+  <circle class="dot-g" cx="539.6" cy="242.4" r="4.5"/>
+  <circle class="dot-g" cx="576.4" cy="222.0" r="4.5"/>
+  <circle class="dot-g" cx="620.6" cy="247.5" r="4.5"/>
+  <circle class="dot-g" cx="650.0" cy="218.6" r="4.5"/>
+  <circle class="dot-g" cx="686.8" cy="256.0" r="4.5"/>
+  <circle class="dot-g" cx="716.2" cy="232.2" r="4.5"/>
+  <circle class="dot-g" cx="753.0" cy="225.4" r="4.5"/>
+  <circle class="dot-g" cx="789.8" cy="252.6" r="4.5"/>
+  <circle class="dot-g" cx="815.6" cy="222.0" r="4.5"/>
+  <circle class="dot-g" cx="521.2" cy="269.6" r="4.5"/>
+  <circle class="dot-g" cx="594.8" cy="273.0" r="4.5"/>
+  <circle class="dot-g" cx="668.4" cy="276.4" r="4.5"/>
+  <circle class="dot-g" cx="742.0" cy="269.6" r="4.5"/>
+  <circle class="dot-g" cx="797.2" cy="259.4" r="4.5"/>
+  <circle class="dot-g" cx="569.0" cy="199.9" r="4.5"/>
+  <circle class="dot-g" cx="639.0" cy="205.0" r="4.5"/>
+  <circle class="dot-g" cx="778.8" cy="213.5" r="4.5"/>
+  <text class="st" x="474" y="132" text-anchor="start" dominant-baseline="central" >CONSTRAINED</text>
+  <text class="st" x="826" y="278" text-anchor="end" dominant-baseline="central" >LEFT OPEN</text>
+  <line class="thin" x1="478" y1="304" x2="822" y2="304"/>
+  <text class="st" x="478" y="322" text-anchor="start" dominant-baseline="central" >THREAT-RELEVANT ACTIVITY MISSED</text>
+  <text class="sv" x="822" y="322" text-anchor="end" dominant-baseline="central" >MORE</text>
+  <text class="st" x="478" y="342" text-anchor="start" dominant-baseline="central" >OTHER ACTIVITY CONSTRAINED</text>
+  <text class="sv" x="822" y="342" text-anchor="end" dominant-baseline="central" >FEWER</text>
+  <text class="st" x="478" y="362" text-anchor="start" dominant-baseline="central" >CASE-LEVEL INFORMATION REQUIRED</text>
+  <text class="sv" x="822" y="362" text-anchor="end" dominant-baseline="central" >LOWER</text>
+  <rect class="box" x="870" y="20" width="400" height="366" />
+  <line class="sep" x1="870" y1="56" x2="1270" y2="56"/>
+  <text class="hd" x="1070.0" y="38" text-anchor="middle" dominant-baseline="central" >MORE TARGETED RULE</text>
+  <text class="b2" x="1070.0" y="78" text-anchor="middle" dominant-baseline="central" >Uses more information to distinguish cases.</text>
+  <circle class="dot-b" cx="940" cy="102" r="4"/>
+  <text class="b3" x="950" y="102" text-anchor="start" dominant-baseline="central" >threat-relevant activity</text>
+  <circle class="dot-g" cx="1100" cy="102" r="4"/>
+  <text class="b3" x="1110" y="102" text-anchor="start" dominant-baseline="central" >other or benign activity</text>
+  <polygon class="cons" points="886,120 886.0,208.4 952.2,211.8 989.0,194.8 1040.6,188.0 1077.4,191.4 1090.2,222.0 1099.4,242.4 1108.6,222.0 1121.5,191.4 1162.0,188.0 1198.8,198.2 1254.0,189.7 1254,120"/>
+  <polygon class="open" points="886,290 886.0,208.4 952.2,211.8 989.0,194.8 1040.6,188.0 1077.4,191.4 1090.2,222.0 1099.4,242.4 1108.6,222.0 1121.5,191.4 1162.0,188.0 1198.8,198.2 1254.0,189.7 1254,290"/>
+  <polyline class="line" points="886.0,208.4 952.2,211.8 989.0,194.8 1040.6,188.0 1077.4,191.4 1090.2,222.0 1099.4,242.4 1108.6,222.0 1121.5,191.4 1162.0,188.0 1198.8,198.2 1254.0,189.7"/>
+  <circle class="dot-b" cx="952.2" cy="150.6" r="4.5"/>
+  <circle class="dot-b" cx="978.0" cy="167.6" r="4.5"/>
+  <circle class="dot-b" cx="1003.8" cy="140.4" r="4.5"/>
+  <circle class="dot-b" cx="1025.8" cy="157.4" r="4.5"/>
+  <circle class="dot-b" cx="1051.6" cy="137.0" r="4.5"/>
+  <circle class="dot-b" cx="1077.4" cy="150.6" r="4.5"/>
+  <circle class="dot-b" cx="1099.4" cy="133.6" r="4.5"/>
+  <circle class="dot-b" cx="1114.2" cy="154.0" r="4.5"/>
+  <circle class="dot-b" cx="1143.6" cy="145.5" r="4.5"/>
+  <circle class="dot-b" cx="1173.0" cy="162.5" r="4.5"/>
+  <circle class="dot-b" cx="1198.8" cy="140.4" r="4.5"/>
+  <circle class="dot-b" cx="1217.2" cy="171.0" r="4.5"/>
+  <circle class="dot-b" cx="967.0" cy="184.6" r="4.5"/>
+  <circle class="dot-b" cx="1033.2" cy="191.4" r="4.5"/>
+  <circle class="dot-b" cx="1062.6" cy="179.5" r="4.5"/>
+  <circle class="dot-b" cx="1088.4" cy="198.2" r="4.5"/>
+  <circle class="dot-b" cx="1125.2" cy="188.0" r="4.5"/>
+  <circle class="dot-b" cx="1151.0" cy="171.0" r="4.5"/>
+  <circle class="dot-b" cx="1180.4" cy="196.5" r="4.5"/>
+  <circle class="dot-b" cx="1099.4" cy="227.1" r="4.5"/>
+  <circle class="dot-b" cx="1007.4" cy="171.0" r="4.5"/>
+  <circle class="dot-b" cx="930.2" cy="171.0" r="4.5"/>
+  <circle class="dot-g" cx="922.8" cy="225.4" r="4.5"/>
+  <circle class="dot-g" cx="959.6" cy="242.4" r="4.5"/>
+  <circle class="dot-g" cx="996.4" cy="222.0" r="4.5"/>
+  <circle class="dot-g" cx="1040.6" cy="247.5" r="4.5"/>
+  <circle class="dot-g" cx="1070.0" cy="218.6" r="4.5"/>
+  <circle class="dot-g" cx="1106.8" cy="256.0" r="4.5"/>
+  <circle class="dot-g" cx="1136.2" cy="232.2" r="4.5"/>
+  <circle class="dot-g" cx="1173.0" cy="225.4" r="4.5"/>
+  <circle class="dot-g" cx="1209.8" cy="252.6" r="4.5"/>
+  <circle class="dot-g" cx="1235.6" cy="222.0" r="4.5"/>
+  <circle class="dot-g" cx="941.2" cy="269.6" r="4.5"/>
+  <circle class="dot-g" cx="1014.8" cy="273.0" r="4.5"/>
+  <circle class="dot-g" cx="1088.4" cy="276.4" r="4.5"/>
+  <circle class="dot-g" cx="1162.0" cy="269.6" r="4.5"/>
+  <circle class="dot-g" cx="1217.2" cy="259.4" r="4.5"/>
+  <circle class="dot-g" cx="989.0" cy="199.9" r="4.5"/>
+  <circle class="dot-g" cx="1059.0" cy="205.0" r="4.5"/>
+  <circle class="dot-g" cx="1198.8" cy="213.5" r="4.5"/>
+  <text class="st" x="894" y="132" text-anchor="start" dominant-baseline="central" >CONSTRAINED</text>
+  <text class="st" x="1246" y="278" text-anchor="end" dominant-baseline="central" >LEFT OPEN</text>
+  <line class="thin" x1="898" y1="304" x2="1242" y2="304"/>
+  <text class="st" x="898" y="322" text-anchor="start" dominant-baseline="central" >THREAT-RELEVANT ACTIVITY MISSED</text>
+  <text class="sv" x="1242" y="322" text-anchor="end" dominant-baseline="central" >FEWER</text>
+  <text class="st" x="898" y="342" text-anchor="start" dominant-baseline="central" >OTHER ACTIVITY CONSTRAINED</text>
+  <text class="sv" x="1242" y="342" text-anchor="end" dominant-baseline="central" >FEWER</text>
+  <text class="st" x="898" y="362" text-anchor="start" dominant-baseline="central" >CASE-LEVEL INFORMATION REQUIRED</text>
+  <text class="sv" x="1242" y="362" text-anchor="end" dominant-baseline="central" >HIGHER</text>
+  <rect class="band" x="30" y="410" width="1240" height="50" stroke-dasharray="6 4" stroke="#8a95a3" fill="#f7f9fb"/>
+  <text class="b2" x="650.0" y="435" text-anchor="middle" dominant-baseline="central" >Broader and narrower rules trade false positives against false negatives. Better targeting can reduce both, but requires more information and oversight.</text>
+
+</svg>

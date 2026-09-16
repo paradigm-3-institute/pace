@@ -18,7 +18,7 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
-  <aside class="md:fixed w-full pb-2 md:pb-0 md:w-70 md:h-dvh md:overflow-hidden md:flex md:flex-col bg-sidebar text-background border-x-2 md:border-l-0 border-sidebar select-none">
+  <aside class="md:fixed w-full pb-2 md:pb-0 md:w-70 md:h-dvh md:overflow-hidden md:flex md:flex-col bg-sidebar text-background md:border-r-2 border-sidebar select-none">
     <a href={homeHref}>
       <div class="p-6 pt-6 pb-2 md:pt-[clamp(0.75rem,1.8vh,1.4rem)] md:pb-[clamp(0.5rem,1.6vh,1.25rem)]">
         <div class="text-4xl md:text-[clamp(1.6rem,5.2vh,3rem)] font-light grid gap-2 md:gap-[clamp(0.15rem,0.5vh,0.5rem)] md:leading-none">
@@ -52,10 +52,10 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
     </nav>
   </aside>
 
-  <main class="w-full md:pl-70 lg:pl-77 lg:pr-6 lg:py-24 border-2 border-sidebar md:border-none">
+  <main class="w-full md:pl-70 lg:pl-77 lg:pr-6 lg:py-24">
     <article
       class:list={[
-        "prose max-w-222 2xl:max-w-260 bg-background mx-auto pb-8 md:pb-16 lg:border-2 border-sidebar -outline-offset-8 outline-2 outline-sidebar rounded-sm",
+        "prose max-w-222 2xl:max-w-260 bg-background mx-auto pb-8 md:pb-16 lg:border-2 border-sidebar md:-outline-offset-8 md:outline-2 outline-sidebar rounded-sm",
         flushTop ? "flush-top pt-0" : "pt-8 md:pt-16",
       ]}
     >
@@ -65,7 +65,7 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
 
   <a
     href="#"
-    class="md:hidden fixed -bottom-2 -right-2 bg-background p-4 border-2 border-sidebar text-sidebar outline-2 outline-sidebar -outline-offset-8 z-100"
+    class="md:hidden fixed bottom-3 right-3 bg-background p-2 border-2 border-sidebar text-sidebar rounded-sm z-100"
     aria-label="Back to top"
   >
     <svg
