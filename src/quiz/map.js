@@ -1,9 +1,9 @@
 import { QUIZ_DATA } from "./content.js";
 import { CONFIG } from "./config.js";
 import { live } from "./live.js";
-import { el, NS, button, stage, controls } from "./dom.js";
-import { dispatch } from "./store.js";
-import { restart } from "./state.js";
+import { el, NS, button, icon, stage, controls } from "./dom.js";
+import { dispatch, getState } from "./store.js";
+import { restart, answerFit } from "./state.js";
 
 const UI = QUIZ_DATA.ui;
 
@@ -585,6 +585,103 @@ export function renderTree(state) {
     return node;
   }
 
+  /* ---- the banner: did we get the camp right? ------------------------
+     Built once, kept at the top of the panel through every redraw, and
+     removed only once answered. */
+  const FIT = QUIZ_DATA.survey?.fit;
+  const banner = FIT && state.campId && !state.survey.fit ? el("div", "fit-banner") : null;
+
+  function sendFit(answer) {
+    dispatch(answerFit, answer);
+    const s = getState();
+    live.record(
+      s.campId,
+      s.history.map((step) => ({ q: step.questionId, i: step.optionIndex })),
+      s.survey,
+    );
+    banner.replaceChildren(
+      el("div", "fit-thanks", answer.answer === "yes" ? FIT.thanksYes : FIT.thanksNo),
+    );
+    setTimeout(() => banner.remove(), 2500);
+  }
+
+  function drawBanner() {
+    banner.replaceChildren();
+    const camp = QUIZ_DATA.camps[state.campId];
+    banner.append(el("div", "panel-tag", FIT.tag));
+    banner.append(el("div", "fit-camp", camp ? camp.title : state.campId));
+    banner.append(el("div", "fit-prompt", FIT.prompt));
+
+    const row = el("div", "fit-row");
+    const yes = button(FIT.yes, () => sendFit({ answer: "yes" }), "map");
+    const no = button(FIT.no, () => drawReasons(), "map");
+    if (FIT.yesIcon) yes.prepend(icon(FIT.yesIcon, "fit-glyph"));
+    if (FIT.noIcon) no.prepend(icon(FIT.noIcon, "fit-glyph"));
+    row.append(yes, no);
+    banner.append(row);
+  }
+
+  function drawReasons() {
+    banner.replaceChildren();
+    banner.append(el("div", "panel-tag", FIT.tag));
+    banner.append(el("div", "fit-prompt", FIT.followUp));
+
+    let picked = null;
+    const list = el("div", "fit-reasons");
+
+    /* the box a reason marked `other` opens, kept in its place so nothing
+       shifts when it appears */
+    const detail = document.createElement("input");
+    detail.type = "text";
+    detail.className = "fit-detail";
+    detail.maxLength = 200;
+    detail.hidden = true;
+
+    const ready = () => {
+      if (picked === null) return false;
+      if (FIT.reasons[picked].other) return detail.value.trim() !== "";
+      return true;
+    };
+
+    const send = button(FIT.send, () => {
+      if (!ready()) return;
+      const reason = FIT.reasons[picked];
+      const answer = { answer: "no", reason: reason.label, index: picked };
+      if (reason.other) answer.detail = detail.value.trim();
+      sendFit(answer);
+    }, "map");
+    send.disabled = true;
+
+    FIT.reasons.forEach((reason, i) => {
+      const label = el("label", "fit-reason");
+      const radio = document.createElement("input");
+      radio.type = "radio";
+      radio.name = "fit-reason";
+      radio.addEventListener("change", () => {
+        picked = i;
+        detail.hidden = !reason.other;
+        detail.placeholder = reason.placeholder || "";
+        if (reason.other) detail.focus();
+        send.disabled = !ready();
+      });
+      label.append(radio, document.createTextNode(reason.label));
+      list.append(label);
+    });
+    detail.addEventListener("input", () => {
+      send.disabled = !ready();
+    });
+    detail.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && !send.disabled) send.click();
+    });
+    banner.append(list, detail);
+
+    const row = el("div", "fit-row");
+    row.append(send);
+    banner.append(row);
+  }
+
+  if (banner) drawBanner();
+
   function drawPanel() {
     panel.replaceChildren();
 
@@ -616,6 +713,7 @@ export function renderTree(state) {
     actions.append(button(UI.restartButton, () => dispatch(restart), "map"));
     panel.append(actions);
     if (UI.mapNote) panel.append(richText(el("div", "panel-foot"), UI.mapNote));
+    if (banner) panel.append(banner);
   }
 
   /* ---- the numbers -------------------------------------------------- */

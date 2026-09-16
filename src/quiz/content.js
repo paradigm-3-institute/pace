@@ -24,6 +24,13 @@
    survey — what comes after the last branching point.
        intro      the divider page shown before the extra questions: `text`
                   is the paragraph, `button` the words on its one button.
+       fit        the banner along the bottom of the map's side panel: a
+                  thumbs up/down on the camp the reader landed in, and, after
+                  a thumbs down, one of the `reasons` to pick. A reason marked
+                  `other: true` opens a box to type into, with `placeholder`
+                  as its grey prompt. `thanksYes` and `thanksNo` are the
+                  closing lines after a thumbs up and a thumbs down. The
+                  answer is stored with the walk under "fit".
        questions  a list, asked in the order written (never shuffled). Each:
                     id       a short name the answer is stored under, e.g.
                              "location". Letters and underscores only; keep
@@ -180,6 +187,26 @@ export const QUIZ_DATA = {
     intro: {
       text: `Before we show you where your position on pacing sits relative to others', help us turn individual answers into a better picture of the field by answering a few extra questions.`,
       button: `Let's go!`,
+    },
+
+    /* The banner at the top of the map's side panel, asking whether the
+       camp the reader landed in feels right. It stays until answered. */
+    fit: {
+      tag: `Your camp`,
+      prompt: `Did we get that right?`,
+      yes: `Yes`,
+      yesIcon: "ph-light ph-thumbs-up",
+      no: `Not quite`,
+      noIcon: "ph-light ph-thumbs-down",
+      followUp: `What's off?`,
+      reasons: [
+        { label: `I'm closer to a different camp` },
+        { label: `Not vibing with the wording` },
+        { label: `Something else`, other: true, placeholder: `Tell us more` },
+      ],
+      send: `Send`,
+      thanksYes: `Glad it worked; thanks for participating!`,
+      thanksNo: `Thank you for your input; we'll look into it.`,
     },
 
     questions: [

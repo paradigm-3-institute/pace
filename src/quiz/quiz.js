@@ -20,9 +20,18 @@ import { initialState } from "./state.js";
 import { renderIntro, renderQuestion, renderDivider, renderSurvey } from "./screens.js";
 import { renderTree, leaveMap } from "./map.js";
 
+let onMap = false;
+
 function render(state) {
   /* Leaving the map stops its live updates; harmless if it wasn't open. */
   if (state.screen !== "map") leaveMap();
+
+  /* A change of state while the map is open — the banner being answered —
+     must not rebuild the map under the reader. The map reads what it needs
+     from the store itself. */
+  const stayingOnMap = state.screen === "map" && onMap;
+  onMap = state.screen === "map";
+  if (stayingOnMap) return;
 
   switch (state.screen) {
     case "intro":
