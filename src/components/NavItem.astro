@@ -10,11 +10,11 @@ const { href, textClass, label, sectionId } = Astro.props;
 ---
 
 <li
-  class:list={[textClass, "nav-item"]}
+  class:list={[textClass, "nav-item md:flex-1 md:min-h-0 md:flex"]}
   data-section-id={sectionId}
   style={`background-color: var(--color-${sectionId}-bg);`}
 >
-  <a class="px-6 py-3 block" href={href}>
+  <a class="px-6 py-3 block md:py-0 md:flex-1 md:flex md:items-center" href={href}>
     {label}
   </a>
 </li>
