@@ -38,6 +38,20 @@
   max-width: 800px;
 }
 
+/* Phones open on the title, so it gives up some of its scale and most of the
+   air beneath it to get the essay started higher. */
+@media (width < 48rem) {
+  .prose hgroup {
+    font-size: 2.2em;
+    margin-bottom: 22px;
+  }
+
+  /* The body's first line reads as the abstract on its own here. */
+  .prose .abstract-header {
+    display: none;
+  }
+}
+
 .prose h1 {
   color: var(--color-conclusion-bg);
   font-weight: 600;
@@ -235,6 +249,16 @@
   margin-top: 0;
   margin-bottom: 24px;
   padding-left: 1.6em;
+}
+
+/* Phones give the markers less room to indent by; nested lists take the
+   tighter step too. Same specificity as the rule above, so it has to follow
+   it. */
+@media (width < 48rem) {
+  .prose ul,
+  .prose ol {
+    padding-left: 1em;
+  }
 }
 
 .prose ul {
