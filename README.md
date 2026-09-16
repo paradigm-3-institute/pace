@@ -5,4 +5,4 @@
   `src/quiz/config.js` (see `src/quiz/SUPABASE.md`).
 
 ## todo
-- Re-design author list
+- Re-design author list (and OG card)

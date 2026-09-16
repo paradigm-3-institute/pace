@@ -3,19 +3,20 @@ import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { Font } from "astro:assets";
 import "../styles/quiz.css";
-import contentSource from "../quiz/content.js?raw";
 import Quiz from "../quiz/Quiz.jsx";
 
 /* Phosphor icons, self-hosted. Rather than loading the whole icon font, this
-   scans src/quiz/content.js for every `ph-<weight> ph-<name>` it mentions,
+   scans the quiz's source for every `ph-<weight> ph-<name>` it mentions,
    reads just those SVGs from @phosphor-icons/core at build time, and inlines
-   them as CSS masks. The icon classes in content.js keep working unchanged;
-   to use another weight, change "ph-light" there to thin / regular / bold /
-   fill / duotone. Browse the set at https://phosphoricons.com. */
+   them as CSS masks. To use another weight, change "ph-light" to thin /
+   regular / bold / fill / duotone. Browse the set at https://phosphoricons.com. */
 const require = createRequire(import.meta.url);
+const sources = import.meta.glob("../quiz/*.{js,jsx}", { query: "?raw", import: "default", eager: true });
 const iconRefs = new Set(
-  [...contentSource.matchAll(/\bph-(thin|light|regular|bold|fill|duotone)\s+ph-([a-z0-9-]+)/g)].map(
-    (m) => `${m[1]}/${m[2]}`,
+  Object.values(sources).flatMap((source) =>
+    [...source.matchAll(/\bph-(thin|light|regular|bold|fill|duotone)\s+ph-([a-z0-9-]+)/g)].map(
+      (m) => `${m[1]}/${m[2]}`,
+    ),
   ),
 );
 const iconCSS = [...iconRefs]
@@ -49,14 +50,20 @@ const socialImageURL = new URL("/card.png", Astro.url);
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="How to Pace the Frontier" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:width" content="1604" />
+    <meta property="og:image:height" content="842" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Illustration of control surfaces for pacing AI development" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImageURL} />
+    <meta name="twitter:image:alt" content="Illustration of control surfaces for pacing AI development" />
 
     <style is:global set:html={iconCSS}></style>
 
@@ -72,7 +79,7 @@ const socialImageURL = new URL("/card.png", Astro.url);
          across the top below it, where the title runs on one line to
          leave room for the screen beneath. -->
     <aside class="select-none bg-sidebar text-background font-sans p-7 pb-6 md:pb-8 md:fixed md:inset-y-0 md:left-0 md:w-70 md:overflow-auto">
-      <h1 class="gap-[0.25em] font-light grid text-5xl leading-none">
+      <h1 class="gap-2 font-light grid text-5xl">
         <span>Ways</span>
         <span class="md:-ml-0.5">to</span>
         <span>Pace</span>
@@ -94,7 +101,7 @@ const socialImageURL = new URL("/card.png", Astro.url);
 
     <!-- client:only, not client:load: the option order is shuffled per
          visit, so a server render would never match the client's. -->
-    <main class="flex w-full max-w-[860px] mx-auto flex-col pt-16 pb-7 px-(--x-padding)">
+    <main tabindex="0" class="flex w-full max-w-[860px] mx-auto flex-col pt-16 pb-7 px-(--x-padding)">
       <Quiz client:only="preact" />
     </main>
   </body>

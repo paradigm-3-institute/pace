@@ -1,5 +1,5 @@
 import { QUIZ_DATA } from "./content.js";
-import { Icon, Kicker, ICON, STEM, HELP, FRAME, CARD, CARD_LABEL, CARD_TEXT, RISE, delay } from "./ui.jsx";
+import { ScreenIcon, Kicker, Stem, Help, Frame, Card, CardLabel, CardText } from "./ui.jsx";
 
 /* The order the options are shown in is drawn once per session per
    question — so going Back and forward again doesn't shuffle the cards
@@ -38,45 +38,32 @@ export function Question({ id, onChoose }) {
   return (
     <>
       <div class="flex-none">
-        <Icon name={q.icon} class={`${ICON} ${RISE}`} style={delay(0)} />
-        <div class={RISE} style={delay(1)}>
-          <Kicker text={q.kicker} />
-        </div>
+        <ScreenIcon name={q.icon} at={0} />
+        <Kicker text={q.kicker} at={1} />
       </div>
 
       <div class="flex flex-auto flex-col justify-start">
-        <h2 class={`${STEM} ${RISE}`} style={delay(2)}>
-          {q.stem}
-        </h2>
-        {q.help && (
-          <p class={`${HELP} ${RISE}`} style={delay(3)}>
-            {q.help}
-          </p>
-        )}
+        <Stem at={2}>{q.stem}</Stem>
+        {q.help && <Help at={3}>{q.help}</Help>}
 
-        {/* One column per option on a wide screen, a stack below lg. The
-            cards come last, one after another, so the eye reaches the
+        {/* The cards come last, one after another, so the eye reaches the
             question before the answers arrive. */}
-        <div
-          class={`${FRAME} grid-cols-1 lg:grid-cols-[repeat(var(--cols),1fr)]`}
-          style={{ "--cols": q.options.length }}
-        >
+        <Frame cols={q.options.length}>
           {order[id].map((index, i) => {
             const option = q.options[index];
             return (
-              <button
-                type="button"
+              <Card
                 key={index}
-                class={`${CARD} flex flex-col gap-4 px-9 py-8 lg:min-h-[16em] ${RISE}`}
-                style={delay(4 + i)}
+                class="flex flex-col gap-4 px-5 py-4 lg:min-h-[16em]"
+                at={4 + i}
                 onClick={() => onChoose(index)}
               >
-                <span class={CARD_LABEL}>{option.label}</span>
-                <p class={CARD_TEXT}>{option.text}</p>
-              </button>
+                <CardLabel>{option.label}</CardLabel>
+                <CardText>{option.text}</CardText>
+              </Card>
             );
           })}
-        </div>
+        </Frame>
       </div>
     </>
   );

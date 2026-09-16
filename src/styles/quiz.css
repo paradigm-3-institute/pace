@@ -120,6 +120,21 @@
   overflow: hidden;
   cursor: grab;
   touch-action: none;
+  /* Dragging to pan must not select the labels it passes over. */
+  user-select: none;
+}
+
+button {
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+@media (pointer: coarse) {
+  button {
+    min-width: 44px;
+    min-height: 44px;
+  }
 }
 
 .map-pane:active {
@@ -155,9 +170,8 @@
   top: 20px;
   left: 20px;
   margin: 0;
-  font: 400 9.5px/1.4 var(--mono);
-  letter-spacing: 0.04em;
-  color: var(--dim);
+  font: 400 14px/1.4 var(--font-sans);
+  color: var(--color-foreground);
   pointer-events: none;
 }
 
@@ -185,21 +199,23 @@
      absolutely positioned element in a zero-width layer has no width to
      shrink to — which breaks even "1-50%" at its hyphen. */
   width: max-content;
-  max-width: 187px;
+  max-width: 150px;
   padding: 3px 8px;
   background: var(--paper);
-  font: 400 14.3px/1.35 var(--mono);
-  color: var(--label);
+  font: 500 16px/1.35 var(--font-sans);
+  color: var(--color-conclusion-bg);
   text-align: center;
   text-wrap: pretty;
 }
 
 /* ---- a branching point ---- */
 
+/* The question in the quiz's sans, with its number in a green square
+   tucked into the bottom-right corner, over the border. */
 .branching-point {
   position: absolute;
   width: 374px;
-  padding: 15px 20px;
+  padding: 18px 20px;
   box-sizing: border-box;
   background: var(--paper);
   border: 1px solid var(--ink);
@@ -208,17 +224,31 @@
   cursor: default;
 }
 
-.branching-point-tag {
-  font: 700 12px/1 var(--mono);
-  letter-spacing: 0.14em;
-  color: var(--ink);
-  margin-bottom: 10px;
+.branching-point-q {
+  font: 600 20px/1.3 var(--font-sans);
+  letter-spacing: -0.01em;
+  color: var(--color-conclusion-bg);
+  text-wrap: pretty;
 }
 
-.branching-point-q {
-  font: 400 15.4px/1.5 var(--mono);
-  color: var(--ink);
-  text-wrap: pretty;
+.branching-point-num,
+.panel-num {
+  min-width: 34px;
+  padding: 7px 8px;
+  background: var(--color-conclusion-bg);
+  color: var(--color-background);
+  font: 400 18px/1 var(--font-sans);
+  text-align: center;
+}
+
+.branching-point-num {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+}
+
+.panel-num {
+  width: max-content;
 }
 
 /* ---- a camp: no box, bare label ---- */
@@ -227,8 +257,11 @@
   position: absolute;
   width: max-content;
   padding: 3px 0;
-  font: 600 16.5px/1.3 var(--mono);
-  color: var(--ink);
+  font: 700 23px/1.3 var(--font-serif);
+  color: var(--color-conclusion-bg);
+  /* Gentium's bold is its heaviest weight; a hairline stroke in the
+     same ink thickens it a touch more. */
+  -webkit-text-stroke: 0.3px var(--color-conclusion-bg);
   white-space: nowrap;
   text-align: center;
   cursor: default;
@@ -261,7 +294,7 @@
   flex: none;
   box-sizing: border-box;
   border-left: 1px solid var(--ink);
-  background: var(--paper);
+  background: var(--color-background);
   padding: 28px 26px;
   overflow-y: auto;
   display: flex;
@@ -276,36 +309,38 @@
   }
 }
 
+/* The panel is set like the quiz's screens, not like the diagram: the
+   sans for the label, title and note, the serif for the body. */
+
 .panel-tag {
-  font: 700 10px/1 var(--mono);
-  letter-spacing: 0.14em;
-  color: var(--ink);
+  font: 400 17px/1.3 var(--font-sans);
+  color: var(--color-foreground);
+  text-transform: capitalize;
 }
 
 .panel-title {
-  font: 400 17px/1.5 var(--mono);
-  color: var(--ink);
-  text-wrap: pretty;
-}
-
-.panel-title-camp {
-  font-weight: 600;
+  font: 700 26px/1.2 var(--font-sans);
+  letter-spacing: -0.02em;
+  color: var(--color-conclusion-bg);
+  text-wrap: balance;
+  margin-top: 4px;
 }
 
 .panel-note {
-  font: 400 11px/1.5 var(--mono);
-  color: var(--dim);
+  font: 400 17px/1.4 var(--font-sans);
+  color: var(--color-then-what-bg);
   text-wrap: pretty;
 }
 
 .panel-body {
-  font: 400 13px/1.6 var(--mono);
-  color: var(--label);
+  font: 400 19px/1.5 var(--font-serif);
+  color: var(--color-foreground);
   text-wrap: pretty;
+  margin-top: 10px;
 }
 
 .panel-body a {
-  color: var(--ink);
+  color: var(--color-conclusion-bg);
   text-decoration: underline;
   text-underline-offset: 2px;
   text-decoration-thickness: 1px;
@@ -320,24 +355,16 @@
 }
 
 .panel-foot {
-  margin-top: 14px;
-  font: 400 10px/1.5 var(--mono);
-  color: var(--dim);
+  margin-top: 20px;
+  font: 400 15px/1.4 var(--font-sans);
+  color: var(--color-then-what-bg);
   text-wrap: pretty;
 }
 
 .panel-foot a {
-  color: var(--dim);
+  color: var(--color-conclusion-bg);
+  font-weight: 700;
   text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.map-btn {
-  font: 400 10px/1 var(--mono);
-  letter-spacing: 0.06em;
-  padding: 7px 10px;
-  border: 1px solid var(--ink);
-  background: transparent;
-  color: var(--label);
-  cursor: pointer;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
 }

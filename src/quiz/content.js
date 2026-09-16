@@ -493,7 +493,7 @@ export const QUIZ_DATA = {
       "c5:1": { sh: "r", th: "l" },
       "c5:2": { sh: "l", th: "t" },
       "c6:0": { sh: "b", th: "t" },
-      "c6:1": { sh: "b", th: "t", dy: 38 },
+      "c6:1": { sh: "b", th: "t", dy: 26 },
       "c6:2": { sh: "b", th: "t" },
     },
 

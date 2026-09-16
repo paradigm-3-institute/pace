@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "preact/hooks";
 import { QUIZ_DATA } from "./content.js";
 import { surveyQuestions, surveyApplies } from "./state.js";
-import { Button, Icon, Kicker, ICON, STEM, HELP, FRAME, CARD, CARD_LABEL, RISE, delay } from "./ui.jsx";
+import { Button, ScreenIcon, Kicker, Stem, Help, Frame, Card, CardLabel } from "./ui.jsx";
 
 const UI = QUIZ_DATA.ui;
 
@@ -40,49 +40,44 @@ export function Survey({ state, onAnswer }) {
   return (
     <>
       <div class="flex-none">
-        {q.icon && <Icon name={q.icon} class={`${ICON} ${RISE}`} style={delay(0)} />}
-        <div class={RISE} style={delay(1)}>
-          <Kicker text={kicker} />
-        </div>
+        {q.icon && <ScreenIcon name={q.icon} at={0} />}
+        <Kicker text={kicker} at={1} />
       </div>
 
       <div class="flex flex-auto flex-col justify-start">
-        <h2 class={`${STEM} ${RISE}`} style={delay(2)}>
-          {q.stem}
-        </h2>
-        {q.help && (
-          <p class={`${HELP} ${RISE}`} style={delay(3)}>
-            {q.help}
-          </p>
-        )}
+        <Stem at={2}>{q.stem}</Stem>
+        {q.help && <Help at={3}>{q.help}</Help>}
 
-        <div class={`${FRAME} grid-cols-1 max-w-[30em]`}>
+        <Frame class="max-w-[30em]">
           {q.options.map((option, i) => (
-            <button
-              type="button"
+            <Card
               key={i}
-              class={`${CARD} ${CARD_LABEL} text-[19px] px-6 py-4 data-[chosen=true]:bg-(--color-why-pace-bg) ${RISE}`}
-              style={delay(4 + i)}
+              class="px-6 py-4 data-[chosen=true]:bg-(--color-why-pace-bg)"
+              at={4 + i}
               data-chosen={chosen === i ? "true" : undefined}
               onClick={() => {
                 setChosen(i);
                 if (!option.other) onAnswer({ answer: option.label, index: i });
               }}
             >
-              {option.label}
-            </button>
+              <CardLabel>{option.label}</CardLabel>
+            </Card>
           ))}
-        </div>
+        </Frame>
 
         {/* The box an "other" answer opens. It keeps its space whether or
-            not it is showing, so choosing an answer that needs it doesn't
-            shove the buttons about; it only fades in. */}
-        {q.options.some((o) => o.other) && (
+            not it is showing, on every extra question, so nothing below it
+            shifts when it appears or between one question and the next. */}
+        {
           <div
             class={`flex gap-2.5 max-w-[30em] w-full mt-3.5 transition-opacity duration-180 ${other ? "" : "invisible opacity-0"}`}
           >
             <input
               type="text"
+              name={`survey-${q.id}`}
+              autocomplete="off"
+              inputmode="text"
+              enterkeyhint="done"
               class="flex-auto min-w-0 text-[16px] text-foreground bg-background border-2 border-sidebar rounded-sm px-3.5 py-2.5 focus:outline-none focus:border-(--color-conclusion-bg)"
               maxLength={120}
               aria-label={q.stem}
@@ -93,11 +88,11 @@ export function Survey({ state, onAnswer }) {
               onKeyDown={(event) => event.key === "Enter" && submitOther()}
             />
             {/* Continue wakes up as soon as there is something to continue with. */}
-            <Button variant="primary" disabled={detail.trim() === ""} onClick={submitOther}>
+            <Button disabled={detail.trim() === ""} onClick={submitOther}>
               {UI.continueButton}
             </Button>
           </div>
-        )}
+        }
       </div>
     </>
   );

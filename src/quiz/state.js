@@ -123,6 +123,15 @@ export function surveyBack(s) {
   return gotoSurvey(s, s.surveyIndex - 1, -1);
 }
 
+/* ---- the map's banner ---------------------------------------------- */
+
+/* Whether the camp felt right: { answer: "yes" } or
+   { answer: "no", reason, index, detail? }. Kept with the other survey
+   answers. */
+export function answerFit(s, answer) {
+  return { ...s, survey: { ...s.survey, fit: answer } };
+}
+
 /* ---- the end ------------------------------------------------------- */
 
 export function restart() {

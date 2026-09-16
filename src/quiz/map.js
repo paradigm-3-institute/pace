@@ -1,6 +1,7 @@
 import { QUIZ_DATA } from "./content.js";
 import { CONFIG } from "./config.js";
 import { live } from "./live.js";
+import { BUTTON } from "./ui.jsx";
 
 const UI = QUIZ_DATA.ui;
 const NS = "http://www.w3.org/2000/svg";
@@ -11,6 +12,18 @@ const el = (tag, className, text) => {
   if (text !== undefined) node.textContent = text;
   return node;
 };
+
+/* "BRANCHING POINT 1A" → "Branching Point 1A". Tags are written in
+   capitals in content.js; the panel sets them in sentence style. */
+const titleCase = (text) =>
+  String(text)
+    .toLowerCase()
+    .replace(/\b[a-z]/g, (c) => c.toUpperCase())
+    .replace(/\b(\d+)([a-z])\b/g, (_, n, s) => n + s.toUpperCase());
+
+/* The number a branching point shows in its corner on the map: the tag
+   without the words, "1A" or "5". */
+const tagNumber = (tag) => String(tag).replace(/^\s*branching\s+point\s*/i, "");
 
 /* -------------------------------------------------------------------
    The ending: the map.
@@ -39,8 +52,12 @@ const ACCENT = "oklch(0.55 0.17 28)";
 
 /* Draws the map into `container` for the walk in `state`, records the
    walk, and keeps the tallies live. Returns a function that stops the
-   live updates; the Map component calls it on unmount. */
-export function mountMap(container, state, onRestart) {
+   live updates; the Map component calls it on unmount.
+
+   `feedback` is an element the Map component renders the "did we get
+   that right?" box into; the panel keeps it at its foot through every
+   redraw. */
+export function mountMap(container, state, { onRestart, feedback }) {
   let stopWatching = () => {};
   const MAP = QUIZ_DATA.map;
 
@@ -57,6 +74,7 @@ export function mountMap(container, state, onRestart) {
   pane.append(caption);
 
   const panel = el("aside", "map-panel");
+  panel.tabIndex = 0;
   view.append(pane, panel);
   container.append(view);
 
@@ -68,8 +86,8 @@ export function mountMap(container, state, onRestart) {
     const at = MAP.nodes[id];
     if (!at) continue;
     const box = el("div", "branching-point");
-    box.append(el("div", "branching-point-tag", q.tag || id));
     box.append(el("div", "branching-point-q", q.stem));
+    box.append(el("div", "branching-point-num", tagNumber(q.tag || id)));
     box.style.left = `${at.x}px`;
     box.style.top = `${at.y}px`;
     box.addEventListener("click", () => select(id));
@@ -585,7 +603,9 @@ export function mountMap(container, state, onRestart) {
     const camp = chosen && QUIZ_DATA.camps[chosen];
 
     panel.append(
-      el("div", "panel-tag", q ? q.tag || "" : camp ? UI.campWord : UI.detailWord),
+      q
+        ? el("div", "panel-num", tagNumber(q.tag || chosen))
+        : el("div", "panel-tag", titleCase(camp ? UI.campWord : UI.detailWord)),
     );
 
     if (q) {
@@ -606,12 +626,13 @@ export function mountMap(container, state, onRestart) {
     /* No way back from the map: the walk is recorded by the time it
        is drawn, so the only move from here is to start again. */
     const actions = el("div", "panel-actions");
-    const again = el("button", "map-btn", UI.restartButton);
+    const again = el("button", BUTTON, UI.restartButton);
     again.type = "button";
     again.addEventListener("click", onRestart);
     actions.append(again);
     panel.append(actions);
     if (UI.mapNote) panel.append(richText(el("div", "panel-foot"), UI.mapNote));
+    if (feedback) panel.append(feedback);
   }
 
   /* ---- the numbers -------------------------------------------------- */

@@ -14,7 +14,7 @@
      live.js       the Supabase layer
    ------------------------------------------------------------------- */
 
-import { useState } from "preact/hooks";
+import { useState, useEffect, useRef } from "preact/hooks";
 import { QUIZ_DATA } from "./content.js";
 import * as T from "./state.js";
 import { Button } from "./ui.jsx";
@@ -23,15 +23,96 @@ import { Question } from "./Question.jsx";
 import { Divider } from "./Divider.jsx";
 import { Survey } from "./Survey.jsx";
 import { Map } from "./Map.jsx";
+import { live } from "./live.js";
 
 const UI = QUIZ_DATA.ui;
 
 export default function Quiz() {
   const [state, setState] = useState(T.initialState);
+
+  /* Every screen before the map is a browser history entry holding the
+     state that drew it, so the back button does what the on-page Back
+     does, and forward works too. The URL never changes: a walk is a path
+     through a tree, and no single screen means anything without the
+     answers before it.
+
+     The map is different: the walk is recorded by the time it shows, so
+     the only way out is Start again. Opening it collapses the walk's
+     entries into one, and a second, identical entry on top absorbs the
+     back button — pressing it lands on the first, which pushes the
+     second again. Start again collapses that pair into a fresh intro. */
+  const nav = useRef({ trapped: false, pending: null });
+  const host = useRef(null);
+
+  /* Each entry also records how many entries this walk has pushed
+     before it, so collapsing knows how far back the intro is whatever
+     Back and Forward have done in between. */
+  const depth = () => history.state?.depth ?? 0;
+
   const go = (transition, ...args) => {
-    setState((s) => transition(s, ...args));
-    window.scrollTo({ top: 0, behavior: "auto" });
+    const next = transition(state, ...args);
+    if (next.screen === "map" || next.screen === "intro") collapse(next);
+    else {
+      history.pushState({ ...next, depth: depth() + 1 }, "");
+      setState(next);
+    }
+    /* Only as far as the top of the quiz: on a phone the sidebar sits
+       above it, and the page's own top is the wrong place to land. */
+    const top = host.current.getBoundingClientRect().top + window.scrollY;
+    if (window.scrollY > top) window.scrollTo({ top, behavior: "auto" });
   };
+
+  /* Steps back over every entry this walk pushed, then replaces the one
+     it lands on with `next`. The stepping is asynchronous, so the swap
+     happens in onPop below. */
+  const collapse = (next) => {
+    const steps = depth() + (nav.current.trapped ? 1 : 0);
+    if (steps === 0) return land(next);
+    nav.current.pending = next;
+    history.go(-steps);
+  };
+
+  const land = (next) => {
+    const entry = { ...next, depth: 0 };
+    history.replaceState(entry, "");
+    nav.current.trapped = next.screen === "map";
+    if (nav.current.trapped) history.pushState(entry, "");
+    setState(next);
+  };
+
+  /* The map's banner answered. Not a screen change, so no history entry;
+     the walk is sent again with the answer added, which updates its row. */
+  const answerFit = (answer) => {
+    const next = T.answerFit(state, answer);
+    history.replaceState({ ...history.state, ...next }, "");
+    setState(next);
+    live.record(
+      next.campId,
+      next.history.map((step) => ({ q: step.questionId, i: step.optionIndex })),
+      next.survey,
+    );
+  };
+
+  useEffect(() => {
+    history.replaceState({ ...state, depth: 0 }, "");
+    const onPop = (event) => {
+      const { pending, trapped } = nav.current;
+      if (pending) {
+        nav.current.pending = null;
+        land(pending);
+      } else if (trapped) {
+        history.pushState(event.state, "");
+      } else if (event.state?.screen === "map") {
+        /* A map entry left behind by Start again: the walk it showed is
+           over, so it becomes a fresh intro instead. */
+        land(T.initialState());
+      } else if (event.state?.screen) {
+        setState(event.state);
+      }
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
 
   /* Keyed by screen and position, so moving on remounts the screen and
      its parts rise in again. */
@@ -60,7 +141,7 @@ export default function Quiz() {
       );
       break;
     case "map":
-      screen = <Map key={key} state={state} onRestart={() => go(T.restart)} />;
+      screen = <Map key={key} state={state} onRestart={() => go(T.restart)} onFit={answerFit} />;
       break;
   }
 
@@ -68,7 +149,7 @@ export default function Quiz() {
     <>
       {/* Anchored to the top, not centred: centring would move the icon
           up and down with the length of each question. */}
-      <div class="flex flex-auto flex-col justify-start" aria-live="polite">
+      <div ref={host} class="flex flex-auto flex-col justify-start" aria-live="polite">
         {screen}
       </div>
       {controls && <div class="mt-6 flex flex-wrap gap-3">{controls}</div>}

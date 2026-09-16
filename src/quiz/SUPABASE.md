@@ -102,7 +102,9 @@ in.
 each question's `id` from `content.js`. Each answer records the option's
 `answer` (its label) and `index` (its position, from 0 — stable if you reword
 it). When an option opened a text box, what was typed is in `detail`. A skipped
-question is simply absent.
+question is simply absent. `fit` is the map's banner — `{"answer": "yes"}`,
+or `{"answer": "no", "reason": "…", "index": 1}` with the reason picked, plus
+`"detail"` when the reason opened a box and something was typed.
 
 ```sql
 -- where people are: listed choices, with typed places where given
