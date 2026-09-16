@@ -55,7 +55,7 @@ const ACCENT = "oklch(0.55 0.17 28)";
    live updates; the Map component calls it on unmount.
 
    `feedback` is an element the Map component renders the "did we get
-   that right?" box into; the panel keeps it at its foot through every
+   that right?" box into; the panel keeps it at its head through every
    redraw. */
 export function mountMap(container, state, { onRestart, feedback }) {
   let stopWatching = () => {};
@@ -528,7 +528,9 @@ export function mountMap(container, state, { onRestart, feedback }) {
 
   /* ---- the panel --------------------------------------------------- */
 
-  let chosen = null;
+  /* The panel opens on the reader's own camp; clicking the map or the
+     empty space around it takes over from there. */
+  let chosen = state.campId || null;
   let tallies = null;
 
   function select(id) {
@@ -599,6 +601,8 @@ export function mountMap(container, state, { onRestart, feedback }) {
   function drawPanel() {
     panel.replaceChildren();
 
+    if (feedback) panel.append(feedback);
+
     const q = chosen && QUIZ_DATA.questions[chosen];
     const camp = chosen && QUIZ_DATA.camps[chosen];
 
@@ -632,7 +636,6 @@ export function mountMap(container, state, { onRestart, feedback }) {
     actions.append(again);
     panel.append(actions);
     if (UI.mapNote) panel.append(richText(el("div", "panel-foot"), UI.mapNote));
-    if (feedback) panel.append(feedback);
   }
 
   /* ---- the numbers -------------------------------------------------- */

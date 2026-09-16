@@ -5,7 +5,7 @@ import { Button } from "./ui.jsx";
 const REASONS = ["I'm closer to a different camp", "Not vibing with the wording", "Something else"];
 const OTHER = 2; /* the reason that opens a box */
 
-/* The feedback box at the foot of the map's panel: did we get the camp
+/* The feedback box at the head of the map's panel: did we get the camp
    right? A thumbs up sends at once; a thumbs down asks for a reason
    first. After either it thanks the reader and goes away. `onSend` gets
    the answer in the shape state.js's answerFit stores: { answer: "yes" }
@@ -40,7 +40,7 @@ export function Feedback({ campId, onSend }) {
   if (!camp || gone) return null;
 
   return (
-    <div class="-mx-[26px] border-t-sidebar border-t -mb-7 mt-5 bg-(--color-pace-what-bg) px-[26px] pt-4 pb-5 font-sans">
+    <div class="-mx-[26px] border-b-sidebar border-b -mt-7 mb-5 bg-(--color-pace-what-bg) px-[26px] pt-7 pb-4 font-sans">
       {phase === "ask" && (
         <>
           <div>Your camp is...</div>

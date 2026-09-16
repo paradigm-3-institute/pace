@@ -136,7 +136,7 @@ export function CardText({ children }) {
    turns to the pace-what green on hover. Exported as a class string too,
    for the map's Start again button, which is plain DOM (map.js). */
 export const BUTTON =
-  "inline-flex items-center gap-[9px] cursor-pointer rounded-[9px] font-sans text-[17px] font-semibold px-4 py-2 bg-sidebar text-(--color-introduction-bg) transition-colors duration-120 hover:text-(--color-pace-what-bg) focus-visible:text-(--color-pace-what-bg) focus-visible:outline-none disabled:cursor-default disabled:hover:text-(--color-introduction-bg)";
+  "inline-flex items-center gap-[9px] cursor-pointer rounded-[9px] font-sans font-medium px-4 py-2 bg-sidebar text-(--color-introduction-bg) transition-colors duration-120 hover:text-(--color-pace-what-bg) focus-visible:text-(--color-pace-what-bg) focus-visible:outline-none disabled:cursor-default disabled:hover:text-(--color-introduction-bg)";
 
 export function Button({ icon, children, ...rest }) {
   return (

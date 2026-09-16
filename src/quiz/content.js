@@ -247,12 +247,11 @@ export const QUIZ_DATA = {
     surveyKicker: `Extra question {n} of {total}`,
     mapNote: `If you notice a way to improve our quiz, email nikola@arbresearch.com`,
 
-    resultsWaiting:
-      `The live tally appears once a few more people have walked the tree.`,
+    resultsWaiting: `The live tally appears once a few more people have walked the tree.`,
     resultsUnavailable: `The live tally can't be reached right now.`,
     mapCaption: `one dot = one response · n={n}`,
     mapCaptionMany: `one dot = {per} responses · n={n}`,
-    detailWord: `DETAIL`,
+    detailWord: `The Pacing Decision Tree`,
     detailEmpty: `Click any question or camp on the map.`,
     campWord: `CAMP`,
     treeOffline: `Counts appear once this is connected to a database — see SUPABASE.md.`,

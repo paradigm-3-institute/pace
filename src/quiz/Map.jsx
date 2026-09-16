@@ -8,7 +8,7 @@ import { Feedback } from "./Feedback.jsx";
 
    The panel is part of that DOM, and map.js rebuilds it on every click
    on the map, so the feedback box can't simply be placed here in JSX.
-   Instead this makes one empty element, map.js keeps it at the foot of
+   Instead this makes one empty element, map.js keeps it at the head of
    the panel through every rebuild, and Preact renders the Feedback
    component into it through a portal. */
 export function Map({ state, onRestart, onFit }) {
@@ -16,7 +16,7 @@ export function Map({ state, onRestart, onFit }) {
   const [feedback] = useState(() => {
     const host = document.createElement("div");
     /* Once the box has gone, the empty host must not keep the panel's
-       gap at its foot. */
+       gap at its head. */
     host.className = "empty:hidden";
     return host;
   });
