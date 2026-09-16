@@ -18,7 +18,7 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
-  <aside class="md:fixed w-full pb-2 md:pb-0 md:w-70 md:h-dvh md:overflow-hidden md:flex md:flex-col bg-sidebar text-background border-x-2 md:border-l-0 border-sidebar select-none">
+  <aside class="md:fixed w-full pb-2 md:pb-0 md:w-70 md:h-dvh md:overflow-hidden md:flex md:flex-col bg-sidebar text-background md:border-r-2 border-sidebar select-none">
     <a href={homeHref}>
       <div class="p-6 pt-10 pb-2 md:pt-[clamp(1.25rem,3vh,2.25rem)] md:pb-[clamp(0.5rem,1.6vh,1.25rem)]">
         <div class="text-4xl md:text-[clamp(1.6rem,5.2vh,3rem)] font-light grid gap-2 md:gap-[clamp(0.15rem,0.5vh,0.5rem)] md:leading-none">
@@ -31,7 +31,7 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
           class="inline-flex items-center gap-2 mt-6 mb-4 md:mt-[clamp(1.2rem,3.4vh,3rem)] md:mb-[clamp(0.6rem,1.8vh,1.75rem)] px-4 py-2 border rounded-md border-(--color-pace-how-bg) text-(--color-pace-how-bg) hover:border-(--color-why-pace-bg) hover:text-(--color-why-pace-bg) transition-colors"
           href="/quiz"
         >
-          Find your camp
+          Choose your pace
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true">
             <path d="M184.49,136.49l-80,80a12,12,0,0,1-17-17L159,128,87.51,56.49a12,12,0,1,1,17-17l80,80A12,12,0,0,1,184.49,136.49Z"></path>
           </svg>
@@ -52,10 +52,10 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
     </nav>
   </aside>
 
-  <main class="w-full md:pl-70 lg:pl-77 lg:pr-6 lg:py-24 border-2 border-sidebar md:border-none">
+  <main class="w-full md:pl-70 lg:pl-77 lg:pr-6 lg:py-24">
     <article
       class:list={[
-        "prose max-w-222 2xl:max-w-260 bg-background mx-auto pb-8 md:pb-16 lg:border-2 border-sidebar -outline-offset-8 outline-2 outline-sidebar rounded-sm",
+        "prose max-w-222 2xl:max-w-260 bg-background mx-auto pb-8 md:pb-16 lg:border-2 border-sidebar md:-outline-offset-8 md:outline-2 outline-sidebar rounded-sm",
         flushTop ? "flush-top pt-0" : "pt-8 md:pt-16",
       ]}
     >
@@ -65,7 +65,7 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
 
   <a
     href="#"
-    class="md:hidden fixed -bottom-2 -right-2 bg-background p-4 border-2 border-sidebar text-sidebar outline-2 outline-sidebar -outline-offset-8 z-100"
+    class="md:hidden fixed bottom-3 right-3 bg-background p-2 border-2 border-sidebar text-sidebar rounded-sm z-100"
     aria-label="Back to top"
   >
     <svg

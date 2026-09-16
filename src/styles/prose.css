@@ -60,8 +60,8 @@
 
 /* Where one section meets the next, the banner sits straight on what came
    before it — no break of its own. A section that ends in text still has
-   that text's bottom margin; one that ends in a collapsible meets the
-   banner edge to edge. */
+   that text's bottom margin; one that ends in a collapsible has the small
+   margin set on details:last-child below. */
 .prose > section + section > h2 {
   margin-top: 0;
 }
@@ -287,6 +287,18 @@
 
 .prose .exec-summary > :last-child {
   margin-bottom: 0;
+}
+
+/* On phones the summary runs edge to edge, like the figures. */
+@media (width < 48rem) {
+  .prose .exec-summary {
+    width: calc(100% + 2 * var(--x-padding-inside));
+    margin-left: calc(-1 * var(--x-padding-inside));
+    padding: 24px var(--x-padding-inside);
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+  }
 }
 
 /* Links to third-party AI summaries of the piece, at the end of the
@@ -555,7 +567,7 @@
    the "Pace How?" green for the body, with dark text, as those two tabs
    are set. */
 .prose details.research {
-  background-color: var(--color-pace-what-bg);
+  background-color: color-mix(in oklab, var(--color-pace-what-bg), white 70%);
   border-color: var(--color-conclusion-bg);
 }
 
@@ -568,9 +580,10 @@
   color: var(--color-conclusion-bg);
 }
 
-/* A collapsible that ends a section carries no margin into the break. */
+/* A collapsible that ends a section keeps only a little space before the
+   next banner. */
 .prose details:last-child {
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
 .prose details + details {
@@ -701,7 +714,7 @@
 
 .prose :target[data-footnote-ref],
 .prose .footnotes li:target {
-  background: var(--color-why-pace-bg);
+  background: color-mix(in oklab, var(--color-why-pace-bg), white 60%);
   border-radius: 3px;
 }
 
