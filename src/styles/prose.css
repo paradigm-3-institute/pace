@@ -460,6 +460,7 @@
   padding: 8px var(--x-padding-inside);
   line-height: 1.4em;
   text-align: center;
+  text-wrap: balance;
 }
 
 /* Figures are numbered across the whole article, not per section, so the
