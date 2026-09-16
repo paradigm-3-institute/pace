@@ -10,12 +10,8 @@ const content = await render(await getEntry("sections", appendices.slug));
 
 <EssayLayout
   title="Appendices — Pacing The Frontier"
-  description="Open questions, a longlist of pacing interventions, and a bibliography."
+  description="Open questions, a full list of pacing interventions, and a bibliography."
+  flushTop
 >
-  <Section
-    id={appendices.id}
-    title={appendices.label}
-    textClass={appendices.textClass}
-    content={content}
-  />
+  <Section id={appendices.id} title={appendices.label} textClass={appendices.textClass} content={content} />
 </EssayLayout>

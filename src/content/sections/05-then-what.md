@@ -15,9 +15,9 @@ We consider these impacts radiating outward from the pacing intervention through
 
 ### 5.1 Covered developers
 
-As the center of AI progress, frontier model developers are the actors most directly impacted by pacing interventions. Intervention will change the constraints these developers face but not their objectives: the competitive pressures described in §2.3 persist, and developers will re-optimize against the new rule. The practical content of an intervention is therefore the rule, plus the developers' best response to it. But we can anticipate the form of such responses from earlier attempts to restrain arms races: for instance, when the 1922 Washington Treaty [capped](https://www.usni.org/magazines/proceedings/1926/may/washington-treaties-1922) naval cruisers at 10,000 tons and 8-inch guns, the signatories built "[treaty cruisers](https://www.globalsecurity.org/military/systems/ship/treaty-cruiser.htm)" that sat exactly at those limits.
+As the center of AI progress, frontier model developers are the most directly impacted by pacing interventions. Intervention changes the constraints these developers face, but not their objectives: the competitive pressures described in §2.3 persist, and developers will re-optimize against the new rules. The practical effect of an intervention is therefore the rule, *plus* developers' responses to it. But we can anticipate the form of such responses from earlier attempts to restrain arms races: for instance, when the 1922 Washington Treaty [capped](https://www.usni.org/magazines/proceedings/1926/may/washington-treaties-1922) naval cruisers at 10,000 tons and 8-inch guns, the signatories built "[treaty cruisers](https://www.globalsecurity.org/military/systems/ship/treaty-cruiser.htm)" that sat exactly at those limits.
 
-In response to pacing, these entities will likely consider:
+In response to pacing, developers will likely consider:
 
 #### Adaptation within the rule
 
@@ -171,7 +171,7 @@ On the other hand, public attitudes toward the governments are likely to be much
 
 We should keep in mind that frontier AI pacing interventions would not be the first controversial tech policy area. Norms around tech policy have been shaped by the experience of industry and government policies around GMOs, civil nuclear, stem cells, and gain-of-function research, and have contributed to broader societal attitudes towards "progress" or "precaution". The viability of pacing interventions will depend on these pre-existing attitudes and the degree of politicisation, but also the impacts of a pacing intervention, successful or otherwise, could impact the narratives and relative power of these different camps in societies around the world.
 
-<details>
+<details id="sec-5.6" class="sec-anchor">
   <summary> 5.6 Case A: A cap on frontier training </summary>
   <div>
 
@@ -198,7 +198,7 @@ Beyond this, the majority of the changed incentives discussed in §5.1 from a ge
   </div>
 </details>
 
-<details>
+<details id="sec-5.7" class="sec-anchor">
   <summary> 5.7 Case B: Restricting access to dangerous biological capabilities </summary>
   <div>
 

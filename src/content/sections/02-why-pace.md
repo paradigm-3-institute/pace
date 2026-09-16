@@ -12,6 +12,10 @@ More pragmatically, pacing will only happen if actors make effective pacing inte
 
 Section §5 gives a more comprehensive assessment of the benefits and costs of pacing, taking into account second-order effects of the interventions required to make pacing effective.
 
+![Simple causal graph of how pacing interventions work](/media/causal_graph_1.svg)
+
+
+
 ### 2.1 Why pace less?
 
 #### 2.1.1 Pacing means waiting longer for very good things
@@ -50,7 +54,7 @@ Consider nuclear power, which was heavily restricted from the 1980s onward, oste
 
 But beyond this, it burned investor trust and disincentivized investments in nuclear power. Investors rightfully feared capricious and politicized regulation would block nuclear power plants, regardless of the underlying merits.
 
-It is likewise possible that pacing will not have the trust of those in AI because they are correct in predicting it will be hard to undo if the risk is found to be low. 
+It is likewise possible that pacing will not have the trust of those in AI, because they correctly predict it will be hard to undo, even if the risk is found to be low.
 
 ### 2.2 Why pace more?
 
@@ -140,7 +144,11 @@ Rather than rely on voluntary, unilateral interventions, some contexts will requ
 
 It is not a given that coordinated pacing would actually be good for the world. One risk is that actors coordinate *against* the common good. Without an authority capable of constraining all relevant actors,the only ways to pace (without merely ceding power to another actor) are either to coordinate, or to have a lead you can afford to burn.
 
-<details>
+
+![Full causal graph of how pacing interventions work](/media/causal_graph_2.svg)
+
+
+<details id="sec-2.4" class="sec-anchor">
   <summary> Case A: A cap on frontier training </summary>
   <div>
 
@@ -153,7 +161,7 @@ Such a cap would also delay beneficial capabilities (including AI-assisted safet
   </div>
 </details>
 
-<details>
+<details id="sec-2.5" class="sec-anchor">
   <summary> Case B: Restricting access to dangerous biological capabilities </summary>
   <div>
 
@@ -175,7 +183,7 @@ These interventions could complement controls on biological materials and labora
   * *Rahman (2026), [Does Distributed Training Undermine Compute Governance?](https://arxiv.org/abs/2605.29359)*   
   * *Sastry et al. (2024), [Computing Power and the Governance of Artificial Intelligence](https://arxiv.org/abs/2402.08797).* Maps compute governance options and their readiness  
 * **How do actors in this space make decisions about pacing?** What evidence do they currently consider and what assumptions do they currently make? What pathways exist for external research to inform such decisions, e.g. in government or lab leadership, and what makes that information transfer more effective?  
-  * *METR (2025), [Common Elements of Frontier AI Safety Policies](https://metr.org/blog/2025-12-09-common-elements-of-frontier-ai-safety-policies/\))*  
+  * *METR (2025), [Common Elements of Frontier AI Safety Policies](https://metr.org/blog/2025-12-09-common-elements-of-frontier-ai-safety-policies/)*  
 * **Which AI risks are most likely to motivate a pacing intervention, now and in the future?** Where do different dangerous capabilities sit on the offense/defense balance, and how will that change over time?  Related work:  
   * *Garfinkel & Dafoe (2019), [How Does the Offense-Defense Balance Scale?](https://www.tandfonline.com/doi/full/10.1080/01402390.2019.1631810)*  
   * *Shevlane & Dafoe (2020), [The Offense-Defense Balance of Scientific Knowledge: Does Publishing AI Research Reduce Misuse?](https://arxiv.org/abs/2001.00463)*  
@@ -185,5 +193,4 @@ These interventions could complement controls on biological materials and labora
   * Armstrong, Bostrom & Shulman (2016), [*Racing to the Precipice: a Model of Artificial Intelligence Development*](https://nickbostrom.com/papers/racing-to-the-precipice.pdf) Better information about rivals' capabilities can *increase* danger when teams are close, because it removes uncertainty that induces caution.  
 * **What are the risks and benefits of titration** (“deploy it and learn the risks empirically”)? Have past release strategies from frontier labs succeeded in managing known AI risks? What might change in the future risk landscape? Given our uncertainty about the true risks, what criteria should gate the deployment of new frontier models?   
   * *Shevlane et al. (2023), [Model Evaluation for Extreme Risks](https://arxiv.org/abs/2305.15324)*.
-
 

@@ -35,16 +35,16 @@ Inquiries into pacing are naturally in danger of being politicized: indeed, hund
 
 This piece is structured around a series of questions intended to mirror how one might develop or evaluate a given intervention:
 
-* **Why pace?** Section 2 examines motivations for and against pacing, for humanity at large and for specific actors.  
-* **Pace what?** Section 3 catalogs which parts of AI development can be paced, and the challenges in picking appropriately.  
-* **Pace how?** Section 4 follows the lifecycle of an intervention from anticipation to exit, asking what it takes for each step to succeed.  
-* **Then what?** Section 5 considers the broader effects of interventions, including on AI R\&D, the economy, and the distribution of political power.
+* **Why pace?** [Section 2](/#why-pace) examines motivations for and against pacing, for humanity at large and for specific actors.  
+* **Pace what?** [Section 3](/#pace-what) catalogs which parts of AI development can be paced, and the challenges in picking appropriately.  
+* **Pace how?** [Section 4](/#pace-how) follows the lifecycle of an intervention from anticipation to exit, asking what it takes for each step to succeed.  
+* **Then what?** [Section 5](/#then-what) considers the broader effects of interventions, including on AI R\&D, the economy, and the distribution of political power.
 
 At the end of each section we give a list of open questions. Throughout this document we use two stylized cases to demonstrate how our analysis applies to potential interventions:
 
 1. A coordinated cap on the compute used to train individual frontier models, intended to slow the pace of R\&D acceleration (particularly the risk of recursive self-improvement) which could outpace oversight and increase the risk of humans losing control of AI.   
 2. An internationally agreed-upon set of restrictions on access to and release of AI models which materially increase users’ ability to develop biological weapons, as an example of pacing diffusion (rather than pacing capability development).
 
-Each main section ends by returning to both examples, showing how the framework developed in that section applies to each case. We are not trying to advocate for either proposal; these end of section examples were instead chosen to illustrate how our frameworks apply to specific plans. See Appendix B for a full list of possible interventions
+We are not trying to advocate for either proposal; these end of section examples were instead chosen to illustrate how our frameworks apply to specific plans. See [Appendix B](/appendices#82-appendix-longlist-of-pacing-interventions) for a longlist of possible interventions.
 
-A bibliography of work related to this agenda can be found here.
+A bibliography of work related to this agenda can be found [here](/appendices#83-appendix-bibliography).

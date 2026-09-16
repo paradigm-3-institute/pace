@@ -89,7 +89,7 @@ Coordination is more sustainable when compliance can be checked without needing 
 
 Unfortunately, while information about model capabilities and threat models accumulates steeply along the arc of model development, coordination can become more difficult. The information that can be gained about a system nearing deployment is often nonstandardized and difficult to make legible (i.e. the internal testing protocols and mitigation mechanisms at one lab may not look the same as at another, even if they point at the same targets). Upstream, however, information on goods like compute, which are produced by very few companies in relatively few places, can be easily [made legible, verified and shared](https://arxiv.org/abs/2408.16074), making coordination easier. As a result, coordinating actors will tend to select upstream control surfaces: the crude and high-false-positive side of the arc provides a source of surfaces better suited to coordination.
 
-<details>
+<details id="sec-3.4" class="sec-anchor">
   <summary> Case A: A cap on frontier training </summary>
   <div>
 
@@ -109,7 +109,7 @@ Here we choose a per-model cap covering pretraining and post-training. Developer
 </details>
 
 
-<details>
+<details id="sec-3.5" class="sec-anchor">
   <summary> Case B: Restricting access to dangerous biological capabilities </summary>
   <div>
 
@@ -135,20 +135,19 @@ There is also a risk that, once an open model with a given level of capabilities
 * **How should hazards be translated into covered activity for pacing interventions?** Risks we would like to target, such as uncontrolled automation of AI R\&D and bioweapon uplift, build up over various stages of AI research, development and deployment; capabilities will initially emerge at some point in training, and we may want to avoid such a point being reached, or we may care more about wider deployment (especially if capabilities have positive use cases we want to preserve). Research should compare candidate boundaries.  
   * [*Shevlane et al. (2023), Model Evaluation for Extreme Risks*](https://arxiv.org/abs/2305.15324)  
   * [*Hooker (2024), On the Limitations of Compute Thresholds as a Governance Strategy*](https://arxiv.org/abs/2407.05694)  
-* **How can pacing thresholds be operationalised to cover distributed or fragmented activity?** A pacing intervention targeting a threshold could potentially be circumvented by distributing activities or artefacts such that each sits below the threshold. How can we design aggregation rules and methods to handle cumulative risk from activities that are divided across space, time, processes and entities, without hindering low-risk activities?.   
+* **How can pacing thresholds be made specific and yet still cover distributed activity?** A pacing intervention targeting a threshold could potentially be circumvented by distributing activities or artefacts such that each sits below the threshold. How can we design aggregation rules and methods to handle cumulative risk from activities that are divided across space, time, processes and entities, without hindering low-risk activities?.   
   * [*Seferis & Fist (2026), Detecting Compute Structuring in AI Governance Is Likely Feasible*](https://ojs.aaai.org/index.php/AAAI/article/view/41127)  
   * [*Rahman (2026), Does Distributed Training Undermine Compute Governance?*](https://arxiv.org/abs/2605.29359)  
 * **What practical coverage is sufficient?** If we consider the reach available through company control, infrastructure providers and national rules, including their supply-chain effects, can we estimate bounds on activities that would be effectively covered by an intervention and relevant activities that would be missed?  
   * [*Koopmanschap & Barten (2026), How to Catch a GPU*](https://arxiv.org/abs/2607.22619)*.* Maps issues with enforcement coverage as dangerous capabilities come to require progressively less compute  
   * [*Egan & Heim (2023), Oversight for Frontier AI through a Know-Your-Customer Scheme for Compute Providers*](https://arxiv.org/abs/2310.13625)  
-* **What is the effectiveness of different access restrictions once a dangerous capability has been released, for different release pathways?** How do factors such as access guardrails, alignment training, access to inference compute, ease-of-use, and tacit knowledge affect risk once diffusion has already occurred?  
+* **How effective are different access restrictions once a dangerous capability has been released?** How do factors such as access guardrails, alignment training, access to inference compute, ease-of-use, and tacit knowledge affect risk once diffusion has already occurred?
   * [*Tamirisa et al. (2024), Tamper-Resistant Safeguards for Open-Weight LLMs*](https://arxiv.org/abs/2408.00761). Identifies limitations in how reliable safeguards can be for open weight models.  
   * [*Ord (2025), Inference Scaling Reshapes AI Governance*](https://arxiv.org/abs/2503.05705). Identifies inference scaling as a lever for released models.  
-* **How can we make a rule which permits exceptions to preserve useful work, which is not so permeable that it makes the rule useless?** In the case of compute controls, it now seems technologically feasible, to some extent, to identify what uses a GPU is being put to. What other technical advances can allow interventions to be less blunt and more narrowly scoped?  
+* **How can we permit exceptions to allow useful work, without being so permeable that it makes the rule useless?** In the case of compute controls, it now seems technologically feasible, to some extent, to identify what uses a GPU is being put to. What other technical advances can allow interventions to be less blunt and more narrowly scoped?  
   * [*Gargiulo & Kulp (2026), Workload Identification with Physical Side Channels for AI Governance*](https://arxiv.org/abs/2609.00309)  
-* **What are the tradeoffs between quality of verification and degree of invasiveness for different interventions, and how can we push forward the frontier?**  
+* **What are the tradeoffs between verification and invasiveness for different interventions?** How can we push the frontier forward?  
   * [*Scher & Thiergart (2025), Mechanisms to Verify International Agreements About AI Development*](https://arxiv.org/abs/2506.15867)  
+  * We believe the proposal would be technically sufficient to forestall the development of ASI if implemented today, but advancements in AI capabilities or development methods could hurt its efficacy. Additionally, there does not yet exist the political will to put such an agreement in place. Despite these challenges, we hope this agreement can provide direction for AI governance research and policy.  
   * [*Petrie et al. (2025), Flexible Hardware-Enabled Guarantees for AI Compute*](https://arxiv.org/abs/2506.15093)*.* Proposes verifying compliance without exposing sensitive information about AI development.
-
-
 
