@@ -420,10 +420,24 @@
   margin-left: calc(-1 * var(--x-padding-inside));
 }
 
+.prose figure picture {
+  display: block;
+}
+
 .prose figure img,
 .prose figure video {
   margin: 0;
   width: 100%;
+}
+
+/* Narrow viewports get the portrait figure variants (see
+   rehype-figure-captions.js, which must use the same breakpoint). They are
+   tall, so keep them from growing huge on tablet-width articles. */
+@media (max-width: 1023px) {
+  .prose figure img {
+    max-width: 540px;
+    margin-inline: auto;
+  }
 }
 
 .prose figcaption {

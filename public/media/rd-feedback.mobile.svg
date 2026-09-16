@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="830" viewBox="0 0 480 830" role="img" aria-labelledby="ttl dsc">
+  <title id="ttl">AI R&amp;D production lifecycle</title>
+  <desc id="dsc">Inputs and infrastructure feed capability development (algorithmic R&amp;D, pre-training, post-training, producing model weights), which feeds use and distribution (internal use, deployment, access and diffusion). Use feeds back into algorithmic R&amp;D as AI-assisted R&amp;D feedback.</desc>
+  <defs>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#e2e8ee" stroke-width="1"/>
+    </pattern>
+    <style>
+      .hd { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; fill: #1e2833; }
+      .hs { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; fill: #1e2833; }
+      .lb { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 10px; font-weight: 700; letter-spacing: 1px; fill: #6b7482; }
+      .ph { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; fill: #4f6a8a; }
+      .rd { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9.5px; font-weight: 700; letter-spacing: 1px; fill: #c0392b; }
+      .bl { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9.5px; font-weight: 700; letter-spacing: 1px; fill: #3f5f85; }
+      .bd { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 16px; fill: #2f3b4b; }
+      .b2 { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 14px; fill: #2f3b4b; }
+      .b3 { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 12px; fill: #2f3b4b; }
+      .bi { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 13px; font-style: italic; fill: #6b7482; }
+      .ef { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 12px; font-weight: 700; fill: #1e2833; }
+      .box { fill: #fdfdfe; stroke: #1e2833; stroke-width: 2.5; }
+      .box-out { fill: #d6e4f2; stroke: #1e2833; stroke-width: 2.5; }
+      .outline { fill: none; stroke: #1e2833; stroke-width: 2.5; }
+      .cell { stroke: #1e2833; stroke-width: 1.5; }
+      .sep { stroke: #1e2833; stroke-width: 2; }
+      .thin { stroke: #c5ccd4; stroke-width: 1; }
+      .arr { stroke: #1e2833; stroke-width: 3.5; fill: none; }
+      .head { fill: #1e2833; }
+      .fb { stroke: #7d8794; stroke-width: 2.5; fill: none; stroke-dasharray: 8 6; }
+      .fbhead { fill: #7d8794; }
+      .sm { stroke: #8a95a3; stroke-width: 2; fill: none; }
+      .smhead { fill: #8a95a3; }
+      .band { fill: #eef3f8; stroke: #9fb3c8; stroke-width: 1.2; }
+      .note { fill: #fbeae6; stroke: #d0503c; stroke-width: 1.2; }
+      .noteb { fill: #eaf0f6; stroke: #4a6b8f; stroke-width: 1.2; }
+      .rl { stroke: #d0503c; stroke-width: 1.2; fill: none; stroke-dasharray: 4 3; }
+      .bll { stroke: #4a6b8f; stroke-width: 1.2; fill: none; stroke-dasharray: 4 3; }
+      .dn { fill: #f7f9fb; stroke: #8a95a3; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .red { fill: #fdfdfe; stroke: #c0392b; stroke-width: 2; }
+      .redt { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; fill: #c0392b; }
+      .redl { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; fill: #c0392b; }
+      .ghost { fill: #eceff2; stroke: #8a95a3; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .ghostt { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; fill: #8a95a3; }
+      .cross { stroke: #b5bcc5; stroke-width: 1.2; stroke-dasharray: 4 3; }
+      .cap { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; letter-spacing: 0.3px; fill: #2f3b4b; }
+      .dot-b { fill: #5b7fa6; }
+      .dot-g { fill: #a9a9a9; }
+      .cons { fill: #dfe7ef; }
+      .open { fill: #ebe9e5; }
+      .line { stroke: #1e2833; stroke-width: 1.8; fill: none; stroke-dasharray: 6 4; }
+      .st { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9px; font-weight: 700; letter-spacing: 1px; fill: #4f6a8a; }
+      .sv { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 13px; font-weight: 700; fill: #1e2833; }
+      .th { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.5px; fill: #2b3a55; }
+      .rh { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 13px; font-weight: 700; fill: #2b3a55; }
+      .tv { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 14px; fill: #2b3a55; }
+    </style>
+  </defs>
+  <rect width="480" height="830" fill="#f3f6f9"/>
+  <rect width="480" height="830" fill="url(#grid)"/>
+  <rect class="box" x="30" y="30" width="380" height="110" />
+  <line class="sep" x1="30" y1="70" x2="410" y2="70"/>
+  <text class="hd" x="220.0" y="50.0" text-anchor="middle" dominant-baseline="central" >INPUTS &amp; INFRASTRUCTURE</text>
+  <text class="bd" x="220.0" y="94.5" text-anchor="middle" dominant-baseline="central" >compute · data · power</text>
+  <text class="bd" x="220.0" y="115.5" text-anchor="middle" dominant-baseline="central" >capital · researchers</text>
+  <line class="arr" x1="220" y1="140" x2="220" y2="178"/>
+  <polygon class="head" points="212,176 228,176 220,190"/>
+  <rect class="box" x="30" y="190" width="380" height="304" />
+  <rect class="" x="30" y="428" width="380" height="66" fill="#d6e4f2"/>
+  <rect class="outline" x="30" y="190" width="380" height="304" />
+  <line class="sep" x1="30" y1="230" x2="410" y2="230"/>
+  <text class="hd" x="220" y="210" text-anchor="middle" dominant-baseline="central" >CAPABILITY DEVELOPMENT</text>
+  <text class="hs" x="220" y="250" text-anchor="middle" dominant-baseline="central" >ALGORITHMIC R&amp;D</text>
+  <text class="bd" x="220" y="275" text-anchor="middle" dominant-baseline="central" >algorithms · experiments</text>
+  <line class="sep" x1="30" y1="296" x2="410" y2="296"/>
+  <line class="sm" x1="392" y1="286" x2="392" y2="298"/>
+  <polygon class="smhead" points="387,298 397,298 392,306"/>
+  <text class="hs" x="220" y="316" text-anchor="middle" dominant-baseline="central" >PRE-TRAINING</text>
+  <text class="bd" x="220" y="341" text-anchor="middle" dominant-baseline="central" >training runs</text>
+  <line class="sep" x1="30" y1="362" x2="410" y2="362"/>
+  <line class="sm" x1="392" y1="352" x2="392" y2="364"/>
+  <polygon class="smhead" points="387,364 397,364 392,372"/>
+  <text class="hs" x="220" y="382" text-anchor="middle" dominant-baseline="central" >POST-TRAINING</text>
+  <text class="bd" x="220" y="407" text-anchor="middle" dominant-baseline="central" >fine-tuning · elicitation</text>
+  <line class="sep" x1="30" y1="428" x2="410" y2="428"/>
+  <line class="sm" x1="392" y1="418" x2="392" y2="430"/>
+  <polygon class="smhead" points="387,430 397,430 392,438"/>
+  <text class="hs" x="220" y="448" text-anchor="middle" dominant-baseline="central" >MODEL / WEIGHTS</text>
+  <text class="bi" x="220" y="473" text-anchor="middle" dominant-baseline="central" >output</text>
+  <line class="arr" x1="220" y1="494" x2="220" y2="532"/>
+  <polygon class="head" points="212,530 228,530 220,544"/>
+  <rect class="box" x="30" y="544" width="380" height="238" />
+  <rect class="outline" x="30" y="544" width="380" height="238" />
+  <line class="sep" x1="30" y1="584" x2="410" y2="584"/>
+  <text class="hd" x="220" y="564" text-anchor="middle" dominant-baseline="central" >USE &amp; DISTRIBUTION</text>
+  <text class="hs" x="220" y="604" text-anchor="middle" dominant-baseline="central" >INTERNAL USE</text>
+  <text class="bd" x="220" y="629" text-anchor="middle" dominant-baseline="central" >research · operation</text>
+  <line class="sep" x1="30" y1="650" x2="410" y2="650"/>
+  <line class="sm" x1="392" y1="640" x2="392" y2="652"/>
+  <polygon class="smhead" points="387,652 397,652 392,660"/>
+  <text class="hs" x="220" y="670" text-anchor="middle" dominant-baseline="central" >DEPLOYMENT</text>
+  <text class="bd" x="220" y="695" text-anchor="middle" dominant-baseline="central" >models · services</text>
+  <line class="sep" x1="30" y1="716" x2="410" y2="716"/>
+  <line class="sm" x1="392" y1="706" x2="392" y2="718"/>
+  <polygon class="smhead" points="387,718 397,718 392,726"/>
+  <text class="hs" x="220" y="736" text-anchor="middle" dominant-baseline="central" >ACCESS &amp; DIFFUSION</text>
+  <text class="bd" x="220" y="761" text-anchor="middle" dominant-baseline="central" >release · downstream use</text>
+  <path class="fb" d="M410 610 H432 Q440 610 440 602 V271 Q440 263 432 263 H422"/>
+  <polygon class="fbhead" points="424,255 424,271 410,263"/>
+  <text class="lb" x="458" y="440" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 458 440)">AI-ASSISTED R&amp;D FEEDBACK</text>
+
+</svg>
