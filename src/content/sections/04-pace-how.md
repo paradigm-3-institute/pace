@@ -83,10 +83,10 @@ Ending an intervention need not mean dismantling it entirely. It could make sens
 
 | Stage | Decisions |
 | :---- | :---- |
-| Pre-pacing | What justifies the need to intervene? What signals of emerging risk are being tracked?  What infrastructure must exist for relevant signals to be detectable? Who watches for these signals? Who interprets signals and who do they report to? |
-| At trigger | Who holds the authority to decide that a trigger condition has been met? How much error is acceptable in order to act quickly? What sequence of actions does triggering set in motion?  Is the developer obliged to address the triggering concern, or free to abandon the blocked path?  |
-| During intervention | How is compliance observed, verified, and enforced? Who reports evidence of compliance, who audits, and who acts on discrepancies?  How is the downtime being used to respond to the threat?  Who, if anyone, may continue the restricted work, and under what oversight?  |
-| At exit | How do decision-makers distinguish an intervention that has served its purpose from one that has failed or become obsolete? Should exit be immediate or staged? Who is exposed to the effects of exiting, and who bears any costs or receives any gains? |
+| Pre-pacing | <ul><li>What justifies the need to intervene?</li><li>What signals of emerging risk are being tracked?</li><li>What infrastructure must exist for relevant signals to be detectable?</li><li>Who watches for these signals?</li><li>Who interprets signals and who do they report to?</li></ul> |
+| At trigger | <ul><li>Who holds the authority to decide that a trigger condition has been met?</li><li>How much error is acceptable in order to act quickly?</li><li>What sequence of actions does triggering set in motion?</li><li>Is the developer obliged to address the triggering concern, or free to abandon the blocked path?</li></ul> |
+| During intervention | <ul><li>How is compliance observed, verified, and enforced?</li><li>Who reports evidence of compliance, who audits, and who acts on discrepancies?</li><li>How is the downtime being used to respond to the threat?</li><li>Who, if anyone, may continue the restricted work, and under what oversight?</li></ul> |
+| At exit | <ul><li>How do decision-makers distinguish an intervention that has served its purpose from one that has failed or become obsolete?</li><li>Should exit be immediate or staged?</li><li>Who is exposed to the effects of exiting, and who bears any costs or receives any gains?</li></ul> |
 
 Table: Key decisions per stage of an intervention’s lifecycle
 

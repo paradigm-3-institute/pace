@@ -442,6 +442,21 @@
   vertical-align: top;
 }
 
+/* A list inside a table cell sits flush, one item per line. */
+.prose td ul {
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.prose td li {
+  margin-bottom: 6px;
+  padding-left: 0.1em;
+}
+
+.prose td li:last-child {
+  margin-bottom: 0;
+}
+
 .prose th {
   font-family: var(--font-sans);
   font-weight: 600;
