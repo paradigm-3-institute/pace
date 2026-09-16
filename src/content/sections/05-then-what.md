@@ -21,11 +21,11 @@ In response to pacing, these entities will likely consider:
 
 #### Adaptation within the rule
 
-**Reallocating R\&D resources***.* The appearance of new constraints [induces innovation](https://economics.mit.edu/sites/default/files/publications/directed-technical-change.pdf). Capping training compute would (further) raise the value of algorithmic efficiency, data quality, post-training, inference-time compute, and elicitation. Developers will move researchers and budget accordingly, with unclear effects on capability growth. 
+**Reallocating R\&D resources.** The appearance of new constraints [induces innovation](https://economics.mit.edu/sites/default/files/publications/directed-technical-change.pdf). Capping training compute would (further) raise the value of algorithmic efficiency, data quality, post-training, inference-time compute, and elicitation. Developers will move researchers and budget accordingly, with unclear effects on capability growth. 
 
 Many pacing interventions would reduce the need for and ROI of holding and building massive compute assets (see §5.4). With reduced resources (or expected resources), developers could also reduce the amount of safety research they conduct in a given period. If exit is explicitly conditioned on the developer’s safety progress, then safety research becomes the developer's route back to scaling and will be prioritized accordingly. The design of exit conditions in §4.4 will therefore determine where reallocated resources actually go.
 
-**Re-evaluating commercial strategy***.* If the frontier stops moving, the basis of competition shifts. If the frontier moves less, competition moves from capability to price, latency, distribution, integration, and post-training. If roadmaps stop assuming that a new model generation will arrive every few months, the breadth and depth of deployment might increase, as there is more incentive to embed the current models everywhere. Diffusion could thus actually benefit from pacing frontier development.
+**Re-evaluating commercial strategy.** If the frontier stops moving, the basis of competition shifts. If the frontier moves less, competition moves from capability to price, latency, distribution, integration, and post-training. If roadmaps stop assuming that a new model generation will arrive every few months, the breadth and depth of deployment might increase, as there is more incentive to embed the current models everywhere. Diffusion could thus actually benefit from pacing frontier development.
 
 **Compliance overheads.** Developers already have large compliance functions owing to existing regulations not specific to AI, but many pacing interventions impose large amounts of work on developers. They may have to document all training runs, run intense evaluations at each checkpoint, host auditors, and await legal review for deployments. This is both a burden and a source of a potential moat: the fixed cost of establishing such a function is a barrier to new entrants. The GDPR is a recent precedent: market concentration among web vendors [rose 17%](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2023.4709) after enforcement, with the largest vendors gaining share.
 
@@ -37,17 +37,17 @@ Developer relationships with governments also change: developers may seek nation
 
 #### Working around the rule
 
-**Jurisdiction shopping***.* If the pacing mechanism is both legally binding and not global, then developers have discretion to move activity to less-restricted jurisdictions.
+**Jurisdiction shopping.** If the pacing mechanism is both legally binding and not global, then developers have discretion to move activity to less-restricted jurisdictions.
 
 Rival, upstream inputs are hard to move: frontier compute is costly and slow to relocate, its supply chain runs through a handful of firms (see §3.1), energy and datacenter siting are slow, and export controls [already exist](https://www.forbes.com/sites/viviantoh/2026/08/31/the-ai-chip-wars-new-front-control-the-cloud-not-the-silicon/) as a counter-response from the state.
 
 Non-rival, downstream activities are easier to move: research methods, model weights and other intellectual property can be moved easily and a model developed under one regime can be served into another. For Case B, the relevant version is a release of weights by an affiliate or partner outside the covered jurisdictions. The more an intervention targets rival goods, the less jurisdiction shopping it permits, which reinforces the pull toward upstream control surfaces noted in §3.3.
 
-**Exploiting loopholes***.* In §3.2 we cover the inevitable gaps between the control surface and the targeted activity. For instance, if the intervention involves restricting total training compute, then driving compute efficiency up becomes (even) more valuable, so that the developer can continue R\&D activity while not defecting from the letter of the intervention. Developers will systematically search for such [gaps](https://www.forbes.com/sites/viviantoh/2026/08/31/the-ai-chip-wars-new-front-control-the-cloud-not-the-silicon/), likely bringing more expertise than the regulator has. 
+**Exploiting loopholes.** In §3.2 we cover the inevitable gaps between the control surface and the targeted activity. For instance, if the intervention involves restricting total training compute, then driving compute efficiency up becomes (even) more valuable, so that the developer can continue R\&D activity while not defecting from the letter of the intervention. Developers will systematically search for such [gaps](https://www.forbes.com/sites/viviantoh/2026/08/31/the-ai-chip-wars-new-front-control-the-cloud-not-the-silicon/), likely bringing more expertise than the regulator has. 
 
 Firms bunch [just](https://www.aeaweb.org/articles?id=10.1257/aer.20130232) [below](https://www.law.cornell.edu/uscode/text/31/5324) regulatory thresholds wherever these exist and there is no reason to expect training runs to differ. Much of this is not bad faith but ordinary engineering under a new constraint, which is why rules based on intent are hard to enforce. The regulator typically learns of a loophole after it has been used, which is one reason §4.3 requires continual retargeting.
 
-**Defecting from pacing***.* For a variety of reasons, the developer might not pace their R\&D, or stop pacing after initially complying. This could be done openly, or secretly.
+**Defecting from pacing.** For a variety of reasons, the developer might not pace their R\&D, or stop pacing after initially complying. This could be done openly, or secretly.
 
 Secret defection is worse than non-participation because it corrupts every other party's picture of the state of play. The incentive to defect is not constant: for a training cap, it grows with the overhang (see §4.4), so verification needs to be strongest late in the intervention, when political attention has moved on. The choice between open and secret defection is set by the probability of being detected and the penalty for defecting (see §3.3, §4.3).
 
@@ -57,7 +57,7 @@ Secret defection is worse than non-participation because it corrupts every other
 
 Shaping can be prosocial: developers may plug loopholes in the monitoring mechanism which only become apparent after enforcement begins, or correct a control surface that is missing its target. But the regulator cannot easily tell this shaping from the other kind. 
 
-**Seeking compensation***.* Those who are affected by interventions may make efforts to secure compensation for losses they incur. See §5.4.2.
+**Seeking compensation.** Those who are affected by interventions may make efforts to secure compensation for losses they incur. See §5.4.2.
 
 ### 5.2 Shifts in relative power
 
