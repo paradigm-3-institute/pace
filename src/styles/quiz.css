@@ -333,7 +333,7 @@ button {
 }
 
 .panel-body {
-  font: 400 19px/1.5 var(--font-serif);
+  font: 400 17px/1.5 var(--font-serif);
   color: var(--color-foreground);
   text-wrap: pretty;
   margin-top: 10px;

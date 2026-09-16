@@ -45,7 +45,6 @@ html {
   scroll-behavior: smooth;
   color: var(--color-foreground);
   background: var(--color-from);
-  -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: 100%;
 }

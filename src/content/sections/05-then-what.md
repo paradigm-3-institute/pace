@@ -171,7 +171,9 @@ On the other hand, public attitudes toward the governments are likely to be much
 
 We should keep in mind that frontier AI pacing interventions would not be the first controversial tech policy area. Norms around tech policy have been shaped by the experience of industry and government policies around GMOs, civil nuclear, stem cells, and gain-of-function research, and have contributed to broader societal attitudes towards "progress" or "precaution". The viability of pacing interventions will depend on these pre-existing attitudes and the degree of politicisation, but also the impacts of a pacing intervention, successful or otherwise, could impact the narratives and relative power of these different camps in societies around the world.
 
-### 5.6 Case A: a cap on frontier training
+<details>
+  <summary> 5.6 Case A: A cap on frontier training </summary>
+  <div>
 
 Here we again consider a coordinated ceiling on frontier training compute, applying initially to training activity by actors based in participating jurisdictions.
 
@@ -193,7 +195,12 @@ Beyond this, the majority of the changed incentives discussed in §5.1 from a ge
 
 **Investment and markets.** The relative attractiveness of frontier developer and compute investments will likely decrease. Finding ways to safely repurpose compute may smooth implementation significantly.
 
-### 5.7  Case B: restricting access to dangerous biological capabilities
+  </div>
+</details>
+
+<details>
+  <summary> 5.7 Case B: Restricting access to dangerous biological capabilities </summary>
+  <div>
 
 Here we again consider a red line under which models that materially uplift biological-weapons capability cannot be deployed or widely released without restrictions.
 
@@ -212,6 +219,9 @@ A further redirection is simply for actors to move away from biological capabili
 **Governance mechanisms.** The quality of evaluations and safeguards will greatly affect the rates of false positives and negatives, and thereby influence the magnitudes of the economic effects on different actors. 
 
 **Investment and markets.** The effects in this domain depend on the magnitude of the effects on the covered actors’ business models, but relative to other interventions this intervention seems low-impact here.
+
+  </div>
+</details>
 
 ### 5.8 Open Research Questions
 
