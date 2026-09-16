@@ -12,11 +12,12 @@
    ========================================================================== */
 
 export const CONFIG = {
-  /* From Supabase → Project Settings → API.
+  /* From Supabase → Project Settings → API Keys.
      url looks like "https://abcdefghijklm.supabase.co"
-     anonKey is the long "anon public" key. */
-  url: "",
-  anonKey: "",
+     anonKey is the "publishable" key (sb_publishable_…). On an older
+     project it may still be called the "anon public" key; either works. */
+  url: "https://thwznnwmbyvhuyraxgyh.supabase.co",
+  anonKey: "sb_publishable_h8yIWnZVIvGpusGKRFxkFQ_kdv7dYy8",
 
   /* Set to false to switch off all collection and display without deleting
      your keys above — useful while editing copy. */

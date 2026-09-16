@@ -48,19 +48,24 @@ seconds, which works perfectly well.
 
 ## 4. Paste your keys
 
-**Project Settings → API** gives you a project URL and an `anon` `public` key.
-Put both into `src/quiz/config.js`:
+**Project Settings → API Keys** gives you a `publishable` key. The project URL
+is `https://<project ref>.supabase.co`, where the ref is the id in the
+dashboard's address (`…/dashboard/project/<project ref>/…`); it is also shown
+under **Project Settings → Data API**. Put both into `src/quiz/config.js`:
 
 ```js
 url: "https://yourproject.supabase.co",
-anonKey: "eyJhbGciOi...",
+anonKey: "sb_publishable_...",
 ```
+
+On an older project the key may still be called `anon` `public`; it works the
+same way.
 
 Reload the quiz, walk it once, and your dot appears on the map.
 
 ---
 
-## Is it safe to publish the anon key?
+## Is it safe to publish the key?
 
 Yes — it's designed for it, and it's already visible to anyone who views the
 page source. What matters is what that key is *allowed* to do, which the schema
