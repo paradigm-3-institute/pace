@@ -50,7 +50,7 @@ Consider nuclear power, which was heavily restricted from the 1980s onward, oste
 
 But beyond this, it burned investor trust and disincentivized investments in nuclear power. Investors rightfully feared capricious and politicized regulation would block nuclear power plants, regardless of the underlying merits.
 
-It is likewise possible that pacing will not have the trust of those in AI because they are correct in predicting it will be hard to undo if the risk is found to be low. 
+It is likewise possible that pacing will not have the trust of those in AI, because they correctly predict it will be hard to undo, even if the risk is found to be low.
 
 ### 2.2 Why pace more?
 
@@ -185,5 +185,4 @@ These interventions could complement controls on biological materials and labora
   * Armstrong, Bostrom & Shulman (2016), [*Racing to the Precipice: a Model of Artificial Intelligence Development*](https://nickbostrom.com/papers/racing-to-the-precipice.pdf) Better information about rivals' capabilities can *increase* danger when teams are close, because it removes uncertainty that induces caution.  
 * **What are the risks and benefits of titration** (“deploy it and learn the risks empirically”)? Have past release strategies from frontier labs succeeded in managing known AI risks? What might change in the future risk landscape? Given our uncertainty about the true risks, what criteria should gate the deployment of new frontier models?   
   * *Shevlane et al. (2023), [Model Evaluation for Extreme Risks](https://arxiv.org/abs/2305.15324)*.
-
 

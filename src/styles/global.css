@@ -27,14 +27,20 @@
 
   --x-padding: 32px;
   /* Full-bleed elements (sticky headings, images, collapsibles) run out to
-     this. It once stopped short of an inset outline; with the frame now on
-     the article's edge, they run all the way to it. */
-  --x-padding-inside: var(--x-padding);
+     this. It stops short of the article's inset outline so they meet the
+     inner line instead of painting over it. */
+  --x-padding-inside: calc(var(--x-padding) - 8px);
 }
 
 @media (width >= 48rem) {
   :root {
     --x-padding: 64px;
+  }
+}
+
+@media (width >= 64rem) {
+  :root {
+    --x-padding-inside: calc(var(--x-padding) - 6px);
   }
 }
 

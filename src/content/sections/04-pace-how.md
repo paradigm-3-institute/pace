@@ -43,7 +43,7 @@ We can see this trilemma play out across the whole ecosystem of AI progress: gov
 
 One way to ease the tradeoffs is to work toward a portfolio of triggers. For example, authorities could set very crude evaluation thresholds now, beyond which they give expert groups like third-party evaluators the right to unilaterally trigger emergency interventions, on the condition that those choices then be subject to later governmental reconsideration, where there is more of a mandate but less ability to rapidly deploy expertise. This approach might seem risky if one views intervening as a one-off affair, but once it becomes a repeat affair, the evaluators would have a long-term interest in using their powers in a way they could justify.
 
-The next decision is execution: the intervention must somehow affect live systems. (We discuss the challenge of moving from abstract threats to more specific parts of AI progress in more detail in §3.) Implementation-wise, the key question is whether enacting the intervention merely involves announcing a rule, or whether it involves some more active steps like buying up, confiscating, or destroying key resources. The former case is more straightforward, but brings with it the extra challenge of enforcing the new rule.
+The next decision is execution: the intervention must somehow affect live systems. Implementation-wise, the key question is whether enacting the intervention merely involves announcing a rule, or whether it involves some more active steps like buying up, confiscating, or destroying key resources. The former case is more straightforward, but brings with it the extra challenge of enforcing the new rule.
 
 Again, coordinated pacing comes with extra challenges. It will typically take a lot more time for several actors to form a consensus on whether an intervention should be triggered, especially if there is a range of options to choose from. One potential solution is to give several parties the ability to unilaterally trigger time-bounded interventions which can buy time for more careful discussion. Another is to spend time in advance mapping out the likely space of mutually beneficial interventions.
 
@@ -83,10 +83,10 @@ Ending an intervention need not mean dismantling it entirely. It could make sens
 
 | Stage | Decisions |
 | :---- | :---- |
-| Pre-pacing | What justifies the need to intervene? What signals of emerging risk are being tracked?  What infrastructure must exist for relevant signals to be detectable? Who watches for these signals? Who interprets signals and who do they report to? |
-| At trigger | Who holds the authority to decide that a trigger condition has been met? How much error is acceptable in order to act quickly? What sequence of actions does triggering set in motion?  Is the developer obliged to address the triggering concern, or free to abandon the blocked path?  |
-| During intervention | How is compliance observed, verified, and enforced? Who reports evidence of compliance, who audits, and who acts on discrepancies?  How is the downtime being used to respond to the threat?  Who, if anyone, may continue the restricted work, and under what oversight?  |
-| At exit | How do decision-makers distinguish an intervention that has served its purpose from one that has failed or become obsolete? Should exit be immediate or staged? Who is exposed to the effects of exiting, and who bears any costs or receives any gains? |
+| Pre-pacing | <ul><li>What justifies the need to intervene?</li><li>What signals of emerging risk are being tracked?</li><li>What infrastructure must exist for relevant signals to be detectable?</li><li>Who watches for these signals?</li><li>Who interprets signals and who do they report to?</li></ul> |
+| At trigger | <ul><li>Who holds the authority to decide that a trigger condition has been met?</li><li>How much error is acceptable in order to act quickly?</li><li>What sequence of actions does triggering set in motion?</li><li>Is the developer obliged to address the triggering concern, or free to abandon the blocked path?</li></ul> |
+| During intervention | <ul><li>How is compliance observed, verified, and enforced?</li><li>Who reports evidence of compliance, who audits, and who acts on discrepancies?</li><li>How is the downtime being used to respond to the threat?</li><li>Who, if anyone, may continue the restricted work, and under what oversight?</li></ul> |
+| At exit | <ul><li>How do decision-makers distinguish an intervention that has served its purpose from one that has failed or become obsolete?</li><li>Should exit be immediate or staged?</li><li>Who is exposed to the effects of exiting, and who bears any costs or receives any gains?</li></ul> |
 
 Table: Key decisions per stage of an intervention’s lifecycle
 
@@ -138,11 +138,10 @@ However, if there does appear to be a hard capabilities threshold under a certai
   * [*Bartels (2020), Building Better Games for National Security Policy Analysis*](https://www.rand.org/pubs/rgs_dissertations/RGSD437.html)  
 * **How will our reliance on different sources of information about risks, and our methods for communication and coordination, change as AIs become more capable, autonomous, or integrated?**  
   * [*Clymer et al. (2024), Safety Cases: How to Justify the Safety of Advanced AI Systems*](https://arxiv.org/abs/2403.10462)  
-* **What does the possibility space of exit scenarios look like?** For example, small-scale interventions may allow for immediate release, whereas exits from ongoing large-scale interventions impacting multiple facets of the economy and society (e.g. export controls) may need to be staged. Other than staging, what other parameters of exits exist, and how could they be tuned?   
+* **What does the space of exit scenarios look like?** For example, small-scale interventions may allow for immediate release, whereas exits from ongoing large-scale interventions impacting multiple facets of the economy and society (e.g. export controls) may need to be staged. Other than staging, what other parameters of exits exist, and how could they be tuned?   
   * [*Finke (2026), International Agreements to Limit Frontier AI: Objectives and Exit*](https://arxiv.org/abs/2607.16224)  
 * **What is the relationship between initiation and exit triggers?** Intuitively, the exit trigger should track whatever justified the intervention in the first place, but what could affect that link and what other factors should be considered?  
   * [*Cârlan et al. (2024), Dynamic Safety Cases for Frontier AI*](https://arxiv.org/abs/2412.17618)  
   * [*Karnofsky (2024), If-Then Commitments for AI Risk Reduction*](https://carnegieendowment.org/research/2024/09/if-then-commitments-for-ai-risk-reduction)
-
 
 
