@@ -7,8 +7,6 @@ A pacing intervention is ultimately a sequence of steps; we reason about an inte
 
 ![A diagram showing how evidence can fail to influence pacing action.](/media/evidence-to-action.webp)
 
-Figure X: How evidence can fail to influence action
-
 ### 4.1 Before pacing
 
 The main challenge before intervening is recognizing where there’s a need to intervene and how to time it. Intervening too late means letting the threat play out with potentially irreversible consequences; intervening too early means sacrificing potential benefits and political capital, and in some cases being less able to carry out complementary activities that depend on access to advanced AI (accelerated safety research, empirical study of emerging threat models, etc.), or to the benefits from conducting the complementary activities in a setting with more talent, capital, and data from deployment settings.
@@ -90,8 +88,8 @@ Ending an intervention need not mean dismantling it entirely. It could make sens
 
 Table: Key decisions per stage of an intervention’s lifecycle
 
-<details>
-  <summary> Case A: A cap on frontier training </summary>
+<details id="sec-4.5" class="sec-anchor">
+  <summary> 4.5 Case A: A cap on frontier training </summary>
   <div>
 
 **Before pacing,** governments should recognize that they are hoping to slow development before it outpaces developers’ and authorities’ oversight capacity. Thus they must make judgment calls about when developers are sufficiently close to the dangerous threshold to justify intervention. A problem is that the predictive tools they could use to detect relevant signals are hard to interpret: to take one scenario, some forecasts may predict imminent self improvement, while others disagree. 
@@ -109,8 +107,8 @@ However, if there does appear to be a hard capabilities threshold under a certai
   </div>
 </details>
 
-<details>
-  <summary> Case B: Restricting access to dangerous biological capabilities </summary>
+<details id="sec-4.6" class="sec-anchor">
+  <summary> 4.6 Case B: Restricting access to dangerous biological capabilities </summary>
   <div>
 
 **Before pacing**, labs may be required to make their models available to third-party evaluators for pre-release evaluations of potential capabilities that would provide uplift to a malign actor (e.g. to debug a failing synthesis protocol, or piece together a dangerous method from scattered dual-use sources). A biological capability is far harder to recall once it reaches the public than to withhold beforehand, so reaching a certain threshold on the evaluations should block deployment outright, unless safeguards can be demonstrated to mitigate the risk. This is particularly important for open weight models, where release is difficult to reverse.
@@ -128,13 +126,15 @@ However, if there does appear to be a hard capabilities threshold under a certai
 
 * **How do the incentives of bound parties change across the lifecycle?** To what extent can different actors reliably predict the behaviour of other actors throughout the lifetime of a pacing intervention? How load-bearing are these predictions of behaviour going to be for coordination of pacing interventions?  
   * [*Finke (2026), International Agreements to Limit Frontier AI: Objectives and Exit*](https://arxiv.org/abs/2607.16224)  
-  * [*Koremenos (2005), Contracting around International Uncertainty*](https://doi.org/10.1017/S0003055405051877). Models how uncertain future benefits impact expected treaty duration and parties’ willingness to commit.  
+  * [*Koremenos (2005), Contracting around International Uncertainty*](https://doi.org/10.1017/S0003055405051877).  
+  * [*Goldstein and Salib (2025), How to Stop an AI Arms Race*](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5369439).  
 * **How does information sharing impact the credibility of coordinated pacing?** Which information, in what granularity, through which channels, by which actors, matter most for credible coordinated pacing? How can this be kept compatible with national security considerations, commercial confidentiality, and cybersecurity? To what extent can this information sharing be kept robust to manipulation?   
   * [*Wasil et al. (2024), Verification Methods for International AI Agreements*](https://arxiv.org/abs/2408.16074)  
+  * [*Scher et al (2025), An International Agreement to Prevent the Premature Creation of Artificial Superintelligence*](https://arxiv.org/abs/2511.10783).  
 * **What evidence could legitimize a speedy initiation of pacing? What is likely to be the acceptable tolerance for unreliable evidence for different actors?**  Can scenarios and thresholds be specified in advance to a level of specificity that would garner coordinated buy-in to a rapid pacing onset? Can evidential and assessment processes be agreed on in advance?  
   * [*Karnofsky (2024), If-Then Commitments for AI Risk Reduction*](https://carnegieendowment.org/research/2024/09/if-then-commitments-for-ai-risk-reduction)  
 * **How could dry-run simulations inform and prepare for pacing interventions?** What aspects of simulation design, delivery and follow-up affect their effectiveness and impact? Could simulations harm or misguide pacing interventions?  
-  * [*Gruetzemacher et al. (2024), Strategic Insights from Simulation Gaming of AI Race Dynamics*](https://arxiv.org/abs/2410.03092\))  
+  * [*Gruetzemacher et al. (2024), Strategic Insights from Simulation Gaming of AI Race Dynamics*](https://arxiv.org/abs/2410.03092)  
   * [*Bartels (2020), Building Better Games for National Security Policy Analysis*](https://www.rand.org/pubs/rgs_dissertations/RGSD437.html)  
 * **How will our reliance on different sources of information about risks, and our methods for communication and coordination, change as AIs become more capable, autonomous, or integrated?**  
   * [*Clymer et al. (2024), Safety Cases: How to Justify the Safety of Advanced AI Systems*](https://arxiv.org/abs/2403.10462)  
@@ -143,5 +143,3 @@ However, if there does appear to be a hard capabilities threshold under a certai
 * **What is the relationship between initiation and exit triggers?** Intuitively, the exit trigger should track whatever justified the intervention in the first place, but what could affect that link and what other factors should be considered?  
   * [*Cârlan et al. (2024), Dynamic Safety Cases for Frontier AI*](https://arxiv.org/abs/2412.17618)  
   * [*Karnofsky (2024), If-Then Commitments for AI Risk Reduction*](https://carnegieendowment.org/research/2024/09/if-then-commitments-for-ai-risk-reduction)
-
-

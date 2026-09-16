@@ -171,7 +171,7 @@ On the other hand, public attitudes toward the governments are likely to be much
 
 We should keep in mind that frontier AI pacing interventions would not be the first controversial tech policy area. Norms around tech policy have been shaped by the experience of industry and government policies around GMOs, civil nuclear, stem cells, and gain-of-function research, and have contributed to broader societal attitudes towards "progress" or "precaution". The viability of pacing interventions will depend on these pre-existing attitudes and the degree of politicisation, but also the impacts of a pacing intervention, successful or otherwise, could impact the narratives and relative power of these different camps in societies around the world.
 
-<details>
+<details id="sec-5.6" class="sec-anchor">
   <summary> 5.6 Case A: A cap on frontier training </summary>
   <div>
 
@@ -198,7 +198,7 @@ Beyond this, the majority of the changed incentives discussed in §5.1 from a ge
   </div>
 </details>
 
-<details>
+<details id="sec-5.7" class="sec-anchor">
   <summary> 5.7 Case B: Restricting access to dangerous biological capabilities </summary>
   <div>
 

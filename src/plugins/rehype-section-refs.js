@@ -23,6 +23,9 @@ import { join } from "node:path";
 
 const SECTIONS_DIR = join(process.cwd(), "src", "content", "sections");
 const HEADING = /^#{2,6}\s+(\d+(?:\.\d+)*)\b/gm;
+/* A numbered part that isn't a heading — the Case A/B <details> blocks —
+   carries its number as a hand-written anchor instead. */
+const ANCHOR = /\bid="sec-(\d+(?:\.\d+)*)"/g;
 const REF = /§\s?(\d+(?:\.\d+)*)/g;
 
 function numberedHeadings() {
@@ -31,6 +34,7 @@ function numberedHeadings() {
     if (!file.endsWith(".md")) continue;
     const text = readFileSync(join(SECTIONS_DIR, file), "utf8");
     for (const m of text.matchAll(HEADING)) numbers.add(m[1]);
+    for (const m of text.matchAll(ANCHOR)) numbers.add(m[1]);
   }
   return numbers;
 }

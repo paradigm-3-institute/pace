@@ -8,7 +8,7 @@ export function Divider({ onContinue }) {
   return (
     <div class="flex flex-auto flex-col justify-start max-w-[34em]">
       <Rise at={0}>
-        <p class="font-serif text-[19px] leading-[1.6] text-pretty">{copy.text}</p>
+        <p class="font-serif text-[1em] leading-[1.6] text-pretty">{copy.text}</p>
       </Rise>
       <Rise at={1} class="mt-8">
         <Button onClick={onContinue}>{copy.button}</Button>

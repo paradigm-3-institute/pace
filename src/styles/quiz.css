@@ -1,3 +1,21 @@
+/* The body size the quiz's text is scaled from — the same steps as the
+   essay's prose, so the two read alike. */
+body {
+  --prose-size: 17px;
+}
+
+@media (width >= 48rem) {
+  body {
+    --prose-size: 19px;
+  }
+}
+
+@media (width >= 96rem) {
+  body {
+    --prose-size: 21px;
+  }
+}
+
 /* =====================================================================
    Ways to Pace — the quiz's stylesheet.
 

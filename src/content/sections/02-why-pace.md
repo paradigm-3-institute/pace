@@ -148,8 +148,8 @@ It is not a given that coordinated pacing would actually be good for the world. 
 ![Full causal graph of how pacing interventions work](/media/causal_graph_2.svg)
 
 
-<details>
-  <summary> Case A: A cap on frontier training </summary>
+<details id="sec-2.4" class="sec-anchor">
+  <summary> 2.4 Case A: A cap on frontier training </summary>
   <div>
 
 Frontier model progress has increasingly made AI systems capable of automating their own further improvement. Anthropic, for example, has [claimed](https://www.anthropic.com/institute/recursive-self-improvement) that it is producing 8x as much code per researcher since the release of Mythos 5, when compared to the pre-2025 baseline, and that its own researchers estimated they were sped up by a factor of 4x, though [Anthropic thinks](https://metr.org/notes/2026-07-08-anthropic-researcher-uplift/) that this was likely an overestimate. If this AI contribution to AI became sufficiently large, capability development could accelerate while also becoming less dependent on human researchers. The time available to evaluate successive systems might shrink, even as previously functional oversight measures break down and unexpected new risks emerge.
@@ -161,8 +161,8 @@ Such a cap would also delay beneficial capabilities (including AI-assisted safet
   </div>
 </details>
 
-<details>
-  <summary> Case B: Restricting access to dangerous biological capabilities </summary>
+<details id="sec-2.5" class="sec-anchor">
+  <summary> 2.5 Case B: Restricting access to dangerous biological capabilities </summary>
   <div>
 
 AI systems are increasingly able to aid some users in [developing biological weapons](https://arxiv.org/pdf/2506.13798). Governments and developers may face some lag in their ability to assess uplift, to restrict it in specific models, and to deploy model capabilities to develop countermeasures. Restrictions could include safeguards on publicly available models, with access to less restricted versions remaining gated (as with Anthropic’s [release](https://www.anthropic.com/news/claude-fable-5-mythos-5) of Fable 5 and Mythos 5). Furthermore, releasing the weights of individual models removes any ability to regulate them if they turn out to provide an unacceptable degree of uplift.
@@ -183,7 +183,7 @@ These interventions could complement controls on biological materials and labora
   * *Rahman (2026), [Does Distributed Training Undermine Compute Governance?](https://arxiv.org/abs/2605.29359)*   
   * *Sastry et al. (2024), [Computing Power and the Governance of Artificial Intelligence](https://arxiv.org/abs/2402.08797).* Maps compute governance options and their readiness  
 * **How do actors in this space make decisions about pacing?** What evidence do they currently consider and what assumptions do they currently make? What pathways exist for external research to inform such decisions, e.g. in government or lab leadership, and what makes that information transfer more effective?  
-  * *METR (2025), [Common Elements of Frontier AI Safety Policies](https://metr.org/blog/2025-12-09-common-elements-of-frontier-ai-safety-policies/\))*  
+  * *METR (2025), [Common Elements of Frontier AI Safety Policies](https://metr.org/blog/2025-12-09-common-elements-of-frontier-ai-safety-policies/)*  
 * **Which AI risks are most likely to motivate a pacing intervention, now and in the future?** Where do different dangerous capabilities sit on the offense/defense balance, and how will that change over time?  Related work:  
   * *Garfinkel & Dafoe (2019), [How Does the Offense-Defense Balance Scale?](https://www.tandfonline.com/doi/full/10.1080/01402390.2019.1631810)*  
   * *Shevlane & Dafoe (2020), [The Offense-Defense Balance of Scientific Knowledge: Does Publishing AI Research Reduce Misuse?](https://arxiv.org/abs/2001.00463)*  

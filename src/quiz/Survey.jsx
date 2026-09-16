@@ -78,7 +78,7 @@ export function Survey({ state, onAnswer }) {
               autocomplete="off"
               inputmode="text"
               enterkeyhint="done"
-              class="flex-auto min-w-0 text-[16px] text-foreground bg-background border-2 border-sidebar rounded-sm px-3.5 py-2.5 focus:outline-none focus:border-(--color-conclusion-bg)"
+              class="flex-auto min-w-0 text-[1em] text-foreground bg-background border-2 border-sidebar rounded-sm px-3.5 py-2.5 focus:outline-none focus:border-(--color-conclusion-bg)"
               maxLength={120}
               aria-label={q.stem}
               placeholder={other?.placeholder || UI.otherPlaceholder}
