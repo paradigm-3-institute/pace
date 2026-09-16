@@ -60,8 +60,8 @@
 
 /* Where one section meets the next, the banner sits straight on what came
    before it — no break of its own. A section that ends in text still has
-   that text's bottom margin; one that ends in a collapsible meets the
-   banner edge to edge. */
+   that text's bottom margin; one that ends in a collapsible has the small
+   margin set on details:last-child below. */
 .prose > section + section > h2 {
   margin-top: 0;
 }
@@ -571,9 +571,10 @@
   color: var(--color-conclusion-bg);
 }
 
-/* A collapsible that ends a section carries no margin into the break. */
+/* A collapsible that ends a section keeps only a little space before the
+   next banner. */
 .prose details:last-child {
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
 .prose details + details {
