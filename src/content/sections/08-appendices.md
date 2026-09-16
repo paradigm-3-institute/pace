@@ -43,7 +43,7 @@ order: 8
 * **Which actors gain relative power under different interventions**, and what are the expected consequences?  
 * **What safeguards can be deployed to guard against mission creep**, where regulators or newly empowered authorities could gain power beyond what was intended and become hard to dislodge?
 
-### 8.2 Appendix: Longlist of pacing interventions
+### 8.2 Appendix: A full list of pacing interventions
 
 For concreteness, the following attempts to list the levers we have available to pace AI. Note that a lever’s inclusion here is not an argument in favour of acting on it.
 
@@ -63,143 +63,143 @@ One simple task for the pacing field is to have serious up-to-date research on e
 
 **Chips** → compute → dangerous capabilities
 
-7. Export-control performance threshold for accelerators ([BIS AC/S rule](https://www.federalregister.gov/documents/2023/10/25/2023-23055/implementation-of-additional-export-controls-certain-advanced-computing-items-supercomputer-and))  
-8. Export controls on lithography, HBM and advanced packaging ([BIS SME rule, Oct 2023](https://www.federalregister.gov/documents/2023/10/25/2023-23049/export-controls-on-semiconductor-manufacturing-items); [BIS rule 2024](https://www.federalregister.gov/documents/2024/12/05/2024-28270/foreign-produced-direct-product-rule-additions-and-refinements-to-controls-for-advanced-computing))  
-9. Chip registry: serial numbers and owner of record above threshold, smuggling penalties ([Sastry et al. 2024](https://arxiv.org/abs/2402.08797); [Fist & Grunewald 2023](https://www.cnas.org/publications/reports/preventing-ai-chip-smuggling-to-china))  
-10. Location verification on accelerators \[ping interval, tolerance\] ([Brass & Aarne 2024](https://www.iaps.ai/research/location-verification-for-ai-chips); [Chip Security Act, S.1705](https://www.congress.gov/bill/119th-congress/senate-bill/1705/text)  
-11. Hardware-enabled mechanisms on new chips: offline licensing, metering, attestation ([Aarne, Fist & Withers 2024](https://www.cnas.org/publications/reports/secure-governable-chips); [Kulp et al. 2024](https://www.rand.org/pubs/working_papers/WRA3056-1.html); [FlexHEG 2025](https://arxiv.org/abs/2506.15093))
+10. Export-control performance threshold for accelerators ([BIS AC/S rule](https://www.federalregister.gov/documents/2023/10/25/2023-23055/implementation-of-additional-export-controls-certain-advanced-computing-items-supercomputer-and))  
+11. Export controls on lithography, HBM and advanced packaging ([BIS SME rule, Oct 2023](https://www.federalregister.gov/documents/2023/10/25/2023-23049/export-controls-on-semiconductor-manufacturing-items); [BIS rule 2024](https://www.federalregister.gov/documents/2024/12/05/2024-28270/foreign-produced-direct-product-rule-additions-and-refinements-to-controls-for-advanced-computing))  
+12. Chip registry: serial numbers and owner of record above threshold, smuggling penalties ([Sastry et al. 2024](https://arxiv.org/abs/2402.08797); [Fist & Grunewald 2023](https://www.cnas.org/publications/reports/preventing-ai-chip-smuggling-to-china))  
+13. Location verification on accelerators \[ping interval, tolerance\] ([Brass & Aarne 2024](https://www.iaps.ai/research/location-verification-for-ai-chips); [Chip Security Act, S.1705](https://www.congress.gov/bill/119th-congress/senate-bill/1705/text)  
+14. Hardware-enabled mechanisms on new chips: offline licensing, metering, attestation ([Aarne, Fist & Withers 2024](https://www.cnas.org/publications/reports/secure-governable-chips); [Kulp et al. 2024](https://www.rand.org/pubs/working_papers/WRA3056-1.html); [FlexHEG 2025](https://arxiv.org/abs/2506.15093))
 
 **Datacenters** (installed chips) → compute → dangerous capabilities
 
-12. Permit review threshold for datacentres ([Sanders](https://www.sanders.senate.gov/press-releases/news-sanders-ocasio-cortez-announce-ai-data-center-moratorium-act/))  
-13. Grid interconnect queue ([Epoch 2024](https://epoch.ai/blog/can-ai-scaling-continue-through-2030))  
-14. Registry of datacentres with satellite-verified construction status ([Epoch](https://epoch.ai/data/data-centers))
+15. Permit review threshold for datacentres ([Sanders](https://www.sanders.senate.gov/press-releases/news-sanders-ocasio-cortez-announce-ai-data-center-moratorium-act/))  
+16. Grid interconnect queue ([Epoch 2024](https://epoch.ai/blog/can-ai-scaling-continue-through-2030))  
+17. Registry of datacentres with satellite-verified construction status ([Epoch](https://epoch.ai/data/data-centers))
 
 **Data** → dangerous capabilities
 
-15. Text-and-data-mining default \[opt-out vs opt-in\] ([EU CDSM Directive Art. 4](https://eur-lex.europa.eu/eli/dir/2019/790/oj); [EU AI Act](https://artificialintelligenceact.eu/article/53/))  
-16. Collective licence fee for training on copyrighted corpora ([US Copyright Office AI](https://www.copyright.gov/ai/))  
-17. Disclosure of synthetic-data share and RL environments used in frontier training ([EU AI Act](https://artificialintelligenceact.eu/article/53/))
+18. Text-and-data-mining default \[opt-out vs opt-in\] ([EU CDSM Directive Art. 4](https://eur-lex.europa.eu/eli/dir/2019/790/oj); [EU AI Act](https://artificialintelligenceact.eu/article/53/))  
+19. Collective licence fee for training on copyrighted corpora ([US Copyright Office AI](https://www.copyright.gov/ai/))  
+20. Disclosure of synthetic-data share and RL environments used in frontier training ([EU AI Act](https://artificialintelligenceact.eu/article/53/))
 
 **Algorithms** → effective compute → dangerous capabilities
 
-18. Publication embargo on frontier algorithmic results ([Bostrom 2017](https://nickbostrom.com/papers/openness.pdf); [Shevlane & Dafoe 2020](https://arxiv.org/abs/2001.00463))  
-19. Total Research Transparency: mandatory disclosure of all frontier research ([AI Futures Project 2026](https://www.planned-obsolescence.org/p/total-research-transparency-would))  
-20. Structured access to code and checkpoints via vetted institutions ([Shevlane 2022](https://arxiv.org/abs/2201.05159))  
-21. Classification regime for capability-elicitation techniques ([Shevlane & Dafoe 2020](https://arxiv.org/abs/2001.00463))
+21. Publication embargo on frontier algorithmic results ([Bostrom 2017](https://nickbostrom.com/papers/openness.pdf); [Shevlane & Dafoe 2020](https://arxiv.org/abs/2001.00463))  
+22. Total Research Transparency: mandatory disclosure of all frontier research ([AI Futures Project 2026](https://www.planned-obsolescence.org/p/total-research-transparency-would))  
+23. Structured access to code and checkpoints via vetted institutions ([Shevlane 2022](https://arxiv.org/abs/2201.05159))  
+24. Classification regime for capability-elicitation techniques ([Shevlane & Dafoe 2020](https://arxiv.org/abs/2001.00463))
 
 **Talent →** algorithms → dangerous capabilities
 
-22. Visa quota and processing time for frontier researchers ([Zwetsloot et al. 2019, CSET](https://cset.georgetown.edu/publication/keeping-top-ai-talent-in-the-united-states/))  
-23. Vetting and cooling-off periods for staff with weight or R\&D compute access ([Nevo et al. 2024](https://www.rand.org/pubs/research_reports/RRA2849-1.html))
+25. Visa quota and processing time for frontier researchers ([Zwetsloot et al. 2019, CSET](https://cset.georgetown.edu/publication/keeping-top-ai-talent-in-the-united-states/))  
+26. Vetting and cooling-off periods for staff with weight or R\&D compute access ([Nevo et al. 2024](https://www.rand.org/pubs/research_reports/RRA2849-1.html))
 
 **Capital** → compute → dangerous capabilities
 
-24. Compute tax (dollar per FLOP on training runs above a threshold) ([Calero-Forero 2026)](https://www.lesswrong.com/posts/qns9i7RZwxAAGGsjD/how-should-you-slow-down-ai-progress-if-it-becomes-necessary)  
-25. Strict liability for catastrophic harms from frontier models ([Weil 2024](https://ssrn.com/abstract=4694006))  
-26. Mandatory liability insurance, premiums priced by capability tier ([Trout 2024](https://arxiv.org/abs/2409.06672))  
-27. Investor-facing AI risk disclosure ([SEC 2023](https://www.sec.gov/newsroom/press-releases/2023-139))
+27. Compute tax (dollar per FLOP on training runs above a threshold) ([Calero-Forero 2026)](https://www.lesswrong.com/posts/qns9i7RZwxAAGGsjD/how-should-you-slow-down-ai-progress-if-it-becomes-necessary)  
+28. Strict liability for catastrophic harms from frontier models ([Weil 2024](https://ssrn.com/abstract=4694006))  
+29. Mandatory liability insurance, premiums priced by capability tier ([Trout 2024](https://arxiv.org/abs/2409.06672))  
+30. Investor-facing AI risk disclosure ([SEC 2023](https://www.sec.gov/newsroom/press-releases/2023-139))
 
 **AI R\&D capabilities** → algorithms → effective compute → dangerous capabilities
 
-28. Fraction of R\&D compute consumed by autonomous agents \[%, reported\] ([Stix et al. 2025](https://arxiv.org/abs/2504.12170); [Charnock et al 2026\)](https://arxiv.org/abs/2604.23065)   
-29.  30\. AI R\&D speed-up trigger in safety frameworks \[2× research throughput → new controls\] ([Anthropic RSP](https://www.anthropic.com/rsp-updates); [DeepMind FSF](https://deepmind.google/discover/blog/introducing-the-frontier-safety-framework/); [OpenAI Preparedness](https://openai.com/safety/preparedness)  
-30. Human review ratio for AI-written research code and experiment plans ([Stix et al. 2025](https://arxiv.org/abs/2504.12170)  
-31. Safety case required before internal deployment on the R\&D stack ([Clymer et al. 2024](https://arxiv.org/abs/2403.10462); [Stix et al. 2025\)](https://arxiv.org/abs/2504.12170)  
-32. Monitoring coverage of internal agent actions \[% logged, % reviewed\] ([Greenblatt et al. 2023](https://arxiv.org/abs/2312.06942); [METR red-team of Anthropic's internal monitoring, 2026](https://metr.org/blog/2026-03-25-red-teaming-anthropic-agent-monitoring/)
+31. Fraction of R\&D compute consumed by autonomous agents \[%, reported\] ([Stix et al. 2025](https://arxiv.org/abs/2504.12170); [Charnock et al 2026\)](https://arxiv.org/abs/2604.23065)   
+32. AI R\&D speed-up trigger in safety frameworks \[2× research throughput → new controls\] ([Anthropic RSP](https://www.anthropic.com/rsp-updates); [DeepMind FSF](https://deepmind.google/discover/blog/introducing-the-frontier-safety-framework/); [OpenAI Preparedness](https://openai.com/safety/preparedness)  
+33. Human review ratio for AI-written research code and experiment plans ([Stix et al. 2025](https://arxiv.org/abs/2504.12170)  
+34. Safety case required before internal deployment on the R\&D stack ([Clymer et al. 2024](https://arxiv.org/abs/2403.10462); [Stix et al. 2025\)](https://arxiv.org/abs/2504.12170)  
+35. Monitoring coverage of internal agent actions \[% logged, % reviewed\] ([Greenblatt et al. 2023](https://arxiv.org/abs/2312.06942); [METR red-team of Anthropic's internal monitoring, 2026](https://metr.org/blog/2026-03-25-red-teaming-anthropic-agent-monitoring/)
 
 **Actors and cadence →** race intensity → all other levers
 
-33. Licencing vs registration for frontier development ([Anderljung et al. 2023](https://arxiv.org/abs/2307.03718); [June 2026 EO)](https://foleyhoag.com/news-and-insights/blogs/security-privacy-and-the-law/2026/june/trump-s-new-ai-frontier-the-executive-order-regulating-frontier-ai-models/)  
-34. Minimum interval between frontier releases \[months\] ([FLI pause letter 2023](https://futureoflife.org/open-letter/pause-giant-ai-experiments/))  
-35. Pre-deployment testing window with government access \[90 days\] ([June 2026 EO](https://foleyhoag.com/news-and-insights/blogs/security-privacy-and-the-law/2026/june/trump-s-new-ai-frontier-the-executive-order-regulating-frontier-ai-models/); [FRONTIER Act](https://statt.com/blog/frontier-act-federal-ai-regulation-2026/))  
-36. Coordinated-pause trigger and duration across signatories ([Alaga & Schuett 2023](https://arxiv.org/abs/2310.00374))  
-37. Lead-margin reporting: months between top lab and next ([Epoch](https://epoch.ai/gradient-updates/keeping-up-with-the-gpts/); [Karnofsky 2022](https://www.cold-takes.com/racing-through-a-minefield-the-ai-deployment-problem/))
+36. Licencing vs registration for frontier development ([Anderljung et al. 2023](https://arxiv.org/abs/2307.03718); [June 2026 EO)](https://foleyhoag.com/news-and-insights/blogs/security-privacy-and-the-law/2026/june/trump-s-new-ai-frontier-the-executive-order-regulating-frontier-ai-models/)  
+37. Minimum interval between frontier releases \[months\] ([FLI pause letter 2023](https://futureoflife.org/open-letter/pause-giant-ai-experiments/))  
+38. Pre-deployment testing window with government access \[90 days\] ([June 2026 EO](https://foleyhoag.com/news-and-insights/blogs/security-privacy-and-the-law/2026/june/trump-s-new-ai-frontier-the-executive-order-regulating-frontier-ai-models/); [FRONTIER Act](https://statt.com/blog/frontier-act-federal-ai-regulation-2026/))  
+39. Coordinated-pause trigger and duration across signatories ([Alaga & Schuett 2023](https://arxiv.org/abs/2310.00374))  
+40. Lead-margin reporting: months between top lab and next ([Epoch](https://epoch.ai/gradient-updates/keeping-up-with-the-gpts/); [Karnofsky 2022](https://www.cold-takes.com/racing-through-a-minefield-the-ai-deployment-problem/))
 
 #### Dangerous capabilities evals
 
-38. Pretraining data filtering for CBRN, cyber-offence and self-replication content ([O'Brien et al. 2025, Deep Ignorance](https://arxiv.org/abs/2508.06601)  
-39. Verified unlearning of specified capabilities \[held-out test suite\] ([Li et al. 2024, WMDP](https://arxiv.org/abs/2403.03218)  
-40. Capability thresholds by domain \[CBRN, cyber, ARA, persuasion, AI R\&D\] ([Koessler, Schuett & Anderljung 2024](https://arxiv.org/abs/2406.14713); [the old Anthropic RSP](https://www.anthropic.com/rsp-updates))  
-41. Human uplift trials before deployment \[effect-size threshold\] ([Mouton et al. 2024, RAND](https://www.rand.org/pubs/research_reports/RRA2977-2.html); [OpenAI 2024](https://openai.com/index/building-an-early-warning-system-for-llm-aided-biological-threat-creation/)
+41. Pretraining data filtering for CBRN, cyber-offence and self-replication content ([O'Brien et al. 2025, Deep Ignorance](https://arxiv.org/abs/2508.06601)  
+42. Verified unlearning of specified capabilities \[held-out test suite\] ([Li et al. 2024, WMDP](https://arxiv.org/abs/2403.03218)  
+43. Capability thresholds by domain \[CBRN, cyber, ARA, persuasion, AI R\&D\] ([Koessler, Schuett & Anderljung 2024](https://arxiv.org/abs/2406.14713); [the old Anthropic RSP](https://www.anthropic.com/rsp-updates))  
+44. Human uplift trials before deployment \[effect-size threshold\] ([Mouton et al. 2024, RAND](https://www.rand.org/pubs/research_reports/RRA2977-2.html); [OpenAI 2024](https://openai.com/index/building-an-early-warning-system-for-llm-aided-biological-threat-creation/)
 
 **Generality** → dangerous capabilities
 
-42. Separate regulatory track for narrow AI, scientific models ([Drexler 2019,](https://ora.ox.ac.uk/objects/uuid:9c05427a-6390-4b42-9c55-ee45f73a26ad) [EU AIA](https://artificialintelligenceact.eu/introduction-to-code-of-practice/)[)](https://ora.ox.ac.uk/objects/uuid:9c05427a-6390-4b42-9c55-ee45f73a26ad)  
-43.  Gating of long-horizon agentic post-training for general models ([Chan et al. 2023](https://arxiv.org/abs/2302.10329); [Kwa et al. 2025](https://arxiv.org/abs/2503.14499))
+45. Separate regulatory track for narrow AI, scientific models ([Drexler 2019,](https://ora.ox.ac.uk/objects/uuid:9c05427a-6390-4b42-9c55-ee45f73a26ad) [EU AIA](https://artificialintelligenceact.eu/introduction-to-code-of-practice/)[)](https://ora.ox.ac.uk/objects/uuid:9c05427a-6390-4b42-9c55-ee45f73a26ad)  
+46. Gating of long-horizon agentic post-training for general models ([Chan et al. 2023](https://arxiv.org/abs/2302.10329); [Kwa et al. 2025](https://arxiv.org/abs/2503.14499))
 
 **Legibility of model reasoning** → control of dangerous capabilities
 
-44. No optimisation pressure on chain-of-thought \[audited commitment\] ([Korbak et al. 2025](https://arxiv.org/abs/2507.11473); [Baker et al. 2025](https://arxiv.org/abs/2503.11926))  
-45. Disclosure and gating of latent reasoning architectures ([Hao et al. 2024, Coconut](https://arxiv.org/abs/2412.06769); [Korbak et al. 2025\)](https://arxiv.org/abs/2507.11473)  
-46. Online weight updates in deployment off by default ([Greenblatt et al. 2023](https://arxiv.org/abs/2312.06942))  
-47. Persistent memory scope ([Shavit et al. 2023, OpenAI)](https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf)  
-48. Canary-tagging or filtering of safety and eval content in training data ([Berglund et al. 2023](https://arxiv.org/abs/2309.00667); [Laine et al. 2024](https://arxiv.org/abs/2407.04694)
+47. No optimisation pressure on chain-of-thought \[audited commitment\] ([Korbak et al. 2025](https://arxiv.org/abs/2507.11473); [Baker et al. 2025](https://arxiv.org/abs/2503.11926))  
+48. Disclosure and gating of latent reasoning architectures ([Hao et al. 2024, Coconut](https://arxiv.org/abs/2412.06769); [Korbak et al. 2025\)](https://arxiv.org/abs/2507.11473)  
+49. Online weight updates in deployment off by default ([Greenblatt et al. 2023](https://arxiv.org/abs/2312.06942))  
+50. Persistent memory scope ([Shavit et al. 2023, OpenAI)](https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf)  
+51. Canary-tagging or filtering of safety and eval content in training data ([Berglund et al. 2023](https://arxiv.org/abs/2309.00667); [Laine et al. 2024](https://arxiv.org/abs/2407.04694)
 
 **Weight security** → blocking exfiltration
 
-49. Mandatory weight security level (“SL”) by capability ([Nevo et al. 2024](https://www.rand.org/pubs/research_reports/RRA2849-1.html); [Anthropic ASL-3)](https://www.anthropic.com/news/activating-asl3-protections)  
-50. Two-person rule and hardware keys for weight access ([Nevo et al. 2024](https://www.rand.org/pubs/research_reports/RRA2849-1.html))  
-51. Insider-threat programme coverage \[% of privileged staff\] ([Nevo et al. 2024](https://www.rand.org/pubs/research_reports/RRA2849-1.html))  
-52. Weight retention policy ([Anthropic 2025](https://www.anthropic.com/research/deprecation-commitments))
+52. Mandatory weight security level (“SL”) by capability ([Nevo et al. 2024](https://www.rand.org/pubs/research_reports/RRA2849-1.html); [Anthropic ASL-3)](https://www.anthropic.com/news/activating-asl3-protections)  
+53. Two-person rule and hardware keys for weight access ([Nevo et al. 2024](https://www.rand.org/pubs/research_reports/RRA2849-1.html))  
+54. Insider-threat programme coverage \[% of privileged staff\] ([Nevo et al. 2024](https://www.rand.org/pubs/research_reports/RRA2849-1.html))  
+55. Weight retention policy ([Anthropic 2025](https://www.anthropic.com/research/deprecation-commitments))
 
 **Inference** → dangerous capabilities
 
-53. Per-query reasoning compute cap for the most capable models ([Hooker 2024](https://arxiv.org/abs/2407.05694); [Ord 2025](https://arxiv.org/abs/2503.05705))  
-54. Token tax ([Irwin 2026](https://arxiv.org/abs/2603.04555))  
-55. Deployment tax by capability tier ([Calero-Forero 2026](https://www.lesswrong.com/posts/qns9i7RZwxAAGGsjD/how-should-you-slow-down-ai-progress-if-it-becomes-necessary))  
-56. Liability allocation between deployer and developer for autonomous services ([Weil 2024](https://ssrn.com/abstract=4694006))
+56. Per-query reasoning compute cap for the most capable models ([Hooker 2024](https://arxiv.org/abs/2407.05694); [Ord 2025](https://arxiv.org/abs/2503.05705))  
+57. Token tax ([Irwin 2026](https://arxiv.org/abs/2603.04555))  
+58. Deployment tax by capability tier ([Calero-Forero 2026](https://www.lesswrong.com/posts/qns9i7RZwxAAGGsjD/how-should-you-slow-down-ai-progress-if-it-becomes-necessary))  
+59. Liability allocation between deployer and developer for autonomous services ([Weil 2024](https://ssrn.com/abstract=4694006))
 
 #### Autonomy
 
-57. Agent permission tiers ([Shavit et al. 2023, OpenAI](https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf); [Chan et al. 2024](https://arxiv.org/abs/2401.13138))  
-58. Spend limits per agent and per task ([Shavit et al. 2023, OpenAI](https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf))  
-59. Human approval for irreversible actions \[payments, deletion, deployment\] ([Shavit et al. 2023, OpenAI](https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf); [EU AI Act](https://artificialintelligenceact.eu/article/14/))  
-60. Sub-agent spawn depth and maximum unattended run length \[depth, hours\] ([Kwa et al. 2025, METR](https://arxiv.org/abs/2503.14499))  
-61. Agent identifiers and action-log retention ([Chan et al. 2024](https://arxiv.org/abs/2401.13138)  
-62. Kill-switch latency requirement ([Orseau & Armstrong 2016](https://intelligence.org/files/Interruptibility.pdf); [Shavit et al. 2023, OpenAI](https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf))
+60. Agent permission tiers ([Shavit et al. 2023, OpenAI](https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf); [Chan et al. 2024](https://arxiv.org/abs/2401.13138))  
+61. Spend limits per agent and per task ([Shavit et al. 2023, OpenAI](https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf))  
+62. Human approval for irreversible actions \[payments, deletion, deployment\] ([Shavit et al. 2023, OpenAI](https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf); [EU AI Act](https://artificialintelligenceact.eu/article/14/))  
+63. Sub-agent spawn depth and maximum unattended run length \[depth, hours\] ([Kwa et al. 2025, METR](https://arxiv.org/abs/2503.14499))  
+64. Agent identifiers and action-log retention ([Chan et al. 2024](https://arxiv.org/abs/2401.13138)  
+65. Kill-switch latency requirement ([Orseau & Armstrong 2016](https://intelligence.org/files/Interruptibility.pdf); [Shavit et al. 2023, OpenAI](https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf))
 
 #### Multi-agent
 
-63. Instance-count reporting per deployment ([Chan et al. 2024](https://arxiv.org/abs/2401.13138))  
-64. Agent-to-agent communication logging with steganography checks ([Motwani et al. 2024](https://arxiv.org/abs/2402.07510))
+66. Instance-count reporting per deployment ([Chan et al. 2024](https://arxiv.org/abs/2401.13138))  
+67. Agent-to-agent communication logging with steganography checks ([Motwani et al. 2024](https://arxiv.org/abs/2402.07510))
 
 #### Robotics
 
-65. Certification and fleet registration for embodied agents ([EU Machinery Regulation 2023/1230](https://eur-lex.europa.eu/eli/reg/2023/1230/oj))
+68. Certification and fleet registration for embodied agents ([EU Machinery Regulation 2023/1230](https://eur-lex.europa.eu/eli/reg/2023/1230/oj))
 
 #### Safety research
 
-66. Minimum fraction of total compute reserved for safety research, above a total compute threshold ([OpenAI 2023)](https://openai.com/index/introducing-superalignment/)  
-67. Minimum safety headcount as a ratio of total research headcount ([AI Lab Watch](https://ailabwatch.org))  
-68. External safety compute grants (minimum FLOP/year given to independent labs) ([NAIRR](https://nairrpilot.org))
+69. Minimum fraction of total compute reserved for safety research, above a total compute threshold ([OpenAI 2023)](https://openai.com/index/introducing-superalignment/)  
+70. Minimum safety headcount as a ratio of total research headcount ([AI Lab Watch](https://ailabwatch.org))  
+71. External safety compute grants (minimum FLOP/year given to independent labs) ([NAIRR](https://nairrpilot.org))
 
 #### Evaluation
 
-69. Third-party evaluator access depth ([Casper et al. 2024](https://arxiv.org/abs/2401.14446)  
-70. Elicitation budget per dangerous-capability eval \[FLOP, engineer-hours\] ([METR elicitation protocol](https://metr.github.io/autonomy-evals-guide/elicitation-protocol/); [Barnett & Thiergart 2024](https://arxiv.org/abs/2411.12820)  
-71. Sandbagging detection protocol \[noise injection, fine-tuning elicitation\] ([van der Weij et al. 2024](https://arxiv.org/abs/2406.07358)
+72. Third-party evaluator access depth ([Casper et al. 2024](https://arxiv.org/abs/2401.14446)  
+73. Elicitation budget per dangerous-capability eval \[FLOP, engineer-hours\] ([METR elicitation protocol](https://metr.github.io/autonomy-evals-guide/elicitation-protocol/); [Barnett & Thiergart 2024](https://arxiv.org/abs/2411.12820)  
+74. Sandbagging detection protocol \[noise injection, fine-tuning elicitation\] ([van der Weij et al. 2024](https://arxiv.org/abs/2406.07358)
 
 #### Transparency and audit
 
-72. Required “AI Assurance Level” for developers in the frontier tier ([Brundage et al. 2026](https://arxiv.org/abs/2601.11699))  
-73. Embedded auditors running regular audits with non-public access ([Brundage et al. 2026](https://arxiv.org/abs/2601.11699))  
-74. Audit scope including internal deployment, information security and safety decision-making ([Brundage et al. 2026](https://arxiv.org/abs/2601.11699))  
-75. Number of accredited audit providers and a standards body ([Brundage et al. 2026](https://arxiv.org/abs/2601.11699))  
-76. Incident reporting deadline ([SB 53 §22757.13](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53))  
-77. Statutory whistleblower channel and protection ([SB 53](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53); [Right to Warn letter 2024](https://righttowarn.ai))
+75. Required “AI Assurance Level” for developers in the frontier tier ([Brundage et al. 2026](https://arxiv.org/abs/2601.11699))  
+76. Embedded auditors running regular audits with non-public access ([Brundage et al. 2026](https://arxiv.org/abs/2601.11699))  
+77. Audit scope including internal deployment, information security and safety decision-making ([Brundage et al. 2026](https://arxiv.org/abs/2601.11699))  
+78. Number of accredited audit providers and a standards body ([Brundage et al. 2026](https://arxiv.org/abs/2601.11699))  
+79. Incident reporting deadline ([SB 53 §22757.13](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53))  
+80. Statutory whistleblower channel and protection ([SB 53](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53); [Right to Warn letter 2024](https://righttowarn.ai))
 
 #### Governance response
 
-78. Indexing compute thresholds to measured algorithmic progress ([Heim & Koessler 2024](https://arxiv.org/abs/2405.10799); [Epoch 2025)](https://epoch.ai/blog/model-counts-compute-thresholds)  
-79. Legislation with automatic clause triggers: e.g. once an eval result is shown, legal obligations come into force ([Karnofsky 2024](https://carnegieendowment.org/research/2024/09/if-then-commitments-for-ai-risk-reduction))  
-80. Regulator capacity ([CAISI](https://www.nist.gov/caisi); [UK AISI](https://www.aisi.gov.uk); [IFP 2026](https://ifp.org/funding-for-caisi/))
+81. Indexing compute thresholds to measured algorithmic progress ([Heim & Koessler 2024](https://arxiv.org/abs/2405.10799); [Epoch 2025)](https://epoch.ai/blog/model-counts-compute-thresholds)  
+82. Legislation with automatic clause triggers: e.g. once an eval result is shown, legal obligations come into force ([Karnofsky 2024](https://carnegieendowment.org/research/2024/09/if-then-commitments-for-ai-risk-reduction))  
+83. Regulator capacity ([CAISI](https://www.nist.gov/caisi); [UK AISI](https://www.aisi.gov.uk); [IFP 2026](https://ifp.org/funding-for-caisi/))
 
 #### Coordination
 
-81. Treaty verifications: chip registry, datacentre inspections, interconnect bandwidth limits ([Scher & Thiergart 2024](https://arxiv.org/abs/2506.15867); [Baker et al. 2025](https://arxiv.org/abs/2507.15916))  
-82. Training-run declarations exchanged between states ([Shavit 2023](https://arxiv.org/abs/2303.11341); [Baker et al. 2025](https://arxiv.org/abs/2507.15916))  
-83. Verification R\&D budget and a frontier-state incident hotline ([Future Society 2026](https://thefuturesociety.org/international-ai-verification); [Scher & Thiergart 2024](https://arxiv.org/abs/2506.15867))
+84. Treaty verifications: chip registry, datacentre inspections, interconnect bandwidth limits ([Scher & Thiergart 2024](https://arxiv.org/abs/2506.15867); [Baker et al. 2025](https://arxiv.org/abs/2507.15916))  
+85. Training-run declarations exchanged between states ([Shavit 2023](https://arxiv.org/abs/2303.11341); [Baker et al. 2025](https://arxiv.org/abs/2507.15916))  
+86. Verification R\&D budget and a frontier-state incident hotline ([Future Society 2026](https://thefuturesociety.org/international-ai-verification); [Scher & Thiergart 2024](https://arxiv.org/abs/2506.15867))
 
 ### 8.3 Appendix: Bibliography
 

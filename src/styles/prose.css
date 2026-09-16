@@ -58,6 +58,12 @@
   font-weight: 600;
 }
 
+/* A page that opens on a section banner (the appendices) has nothing above
+   it to space away from. */
+.prose > section:first-child > h2 {
+  margin-top: 0;
+}
+
 /* Each h3 + its content is wrapped in section.h3-section (rehype-sectionize-h3)
    so the sticky heading below is bound to its own section and scrolls out of
    view instead of stacking on the next one. */

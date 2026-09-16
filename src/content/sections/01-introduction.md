@@ -45,6 +45,6 @@ At the end of each section we give a list of open questions. Throughout this doc
 1. A coordinated cap on the compute used to train individual frontier models, intended to slow the pace of R\&D acceleration (particularly the risk of recursive self-improvement) which could outpace oversight and increase the risk of humans losing control of AI.   
 2. An internationally agreed-upon set of restrictions on access to and release of AI models which materially increase users’ ability to develop biological weapons, as an example of pacing diffusion (rather than pacing capability development).
 
-Each main section ends by returning to both examples, showing how the framework developed in that section applies to each case. We are not trying to advocate for either proposal; these end of section examples were instead chosen to illustrate how our frameworks apply to specific plans. See Appendix B for a full list of possible interventions
+We are not trying to advocate for either proposal; these end of section examples were instead chosen to illustrate how our frameworks apply to specific plans. See Appendix B for a full list of possible interventions.
 
-A bibliography of work related to this agenda can be found here.
+A bibliography of work related to this agenda can be found [here](/appendices#83-appendix-bibliography).
