@@ -101,7 +101,10 @@ const socialImageURL = new URL("/card.png", Astro.url);
 
     <!-- client:only, not client:load: the option order is shuffled per
          visit, so a server render would never match the client's. -->
-    <main tabindex="0" class="flex w-full max-w-[860px] mx-auto flex-col pt-16 pb-7 px-(--x-padding)">
+    <main
+      tabindex="0"
+      class="flex w-full max-w-[860px] mx-auto flex-col pt-16 pb-7 px-(--x-padding) min-h-dvh md:min-h-0"
+    >
       <Quiz client:only="preact" />
     </main>
   </body>

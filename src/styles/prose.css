@@ -183,7 +183,6 @@
   text-underline-offset: 2px;
 }
 
-
 .prose del,
 .prose s {
   text-decoration-line: line-through;
@@ -254,10 +253,22 @@
 
 .prose .exec-summary {
   margin: 44px 0 24px;
-  padding: 24px 28px;
-  background-color: var(--color-from);
-  border: 1px solid var(--color-why-pace-bg);
+  padding: 24px 28px 24px 28px;
+  background-color: color-mix(in oklab, var(--color-why-pace-bg), white 60%);
+  border: 2px solid var(--color-why-pace-bg);
   border-radius: 6px;
+  overflow: hidden;
+}
+
+.prose .exec-summary-header {
+  /*width: calc(100% + 56px);
+  margin: 0px 0px 24px -28px;
+  padding: 16px 28px;*/
+  text-align: center;
+  font-size: 32px;
+  margin: 0px 0px 24px 0px;
+  /*background-color: var(--color-pace-what-bg);
+  color: var(--color-call-to-action-bg);*/
 }
 
 .prose .exec-summary > :last-child {
@@ -276,7 +287,6 @@
   margin-bottom: 14px;
   font-size: 0.8em;
   font-weight: 600;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-then-what-bg);
 }
@@ -295,7 +305,7 @@
   margin: 0;
   padding: 8px 18px 8px 8px;
   background: var(--color-background);
-  border: 1px solid var(--color-why-pace-bg);
+  border: 2px solid var(--color-pace-what-bg);
   border-radius: 999px;
   color: var(--color-conclusion-bg);
   line-height: 1.15;
@@ -307,9 +317,7 @@
 
 .prose .ai-summary:hover {
   text-decoration: none;
-  transform: translateY(-1px);
-  border-color: var(--color-then-what-bg);
-  box-shadow: 0 2px 8px rgba(4, 35, 1, 0.12);
+  border-color: var(--color-conclusion-bg);
 }
 
 .prose .ai-summary img {
@@ -431,6 +439,7 @@
   font-family: var(--font-sans);
   padding: 8px var(--x-padding-inside);
   line-height: 1.4em;
+  text-align: center;
 }
 
 /* Figures are numbered across the whole article, not per section, so the
@@ -536,8 +545,10 @@
   width: 0.8em;
   height: 0.8em;
   background-color: currentColor;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20256%22%3E%3Cpath%20d%3D%22M184.49%2C136.49l-80%2C80a12%2C12%2C0%2C0%2C1-17-17L159%2C128%2C87.51%2C56.49a12%2C12%2C0%2C1%2C1%2C17-17l80%2C80A12%2C12%2C0%2C0%2C1%2C184.49%2C136.49Z%22%2F%3E%3C%2Fsvg%3E") center / contain no-repeat;
-  mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20256%22%3E%3Cpath%20d%3D%22M184.49%2C136.49l-80%2C80a12%2C12%2C0%2C0%2C1-17-17L159%2C128%2C87.51%2C56.49a12%2C12%2C0%2C1%2C1%2C17-17l80%2C80A12%2C12%2C0%2C0%2C1%2C184.49%2C136.49Z%22%2F%3E%3C%2Fsvg%3E") center / contain no-repeat;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20256%22%3E%3Cpath%20d%3D%22M184.49%2C136.49l-80%2C80a12%2C12%2C0%2C0%2C1-17-17L159%2C128%2C87.51%2C56.49a12%2C12%2C0%2C1%2C1%2C17-17l80%2C80A12%2C12%2C0%2C0%2C1%2C184.49%2C136.49Z%22%2F%3E%3C%2Fsvg%3E")
+    center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20256%22%3E%3Cpath%20d%3D%22M184.49%2C136.49l-80%2C80a12%2C12%2C0%2C0%2C1-17-17L159%2C128%2C87.51%2C56.49a12%2C12%2C0%2C1%2C1%2C17-17l80%2C80A12%2C12%2C0%2C0%2C1%2C184.49%2C136.49Z%22%2F%3E%3C%2Fsvg%3E")
+    center / contain no-repeat;
   transition: transform 160ms ease;
 }
 

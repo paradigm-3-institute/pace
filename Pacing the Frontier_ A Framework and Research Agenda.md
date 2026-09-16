@@ -415,8 +415,6 @@ A pacing intervention is ultimately a sequence of steps; we reason about an inte
 
 ![][image5]
 
-Figure X: How evidence can fail to influence action
-
 ### **4.1 Before pacing**
 
 The main challenge before intervening is recognizing where there’s a need to intervene and how to time it. Intervening too late means letting the threat play out with potentially irreversible consequences; intervening too early means sacrificing potential benefits and political capital, and in some cases being less able to carry out complementary activities that depend on access to advanced AI (accelerated safety research, empirical study of emerging threat models, etc.), or to the benefits from conducting the complementary activities in a setting with more talent, capital, and data from deployment settings.

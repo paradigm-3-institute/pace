@@ -7,8 +7,6 @@ A pacing intervention is ultimately a sequence of steps; we reason about an inte
 
 ![A diagram showing how evidence can fail to influence pacing action.](/media/evidence-to-action.webp)
 
-Figure X: How evidence can fail to influence action
-
 ### 4.1 Before pacing
 
 The main challenge before intervening is recognizing where there’s a need to intervene and how to time it. Intervening too late means letting the threat play out with potentially irreversible consequences; intervening too early means sacrificing potential benefits and political capital, and in some cases being less able to carry out complementary activities that depend on access to advanced AI (accelerated safety research, empirical study of emerging threat models, etc.), or to the benefits from conducting the complementary activities in a setting with more talent, capital, and data from deployment settings.
@@ -145,4 +143,3 @@ However, if there does appear to be a hard capabilities threshold under a certai
 * **What is the relationship between initiation and exit triggers?** Intuitively, the exit trigger should track whatever justified the intervention in the first place, but what could affect that link and what other factors should be considered?  
   * [*Cârlan et al. (2024), Dynamic Safety Cases for Frontier AI*](https://arxiv.org/abs/2412.17618)  
   * [*Karnofsky (2024), If-Then Commitments for AI Risk Reduction*](https://carnegieendowment.org/research/2024/09/if-then-commitments-for-ai-risk-reduction)
-

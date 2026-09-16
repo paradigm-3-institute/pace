@@ -5,7 +5,7 @@ Companies and governments are already haphazardly pacing AI. To make good decisi
 
 <div class="exec-summary">
 
-<h4 style="text-align: center; margin-top: 8px; margin-bottom: 24px; font-size: 32px"> Executive Summary </h4>
+<h4 class="exec-summary-header"> Executive Summary </h4>
 
 “Pacing AI” usually refers to how to conclusively handle the most extreme risks in the face of race dynamics. However, even for the goal of handling these highest-stakes cases, it's useful to take a broad view of pacing—one that encompasses all interventions aimed at moderating the pace of AI development, deployment, or diffusion. Thus:
 
@@ -30,12 +30,10 @@ Given all of this, we think it is time for pacing to be a dedicated research are
   * Dry runs and wargames to stress-test specific interventions.
 
 
-<br> 
-
 For each topic, we include recommended reading and starting points below. We also invite readers to [reach out](https://docs.google.com/forms/d/e/1FAIpQLSeZCo85Uz9eIXjkPRl3F3lZJGObg4P3_4BgIoy40-m1EVBqhg/viewform?usp=publish-editor) if they are interested in further work in this space. 
 
 <div class="ai-summaries">
-  <p class="ai-summaries-label">hear it from the machines:</p>
+  <p class="ai-summaries-label">hear it from the machines...</p>
   <div class="ai-summaries-row">
     <a class="ai-summary" href="https://claude.ai/share/674d84b3-2a19-426e-9d79-904ba37a825c">
       <img src="/media/summary-claude.png" alt="" width="128" height="128">
