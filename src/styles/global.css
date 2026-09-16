@@ -4,13 +4,13 @@
   --font-sans: var(--font-satoshi), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-serif: var(--font-body-serif), "Iowan Old Style", "Palatino Linotype", Georgia, serif;
 
-  --color-sidebar: #34120a;
+  --color-sidebar: #3b0d03;
   --color-background: #ffffff;
 
   --color-from: #f7f5f3;
-  --color-to: #34120a;
+  --color-to: #3b0d03;
   --color-foreground: #333333;
-  --color-light: #34120a;
+  --color-light: #3b0d03;
   --color-dark: #f7f5f3;
 }
 
@@ -18,14 +18,14 @@
   /* The seven-step palette, light to dark, one per section; the call to
      action, an eighth, sits halfway between the last two steps. The page
      ground (--color-from) is a tint above the first step. */
-  --color-introduction-bg: #ebe8e4;
-  --color-why-pace-bg: #ccc4bf;
-  --color-pace-what-bg: #aea19b;
-  --color-pace-how-bg: #907d77;
-  --color-then-what-bg: #715953;
-  --color-conclusion-bg: #53382f;
-  --color-call-to-action-bg: #43251c;
-  --color-appendices-bg: #34120a;
+  --color-introduction-bg: #ece8e3;
+  --color-why-pace-bg: #cfc4bd;
+  --color-pace-what-bg: #b19f98;
+  --color-pace-how-bg: #947b73;
+  --color-then-what-bg: #76564D;
+  --color-conclusion-bg: #593228;
+  --color-call-to-action-bg: #4a2016;
+  --color-appendices-bg: #3b0d03;
 
   --x-padding: 32px;
   /* Full-bleed elements (sticky headings, images, collapsibles) run out to
