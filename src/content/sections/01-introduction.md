@@ -4,7 +4,7 @@ order: 1
 ---
 
 
-<blockquote class="padded mb-16!">
+<blockquote class="mb-16!">
   <p>
     “Society at large may need the option to buy time to address emerging risks, develop security measures, and
     strengthen oversight. But each company—and country—is under intense competitive pressure not to unilaterally

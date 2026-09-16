@@ -184,14 +184,14 @@
 }
 
 .prose a {
-  background-color: rgba(113, 89, 83, 0.16);
+  background-color: rgba(118, 86, 77, 0.16);
   border-radius: 4px;
   padding: 0px 3px;
   margin: 0px -0.5px;
 }
 
 .prose a:hover {
-  text-decoration-color: rgba(113, 89, 83, 0.6);
+  text-decoration-color: rgba(118, 86, 77, 0.6);
   text-decoration: underline;
   color: var(--color-conclusion-bg);
   text-underline-offset: 2px;
@@ -357,19 +357,28 @@
   color: var(--color-then-what-bg);
 }
 
+/* A quotation: the executive summary's box, in the dark end of the
+   palette with light text, sitting inside the text column. */
 .prose blockquote {
   margin: 24px 0;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: #d1d5c955;
-  border-left: 6px solid var(--color-conclusion-bg);
-  border-right: 6px solid var(--color-conclusion-bg);
+  padding: 24px 28px;
+  background-color: var(--color-then-what-bg);
+  border: 2px solid var(--color-conclusion-bg);
+  border-radius: 6px;
   font-style: italic;
   font-size: 1.1em;
-  color: color-mix(in srgb, var(--color-foreground) 85%, transparent);
-  width: calc(100% + 2 * var(--x-padding));
-  margin-left: calc(-1 * var(--x-padding));
+  color: var(--color-from);
   font-weight: 500;
+}
+
+.prose blockquote a {
+  color: inherit;
+  background-color: rgba(247, 245, 243, 0.14);
+}
+
+.prose blockquote a:hover {
+  color: inherit;
+  text-decoration-color: rgba(247, 245, 243, 0.6);
 }
 
 .prose blockquote p:last-child {

@@ -212,7 +212,7 @@ export function mountMap(container, state, { onRestart, feedback }) {
       cv.style.display = "block";
       const g = cv.getContext("2d");
       g.scale(dpr, dpr);
-      g.fillStyle = "#34120a";
+      g.fillStyle = "#3b0d03";
       pts.forEach((p, i) => {
         if (mine && i === pts.length - 1) return;
         g.beginPath();
