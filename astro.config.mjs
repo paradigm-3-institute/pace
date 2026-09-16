@@ -5,6 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import rehypeSectionizeH3 from "./src/plugins/rehype-sectionize-h3.js";
 import rehypeExternalLinks from "./src/plugins/rehype-external-links.js";
 import rehypeImagePerformance from "./src/plugins/rehype-image-performance.js";
+import rehypeFigureCaptions from "./src/plugins/rehype-figure-captions.js";
 import rehypeSectionRefs from "./src/plugins/rehype-section-refs.js";
 import { sectionMeta } from "./src/sections.ts";
 
@@ -21,6 +22,7 @@ export default defineConfig({
         rehypeSectionizeH3,
         rehypeExternalLinks,
         rehypeImagePerformance,
+        rehypeFigureCaptions,
       ],
     }),
   },

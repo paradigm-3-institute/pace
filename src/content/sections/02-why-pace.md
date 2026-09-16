@@ -12,6 +12,10 @@ More pragmatically, pacing will only happen if actors make effective pacing inte
 
 Section §5 gives a more comprehensive assessment of the benefits and costs of pacing, taking into account second-order effects of the interventions required to make pacing effective.
 
+![Simple causal graph of how pacing interventions work](/media/causal_graph_1.svg)
+
+
+
 ### 2.1 Why pace less?
 
 #### 2.1.1 Pacing means waiting longer for very good things
@@ -139,6 +143,10 @@ Under many different plans they will have control over significant leverage poin
 Rather than rely on voluntary, unilateral interventions, some contexts will require [coordinated pacing](https://arxiv.org/pdf/2511.08631). This is more onerous, because it requires coordination during the various stages of pacing, and then mechanisms to ensure the coordination persists. It is also very difficult to specify what a fair coordinated intervention would look like, because actors vary so much in their strategic positions.
 
 It is not a given that coordinated pacing would actually be good for the world. One risk is that actors coordinate *against* the common good. Without an authority capable of constraining all relevant actors,the only ways to pace (without merely ceding power to another actor) are either to coordinate, or to have a lead you can afford to burn.
+
+
+![Full causal graph of how pacing interventions work](/media/causal_graph_2.svg)
+
 
 <details>
   <summary> Case A: A cap on frontier training </summary>

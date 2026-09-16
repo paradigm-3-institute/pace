@@ -415,19 +415,35 @@
 }
 
 .prose figure {
-  margin: 32px 0;
+  margin: 36px 0;
+  width: calc(100% + 2 * var(--x-padding-inside));
+  margin-left: calc(-1 * var(--x-padding-inside));
 }
 
 .prose figure img,
 .prose figure video {
   margin: 0;
+  width: 100%;
 }
 
 .prose figcaption {
   font-size: 0.84em;
   font-family: var(--font-sans);
-  padding: 8px 12px 8px 12px;
+  padding: 8px var(--x-padding-inside);
   line-height: 1.4em;
+}
+
+/* Figures are numbered across the whole article, not per section, so the
+   counter lives on the article root rather than in the markdown pipeline
+   (each section's markdown is rendered separately). */
+.prose {
+  counter-reset: figure;
+}
+
+.prose figcaption::before {
+  counter-increment: figure;
+  content: "Figure " counter(figure) ": ";
+  font-weight: 700;
 }
 
 /* ---------- Tables ---------- */
