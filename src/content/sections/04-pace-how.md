@@ -89,7 +89,7 @@ Ending an intervention need not mean dismantling it entirely. It could make sens
 Table: Key decisions per stage of an intervention’s lifecycle
 
 <details id="sec-4.5" class="sec-anchor">
-  <summary> Case A: A cap on frontier training </summary>
+  <summary> 4.5 Case A: A cap on frontier training </summary>
   <div>
 
 **Before pacing,** governments should recognize that they are hoping to slow development before it outpaces developers’ and authorities’ oversight capacity. Thus they must make judgment calls about when developers are sufficiently close to the dangerous threshold to justify intervention. A problem is that the predictive tools they could use to detect relevant signals are hard to interpret: to take one scenario, some forecasts may predict imminent self improvement, while others disagree. 
@@ -108,7 +108,7 @@ However, if there does appear to be a hard capabilities threshold under a certai
 </details>
 
 <details id="sec-4.6" class="sec-anchor">
-  <summary> Case B: Restricting access to dangerous biological capabilities </summary>
+  <summary> 4.6 Case B: Restricting access to dangerous biological capabilities </summary>
   <div>
 
 **Before pacing**, labs may be required to make their models available to third-party evaluators for pre-release evaluations of potential capabilities that would provide uplift to a malign actor (e.g. to debug a failing synthesis protocol, or piece together a dangerous method from scattered dual-use sources). A biological capability is far harder to recall once it reaches the public than to withhold beforehand, so reaching a certain threshold on the evaluations should block deployment outright, unless safeguards can be demonstrated to mitigate the risk. This is particularly important for open weight models, where release is difficult to reverse.
