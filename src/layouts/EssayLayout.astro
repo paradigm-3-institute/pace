@@ -15,23 +15,23 @@ const { title, description, homeHref = "/" } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
-  <aside class="md:fixed w-full pb-2 md:w-70 md:h-dvh overflow-auto bg-sidebar text-background border-x-2 md:border-l-0 border-sidebar select-none">
+  <aside class="md:fixed w-full pb-2 md:pb-0 md:w-70 md:h-dvh md:overflow-hidden md:flex md:flex-col bg-sidebar text-background border-x-2 md:border-l-0 border-sidebar select-none">
     <a href={homeHref}>
-      <div class="p-6 py-5">
-        <div class="text-5xl font-light grid gap-2">
+      <div class="p-6 py-5 md:py-[clamp(0.5rem,1.6vh,1.25rem)]">
+        <div class="text-5xl md:text-[clamp(1.6rem,5.2vh,3rem)] font-light grid gap-2 md:gap-[clamp(0.15rem,0.5vh,0.5rem)] md:leading-none">
           <div>How</div>
           <div class="-ml-0.5">to</div>
           <div>Pace</div>
           <div class="-ml-0.5">the</div>
           <div>Frontier</div>
         </div>
-        <a class="inline-block mt-7 mb-7 text-(--color-pace-how-bg) hover:text-(--color-why-pace-bg)" href="/quiz">
-          Choose-your-pace →
+        <a class="inline-block mt-7 mb-7 md:my-[clamp(0.5rem,1.8vh,1.75rem)] text-(--color-pace-how-bg) hover:text-(--color-why-pace-bg)" href="/quiz">
+          Take the quiz →
         </a>
       </div>
     </a>
-    <nav>
-      <ul class="text-2xl">
+    <nav class="md:flex-1 md:min-h-0 md:flex md:flex-col">
+      <ul class="text-2xl md:text-[clamp(0.95rem,2.3vh,1.5rem)] md:flex-1 md:flex md:flex-col">
         {sectionMeta.map((section) => (
           <NavItem
             href={navHref(section)}
@@ -45,14 +45,14 @@ const { title, description, homeHref = "/" } = Astro.props;
   </aside>
 
   <main class="w-full md:pl-70 lg:pl-77 lg:pr-6 lg:py-24 border-2 border-sidebar md:border-none">
-    <article class="prose max-w-222 2xl:max-w-260 bg-background mx-auto py-8 md:py-16 lg:border-2 border-sidebar -outline-offset-8 outline-2 outline-sidebar rounded-sm">
+    <article class="prose max-w-222 2xl:max-w-260 bg-background mx-auto py-8 md:py-16 lg:border-2 border-sidebar rounded-sm">
       <slot />
     </article>
   </main>
 
   <a
     href="#"
-    class="md:hidden fixed -bottom-2 -right-2 bg-background p-4 border-2 border-sidebar text-sidebar outline-2 outline-sidebar -outline-offset-8 z-100"
+    class="md:hidden fixed -bottom-2 -right-2 bg-background p-4 border-2 border-sidebar text-sidebar z-100"
     aria-label="Back to top"
   >
     <svg
