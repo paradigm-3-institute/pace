@@ -212,7 +212,7 @@ export function mountMap(container, state, { onRestart, feedback }) {
       cv.style.display = "block";
       const g = cv.getContext("2d");
       g.scale(dpr, dpr);
-      g.fillStyle = "#1a1a18";
+      g.fillStyle = "#34120a";
       pts.forEach((p, i) => {
         if (mine && i === pts.length - 1) return;
         g.beginPath();
@@ -665,8 +665,7 @@ export function mountMap(container, state, { onRestart, feedback }) {
       caption.textContent = String(
         perDot === 1 ? UI.mapCaption : UI.mapCaptionMany,
       )
-        .replace("{per}", String(perDot))
-        .replace("{n}", String(total));
+        .replace("{per}", String(perDot));
     }
 
     frame();

@@ -20,7 +20,7 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
 <Layout title={title} description={description}>
   <aside class="md:fixed w-full pb-2 md:pb-0 md:w-70 md:h-dvh md:overflow-hidden md:flex md:flex-col bg-sidebar text-background md:border-r-2 border-sidebar select-none">
     <a href={homeHref}>
-      <div class="p-6 pt-6 pb-2 md:pt-[clamp(0.75rem,1.8vh,1.4rem)] md:pb-[clamp(0.5rem,1.6vh,1.25rem)]">
+      <div class="p-6 pt-10 pb-2 md:pt-[clamp(1.25rem,3vh,2.25rem)] md:pb-[clamp(0.5rem,1.6vh,1.25rem)]">
         <div class="text-4xl md:text-[clamp(1.6rem,5.2vh,3rem)] font-light grid gap-2 md:gap-[clamp(0.15rem,0.5vh,0.5rem)] md:leading-none">
           <div>Pacing</div>
           <div class="-ml-0.5">the</div>
@@ -31,7 +31,7 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
           class="inline-flex items-center gap-2 mt-6 mb-4 md:mt-[clamp(1.2rem,3.4vh,3rem)] md:mb-[clamp(0.6rem,1.8vh,1.75rem)] px-4 py-2 border rounded-md border-(--color-pace-how-bg) text-(--color-pace-how-bg) hover:border-(--color-why-pace-bg) hover:text-(--color-why-pace-bg) transition-colors"
           href="/quiz"
         >
-          Take the quiz
+          Find your camp
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true">
             <path d="M184.49,136.49l-80,80a12,12,0,0,1-17-17L159,128,87.51,56.49a12,12,0,1,1,17-17l80,80A12,12,0,0,1,184.49,136.49Z"></path>
           </svg>

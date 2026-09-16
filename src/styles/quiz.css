@@ -102,11 +102,11 @@ body {
 }
 
 .map-view {
-  --ink: #1a1a18;
-  --paper: #fbfbf9;
-  --line: #9a9a94;
-  --label: #5c5c58;
-  --dim: #8a8a84;
+  --ink: #34120a;
+  --paper: #f7f5f3;
+  --line: #aea19b;
+  --label: #715953;
+  --dim: #907d77;
   --accent: oklch(0.55 0.17 28);
   --mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
 

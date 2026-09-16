@@ -41,7 +41,7 @@ const socialImageURL = new URL("/card.png", Astro.url);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#042301" />
+    <meta name="theme-color" content="#34120a" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
@@ -72,22 +72,34 @@ const socialImageURL = new URL("/card.png", Astro.url);
     <Font cssVariable="--font-plex-mono" />
   </head>
 
-  <body class="font-serif text-(length:--prose-size) leading-[1.6] md:pl-70">
+  <body class="font-serif text-(length:--prose-size) leading-[1.6] md:pl-70 md:h-dvh md:overflow-hidden">
     <!-- The essay's sidebar (src/pages/index.astro): same width, padding
          and type, with the quiz's title and its opening paragraph in place
          of the table of contents. Fixed down the left from md; a block
          across the top below it, where the title runs on one line to
          leave room for the screen beneath. -->
-    <aside class="select-none bg-sidebar text-background font-sans p-7 pb-6 md:pb-8 md:fixed md:inset-y-0 md:left-0 md:w-70 md:overflow-auto">
-      <h1 class="gap-2 font-light grid text-5xl">
-        <span>Ways</span>
-        <span class="md:-ml-0.5">to</span>
-        <span>Pace</span>
-      </h1>
-      <a class="inline-block mt-6 text-(--color-pace-how-bg) hover:text-(--color-why-pace-bg)" href="/">
-        ← Back to paper
-      </a>
-      <div class="mt-7 grid gap-6 antialiased">
+    <aside class="select-none bg-sidebar text-background font-sans text-base md:fixed md:inset-y-0 md:left-0 md:w-70 md:overflow-hidden md:flex md:flex-col">
+      <!-- The title block, subtitle and button are the essay sidebar's
+           (src/layouts/EssayLayout.astro), class for class, so the two
+           sit identically. -->
+      <div class="p-6 pt-6 pb-2 md:pt-[clamp(0.75rem,1.8vh,1.4rem)] md:pb-[clamp(0.5rem,1.6vh,1.25rem)]">
+        <h1 class="text-4xl md:text-[clamp(1.6rem,5.2vh,3rem)] font-light grid gap-2 md:gap-[clamp(0.15rem,0.5vh,0.5rem)] md:leading-none">
+          <span>Ways</span>
+          <span class="-ml-0.5">to</span>
+          <span>Pace</span>
+        </h1>
+        <div class="mt-5 md:mt-[clamp(0.75rem,1.8vh,1.25rem)] text-lg md:text-[clamp(1rem,2.4vh,1.5rem)] font-light">A Quiz</div>
+        <a
+          class="inline-flex items-center gap-2 mt-6 mb-4 md:mt-[clamp(1.2rem,3.4vh,3rem)] md:mb-[clamp(0.6rem,1.8vh,1.75rem)] px-4 py-2 border rounded-md border-(--color-pace-how-bg) text-(--color-pace-how-bg) hover:border-(--color-why-pace-bg) hover:text-(--color-why-pace-bg) transition-colors"
+          href="/"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+            <path d="M168.49,199.51a12,12,0,0,1-17,17l-80-80a12,12,0,0,1,0-17l80-80a12,12,0,0,1,17,17L97,128Z"></path>
+          </svg>
+          Back to paper
+        </a>
+      </div>
+      <div class="px-6 mt-4 md:mt-[clamp(0.5rem,1.8vh,1.25rem)] grid gap-6 md:gap-[clamp(0.5rem,1.8vh,1.5rem)] md:text-[clamp(0.78rem,1.85vh,1rem)] md:leading-[1.45] antialiased">
         <p>
           Experts who mostly agree that unrestricted AI progress poses significant risks to human societies still
           disagree on major branching points of the pacing debate.
@@ -103,7 +115,7 @@ const socialImageURL = new URL("/card.png", Astro.url);
          visit, so a server render would never match the client's. -->
     <main
       tabindex="0"
-      class="flex w-full max-w-[860px] mx-auto flex-col pt-16 pb-7 px-(--x-padding) min-h-dvh md:min-h-0"
+      class="flex w-full max-w-[860px] mx-auto flex-col pt-16 pb-7 px-(--x-padding) text-(length:--prose-size) min-h-dvh md:min-h-0 md:h-dvh md:pt-[clamp(1.5rem,5vh,4rem)] md:overflow-hidden"
     >
       <Quiz client:only="preact" />
     </main>

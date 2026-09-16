@@ -174,7 +174,9 @@ These interventions could complement controls on biological materials and labora
   </div>
 </details>
 
-### 2.6 Open Research Questions
+<details id="sec-2.6" class="sec-anchor research">
+  <summary> 2.6 Open Research Questions </summary>
+  <div>
 
 * **How much, and in what ways, would more time allow us to better manage various AI risks?** What are the bottlenecks to mitigation or adaptation of different AI risks? What factors other than time influence AI risk management? What risk management efforts can be taken now, and which can only be taken once certain AI capability or adoption thresholds are crossed?  Related work:  
   * *MacAskill & Moorhouse (2025), [Preparing for the Intelligence Explosion](https://www.forethought.org/research/preparing-for-the-intelligence-explosion)* Explicitly sorts "grand challenges" by whether they need calendar time, human deliberation, or just more AI.  
@@ -194,3 +196,5 @@ These interventions could complement controls on biological materials and labora
 * **What are the risks and benefits of titration** (“deploy it and learn the risks empirically”)? Have past release strategies from frontier labs succeeded in managing known AI risks? What might change in the future risk landscape? Given our uncertainty about the true risks, what criteria should gate the deployment of new frontier models?   
   * *Shevlane et al. (2023), [Model Evaluation for Extreme Risks](https://arxiv.org/abs/2305.15324)*.
 
+  </div>
+</details>

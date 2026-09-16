@@ -130,7 +130,9 @@ There is also a risk that, once an open model with a given level of capabilities
   </div>
 </details>
 
-### 3.6 Open Research Questions
+<details id="sec-3.6" class="sec-anchor research">
+  <summary> 3.6 Open Research Questions </summary>
+  <div>
 
 * **How should hazards be translated into covered activity for pacing interventions?** Risks we would like to target, such as uncontrolled automation of AI R\&D and bioweapon uplift, build up over various stages of AI research, development and deployment; capabilities will initially emerge at some point in training, and we may want to avoid such a point being reached, or we may care more about wider deployment (especially if capabilities have positive use cases we want to preserve). Research should compare candidate boundaries.  
   * [*Shevlane et al. (2023), Model Evaluation for Extreme Risks*](https://arxiv.org/abs/2305.15324)  
@@ -151,3 +153,5 @@ There is also a risk that, once an open model with a given level of capabilities
   * We believe the proposal would be technically sufficient to forestall the development of ASI if implemented today, but advancements in AI capabilities or development methods could hurt its efficacy. Additionally, there does not yet exist the political will to put such an agreement in place. Despite these challenges, we hope this agreement can provide direction for AI governance research and policy.  
   * [*Petrie et al. (2025), Flexible Hardware-Enabled Guarantees for AI Compute*](https://arxiv.org/abs/2506.15093)*.* Proposes verifying compliance without exposing sensitive information about AI development.
 
+  </div>
+</details>

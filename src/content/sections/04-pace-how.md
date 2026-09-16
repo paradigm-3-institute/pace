@@ -122,7 +122,9 @@ However, if there does appear to be a hard capabilities threshold under a certai
   </div>
 </details>
 
-### 4.7 Open Research Questions
+<details id="sec-4.7" class="sec-anchor research">
+  <summary> 4.7 Open Research Questions </summary>
+  <div>
 
 * **How do the incentives of bound parties change across the lifecycle?** To what extent can different actors reliably predict the behaviour of other actors throughout the lifetime of a pacing intervention? How load-bearing are these predictions of behaviour going to be for coordination of pacing interventions?  
   * [*Finke (2026), International Agreements to Limit Frontier AI: Objectives and Exit*](https://arxiv.org/abs/2607.16224)  
@@ -143,3 +145,6 @@ However, if there does appear to be a hard capabilities threshold under a certai
 * **What is the relationship between initiation and exit triggers?** Intuitively, the exit trigger should track whatever justified the intervention in the first place, but what could affect that link and what other factors should be considered?  
   * [*Cârlan et al. (2024), Dynamic Safety Cases for Frontier AI*](https://arxiv.org/abs/2412.17618)  
   * [*Karnofsky (2024), If-Then Commitments for AI Risk Reduction*](https://carnegieendowment.org/research/2024/09/if-then-commitments-for-ai-risk-reduction)
+
+  </div>
+</details>

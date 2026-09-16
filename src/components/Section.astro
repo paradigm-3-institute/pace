@@ -13,7 +13,7 @@ const { id, title, textClass, content } = Astro.props;
 const Content = content?.Content;
 ---
 
-<section id={id} class:list={["mb-12 -scroll-mt-8 last:mb-0"]}>
+<section id={id} class:list={["-scroll-mt-8"]}>
   <h2 style={`background: color-mix(in oklab, var(--color-${id}-bg), white 15%);`} class={textClass}>
     {title}
   </h2>

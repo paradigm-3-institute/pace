@@ -48,11 +48,11 @@ export function Survey({ state, onAnswer }) {
         <Stem at={2}>{q.stem}</Stem>
         {q.help && <Help at={3}>{q.help}</Help>}
 
-        <Frame class="max-w-[30em]">
+        <Frame class="max-w-[30em] gap-3 mt-8">
           {q.options.map((option, i) => (
             <Card
               key={i}
-              class="px-6 py-4 data-[chosen=true]:bg-(--color-why-pace-bg)"
+              class="px-6 py-3 data-[chosen=true]:bg-(--color-why-pace-bg)"
               at={4 + i}
               data-chosen={chosen === i ? "true" : undefined}
               onClick={() => {
@@ -65,12 +65,13 @@ export function Survey({ state, onAnswer }) {
           ))}
         </Frame>
 
-        {/* The box an "other" answer opens. It keeps its space whether or
-            not it is showing, on every extra question, so nothing below it
-            shifts when it appears or between one question and the next. */}
+        {/* The box an "other" answer opens. On a phone it keeps its space
+            whether or not it is showing, so nothing below it shifts when it
+            appears; from md the buttons below are pinned to the foot of the
+            page, and the space isn't needed. */}
         {
           <div
-            class={`flex gap-2.5 max-w-[30em] w-full mt-3.5 transition-opacity duration-180 ${other ? "" : "invisible opacity-0"}`}
+            class={`flex gap-2.5 max-w-[30em] w-full mt-3.5 transition-opacity duration-180 ${other ? "" : "invisible opacity-0 md:hidden"}`}
           >
             <input
               type="text"

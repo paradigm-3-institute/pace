@@ -4,26 +4,28 @@
   --font-sans: var(--font-satoshi), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-serif: var(--font-body-serif), "Iowan Old Style", "Palatino Linotype", Georgia, serif;
 
-  --color-sidebar: #042301;
+  --color-sidebar: #34120a;
   --color-background: #ffffff;
 
-  --color-from: #faf8f1;
-  --color-to: #042301;
+  --color-from: #f7f5f3;
+  --color-to: #34120a;
   --color-foreground: #333333;
-  --color-light: #042301;
-  --color-dark: #faf8f1;
+  --color-light: #34120a;
+  --color-dark: #f7f5f3;
 }
 
 :root {
-  /* Even split from --color-from to --color-to across the 8 sections */
-  --color-introduction-bg: rgb(250, 248, 241);
-  --color-why-pace-bg: rgb(215, 218, 207);
-  --color-pace-what-bg: rgb(180, 187, 172);
-  --color-pace-how-bg: rgb(145, 157, 138);
-  --color-then-what-bg: rgb(109, 126, 104);
-  --color-conclusion-bg: rgb(74, 96, 70);
-  --color-call-to-action-bg: rgb(39, 65, 35);
-  --color-appendices-bg: rgb(4, 35, 1);
+  /* The seven-step palette, light to dark, one per section; the call to
+     action, an eighth, sits halfway between the last two steps. The page
+     ground (--color-from) is a tint above the first step. */
+  --color-introduction-bg: #ebe8e4;
+  --color-why-pace-bg: #ccc4bf;
+  --color-pace-what-bg: #aea19b;
+  --color-pace-how-bg: #907d77;
+  --color-then-what-bg: #715953;
+  --color-conclusion-bg: #53382f;
+  --color-call-to-action-bg: #43251c;
+  --color-appendices-bg: #34120a;
 
   --x-padding: 32px;
   /* Full-bleed elements (sticky headings, images, collapsibles) run out to
