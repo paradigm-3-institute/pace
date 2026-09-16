@@ -9,13 +9,13 @@ export function Intro({ onBegin }) {
     <div class="flex flex-auto md:pt-32 flex-col items-center justify-center max-w-md mx-auto">
       <Icon name={intro.icon} class="block text-[72px] leading-none text-(--color-conclusion-bg)" at={0} />
       <Rise at={1}>
-        <h2 class="font-sans text-4xl text-center font-bold tracking-[-0.02em] leading-none text-(--color-conclusion-bg) mt-6">
+        <h2 class="font-sans text-[2.2em] md:text-[2.6em] text-center font-semibold tracking-[-0.02em] leading-[1.1] text-(--color-conclusion-bg) mt-6">
           {intro.kicker || intro.title}
         </h2>
       </Rise>
       {intro.note && (
         <Rise at={2}>
-          <p class="font-sans text-lg leading-[1.45] text-(--color-conclusion-bg) mt-8">{intro.note}</p>
+          <p class="font-serif text-[1em] leading-[1.6] text-foreground text-pretty mt-8">{intro.note}</p>
         </Rise>
       )}
       <Rise at={3} class="mt-12">

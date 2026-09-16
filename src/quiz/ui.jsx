@@ -43,10 +43,10 @@ export function Kicker({ text, at }) {
   const [first, ...rest] = String(text).split(" · ");
   return (
     <Rise at={at}>
-      <p class="font-sans text-[17px] leading-tight text-(--color-then-what-bg)">
+      <p class="font-sans text-[0.9em] leading-tight text-(--color-then-what-bg)">
         {first}
         {rest.length > 0 && (
-          <span class="block font-serif text-[20px] font-bold text-(--color-conclusion-bg) mt-1">
+          <span class="block font-serif text-[1.25em] font-bold leading-[1.25] text-(--color-conclusion-bg) mt-1">
             {rest.join(" · ")}
           </span>
         )}
@@ -61,7 +61,7 @@ export function Stem({ children, at }) {
   return (
     <h2
       class={join(
-        "font-sans text-[28px] md:text-[36px] font-bold tracking-[-0.02em] leading-[1.15] text-(--color-conclusion-bg) text-balance mt-6",
+        "font-sans text-[1.3em] md:text-[1.6em] font-semibold tracking-[-0.01em] leading-[1.2] text-(--color-conclusion-bg) text-balance mt-6",
         r.class,
       )}
       style={r.style}
@@ -76,7 +76,7 @@ export function Help({ children, at }) {
   const r = rise(at);
   return (
     <p
-      class={join("font-sans text-[17px] leading-normal text-(--color-then-what-bg) text-balance mt-4", r.class)}
+      class={join("font-sans text-[0.9em] leading-normal text-(--color-then-what-bg) text-balance mt-4", r.class)}
       style={r.style}
     >
       {children}
@@ -122,14 +122,14 @@ export function Card({ class: className, at, children, ...rest }) {
 
 export function CardLabel({ children }) {
   return (
-    <span class="block font-serif text-[22px] font-bold leading-[1.3] text-(--color-conclusion-bg) text-balance">
+    <span class="block font-serif text-[1.25em] font-bold leading-[1.25] text-(--color-conclusion-bg) text-balance">
       {children}
     </span>
   );
 }
 
 export function CardText({ children }) {
-  return <p class="font-serif text-[17px] leading-[1.55] text-foreground text-pretty">{children}</p>;
+  return <p class="font-serif text-[1em] leading-[1.6] text-foreground text-pretty">{children}</p>;
 }
 
 /* The one button: sidebar green, the page's cream for the label, which
