@@ -3,8 +3,9 @@
 
 Companies and governments are already haphazardly pacing AI. To make good decisions about the pace of AI progress, practitioners, policymakers, and the public need a richer understanding of the options and dynamics that pacing interventions create. This piece surveys the range of interventions aimed at moderating the pace of AI development, deployment, and diffusion, and proposes a detailed research agenda to clarify the tradeoffs and likely effects of each. Now is the time for a dedicated field of pacing research, moving beyond one-off proposals and scenarios towards a flexible capacity to quickly and effectively intervene.
 
-<h4 style="text-align: center; margin-top: 44px; margin-bottom: 24px; font-size: 32px"> Executive Summary </h4>
+<div class="exec-summary">
 
+<h4 style="text-align: center; margin-top: 8px; margin-bottom: 24px; font-size: 32px"> Executive Summary </h4>
 
 “Pacing AI” usually refers to how to conclusively handle the most extreme risks in the face of race dynamics. However, even for the goal of handling these highest-stakes cases, it's useful to take a broad view of pacing—one that encompasses all interventions aimed at moderating the pace of AI development, deployment, or diffusion. Thus:
 
@@ -28,12 +29,29 @@ Given all of this, we think it is time for pacing to be a dedicated research are
   * Figuring out how to make interventions which are more robust to premature endings or imperfect execution, intentional or otherwise;
   * Dry runs and wargames to stress-test specific interventions.
 
+
 <br> 
 
-We invite readers to [reach out](https://docs.google.com/forms/d/e/1FAIpQLSeZCo85Uz9eIXjkPRl3F3lZJGObg4P3_4BgIoy40-m1EVBqhg/viewform?usp=publish-editor) if they are interested in further work in this space. 
+We invite readers to [reach out](https://docs.google.com/forms/d/e/1FAIpQLSeZCo85Uz9eIXjkPRl3F3lZJGObg4P3_4BgIoy40-m1EVBqhg/viewform?usp=publish-editor) if they are interested in further work. 
 
-<br>
+<div class="ai-summaries">
+  <p class="ai-summaries-label">hear it from the machines:</p>
+  <div class="ai-summaries-row">
+    <a class="ai-summary" href="https://claude.ai/share/674d84b3-2a19-426e-9d79-904ba37a825c">
+      <img src="/media/summary-claude.png" alt="" width="128" height="128">
+      <span><strong>Claude</strong></span>
+    </a>
+    <a class="ai-summary" href="https://chatgpt.com/share/6a9ec554-f338-83e8-8cb0-79101cce7370">
+      <img src="/media/summary-chatgpt.png" alt="" width="128" height="128">
+      <span><strong>ChatGPT</strong></span>
+    </a>
+    <a class="ai-summary" href="https://themultiplicity.ai/room/b9745af8-4d93-4ba8-bd51-757e3301c2a0">
+      <img src="/media/summary-multiplicity.png" alt="" width="128" height="128">
+      <span><strong>A Council</strong></span>
+    </a>
+  </div>
+</div>
 
-[**Fable summary**](https://claude.ai/share/674d84b3-2a19-426e-9d79-904ba37a825c)**; [Astra summary](https://chatgpt.com/share/6a9ec554-f338-83e8-8cb0-79101cce7370); [Council summary](https://themultiplicity.ai/room/b9745af8-4d93-4ba8-bd51-757e3301c2a0)**.
 
 
+</div>

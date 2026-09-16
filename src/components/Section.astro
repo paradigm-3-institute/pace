@@ -1,15 +1,16 @@
 ---
-import type { CollectionEntry, RenderResult } from "astro:content";
+import type { RenderResult } from "astro:content";
 
 interface Props {
   id: string;
   title: string;
   textClass: string;
-  content: RenderResult;
+  /* Rendered markdown for the body; omit to use the slot instead. */
+  content?: RenderResult;
 }
 
 const { id, title, textClass, content } = Astro.props;
-const { Content } = content;
+const Content = content?.Content;
 ---
 
 <section id={id} class:list={["mb-12 -scroll-mt-8 last:mb-0"]}>
@@ -17,6 +18,6 @@ const { Content } = content;
     {title}
   </h2>
   <div class="mx-auto padded">
-    <Content />
+    {Content ? <Content /> : <slot />}
   </div>
 </section>

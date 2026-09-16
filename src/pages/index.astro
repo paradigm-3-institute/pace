@@ -1,150 +1,79 @@
 ---
 import { getEntry, render } from "astro:content";
-import Layout from "../layouts/Layout.astro";
-import NavItem from "../components/NavItem.astro";
+import EssayLayout from "../layouts/EssayLayout.astro";
 import Section from "../components/Section.astro";
+import { sectionMeta } from "../sections";
 import { Content as Intro } from "../content/index.md";
 
-const sectionMeta = [
-  {
-    slug: "01-introduction",
-    id: "introduction",
-    label: "Introduction",
-    textClass: "text-light",
-  },
-  { slug: "02-why-pace", id: "why-pace", label: "Why Pace?", textClass: "text-light" },
-  { slug: "03-pace-what", id: "pace-what", label: "Pace What?", textClass: "text-light" },
-  { slug: "04-pace-how", id: "pace-how", label: "Pace How?", textClass: "text-light" },
-  {
-    slug: "05-then-what",
-    id: "then-what",
-    label: "Then What?",
-    textClass: "text-dark antialiased",
-  },
-  {
-    slug: "06-conclusion",
-    id: "conclusion",
-    label: "Conclusion",
-    textClass: "text-dark antialiased",
-  },
-  {
-    slug: "07-call-to-action",
-    id: "call-to-action",
-    label: "Call To Action",
-    textClass: "text-dark antialiased",
-  },
-  {
-    slug: "08-appendices",
-    id: "appendices",
-    label: "Appendices",
-    textClass: "text-dark antialiased",
-  },
-] as const;
-
 const sections = await Promise.all(
-  sectionMeta.map(async ({ slug, ...meta }) => ({
-    ...meta,
-    content: await render(await getEntry("sections", slug)),
-  })),
+  sectionMeta
+    .filter(({ page }) => page === "/")
+    .map(async ({ slug, ...meta }) => ({
+      ...meta,
+      content: await render(await getEntry("sections", slug)),
+    })),
 );
+
+const appendices = sectionMeta.find(({ page }) => page === "/appendices")!;
 ---
 
-<Layout
+<EssayLayout
   title="Pacing The Frontier"
   description="A field guide to spending your effort budget across a long distance."
+  homeHref="#"
 >
-  <aside class="md:fixed w-full pb-2 md:w-70 md:h-dvh overflow-auto bg-sidebar text-background border-x-2 md:border-l-0 border-sidebar select-none">
-    <a href="#">
-      <div class="p-6 py-5">
-        <div class="text-5xl font-light grid gap-2">
-          <div>How</div>
-          <div class="-ml-0.5">to</div>
-          <div>Pace</div>
-          <div class="-ml-0.5">the</div>
-          <div>Frontier</div>
-        </div>
-        <a class="inline-block mt-7 mb-7 text-(--color-pace-how-bg) hover:text-(--color-why-pace-bg)" href="/quiz">
-          Choose-your-pace →
-        </a>
+  <div class="padded">
+    <hgroup>
+      <h1>Pacing the Frontier</h1>
+      <p>A Research Agenda</p>
+    </hgroup>
+    <div class="grid gap-6 mb-16 font-sans text-(--color-conclusion-bg)">
+      <div class="text-right font-semibold text-balance">
+        Raymond Douglas, Charles Dillon, Nikola Moore, Gavin Leech
       </div>
-    </a>
-    <nav>
-      <ul class="text-2xl">
-        {sections.map(({ id, label, textClass }) => (
-          <NavItem href={`#${id}`} label={label} textClass={textClass} sectionId={id} />
-        ))}
-      </ul>
-    </nav>
-  </aside>
-
-  <main class="w-full md:pl-70 lg:pl-77 lg:pr-6 lg:py-24 border-2 border-sidebar md:border-none">
-    <article class="prose max-w-222 2xl:max-w-260 bg-background mx-auto py-8 md:py-16 lg:border-2 border-sidebar -outline-offset-8 outline-2 outline-sidebar rounded-sm">
-      <div class="padded">
-        <hgroup>
-          <h1>Pacing the Frontier</h1>
-          <p>A Research Agenda</p>
-        </hgroup>
-        <div class="grid gap-6 mb-16 font-sans text-(--color-conclusion-bg)">
-          <div class="text-right font-semibold text-balance">
-            Raymond Douglas, Charles Dillon, Nikola Moore, Gavin Leech 
-          </div>
-          <div class="text-right ml-auto max-w-md text-balance">
-          and Mathias Kirk Bonde, Rohit Krishnan, Noah Perez, Nathan Young, Cormac Slade Byrd, Stephen Casper, Jan Kulveit, David Duvenaud, & Shahar Avin<sup>✝</sup><sup
-            ><a
-              href="#user-content-fn-1"
-              id="user-content-fnref-1"
-              data-footnote-ref
-              aria-describedby="footnote-label">1</a
-            ></sup
-          >
-        </div>
-        </div>
-        <Intro />
-        <!-- Hand-rendered copy of the GFM footnote markup, since this byline
-             lives in the template rather than in a markdown section. -->
-        <section data-footnotes class="footnotes">
-          <h2 class="sr-only" id="footnote-label">Footnotes</h2>
-          <ol>
-            <li id="user-content-fn-1">
-              <p>
-                ✝ — Senior author;<br>RD, JK — ACS Research;<br>RD, DD — University of Toronto;<br>CD, NM,
-                GL, NP — Arb Research;<br>GL — Paradigm 3 Institute;<br>RK — The Wharton School,
-                University of Pennsylvania;<br>MKB — Independent;<br>NY — Goodheart Labs;<br>CSB —
-                Trajectory Institute;<br>SC — Harvard University and Harvard Kennedy School;<br>SA —
-                University of Cambridge.<br><br>
-                This work is funded by <a href="https://acsresearch.org/about">ACS Research</a> and the <a href="https://www.paradigm3.org/">Paradigm 3 Institute</a>.
-                <a
-                  href="#user-content-fnref-1"
-                  data-footnote-backref
-                  aria-label="Back to reference 1"
-                  class="data-footnote-backref">↩</a
-                >
-              </p>
-            </li>
-          </ol>
-        </section>
-      </div>
-      {sections.map(({ id, label, textClass, content }) => (
-        <Section id={id} title={label} textClass={textClass} content={content} />
-      ))}
-    </article>
-  </main>
-
-  <a
-    href="#"
-    class="md:hidden fixed -bottom-2 -right-2 bg-background p-4 border-2 border-sidebar text-sidebar outline-2 outline-sidebar -outline-offset-8 z-100"
-    aria-label="Back to top"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <path d="M10.586 3l-6.586 6.586a2 2 0 0 0 -.434 2.18l.068 .145a2 2 0 0 0 1.78 1.089h2.586v7a2 2 0 0 0 2 2h4l.15 -.005a2 2 0 0 0 1.85 -1.995l-.001 -7h2.587a2 2 0 0 0 1.414 -3.414l-6.586 -6.586a2 2 0 0 0 -2.828 0z"></path>
-    </svg>
-  </a>
-</Layout>
+      <div class="text-right ml-auto max-w-md text-balance">
+      and Mathias Kirk Bonde, Rohit Krishnan, Noah Perez, Nathan Young, Cormac Slade Byrd, Stephen Casper, Jan Kulveit, David Duvenaud, & Shahar Avin<sup>✝</sup><sup
+        ><a
+          href="#user-content-fn-1"
+          id="user-content-fnref-1"
+          data-footnote-ref
+          aria-describedby="footnote-label">1</a
+        ></sup
+      >
+    </div>
+    </div>
+    <Intro />
+    <!-- Hand-rendered copy of the GFM footnote markup, since this byline
+         lives in the template rather than in a markdown section. -->
+    <section data-footnotes class="footnotes">
+      <h2 class="sr-only" id="footnote-label">Footnotes</h2>
+      <ol>
+        <li id="user-content-fn-1">
+          <p>
+            ✝ — Senior author;<br>RD, JK — ACS Research;<br>RD, DD — University of Toronto;<br>CD, NM,
+            GL, NP — Arb Research;<br>GL — Paradigm 3 Institute;<br>RK — The Wharton School,
+            University of Pennsylvania;<br>MKB — Independent;<br>NY — Goodheart Labs;<br>CSB —
+            Trajectory Institute;<br>SC — Harvard University and Harvard Kennedy School;<br>SA —
+            University of Cambridge.<br><br>
+            This work is funded by <a href="https://acsresearch.org/about">ACS Research</a> and the <a href="https://www.paradigm3.org/">Paradigm 3 Institute</a>.
+            <a
+              href="#user-content-fnref-1"
+              data-footnote-backref
+              aria-label="Back to reference 1"
+              class="data-footnote-backref">↩</a
+            >
+          </p>
+        </li>
+      </ol>
+    </section>
+  </div>
+  {sections.map(({ id, label, textClass, content }) => (
+    <Section id={id} title={label} textClass={textClass} content={content} />
+  ))}
+  <Section id={appendices.id} title={appendices.label} textClass={appendices.textClass}>
+    <p>
+      The full list of open questions, the longlist of pacing interventions, and the
+      bibliography are collected <a href={appendices.page}>on their own page</a>.
+    </p>
+  </Section>
+</EssayLayout>

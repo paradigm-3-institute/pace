@@ -233,6 +233,89 @@
 
 /* ---------- Quotes ---------- */
 
+.prose .exec-summary {
+  margin: 44px 0 24px;
+  padding: 24px 28px;
+  background-color: var(--color-from);
+  border: 1px solid var(--color-why-pace-bg);
+  border-radius: 6px;
+}
+
+.prose .exec-summary > :last-child {
+  margin-bottom: 0;
+}
+
+/* Links to third-party AI summaries of the piece, at the end of the
+   executive summary: a centred label over a row of icon pills. */
+.prose .ai-summaries {
+  margin: 40px 0 8px;
+  text-align: center;
+  font-family: var(--font-sans);
+}
+
+.prose .ai-summaries-label {
+  margin-bottom: 14px;
+  font-size: 0.8em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-then-what-bg);
+}
+
+.prose .ai-summaries-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.prose .ai-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 8px 18px 8px 8px;
+  background: var(--color-background);
+  border: 1px solid var(--color-why-pace-bg);
+  border-radius: 999px;
+  color: var(--color-conclusion-bg);
+  line-height: 1.15;
+  transition:
+    transform 120ms ease,
+    border-color 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.prose .ai-summary:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+  border-color: var(--color-then-what-bg);
+  box-shadow: 0 2px 8px rgba(4, 35, 1, 0.12);
+}
+
+.prose .ai-summary img {
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  border: 1px solid var(--color-why-pace-bg);
+  border-radius: 50%;
+}
+
+.prose .ai-summary span {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.prose .ai-summary strong {
+  font-size: 0.95em;
+}
+
+.prose .ai-summary small {
+  font-size: 0.72em;
+  color: var(--color-then-what-bg);
+}
+
 .prose blockquote {
   margin: 24px 0;
   padding-top: 20px;

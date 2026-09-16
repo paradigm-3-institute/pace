@@ -1,0 +1,70 @@
+---
+import Layout from "./Layout.astro";
+import NavItem from "../components/NavItem.astro";
+import { sectionMeta, navHref } from "../sections";
+
+interface Props {
+  title: string;
+  description?: string;
+  /* Where the sidebar's title links. The index uses "#" so it scrolls to the
+     top instead of reloading. */
+  homeHref?: string;
+}
+
+const { title, description, homeHref = "/" } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <aside class="md:fixed w-full pb-2 md:w-70 md:h-dvh overflow-auto bg-sidebar text-background border-x-2 md:border-l-0 border-sidebar select-none">
+    <a href={homeHref}>
+      <div class="p-6 py-5">
+        <div class="text-5xl font-light grid gap-2">
+          <div>How</div>
+          <div class="-ml-0.5">to</div>
+          <div>Pace</div>
+          <div class="-ml-0.5">the</div>
+          <div>Frontier</div>
+        </div>
+        <a class="inline-block mt-7 mb-7 text-(--color-pace-how-bg) hover:text-(--color-why-pace-bg)" href="/quiz">
+          Choose-your-pace →
+        </a>
+      </div>
+    </a>
+    <nav>
+      <ul class="text-2xl">
+        {sectionMeta.map((section) => (
+          <NavItem
+            href={navHref(section)}
+            label={section.label}
+            textClass={section.textClass}
+            sectionId={section.id}
+          />
+        ))}
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="w-full md:pl-70 lg:pl-77 lg:pr-6 lg:py-24 border-2 border-sidebar md:border-none">
+    <article class="prose max-w-222 2xl:max-w-260 bg-background mx-auto py-8 md:py-16 lg:border-2 border-sidebar -outline-offset-8 outline-2 outline-sidebar rounded-sm">
+      <slot />
+    </article>
+  </main>
+
+  <a
+    href="#"
+    class="md:hidden fixed -bottom-2 -right-2 bg-background p-4 border-2 border-sidebar text-sidebar outline-2 outline-sidebar -outline-offset-8 z-100"
+    aria-label="Back to top"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M10.586 3l-6.586 6.586a2 2 0 0 0 -.434 2.18l.068 .145a2 2 0 0 0 1.78 1.089h2.586v7a2 2 0 0 0 2 2h4l.15 -.005a2 2 0 0 0 1.85 -1.995l-.001 -7h2.587a2 2 0 0 0 1.414 -3.414l-6.586 -6.586a2 2 0 0 0 -2.828 0z"></path>
+    </svg>
+  </a>
+</Layout>

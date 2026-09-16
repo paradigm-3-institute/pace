@@ -1,0 +1,21 @@
+---
+import { getEntry, render } from "astro:content";
+import EssayLayout from "../layouts/EssayLayout.astro";
+import Section from "../components/Section.astro";
+import { sectionMeta } from "../sections";
+
+const appendices = sectionMeta.find(({ page }) => page === "/appendices")!;
+const content = await render(await getEntry("sections", appendices.slug));
+---
+
+<EssayLayout
+  title="Appendices — Pacing The Frontier"
+  description="Open questions, a longlist of pacing interventions, and a bibliography."
+>
+  <Section
+    id={appendices.id}
+    title={appendices.label}
+    textClass={appendices.textClass}
+    content={content}
+  />
+</EssayLayout>
