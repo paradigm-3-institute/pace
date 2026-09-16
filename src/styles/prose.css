@@ -140,6 +140,12 @@
   }
 }
 
+/* A §-reference lands its target just below the stuck headings, not
+   under them. */
+.prose .sec-anchor {
+  scroll-margin-top: calc(var(--h2-height) + 12px);
+}
+
 /* ---------- Text ---------- */
 
 .prose p {

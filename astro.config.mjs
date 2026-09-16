@@ -5,6 +5,8 @@ import tailwindcss from "@tailwindcss/vite";
 import rehypeSectionizeH3 from "./src/plugins/rehype-sectionize-h3.js";
 import rehypeExternalLinks from "./src/plugins/rehype-external-links.js";
 import rehypeImagePerformance from "./src/plugins/rehype-image-performance.js";
+import rehypeSectionRefs from "./src/plugins/rehype-section-refs.js";
+import { sectionMeta } from "./src/sections.ts";
 
 import preact from "@astrojs/preact";
 
@@ -14,7 +16,12 @@ export default defineConfig({
 
   markdown: {
     processor: unified({
-      rehypePlugins: [rehypeSectionizeH3, rehypeExternalLinks, rehypeImagePerformance],
+      rehypePlugins: [
+        [rehypeSectionRefs, { sections: sectionMeta }],
+        rehypeSectionizeH3,
+        rehypeExternalLinks,
+        rehypeImagePerformance,
+      ],
     }),
   },
 
