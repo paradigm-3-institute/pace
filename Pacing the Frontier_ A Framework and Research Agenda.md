@@ -578,13 +578,13 @@ Developer relationships with governments also change: developers may seek nation
 
 #### Working around the rule
 
-**Jurisdiction shopping***.* If the pacing mechanism is both legally binding and not global, then developers have discretion to move activity to less-restricted jurisdictions.
+**Jurisdiction shopping**. If the pacing mechanism is both legally binding and not global, then developers have discretion to move activity to less-restricted jurisdictions.
 
 Rival, upstream inputs are hard to move: frontier compute is costly and slow to relocate, its supply chain runs through a handful of firms (see §3.1), energy and datacenter siting are slow, and export controls [already exist](https://www.forbes.com/sites/viviantoh/2026/08/31/the-ai-chip-wars-new-front-control-the-cloud-not-the-silicon/) as a counter-response from the state.
 
 Non-rival, downstream activities are easier to move: research methods, model weights and other intellectual property can be moved easily and a model developed under one regime can be served into another. For Case B, the relevant version is a release of weights by an affiliate or partner outside the covered jurisdictions. The more an intervention targets rival goods, the less jurisdiction shopping it permits, which reinforces the pull toward upstream control surfaces noted in §3.3.
 
-**Exploiting loopholes***.* In §3.2 we cover the inevitable gaps between the control surface and the targeted activity. For instance, if the intervention involves restricting total training compute, then driving compute efficiency up becomes (even) more valuable, so that the developer can continue R\&D activity while not defecting from the letter of the intervention. Developers will systematically search for such [gaps](https://www.forbes.com/sites/viviantoh/2026/08/31/the-ai-chip-wars-new-front-control-the-cloud-not-the-silicon/), likely bringing more expertise than the regulator has. 
+**Exploiting loopholes**. In §3.2 we cover the inevitable gaps between the control surface and the targeted activity. For instance, if the intervention involves restricting total training compute, then driving compute efficiency up becomes (even) more valuable, so that the developer can continue R\&D activity while not defecting from the letter of the intervention. Developers will systematically search for such [gaps](https://www.forbes.com/sites/viviantoh/2026/08/31/the-ai-chip-wars-new-front-control-the-cloud-not-the-silicon/), likely bringing more expertise than the regulator has. 
 
 Firms bunch [just](https://www.aeaweb.org/articles?id=10.1257/aer.20130232) [below](https://www.law.cornell.edu/uscode/text/31/5324) regulatory thresholds wherever these exist and there is no reason to expect training runs to differ. Much of this is not bad faith but ordinary engineering under a new constraint, which is why rules based on intent are hard to enforce. The regulator typically learns of a loophole after it has been used, which is one reason §4.3 requires continual retargeting.
 
