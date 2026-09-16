@@ -14,7 +14,7 @@ Companies and governments are already haphazardly pacing AI. To make good decisi
 * **Precedents are being set whether we like it or not.** How AI progress is paced now will shape how it is paced in future. We can learn from the shortcomings of existing attempts, and think about what precedents we are now setting for higher-stakes cases.  
 * **Pre-specified proposals aren’t enough** because of the unpredictable nature of progress and the fact that key decisions often depend on sensitive information, have to be made quickly, and are responses to surprises.
 
-Given all of this, we think it is time for pacing to be a dedicated research area. Though there have been many specific proposals, and though many subfields of AI risk largely exist to feed into pacing decisions, pacing as a whole has not yet cohered into a clear field of study. There are massive gaps in our understanding of pacing as a whole. Here we highlight three topics to illustrate what type of work needs doing: 
+Given all of this, we think it is time for pacing to be a dedicated research area. Though there have been many specific proposals, and though many subfields of AI risk largely exist to feed into pacing decisions, pacing as a whole has not yet cohered into a clear field of study. There are massive gaps in our understanding of pacing as a whole. Here we highlight three topics to illustrate the work that needs doing: 
 
 * **Mechanism design.** The practical effects of an intervention will depend substantially on how the affected parties respond to them, including the actors who enforce the intervention. We recommend prioritizing research on:  
   * How different forms of transparency about capabilities can help or hurt coordination;
@@ -30,7 +30,7 @@ Given all of this, we think it is time for pacing to be a dedicated research are
   * Dry runs and wargames to stress-test specific interventions.
 
 
-For each topic, we include recommended reading and starting points below. We also invite readers to [reach out](https://docs.google.com/forms/d/e/1FAIpQLSeZCo85Uz9eIXjkPRl3F3lZJGObg4P3_4BgIoy40-m1EVBqhg/viewform?usp=publish-editor) if they are interested in further work in this space. 
+For each topic, we include recommended reading and starting points below. We invite readers to [reach out](https://docs.google.com/forms/d/e/1FAIpQLSeZCo85Uz9eIXjkPRl3F3lZJGObg4P3_4BgIoy40-m1EVBqhg/viewform?usp=publish-editor) if they are interested in further work. 
 
 <div class="ai-summaries">
   <p class="ai-summaries-label">hear it from the machines...</p>

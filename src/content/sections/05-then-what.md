@@ -95,7 +95,7 @@ Many interventions will vest some enforcement power in a governing body or monit
 
 Liability- or insurance-based schemes will distribute these powers across auditors and existing legal systems such as courts—similar concerns will exist around their access to information and the privacy of those subject to their scrutiny.
 
-![A diagram showing failure modes in pacing governance structures.](/media/failure-modes.svg)
+![Failure modes in pacing governance structures.](/media/failure-modes.svg)
 
 #### 5.3.1 Control, regulatory capture and misuse
 
