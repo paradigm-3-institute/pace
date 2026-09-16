@@ -20,7 +20,7 @@ AI progress so far has had some [highly positive](https://papers.ssrn.com/sol3/p
 
 Many observers expect significant impacts on economic growth from future AI progress, with the median expert in [one survey](https://forecastingresearch.substack.com/p/forecasting-ai-benefits) expecting rates of growth to more than double in advanced economies by 2050 under their “rapid” scenario, which would amount to tens to hundreds of trillions of dollars annually. The largest companies in the world have been betting on this, with capital expenditures in 2026 alone expected to exceed US$1 trillion, and [various](https://www.cnbc.com/2025/10/29/nvidia-on-track-to-hit-historic-5-trillion-valuation-amid-ai-rally.html) [beneficiary](https://www.fool.com/investing/2026/07/09/broadcom-is-less-than-5-from-the-2-trillion-club-a/) [companies](https://www.cnbc.com/2026/05/26/micron-stock-trillion-market-cap.html) in the supply chain valued in the trillions of dollars. And AI already [seems](https://intuitionlabs.ai/articles/ai-discovered-drugs-clinical-trials-2026) to be speeding up life-saving technology.
 
-Reducing the rate of frontier AI progress would delay these enormous benefits. People might well counterfactually suffer and die from [progress not happening as fast](https://nickbostrom.com/papers/the-fable-of-the-dragon-tyrant/).[^2] Thus, the case for pacing more must be weighed against this opportunity cost.
+Reducing the rate of frontier AI progress would delay these enormous benefits. People might well counterfactually suffer and die from [progress not happening as fast](https://nickbostrom.com/papers/the-fable-of-the-dragon-tyrant/). (This opportunity cost [may even include](https://nickbostrom.com/optimal.pdf) mitigating other potential existential risks, such as biorisks and nuclear war. So even the threat of existential risk from advanced AI does not necessarily warrant pacing, depending on its relative reduction of other risks.) Thus, the case for pacing more must be weighed against this opportunity cost.
 
 #### 2.1.2 Pacing can directly cause bad outcomes
 
@@ -186,4 +186,4 @@ These interventions could complement controls on biological materials and labora
 * **What are the risks and benefits of titration** (“deploy it and learn the risks empirically”)? Have past release strategies from frontier labs succeeded in managing known AI risks? What might change in the future risk landscape? Given our uncertainty about the true risks, what criteria should gate the deployment of new frontier models?   
   * *Shevlane et al. (2023), [Model Evaluation for Extreme Risks](https://arxiv.org/abs/2305.15324)*.
 
-[^2]: This opportunity cost [may even include](https://nickbostrom.com/optimal.pdf) mitigating other potential existential risks, such as biorisks and nuclear war. So even the threat of existential risk from advanced AI does not necessarily warrant pacing, depending on its relative reduction of other risks.
+

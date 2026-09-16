@@ -3,7 +3,7 @@ title: "Pace How?"
 order: 4
 ---
 
-A pacing intervention is ultimately a sequence of steps; we reason about an intervention from start to end and consider its many decision points and failure points. This lets us spot the supporting work required for an actual, sustained period of restraint[^5].
+A pacing intervention is ultimately a sequence of steps; we reason about an intervention from start to end and consider its many decision points and failure points. This lets us spot the supporting work required for an actual, sustained period of restraint. In this section, we consider a single intervention’s lifespan. In reality, a pacing plan may contain a portfolio of interventions, each with its own conditions and triggers.
 
 ![A diagram showing how evidence can fail to influence pacing action.](/media/evidence-to-action.webp)
 
@@ -43,7 +43,7 @@ We can see this trilemma play out across the whole ecosystem of AI progress: gov
 
 One way to ease the tradeoffs is to work toward a portfolio of triggers. For example, authorities could set very crude evaluation thresholds now, beyond which they give expert groups like third-party evaluators the right to unilaterally trigger emergency interventions, on the condition that those choices then be subject to later governmental reconsideration, where there is more of a mandate but less ability to rapidly deploy expertise. This approach might seem risky if one views intervening as a one-off affair, but once it becomes a repeat affair, the evaluators would have a long-term interest in using their powers in a way they could justify.
 
-The next decision is execution: the intervention must somehow affect live systems[^6]. Implementation-wise, the key question is whether enacting the intervention merely involves announcing a rule, or whether it involves some more active steps like buying up, confiscating, or destroying key resources. The former case is more straightforward, but brings with it the extra challenge of enforcing the new rule.
+The next decision is execution: the intervention must somehow affect live systems. (We discuss the challenge of moving from abstract threats to more specific parts of AI progress in more detail in §3.) Implementation-wise, the key question is whether enacting the intervention merely involves announcing a rule, or whether it involves some more active steps like buying up, confiscating, or destroying key resources. The former case is more straightforward, but brings with it the extra challenge of enforcing the new rule.
 
 Again, coordinated pacing comes with extra challenges. It will typically take a lot more time for several actors to form a consensus on whether an intervention should be triggered, especially if there is a range of options to choose from. One potential solution is to give several parties the ability to unilaterally trigger time-bounded interventions which can buy time for more careful discussion. Another is to spend time in advance mapping out the likely space of mutually beneficial interventions.
 
@@ -144,6 +144,5 @@ However, if there does appear to be a hard capabilities threshold under a certai
   * [*Cârlan et al. (2024), Dynamic Safety Cases for Frontier AI*](https://arxiv.org/abs/2412.17618)  
   * [*Karnofsky (2024), If-Then Commitments for AI Risk Reduction*](https://carnegieendowment.org/research/2024/09/if-then-commitments-for-ai-risk-reduction)
 
-[^5]: In this section, we consider a single intervention’s lifespan. In reality, a pacing plan may contain a portfolio of interventions, each with its own conditions and triggers.
 
-[^6]: We discuss the challenge of moving from abstract threats to more specific parts of AI progress in more detail in §3.
+
