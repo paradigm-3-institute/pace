@@ -20,15 +20,15 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
 <Layout title={title} description={description}>
   <aside class="md:fixed w-full pb-2 md:pb-0 md:w-70 md:h-dvh md:overflow-hidden md:flex md:flex-col bg-sidebar text-background border-x-2 md:border-l-0 border-sidebar select-none">
     <a href={homeHref}>
-      <div class="p-6 pt-6 pb-5 md:pt-[clamp(0.75rem,1.8vh,1.4rem)] md:pb-[clamp(0.5rem,1.6vh,1.25rem)]">
-        <div class="text-5xl md:text-[clamp(1.6rem,5.2vh,3rem)] font-light grid gap-2 md:gap-[clamp(0.15rem,0.5vh,0.5rem)] md:leading-none">
+      <div class="p-6 pt-6 pb-2 md:pt-[clamp(0.75rem,1.8vh,1.4rem)] md:pb-[clamp(0.5rem,1.6vh,1.25rem)]">
+        <div class="text-4xl md:text-[clamp(1.6rem,5.2vh,3rem)] font-light grid gap-2 md:gap-[clamp(0.15rem,0.5vh,0.5rem)] md:leading-none">
           <div>Pacing</div>
           <div class="-ml-0.5">the</div>
           <div>Frontier</div>
         </div>
-        <div class="mt-5 md:mt-[clamp(0.75rem,1.8vh,1.25rem)] text-2xl md:text-[clamp(1rem,2.4vh,1.5rem)] font-light">An Agenda</div>
+        <div class="mt-5 md:mt-[clamp(0.75rem,1.8vh,1.25rem)] text-lg md:text-[clamp(1rem,2.4vh,1.5rem)] font-light">An Agenda</div>
         <a
-          class="inline-flex items-center gap-2 mt-12 mb-7 md:mt-[clamp(1.2rem,3.4vh,3rem)] md:mb-[clamp(0.6rem,1.8vh,1.75rem)] px-4 py-2 border-2 border-(--color-pace-how-bg) text-(--color-pace-how-bg) hover:border-(--color-why-pace-bg) hover:text-(--color-why-pace-bg) transition-colors"
+          class="inline-flex items-center gap-2 mt-6 mb-4 md:mt-[clamp(1.2rem,3.4vh,3rem)] md:mb-[clamp(0.6rem,1.8vh,1.75rem)] px-4 py-2 border rounded-md border-(--color-pace-how-bg) text-(--color-pace-how-bg) hover:border-(--color-why-pace-bg) hover:text-(--color-why-pace-bg) transition-colors"
           href="/quiz"
         >
           Take the quiz
@@ -39,7 +39,7 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
       </div>
     </a>
     <nav class="md:flex-1 md:min-h-0 md:flex md:flex-col">
-      <ul class="text-[1.8rem] leading-[1.15] md:leading-normal md:text-[clamp(1.05rem,2.8vh,1.75rem)] md:flex-1 md:flex md:flex-col">
+      <ul class="text-[1.45rem] leading-[1.15] md:leading-normal md:text-[clamp(1.05rem,2.8vh,1.75rem)] md:flex-1 md:flex md:flex-col">
         {sectionMeta.map((section) => (
           <NavItem
             href={navHref(section)}
@@ -56,7 +56,7 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
     <article
       class:list={[
         "prose max-w-222 2xl:max-w-260 bg-background mx-auto pb-8 md:pb-16 lg:border-2 border-sidebar -outline-offset-8 outline-2 outline-sidebar rounded-sm",
-        flushTop ? "pt-0" : "pt-8 md:pt-16",
+        flushTop ? "flush-top pt-0" : "pt-8 md:pt-16",
       ]}
     >
       <slot />

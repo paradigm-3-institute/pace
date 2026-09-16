@@ -59,9 +59,15 @@
 }
 
 /* A page that opens on a section banner (the appendices) has nothing above
-   it to space away from. */
+   it to space away from. The banner also rides up over the article's 2px
+   top border, the way it already overhangs the side borders below, so the
+   frame doesn't leave a sliver of background above it. */
 .prose > section:first-child > h2 {
   margin-top: 0;
+}
+
+.prose.flush-top > section:first-child > h2 {
+  margin-top: -2px;
 }
 
 /* Each h3 + its content is wrapped in section.h3-section (rehype-sectionize-h3)
