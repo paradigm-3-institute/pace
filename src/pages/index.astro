@@ -89,11 +89,40 @@ const sections = await Promise.all(
             Raymond Douglas, Charles Dillon, Nikola Moore, Gavin Leech 
           </div>
           <div class="text-right ml-auto max-w-md text-balance">
-          and Mathias Kirk Bonde, Rohit Krishnan, Noah Perez, Nathan Young, Cormac Slade Byrd, Stephen Casper, Jan Kulveit, David Duvenaud, & Shahar Avin<sup>✝</sup>
+          and Mathias Kirk Bonde, Rohit Krishnan, Noah Perez, Nathan Young, Cormac Slade Byrd, Stephen Casper, Jan Kulveit, David Duvenaud, & Shahar Avin<sup>✝</sup><sup
+            ><a
+              href="#user-content-fn-1"
+              id="user-content-fnref-1"
+              data-footnote-ref
+              aria-describedby="footnote-label">1</a
+            ></sup
+          >
         </div>
-          <!-- <div class="font-semibold">This work is funded by ACS Research and Paradigm3.</div> -->
         </div>
         <Intro />
+        <!-- Hand-rendered copy of the GFM footnote markup, since this byline
+             lives in the template rather than in a markdown section. -->
+        <section data-footnotes class="footnotes">
+          <h2 class="sr-only" id="footnote-label">Footnotes</h2>
+          <ol>
+            <li id="user-content-fn-1">
+              <p>
+                ✝ — Senior author;<br>RD, JK — ACS Research;<br>RD, DD — University of Toronto;<br>CD, NM,
+                GL, NP — Arb Research;<br>GL — Paradigm 3 Institute;<br>RK — The Wharton School,
+                University of Pennsylvania;<br>MKB — Independent;<br>NY — Goodheart Labs;<br>CSB —
+                Trajectory Institute;<br>SC — Harvard University and Harvard Kennedy School;<br>SA —
+                University of Cambridge.<br><br>
+                This work is funded by <a href="https://acsresearch.org/about">ACS Research</a> and the <a href="https://www.paradigm3.org/">Paradigm 3 Institute</a>.
+                <a
+                  href="#user-content-fnref-1"
+                  data-footnote-backref
+                  aria-label="Back to reference 1"
+                  class="data-footnote-backref">↩</a
+                >
+              </p>
+            </li>
+          </ol>
+        </section>
       </div>
       {sections.map(({ id, label, textClass, content }) => (
         <Section id={id} title={label} textClass={textClass} content={content} />

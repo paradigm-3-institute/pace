@@ -16,7 +16,7 @@ In general, interventions that target control surfaces [earlier in the AI R\&D p
 
 #### The AI development and deployment chain
 
-Progress at the frontier of AI development today involves a highly concentrated core of developers supported by an extensive and geographically distributed supply chain and research ecosystem[^3].
+Progress at the frontier of AI development today involves a highly concentrated core of developers supported by an extensive and geographically distributed supply chain and research ecosystem. (However, the set of developers requiring oversight may expand during an intervention as other developers catch up - see §5.2.)
 
 Various inputs are key for model development, most famously compute, but also energy, data center infrastructure, training data, research talent and engineering talent.
 
@@ -24,7 +24,7 @@ These inputs feed into the development process, which has many stages, from clea
 
 Once a model is developed, there is a spectrum of how broadly it can be deployed and released, from internal testing and evaluations, to internal use, external auditing or release to selected partners, and full public access via application or API. For open-weight models, a further stage is publishing the weights, which allows external actors to alter the model further.
 
-What the model can then do when deployed depends not only on the model itself, but also on the infrastructure it is deployed on, the tools and harnesses available, the skill of its users, and the access it is given to resources such as the internet or particular data[^4].
+What the model can then do when deployed depends not only on the model itself, but also on the infrastructure it is deployed on, the tools and harnesses available, the skill of its users, and the access it is given to resources such as the internet or particular data. (A pathway for potential future capabilities advances is *continual learning,* where models continue to improve after deployment based on the tasks they are working on. This would blur the line between development and deployment somewhat and could require its own solutions.)
 
 All of these are plausible control surfaces to directly intervene on. Furthermore, they can all be affected indirectly. For example, the availability of researchers depends on immigration law, and frontier hardware depends on access to [certain critical minerals](https://www.usitc.gov/publications/332/executive_briefings/ebot_germanium_and_gallium.pdf). 
 
@@ -150,6 +150,5 @@ There is also a risk that, once an open model with a given level of capabilities
   * [*Scher & Thiergart (2025), Mechanisms to Verify International Agreements About AI Development*](https://arxiv.org/abs/2506.15867)  
   * [*Petrie et al. (2025), Flexible Hardware-Enabled Guarantees for AI Compute*](https://arxiv.org/abs/2506.15093)*.* Proposes verifying compliance without exposing sensitive information about AI development.
 
-[^3]: Note however that the set of developers requiring oversight may expand during an intervention as other developers catch up (see §5.2).
 
-[^4]: A pathway for potential future capabilities advances is *continual learning,* where models continue to improve after deployment based on the tasks they are working on. This would blur the line between development and deployment somewhat and could require its own solutions.
+
