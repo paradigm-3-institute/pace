@@ -18,6 +18,7 @@
     "preact": "^10.29.8"
   },
   "devDependencies": {
+    "@astrojs/markdown-remark": "7.2.3",
     "@phosphor-icons/core": "^2.1.1",
     "@tailwindcss/vite": "^4.3.3",
     "tailwindcss": "^4.3.3"
