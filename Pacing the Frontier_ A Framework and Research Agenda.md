@@ -787,7 +787,6 @@ If you are interested in working on any of the open questions we lay out above, 
 See also the calls to action from other organizations:
 
 * AI Futures Project, “[Get Involved](https://ai-2040.com/supplements/verification-plan/get-involved)”, including their [interest form](https://tally.so/r/LZyyDy).  
-* [ERO](https://www.existentialriskobservatory.org/about-us/#support-us%20) “Support Us”  
 * [Encode AI](https://encodeai.org/#block_6023164c802a3a52f51cea0f9daf7289%20), “Contact Us”  
 * [For AI staff](https://concernedaistaff.org/)  
 * [Safe AI Forum](https://saif.org/about-and-contact/)
@@ -796,41 +795,82 @@ See also the calls to action from other organizations:
 
 #### 2: Why pace?
 
-* **What are the bottlenecks on adaptation to different AI risks?** How much of a head start can we plausibly get, and in what sense is time the bottleneck?  
-* **How might pacing become more or less difficult over time?** What investments can be made now to preserve optionality over pacing in the future? In particular, under what circumstances does pacing now make future pacing more or less feasible?  
-* **How do actors in this space make decisions about pacing?** What evidence do they currently consider and what assumptions do they currently make? What methods exist for external research to inform such decisions, e.g. in government or lab leadership?  
-* **Where do different dangerous capabilities sit on the offense/defense balance, and how should we expect that to change over time?**  
-* **How does transparency affect coordination?** When does common knowledge of research progress intensify or weaken race dynamics, for example by revealing that a rival is close behind or that progress is possible?
+* **How much, and in what ways, would more time allow us to better manage various AI risks?** What are the bottlenecks to mitigation or adaptation of different AI risks? What factors other than time influence AI risk management? What risk management efforts can be taken now, and which can only be taken once certain AI capability or adoption thresholds are crossed?  Related work:  
+  * *MacAskill & Moorhouse (2025), [Preparing for the Intelligence Explosion](https://www.forethought.org/research/preparing-for-the-intelligence-explosion)* Explicitly sorts "grand challenges" by whether they need calendar time, human deliberation, or just more AI.  
+  * *Hobbhahn (2025), [What's the short timeline plan?](https://www.lesswrong.com/posts/bb5Tnjdrptu89rcyY/what-s-the-short-timeline-plan)* A concrete inventory of which safety measures are ready to deploy now, and which need years of preparation.  
+* **How might pacing become more or less difficult over time?** What investments can be made now to preserve optionality over pacing in the future? In particular, under what circumstances does pacing now make future pacing more or less feasible?  Related work:  
+  * *Rahman (2026), [Does Distributed Training Undermine Compute Governance?](https://arxiv.org/abs/2605.29359)*   
+  * *Sastry et al. (2024), [Computing Power and the Governance of Artificial Intelligence](https://arxiv.org/abs/2402.08797).* Maps compute governance options and their readiness.  
+* **How do actors in this space make decisions about pacing?** What evidence do they currently consider and what assumptions do they currently make? What pathways exist for external research to inform such decisions, e.g. in government or lab leadership, and what makes that information transfer more effective?  
+  * *METR (2025), [Common Elements of Frontier AI Safety Policies](https://metr.org/blog/2025-12-09-common-elements-of-frontier-ai-safety-policies/\))*  
+* **Which AI risks are most likely to motivate a pacing intervention, now and in the future?** Where do different dangerous capabilities sit on the offense/defense balance, and how will that change over time?  Related work:  
+  * *Garfinkel & Dafoe (2019), [How Does the Offense-Defense Balance Scale?](https://www.tandfonline.com/doi/full/10.1080/01402390.2019.1631810)*  
+  * *Shevlane & Dafoe (2020), [The Offense-Defense Balance of Scientific Knowledge: Does Publishing AI Research Reduce Misuse?](https://arxiv.org/abs/2001.00463)*  
+  * *Esvelt (2022), [Delay, Detect, Defend: Preparing for a Future in which Thousands Can Release New Pandemics](https://www.gcsp.ch/publications/delay-detect-defend-preparing-future-which-thousands-can-release-new-pandemics)*  
+* **How does transparency about capabilities affect coordination?** When does common knowledge of research progress intensify or weaken race dynamics, for example by revealing that a rival is close behind or that progress is possible?  Related work:  
+  * *Bostrom (2017), [Strategic Implications of Openness in AI Development](https://onlinelibrary.wiley.com/doi/full/10.1111/1758-5899.12403)*  
+  * Armstrong, Bostrom & Shulman (2016), [*Racing to the Precipice: a Model of Artificial Intelligence Development*](https://nickbostrom.com/papers/racing-to-the-precipice.pdf) Better information about rivals' capabilities can *increase* danger when teams are close, because it removes uncertainty that induces caution.  
+* **What are the risks and benefits of titration** (“deploy it and learn the risks empirically”)? Have past release strategies from frontier labs succeeded in managing known AI risks? What might change in the future risk landscape? Given our uncertainty about the true risks, what criteria should gate the deployment of new frontier models?   
+  * *Shevlane et al. (2023), [Model Evaluation for Extreme Risks](https://arxiv.org/abs/2305.15324)*.
 
 #### 3: Pace what?
 
-* **How should hazards be translated into covered activity?** Hazards such as uncontrolled automated AI R\&D and bioweapon uplift can arise at several points in the process; they will emerge at some point in training, and we may want to avoid such a point being reached, or we may care more about wider deployment (especially if capabilities have positive use cases we want to preserve). Research should compare candidate boundaries and weigh the pros and cons of each.  
-* **How should related work count together?** Aggregation rules must handle projects divided across multiple training runs, or across different corporate entities. Testing should identify rules that detect deliberate fragmentation without sweeping in unrelated work.  
-* **What practical coverage is sufficient?** Compare the reach available through company control, infrastructure providers and national rules, including their supply-chain effects. Estimate when activity by outsiders is large enough to defeat the intervention.  
-* **Once some diffusion of dangerous capabilities has occurred, which restrictions lose their teeth entirely, and which continue to meaningfully reduce risks?** While some loss-of-control scenarios are presented as all-or-nothing, in many cases ease of access to dangerous capabilities will continue to meaningfully influence the net harm done. Needing to spend hours jailbreaking a model to get useful outputs from it is meaningfully more friction than having it readily assist with harmful endeavors.  
-* **How can we make a rule which permits exceptions to preserve useful work, which is not so permeable that it makes the rule useless?** In the case of compute controls, it seems technologically feasible to identify what uses a GPU is being put to on some levels. The more we can do this, the less an intervention will need to be a blunt instrument versus being narrowly scoped.  
-* **What are the tradeoffs between quality of verification and degree of invasiveness for different interventions, and how can we push forward the frontier?**  
-* **What family of potential tech trees can we be robust over, and how dependent upon getting them right do our interventions need to be?**
+* **How should hazards be translated into covered activity for pacing interventions?** Risks we would like to target, such as uncontrolled automation of AI R\&D and bioweapon uplift, build up over various stages of AI research, development and deployment; capabilities will initially emerge at some point in training, and we may want to avoid such a point being reached, or we may care more about wider deployment (especially if capabilities have positive use cases we want to preserve). Research should compare candidate boundaries.  
+  * *Shevlane et al. (2023), [Model Evaluation for Extreme Risks](https://arxiv.org/abs/2305.15324)*  
+  * *Hooker (2024), [On the Limitations of Compute Thresholds as a Governance Strategy](https://arxiv.org/abs/2407.05694)*  
+* **How can pacing thresholds be made specific and yet still cover distributed activity?** A pacing intervention targeting a threshold could potentially be circumvented by distributing activities or artefacts such that each sits below the threshold. How can we design aggregation rules and methods to handle cumulative risk from activities that are divided across space, time, processes and entities, without hindering low-risk activities?.   
+  * *Seferis & Fist (2026), [Detecting Compute Structuring in AI Governance Is Likely Feasible](https://ojs.aaai.org/index.php/AAAI/article/view/41127)*  
+  * *Rahman (2026), [Does Distributed Training Undermine Compute Governance?](https://arxiv.org/abs/2605.29359)*  
+* **What practical coverage is sufficient?** If we consider the reach available through company control, infrastructure providers and national rules, including their supply-chain effects, can we estimate bounds on activities that would be effectively covered by an intervention and relevant activities that would be missed?  
+  * *Koopmanschap & Barten (2026), [How to Catch a GPU](https://arxiv.org/abs/2607.22619).* Maps issues with enforcement coverage as dangerous capabilities come to require progressively less compute  
+  * *Egan & Heim (2023), [Oversight for Frontier AI through a Know-Your-Customer Scheme for Compute Providers](https://arxiv.org/abs/2310.13625)*  
+* **How effective are different access restrictions once a dangerous capability has been released?** How do factors such as access guardrails, alignment training, access to inference compute, ease-of-use, and tacit knowledge affect risk once diffusion has already occurred?  
+  * *Tamirisa et al. (2024), [Tamper-Resistant Safeguards for Open-Weight LLMs](https://arxiv.org/abs/2408.00761)*. Identifies limitations in how reliable safeguards can be for open weight models.  
+  * *Ord (2025), [Inference Scaling Reshapes AI Governance](https://arxiv.org/abs/2503.05705)*. Identifies inference scaling as a lever for released models.  
+* **How can we permit exceptions to allow useful work, without being so permeable that it makes the rule useless?** In the case of compute controls, it now seems technologically feasible, to some extent, to identify what uses a GPU is being put to. What other technical advances can allow interventions to be less blunt and more narrowly scoped?  
+  * *Gargiulo & Kulp (2026), [Workload Identification with Physical Side Channels for AI Governance](https://arxiv.org/abs/2609.00309)*  
+* **What are the tradeoffs between verification and invasiveness for different interventions?** How can we push the frontier forward?  
+  * *Scher & Thiergart (2025), [Mechanisms to Verify International Agreements About AI Development](https://arxiv.org/abs/2506.15867)*  
+  * *We believe the proposal would be technically sufficient to forestall the development of ASI if implemented today, but advancements in AI capabilities or development methods could hurt its efficacy. Additionally, there does not yet exist the political will to put such an agreement in place. Despite these challenges, we hope this agreement can provide direction for AI governance research and policy.*  
+  * *Petrie et al. (2025), [Flexible Hardware-Enabled Guarantees for AI Compute](https://arxiv.org/abs/2506.15093).* Proposes verifying compliance without exposing sensitive information about AI development.
 
 #### 4: Pace how?
 
-* **What does the possibility space of exit scenarios look like?** Small-scale interventions may allow for immediate release, whereas exiting interventions impacting multiple sides of the economy and society may need to be staged. Some exits may require advanced prep. We need to understand our options to pick the best one per case.   
-* **What is the relationship between initiation and exit triggers?** Intuitively, the exit trigger should track whatever justified the intervention in the first place. But can that link break as conditions change?  
-* **How do the incentives of bound parties change across the lifecycle?** Pacing is first and foremost a coordination problem. The efficacy of any intervention will depend, amongst other things, on the predictability of actors (e.g. how well they can stick to the rule). Foreseeing possible disruptions to everyone’s motivations to cooperate strengthens control over and stability of pacing.  
-* **What information must be shared to make coordinated pacing credible, and with which actors?** How can this be kept compliant with national security considerations, commercial confidentiality, and cybersecurity? To what extent can this information sharing be kept robust to manipulation?   
-* **What evidence could legitimize a speedy initiation (even at the cost of this evidence being disconfirmed later on)?** As always, we expect people to agree on high-level claims (“a credible threat of a large-scale bioattack enough to warrant intervention”) and disagree on operationalizations (“what qualifies as a credible threat”).  
-* **Which exit arrangements can prospective participants credibly rely on?** How does that affect which pacing coalitions are feasible?  
-* **Do dry-run [simulations](https://arxiv.org/abs/2410.03092) of an intervention help?** Do they help us learn about failure modes?  
-* **How will our reliance on different sources of information about risks change as AIs become more capable, autonomous, or integrated?**
+* **How do the incentives of bound parties change across the lifecycle?** To what extent can different actors reliably predict the behaviour of other actors throughout the lifetime of a pacing intervention? How load-bearing are these predictions of behaviour going to be for coordination of pacing interventions?  
+  * *Finke (2026), [International Agreements to Limit Frontier AI: Objectives and Exit](https://arxiv.org/abs/2607.16224)*.  
+  * *Koremenos (2005), [Contracting around International Uncertainty](https://doi.org/10.1017/S0003055405051877)*.   
+  * *Goldstein and Salib (2025), [How to Stop an AI Arms Race](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5369439).*  
+* **How does information sharing impact the credibility of coordinated pacing?** Which information, in what granularity, through which channels, by which actors, matter most for credible coordinated pacing? How can this be kept compatible with national security considerations, commercial confidentiality, and cybersecurity? To what extent can this information sharing be kept robust to manipulation?   
+  * *Wasil et al. (2024), [Verification Methods for International AI Agreements](https://arxiv.org/abs/2408.16074).*  
+  * *Scher et al (2025), [An International Agreement to Prevent the Premature Creation of Artificial Superintelligence](https://arxiv.org/abs/2511.10783).*  
+* **What evidence could legitimize a speedy initiation of pacing? What is likely to be the acceptable tolerance for unreliable evidence for different actors?**  Can scenarios and thresholds be specified in advance to a level of specificity that would garner coordinated buy-in to a rapid pacing onset? Can evidential and assessment processes be agreed on in advance?  
+  * *Karnofsky (2024), [If-Then Commitments for AI Risk Reduction](https://carnegieendowment.org/research/2024/09/if-then-commitments-for-ai-risk-reduction)*  
+* **How could dry-run simulations inform and prepare for pacing interventions?** What aspects of simulation design, delivery and follow-up affect their effectiveness and impact? Could simulations harm or misguide pacing interventions?  
+  * *Gruetzemacher et al. (2024), [Strategic Insights from Simulation Gaming of AI Race Dynamics](https://arxiv.org/abs/2410.03092\))*  
+  * *Bartels (2020), [Building Better Games for National Security Policy Analysis](https://www.rand.org/pubs/rgs_dissertations/RGSD437.html)*  
+* **How will our reliance on different sources of information about risks, and our methods for communication and coordination, change as AIs become more capable, autonomous, or integrated?**  
+  * *Clymer et al. (2024), [Safety Cases: How to Justify the Safety of Advanced AI Systems](https://arxiv.org/abs/2403.10462)*  
+* **What does the space of exit scenarios look like?** For example, small-scale interventions may allow for immediate release, whereas exits from ongoing large-scale interventions impacting multiple facets of the economy and society (e.g. export controls) may need to be staged. Other than staging, what other parameters of exits exist, and how could they be tuned?   
+  * *Finke (2026), [International Agreements to Limit Frontier AI: Objectives and Exit](https://arxiv.org/abs/2607.16224)*  
+* **What is the relationship between initiation and exit triggers?** Intuitively, the exit trigger should track whatever justified the intervention in the first place, but what could affect that link and what other factors should be considered?  
+  * *Cârlan et al. (2024), [Dynamic Safety Cases for Frontier AI](https://arxiv.org/abs/2412.17618)*  
+  * *Karnofsky (2024), [If-Then Commitments for AI Risk Reduction](https://carnegieendowment.org/research/2024/09/if-then-commitments-for-ai-risk-reduction)*
 
 #### 5: Then what?
 
-* **What compensation and consideration could make pacing interventions preferable to larger coalitions?**  
-* **Which restrictions are more brittle, which cause more damage if they break suddenly?** Which do not build up an overhang?  
-* **Which actors gain relative power under different interventions**, and what are the expected consequences?  
-* **What safeguards can be deployed to guard against mission creep**, where regulators or newly empowered authorities could gain power beyond what was intended and become hard to dislodge?
+* **What compensation schemes could make pacing interventions more desirable for actors who stand to lose financially from them?** What are the precedents for such compensation, how could they be funded, and what secondary impacts might they have?  
+  * *Srivastav & Zaehringer (2024), [The Economics of Coal Phaseouts](https://arxiv.org/abs/2406.14238)*  
+  * *Jobst Heitzig, Lessman & Zou (2018) [Self-enforcing strategies to deter free-riding in the climate change mitigation game and other repeated public good games](https://www.pnas.org/doi/abs/10.1073/pnas.1106265108)*  
+* **Which restrictions build what kinds of overhangs?** How are these overhangs likely to play out if realised, and how dangerous might they be? Can overhangs be addressed through complementary policies? Are there pacing interventions which do not build up an overhang?  
+  * *Belrose (2023), [AI Pause Will Likely Backfire](https://bounded-regret.ghost.io/ai-pause-will-likely-backfire-by-nora/)*. Looks at the negative case for a training pause, where a compute overhang leads to rapid progress.  
+* **Which actors gain relative power under different interventions**, and what are the expected consequences? What is the historical track record of uses and abuses of power when an activity comes under deliberate pacing intervention?  
+  * *Coe & Vaynman (2015), [Collusion and the Nuclear Nonproliferation Regime](https://www.andrewjcoe.com/_files/ugd/c8f493_ad67e13e0bdd4856b3f789dc317b327e.pdf)*. Looks at how nuclear nonproliferation entrenched superpower influence.  
+  * *Cassata & de Chadarevian (2025), [Asilomar Across the Atlantic](https://pmc.ncbi.nlm.nih.gov/articles/PMC12098474/).* Restrictions on recombinant-DNA research empowered certain scientific organisations.   
+* **What safeguards can be deployed to guard against mission creep**, where regulators or newly empowered authorities could gain power beyond what was intended and become hard to dislodge?  
+  * *Romano & Levin (2021), [Sunsetting as an Adaptive Strategy](https://pmc.ncbi.nlm.nih.gov/articles/PMC8256028/)*  
+  * *Molloy (2021), [Approach with Caution: Sunset Clauses as Safeguards of Democracy?](https://researchportal.northumbria.ac.uk/en/publications/approach-with-caution-sunset-clauses-as-safeguards-of-democracy/)*
 
-# Appendix: A full list of pacing interventions
+# Appendix: longlist of pacing interventions
 
 For concreteness, the following attempts to list the levers we have available to pace AI. Note that a lever’s inclusion here is not an argument in favour of acting on it.
 

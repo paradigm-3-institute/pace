@@ -20,7 +20,7 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
 <Layout title={title} description={description}>
   <aside class="md:fixed w-full pb-2 md:pb-0 md:w-70 md:h-dvh md:overflow-hidden md:flex md:flex-col bg-sidebar text-background border-x-2 md:border-l-0 border-sidebar select-none">
     <a href={homeHref}>
-      <div class="p-6 py-5 md:py-[clamp(0.5rem,1.6vh,1.25rem)]">
+      <div class="p-6 pt-6 pb-5 md:pt-[clamp(0.75rem,1.8vh,1.4rem)] md:pb-[clamp(0.5rem,1.6vh,1.25rem)]">
         <div class="text-5xl md:text-[clamp(1.6rem,5.2vh,3rem)] font-light grid gap-2 md:gap-[clamp(0.15rem,0.5vh,0.5rem)] md:leading-none">
           <div>Pacing</div>
           <div class="-ml-0.5">the</div>
@@ -39,7 +39,7 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
       </div>
     </a>
     <nav class="md:flex-1 md:min-h-0 md:flex md:flex-col">
-      <ul class="text-2xl md:text-[clamp(0.95rem,2.3vh,1.5rem)] md:flex-1 md:flex md:flex-col">
+      <ul class="text-[1.8rem] leading-[1.15] md:leading-normal md:text-[clamp(1.05rem,2.8vh,1.75rem)] md:flex-1 md:flex md:flex-col">
         {sectionMeta.map((section) => (
           <NavItem
             href={navHref(section)}

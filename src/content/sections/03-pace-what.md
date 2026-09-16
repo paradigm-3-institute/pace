@@ -89,7 +89,7 @@ Coordination is more sustainable when compliance can be checked without needing 
 
 Unfortunately, while information about model capabilities and threat models accumulates steeply along the arc of model development, coordination can become more difficult. The information that can be gained about a system nearing deployment is often nonstandardized and difficult to make legible (i.e. the internal testing protocols and mitigation mechanisms at one lab may not look the same as at another, even if they point at the same targets). Upstream, however, information on goods like compute, which are produced by very few companies in relatively few places, can be easily [made legible, verified and shared](https://arxiv.org/abs/2408.16074), making coordination easier. As a result, coordinating actors will tend to select upstream control surfaces: the crude and high-false-positive side of the arc provides a source of surfaces better suited to coordination.
 
-<details>
+<details id="sec-3.4" class="sec-anchor">
   <summary> Case A: A cap on frontier training </summary>
   <div>
 
@@ -109,7 +109,7 @@ Here we choose a per-model cap covering pretraining and post-training. Developer
 </details>
 
 
-<details>
+<details id="sec-3.5" class="sec-anchor">
   <summary> Case B: Restricting access to dangerous biological capabilities </summary>
   <div>
 
@@ -148,6 +148,6 @@ There is also a risk that, once an open model with a given level of capabilities
   * [*Gargiulo & Kulp (2026), Workload Identification with Physical Side Channels for AI Governance*](https://arxiv.org/abs/2609.00309)  
 * **What are the tradeoffs between verification and invasiveness for different interventions?** How can we push the frontier forward?  
   * [*Scher & Thiergart (2025), Mechanisms to Verify International Agreements About AI Development*](https://arxiv.org/abs/2506.15867)  
+  * We believe the proposal would be technically sufficient to forestall the development of ASI if implemented today, but advancements in AI capabilities or development methods could hurt its efficacy. Additionally, there does not yet exist the political will to put such an agreement in place. Despite these challenges, we hope this agreement can provide direction for AI governance research and policy.  
   * [*Petrie et al. (2025), Flexible Hardware-Enabled Guarantees for AI Compute*](https://arxiv.org/abs/2506.15093)*.* Proposes verifying compliance without exposing sensitive information about AI development.
-
 

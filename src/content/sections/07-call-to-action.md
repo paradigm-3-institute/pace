@@ -8,7 +8,6 @@ If you are interested in working on any of the open questions we lay out above, 
 See also the calls to action from other organizations:
 
 * AI Futures Project, “[Get Involved](https://ai-2040.com/supplements/verification-plan/get-involved)”, including their [interest form](https://tally.so/r/LZyyDy).  
-* [ERO](https://www.existentialriskobservatory.org/about-us/#support-us%20) “Support Us”  
 * [Encode AI](https://encodeai.org/#block_6023164c802a3a52f51cea0f9daf7289%20), “Contact Us”  
 * [For AI staff](https://concernedaistaff.org/)  
 * [Safe AI Forum](https://saif.org/about-and-contact/)

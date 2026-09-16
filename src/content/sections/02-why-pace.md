@@ -148,7 +148,7 @@ It is not a given that coordinated pacing would actually be good for the world. 
 ![Full causal graph of how pacing interventions work](/media/causal_graph_2.svg)
 
 
-<details>
+<details id="sec-2.4" class="sec-anchor">
   <summary> Case A: A cap on frontier training </summary>
   <div>
 
@@ -161,7 +161,7 @@ Such a cap would also delay beneficial capabilities (including AI-assisted safet
   </div>
 </details>
 
-<details>
+<details id="sec-2.5" class="sec-anchor">
   <summary> Case B: Restricting access to dangerous biological capabilities </summary>
   <div>
 
@@ -183,7 +183,7 @@ These interventions could complement controls on biological materials and labora
   * *Rahman (2026), [Does Distributed Training Undermine Compute Governance?](https://arxiv.org/abs/2605.29359)*   
   * *Sastry et al. (2024), [Computing Power and the Governance of Artificial Intelligence](https://arxiv.org/abs/2402.08797).* Maps compute governance options and their readiness  
 * **How do actors in this space make decisions about pacing?** What evidence do they currently consider and what assumptions do they currently make? What pathways exist for external research to inform such decisions, e.g. in government or lab leadership, and what makes that information transfer more effective?  
-  * *METR (2025), [Common Elements of Frontier AI Safety Policies](https://metr.org/blog/2025-12-09-common-elements-of-frontier-ai-safety-policies/\))*  
+  * *METR (2025), [Common Elements of Frontier AI Safety Policies](https://metr.org/blog/2025-12-09-common-elements-of-frontier-ai-safety-policies/)*  
 * **Which AI risks are most likely to motivate a pacing intervention, now and in the future?** Where do different dangerous capabilities sit on the offense/defense balance, and how will that change over time?  Related work:  
   * *Garfinkel & Dafoe (2019), [How Does the Offense-Defense Balance Scale?](https://www.tandfonline.com/doi/full/10.1080/01402390.2019.1631810)*  
   * *Shevlane & Dafoe (2020), [The Offense-Defense Balance of Scientific Knowledge: Does Publishing AI Research Reduce Misuse?](https://arxiv.org/abs/2001.00463)*  
