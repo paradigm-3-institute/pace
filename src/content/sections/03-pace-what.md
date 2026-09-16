@@ -10,7 +10,9 @@ A successful pacing intervention would change the rate of one or more activities
 
 For any particular threat model, there is rarely one lever which maps cleanly and comprehensively onto that target. But there are levers on compute, on particular algorithmic approaches, on model releases, and on classes of use. Each of these has some bearing on the ultimate target, catching some activity that is harmless and missing some that is not, with varying costs to privacy, economic growth, and oversight.
 
-In general, interventions that target control surfaces [earlier in the AI R\&D process](https://arxiv.org/abs/2402.08797) (e.g. interventions on access to chips) tend to have broader impacts, a higher likelihood of lowering risks, a higher likelihood of harming beneficial progress, and less capacity to leverage information generated in the R\&D process. This makes them much less likely to be targeted at very specific harms. Conversely, interventions that target control surfaces later in the AI R\&D process (e.g. inference-stage “[safeguards](https://arxiv.org/abs/2403.08501)” or [access controls](https://arxiv.org/abs/2403.08501)) are much more able to leverage information and therefore be more targeted at specific harms, but are also more likely to be circumvented (as the harmful artifact already exists). 
+In general, interventions that target control surfaces [earlier in the AI R\&D process](https://arxiv.org/abs/2402.08797) (e.g. interventions on access to chips) tend to have broader impacts, a higher likelihood of lowering risks, a higher likelihood of harming beneficial progress, and less capacity to leverage information generated in the R\&D process. This makes them much less likely to be targeted at very specific harms. Conversely, interventions that target control surfaces later in the AI R\&D process (e.g. inference-stage “[safeguards](https://arxiv.org/abs/2403.08501)” or [access controls](https://arxiv.org/abs/2403.08501)) are much more able to leverage information and therefore be more targeted at specific harms, but are also more likely to be circumvented (as the harmful artifact already exists).
+
+A longlist of 83 possible interventions can be found [here](/appendices/#82-appendix-longlist-of-pacing-interventions).
 
 ### 3.1 Control surfaces of AI progress
 
@@ -48,7 +50,7 @@ By contrast, for a rival good like computing hardware, an oversight body could b
 
 This highlights a recurring tradeoff. Control surfaces earlier in the chain are easier to observe and constrain, but further removed from the eventual harm, forcing interventions to be blunt. Later surfaces are often more amenable to precise targeting, but can be more difficult to intervene on and less robust. 
 
-![A diagram showing AI development control surfaces across the development and deployment chain.](/media/control-surfaces.svg)
+![Control surfaces for AI development across the chain of developing and deploying systems.](/media/control-surfaces.svg)
 
 ### 3.2 Targeting and tradeoffs
 
@@ -60,7 +62,7 @@ Interventions earlier in the development process can have wider-reaching downstr
 
 For most threats, there are multiple distinct pathways to their realization. A capability advance can come from more training compute, better algorithms, [more elaborate post-training](https://arxiv.org/abs/2310.06452), or better elicitation of a model’s existing latent capabilities. An intervention which targets one route but leaves the others open still allows threat-relevant activity to continue even if the intervention is perfectly enforced.
 
-![A diagram showing how a pacing intervention affects different pathways to dangerous AI capabilities.](/media/intervention.svg)
+![How a pacing intervention affects different pathways to dangerous AI capabilities.](/media/intervention.svg)
 
 The quality of selection also changes over time. This is partly because actors adapt in response to interventions, as we discuss in §5. But even beyond that, the effectiveness of an intervention depends on empirical assumptions about the relationship between the control surface and the hazard. These assumptions may be changed by later progress. 
 
@@ -69,7 +71,7 @@ For example, one conservative way to prevent the emergence of a dangerous advanc
 For a given control surface, there will often be a three-way tradeoff between false positives, false negatives, and intrusiveness or oversight. Simply put, one can make an imperfect intervention more or less broad, or one can invest in making the intervention more accurate, by some mix of investing more energy in scrutinizing individual cases and requiring more access to information about those cases, some of which might otherwise be private.  
  
 
-![A diagram illustrating the tradeoff between false positives, false negatives, and intervention intrusiveness.](/media/draw-the-line.svg)
+![The tradeoff between false positives, false negatives, and intervention intrusiveness.](/media/draw-the-line.svg)
 
 Broader interventions, which capture a higher fraction of threat-relevant activity, carry with them greater economic costs, while narrower interventions may be easier to circumvent and thus have fewer safety benefits.
 

@@ -5,7 +5,7 @@ order: 4
 
 A pacing intervention is ultimately a sequence of steps; we reason about an intervention from start to end and consider its many decision points and failure points. This lets us spot the supporting work required for an actual, sustained period of restraint. In this section, we consider a single intervention’s lifespan. In reality, a pacing plan may contain a portfolio of interventions, each with its own conditions and triggers.
 
-![A diagram showing how evidence can fail to influence pacing action.](/media/evidence-to-action.svg)
+![How evidence can fail to influence pacing action.](/media/evidence-to-action.svg)
 
 ### 4.1 Before pacing
 
