@@ -90,7 +90,7 @@ Coordination is more sustainable when compliance can be checked without needing 
 Unfortunately, while information about model capabilities and threat models accumulates steeply along the arc of model development, coordination can become more difficult. The information that can be gained about a system nearing deployment is often nonstandardized and difficult to make legible (i.e. the internal testing protocols and mitigation mechanisms at one lab may not look the same as at another, even if they point at the same targets). Upstream, however, information on goods like compute, which are produced by very few companies in relatively few places, can be easily [made legible, verified and shared](https://arxiv.org/abs/2408.16074), making coordination easier. As a result, coordinating actors will tend to select upstream control surfaces: the crude and high-false-positive side of the arc provides a source of surfaces better suited to coordination.
 
 <details id="sec-3.4" class="sec-anchor">
-  <summary> Case A: A cap on frontier training </summary>
+  <summary> 3.4 Case A: A cap on frontier training </summary>
   <div>
 
 Suppose the concern is that AI systems may substantially accelerate or automate AI R\&D before adequate means of control exist. The hazard is a transition toward AI-driven development which outpaces developers’ ability to control it. 
@@ -110,7 +110,7 @@ Here we choose a per-model cap covering pretraining and post-training. Developer
 
 
 <details id="sec-3.5" class="sec-anchor">
-  <summary> Case B: Restricting access to dangerous biological capabilities </summary>
+  <summary> 3.5 Case B: Restricting access to dangerous biological capabilities </summary>
   <div>
 
 Suppose instead that the concern is the diffusion of AI assistance that materially increases users’ ability to develop biological weapons. Here the hazard is more about access and usage than training. 
@@ -130,7 +130,9 @@ There is also a risk that, once an open model with a given level of capabilities
   </div>
 </details>
 
-### 3.6 Open Research Questions
+<details id="sec-3.6" class="sec-anchor research">
+  <summary> 3.6 Open Research Questions </summary>
+  <div>
 
 * **How should hazards be translated into covered activity for pacing interventions?** Risks we would like to target, such as uncontrolled automation of AI R\&D and bioweapon uplift, build up over various stages of AI research, development and deployment; capabilities will initially emerge at some point in training, and we may want to avoid such a point being reached, or we may care more about wider deployment (especially if capabilities have positive use cases we want to preserve). Research should compare candidate boundaries.  
   * [*Shevlane et al. (2023), Model Evaluation for Extreme Risks*](https://arxiv.org/abs/2305.15324)  
@@ -151,3 +153,5 @@ There is also a risk that, once an open model with a given level of capabilities
   * We believe the proposal would be technically sufficient to forestall the development of ASI if implemented today, but advancements in AI capabilities or development methods could hurt its efficacy. Additionally, there does not yet exist the political will to put such an agreement in place. Despite these challenges, we hope this agreement can provide direction for AI governance research and policy.  
   * [*Petrie et al. (2025), Flexible Hardware-Enabled Guarantees for AI Compute*](https://arxiv.org/abs/2506.15093)*.* Proposes verifying compliance without exposing sensitive information about AI development.
 
+  </div>
+</details>

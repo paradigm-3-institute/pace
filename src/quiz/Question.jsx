@@ -42,7 +42,7 @@ export function Question({ id, onChoose }) {
         <Kicker text={q.kicker} at={1} />
       </div>
 
-      <div class="flex flex-auto flex-col justify-start">
+      <div class="flex flex-col justify-start">
         <Stem at={2}>{q.stem}</Stem>
         {q.help && <Help at={3}>{q.help}</Help>}
 

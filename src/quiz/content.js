@@ -64,7 +64,7 @@
        mapCaption          the line under the map's population count, used
                            when one dot stands for one response.
        mapCaptionMany      the same line when one dot stands for several;
-                           {per} becomes how many. {n} is the total either way.
+                           {per} becomes how many.
        detailWord          the heading over the side panel before anything is
                            clicked, and detailEmpty the line beneath it.
        campWord            the heading over the panel when a camp is open.
@@ -249,8 +249,8 @@ export const QUIZ_DATA = {
 
     resultsWaiting: `The live tally appears once a few more people have walked the tree.`,
     resultsUnavailable: `The live tally can't be reached right now.`,
-    mapCaption: `one dot = one response · n={n}`,
-    mapCaptionMany: `one dot = {per} responses · n={n}`,
+    mapCaption: `one dot = one response`,
+    mapCaptionMany: `one dot = {per} responses`,
     detailWord: `The Pacing Decision Tree`,
     detailEmpty: `Click any question or camp on the map.`,
     campWord: `CAMP`,

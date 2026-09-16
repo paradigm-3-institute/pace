@@ -149,7 +149,7 @@ It is not a given that coordinated pacing would actually be good for the world. 
 
 
 <details id="sec-2.4" class="sec-anchor">
-  <summary> Case A: A cap on frontier training </summary>
+  <summary> 2.4 Case A: A cap on frontier training </summary>
   <div>
 
 Frontier model progress has increasingly made AI systems capable of automating their own further improvement. Anthropic, for example, has [claimed](https://www.anthropic.com/institute/recursive-self-improvement) that it is producing 8x as much code per researcher since the release of Mythos 5, when compared to the pre-2025 baseline, and that its own researchers estimated they were sped up by a factor of 4x, though [Anthropic thinks](https://metr.org/notes/2026-07-08-anthropic-researcher-uplift/) that this was likely an overestimate. If this AI contribution to AI became sufficiently large, capability development could accelerate while also becoming less dependent on human researchers. The time available to evaluate successive systems might shrink, even as previously functional oversight measures break down and unexpected new risks emerge.
@@ -162,7 +162,7 @@ Such a cap would also delay beneficial capabilities (including AI-assisted safet
 </details>
 
 <details id="sec-2.5" class="sec-anchor">
-  <summary> Case B: Restricting access to dangerous biological capabilities </summary>
+  <summary> 2.5 Case B: Restricting access to dangerous biological capabilities </summary>
   <div>
 
 AI systems are increasingly able to aid some users in [developing biological weapons](https://arxiv.org/pdf/2506.13798). Governments and developers may face some lag in their ability to assess uplift, to restrict it in specific models, and to deploy model capabilities to develop countermeasures. Restrictions could include safeguards on publicly available models, with access to less restricted versions remaining gated (as with Anthropic’s [release](https://www.anthropic.com/news/claude-fable-5-mythos-5) of Fable 5 and Mythos 5). Furthermore, releasing the weights of individual models removes any ability to regulate them if they turn out to provide an unacceptable degree of uplift.
@@ -174,7 +174,9 @@ These interventions could complement controls on biological materials and labora
   </div>
 </details>
 
-### 2.6 Open Research Questions
+<details id="sec-2.6" class="sec-anchor research">
+  <summary> 2.6 Open Research Questions </summary>
+  <div>
 
 * **How much, and in what ways, would more time allow us to better manage various AI risks?** What are the bottlenecks to mitigation or adaptation of different AI risks? What factors other than time influence AI risk management? What risk management efforts can be taken now, and which can only be taken once certain AI capability or adoption thresholds are crossed?  Related work:  
   * *MacAskill & Moorhouse (2025), [Preparing for the Intelligence Explosion](https://www.forethought.org/research/preparing-for-the-intelligence-explosion)* Explicitly sorts "grand challenges" by whether they need calendar time, human deliberation, or just more AI.  
@@ -194,3 +196,5 @@ These interventions could complement controls on biological materials and labora
 * **What are the risks and benefits of titration** (“deploy it and learn the risks empirically”)? Have past release strategies from frontier labs succeeded in managing known AI risks? What might change in the future risk landscape? Given our uncertainty about the true risks, what criteria should gate the deployment of new frontier models?   
   * *Shevlane et al. (2023), [Model Evaluation for Extreme Risks](https://arxiv.org/abs/2305.15324)*.
 
+  </div>
+</details>

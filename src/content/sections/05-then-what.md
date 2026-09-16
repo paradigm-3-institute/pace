@@ -223,7 +223,9 @@ A further redirection is simply for actors to move away from biological capabili
   </div>
 </details>
 
-### 5.8 Open Research Questions
+<details id="sec-5.8" class="sec-anchor research">
+  <summary> 5.8 Open Research Questions </summary>
+  <div>
 
 * **What compensation schemes could make pacing interventions more desirable for actors who stand to lose financially from them?** What are the precedents for such compensation, how could they be funded, and what secondary impacts might they have?  
   * *Srivastav & Zaehringer (2024), [The Economics of Coal Phaseouts](https://arxiv.org/abs/2406.14238)*  
@@ -236,3 +238,6 @@ A further redirection is simply for actors to move away from biological capabili
 * **What safeguards can be deployed to guard against mission creep**, where regulators or newly empowered authorities could gain power beyond what was intended and become hard to dislodge?  
   * *Romano & Levin (2021), [Sunsetting as an Adaptive Strategy](https://pmc.ncbi.nlm.nih.gov/articles/PMC8256028/)*  
   * *Molloy (2021), [Approach with Caution: Sunset Clauses as Safeguards of Democracy?](https://researchportal.northumbria.ac.uk/en/publications/approach-with-caution-sunset-clauses-as-safeguards-of-democracy/)*
+
+  </div>
+</details>

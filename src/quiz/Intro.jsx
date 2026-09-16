@@ -6,7 +6,7 @@ import { Button, Icon, Rise } from "./ui.jsx";
 export function Intro({ onBegin }) {
   const intro = QUIZ_DATA.intro;
   return (
-    <div class="flex flex-auto md:pt-32 flex-col items-center justify-center max-w-md mx-auto">
+    <div class="flex flex-auto flex-col items-center justify-center max-w-md mx-auto">
       <Icon name={intro.icon} class="block text-[72px] leading-none text-(--color-conclusion-bg)" at={0} />
       <Rise at={1}>
         <h2 class="font-sans text-[2.2em] md:text-[2.6em] text-center font-semibold tracking-[-0.02em] leading-[1.1] text-(--color-conclusion-bg) mt-6">

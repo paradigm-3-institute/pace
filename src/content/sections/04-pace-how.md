@@ -89,7 +89,7 @@ Ending an intervention need not mean dismantling it entirely. It could make sens
 Table: Key decisions per stage of an intervention’s lifecycle
 
 <details id="sec-4.5" class="sec-anchor">
-  <summary> Case A: A cap on frontier training </summary>
+  <summary> 4.5 Case A: A cap on frontier training </summary>
   <div>
 
 **Before pacing,** governments should recognize that they are hoping to slow development before it outpaces developers’ and authorities’ oversight capacity. Thus they must make judgment calls about when developers are sufficiently close to the dangerous threshold to justify intervention. A problem is that the predictive tools they could use to detect relevant signals are hard to interpret: to take one scenario, some forecasts may predict imminent self improvement, while others disagree. 
@@ -108,7 +108,7 @@ However, if there does appear to be a hard capabilities threshold under a certai
 </details>
 
 <details id="sec-4.6" class="sec-anchor">
-  <summary> Case B: Restricting access to dangerous biological capabilities </summary>
+  <summary> 4.6 Case B: Restricting access to dangerous biological capabilities </summary>
   <div>
 
 **Before pacing**, labs may be required to make their models available to third-party evaluators for pre-release evaluations of potential capabilities that would provide uplift to a malign actor (e.g. to debug a failing synthesis protocol, or piece together a dangerous method from scattered dual-use sources). A biological capability is far harder to recall once it reaches the public than to withhold beforehand, so reaching a certain threshold on the evaluations should block deployment outright, unless safeguards can be demonstrated to mitigate the risk. This is particularly important for open weight models, where release is difficult to reverse.
@@ -122,7 +122,9 @@ However, if there does appear to be a hard capabilities threshold under a certai
   </div>
 </details>
 
-### 4.7 Open Research Questions
+<details id="sec-4.7" class="sec-anchor research">
+  <summary> 4.7 Open Research Questions </summary>
+  <div>
 
 * **How do the incentives of bound parties change across the lifecycle?** To what extent can different actors reliably predict the behaviour of other actors throughout the lifetime of a pacing intervention? How load-bearing are these predictions of behaviour going to be for coordination of pacing interventions?  
   * [*Finke (2026), International Agreements to Limit Frontier AI: Objectives and Exit*](https://arxiv.org/abs/2607.16224)  
@@ -143,3 +145,6 @@ However, if there does appear to be a hard capabilities threshold under a certai
 * **What is the relationship between initiation and exit triggers?** Intuitively, the exit trigger should track whatever justified the intervention in the first place, but what could affect that link and what other factors should be considered?  
   * [*Cârlan et al. (2024), Dynamic Safety Cases for Frontier AI*](https://arxiv.org/abs/2412.17618)  
   * [*Karnofsky (2024), If-Then Commitments for AI Risk Reduction*](https://carnegieendowment.org/research/2024/09/if-then-commitments-for-ai-risk-reduction)
+
+  </div>
+</details>

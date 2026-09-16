@@ -35,7 +35,7 @@ export function Icon({ name, class: className, at }) {
 
 /* The large icon at the top of a screen. */
 export function ScreenIcon({ name, at }) {
-  return <Icon name={name} class="block text-[72px] leading-none text-(--color-conclusion-bg) mb-3" at={at} />;
+  return <Icon name={name} class="block text-[3.8em] leading-none text-(--color-conclusion-bg) mb-3" at={at} />;
 }
 
 /* "Branching Point 01 · Transformation" on two lines. */
@@ -84,14 +84,13 @@ export function Help({ children, at }) {
   );
 }
 
-/* The frame around a set of cards: a 2px rule, a 4px gutter, then the
-   cards' own 2px rules. `cols` is how many sit side by side from lg;
-   below that they stack. */
+/* A set of cards, each standing on its own. `cols` is how many sit
+   side by side from lg; below that they stack. */
 export function Frame({ cols = 1, class: className, children }) {
   return (
     <div
       class={join(
-        "grid gap-1 p-1 border-2 border-(--color-conclusion-bg) bg-background mt-10 grid-cols-1 lg:grid-cols-[repeat(var(--cols),1fr)]",
+        "grid gap-4 mt-10 grid-cols-1 lg:grid-cols-[repeat(var(--cols),1fr)]",
         className,
       )}
       style={{ "--cols": cols }}
@@ -101,14 +100,15 @@ export function Frame({ cols = 1, class: className, children }) {
   );
 }
 
-/* One answer in a frame. Kept plain: the rule, and nothing inside it. */
+/* One answer. Framed twice like the essay's panels: its rule, then a
+   second line set 4px in from it. */
 export function Card({ class: className, at, children, ...rest }) {
   const r = rise(at);
   return (
     <button
       type="button"
       class={join(
-        "cursor-pointer border-2 border-(--color-conclusion-bg) bg-background text-left transition-colors duration-120 hover:bg-(--color-why-pace-bg) focus-visible:bg-(--color-why-pace-bg) focus-visible:outline-none",
+        "cursor-pointer border-2 border-(--color-conclusion-bg) outline-2 -outline-offset-6 outline-(--color-conclusion-bg) bg-background text-left transition-colors duration-120 hover:bg-(--color-why-pace-bg) focus-visible:bg-(--color-why-pace-bg) focus-visible:outline-none",
         className,
         r.class,
       )}
@@ -138,11 +138,12 @@ export function CardText({ children }) {
 export const BUTTON =
   "inline-flex items-center gap-[9px] cursor-pointer rounded-[9px] font-sans font-medium px-4 py-2 bg-sidebar text-(--color-introduction-bg) transition-colors duration-120 hover:text-(--color-pace-what-bg) focus-visible:text-(--color-pace-what-bg) focus-visible:outline-none disabled:cursor-default disabled:hover:text-(--color-introduction-bg)";
 
-export function Button({ icon, children, ...rest }) {
+export function Button({ icon, trailingIcon, class: className, children, ...rest }) {
   return (
-    <button type="button" class={BUTTON} {...rest}>
+    <button type="button" class={join(BUTTON, className)} {...rest}>
       {icon && <Icon name={icon} class="text-[1.3em] leading-none -mt-px antialiased" />}
       {children}
+      {trailingIcon && <Icon name={trailingIcon} class="text-[1.3em] leading-none -mt-px antialiased" />}
     </button>
   );
 }

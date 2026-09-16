@@ -47,7 +47,7 @@
 
 .prose h2 {
   font-size: var(--h2-size);
-  margin: 80px 6px 48px 6px;
+  margin: 24px 6px 48px 6px;
   letter-spacing: -0.01em;
   padding: var(--h2-pad);
   border: solid 2px var(--color-sidebar);
@@ -56,6 +56,14 @@
   top: 0px;
   z-index: 2;
   font-weight: 600;
+}
+
+/* Where one section meets the next, the banner sits straight on what came
+   before it — no break of its own. A section that ends in text still has
+   that text's bottom margin; one that ends in a collapsible meets the
+   banner edge to edge. */
+.prose > section + section > h2 {
+  margin-top: 0;
 }
 
 /* A page that opens on a section banner (the appendices) has nothing above
@@ -176,14 +184,14 @@
 }
 
 .prose a {
-  background-color: rgba(86, 106, 81, 0.16);
+  background-color: rgba(113, 89, 83, 0.16);
   border-radius: 4px;
   padding: 0px 3px;
   margin: 0px -0.5px;
 }
 
 .prose a:hover {
-  text-decoration-color: rgba(86, 106, 81, 0.6);
+  text-decoration-color: rgba(113, 89, 83, 0.6);
   text-decoration: underline;
   color: var(--color-conclusion-bg);
   text-underline-offset: 2px;
@@ -518,6 +526,29 @@
   border-top: solid 2px var(--color-conclusion-bg);
 }
 
+/* The open-questions lists: the same collapsible in the sidebar's darker
+   shades — the "Then What?" green for the heading, with light text, and
+   the "Pace How?" green for the body, with dark text, as those two tabs
+   are set. */
+.prose details.research {
+  background-color: var(--color-pace-what-bg);
+  border-color: var(--color-conclusion-bg);
+}
+
+.prose details.research > summary {
+  background-color: var(--color-then-what-bg);
+  color: var(--color-from);
+}
+
+.prose details.research li::marker {
+  color: var(--color-conclusion-bg);
+}
+
+/* A collapsible that ends a section carries no margin into the break. */
+.prose details:last-child {
+  margin-bottom: 0;
+}
+
 .prose details + details {
   margin-top: -2px;
 }
@@ -570,7 +601,9 @@
   margin-top: 48px;
   padding-top: 16px;
   border-top: 2px solid var(--color-why-pace-bg);
-  font-size: 0.82em;
+  /* Satoshi's large x-height makes it read bigger than the serif at the
+     same size, so this sits a little under what "a step smaller" would be. */
+  font-size: 0.76em;
   font-family: var(--font-sans);
 }
 
@@ -593,6 +626,37 @@
 
 .prose .footnotes li {
   margin-top: 12px;
+}
+
+/* Authors and their affiliations, two columns: names on the left, the
+   institution on the right, rows aligned. */
+.prose .affiliations {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 1.5em;
+  row-gap: 0.3em;
+  margin: 0 0 1em;
+  max-width: 100%;
+}
+
+.prose .affiliations dt {
+  font-weight: 600;
+  color: var(--color-conclusion-bg);
+}
+
+.prose .affiliations dd {
+  margin: 0;
+}
+
+@media (width < 40rem) {
+  .prose .affiliations {
+    grid-template-columns: 1fr;
+    row-gap: 0;
+  }
+
+  .prose .affiliations dd {
+    margin-bottom: 0.5em;
+  }
 }
 
 .prose .footnotes p {
