@@ -50,7 +50,7 @@ const sections = await Promise.all(
 ---
 
 <Layout
-  title="How to Pace The Frontier"
+  title="Pacing The Frontier"
   description="A field guide to spending your effort budget across a long distance."
 >
   <aside class="md:fixed w-full pb-2 md:w-70 md:h-dvh overflow-auto bg-sidebar text-background border-x-2 md:border-l-0 border-sidebar select-none">
@@ -63,8 +63,8 @@ const sections = await Promise.all(
           <div class="-ml-0.5">the</div>
           <div>Frontier</div>
         </div>
-        <a class="inline-block mt-5 text-(--color-pace-how-bg) hover:text-(--color-why-pace-bg)" href="/quiz">
-          Choose-your-own pace path →
+        <a class="inline-block mt-7 mb-7 text-(--color-pace-how-bg) hover:text-(--color-why-pace-bg)" href="/quiz">
+          Choose-your-pace →
         </a>
       </div>
     </a>
@@ -81,35 +81,18 @@ const sections = await Promise.all(
     <article class="prose max-w-222 2xl:max-w-260 bg-background mx-auto py-8 md:py-16 lg:border-2 border-sidebar -outline-offset-8 outline-2 outline-sidebar rounded-sm">
       <div class="padded">
         <hgroup>
-          <h1>How to Pace the Frontier</h1>
-          <p>A Framework & Research Agenda</p>
+          <h1>Pacing the Frontier</h1>
+          <p>A Research Agenda</p>
         </hgroup>
         <div class="grid gap-6 mb-16 font-sans text-(--color-conclusion-bg)">
           <div class="text-right font-semibold text-balance">
-            Shahar Avin<sup>✝</sup>, Raymond Douglas, Charles Dillon, Gavin Leech &amp; Nikola Moore
+            Raymond Douglas, Charles Dillon, Nikola Moore, Gavin Leech 
           </div>
           <div class="text-right ml-auto max-w-md text-balance">
-            Jan Kulveit, Rohit Krishnan, Nathan Young, Mathias Kirk Bonde, David Duvenaud, Stephen Casper, Noah Perez,
-            Cormac Slade Byrd
-          </div>
+          and Mathias Kirk Bonde, Rohit Krishnan, Noah Perez, Nathan Young, Cormac Slade Byrd, Stephen Casper, Jan Kulveit, David Duvenaud, & Shahar Avin<sup>✝</sup>
+        </div>
           <!-- <div class="font-semibold">This work is funded by ACS Research and Paradigm3.</div> -->
         </div>
-        <blockquote class="padded mb-16!">
-          <p>
-            “Society at large may need the option to buy time to address emerging risks, develop security measures, and
-            strengthen oversight. But each company—and country—is under intense competitive pressure not to unilaterally
-            slow that acceleration. And today, the world lacks the technical and governance tools to deliberately pace
-            frontier-wide progress.”
-          </p>
-          <cite>
-            {" "}
-            –{" "}
-            <a href="https://www.pacingthefrontier.com/" target="_blank">
-              1,367 employees
-            </a>{" "}
-            of frontier AI companies{" "}
-          </cite>
-        </blockquote>
         <Intro />
       </div>
       {sections.map(({ id, label, textClass, content }) => (

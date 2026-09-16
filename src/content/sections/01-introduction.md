@@ -3,6 +3,22 @@ title: "Introduction"
 order: 1
 ---
 
+
+<blockquote class="padded mb-16!">
+  <p>
+    “Society at large may need the option to buy time to address emerging risks, develop security measures, and
+    strengthen oversight. But each company—and country—is under intense competitive pressure not to unilaterally
+    slow that acceleration. And today, the world lacks the technical and governance tools to deliberately pace
+    frontier-wide progress.”
+  </p>
+  <cite>
+    – 
+    <a href="https://www.pacingthefrontier.com/" target="_blank">1,367 employees</a>
+    of frontier AI companies
+  </cite>
+</blockquote>
+        
+
 How should AI developers balance growing the useful capabilities of their models against their [waning](https://deploymentsafety.openai.com/gpt-6-astra#monitorability) ability to oversee and control such models? How should regulators handle the spread of systems that can carry out advanced cyberattacks, or even illegally [initiate](https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/) them? How should governments navigate arms-race dynamics, in which each side fears that its restraint will be exploited?
 
 We take a broad notion of pacing that encompasses any interventions that deliberately moderate the pace of frontier AI development, deployment, and diffusion. From this perspective, actors already routinely make costly [choices](https://www.theguardian.com/technology/2026/jun/13/anthropic-disable-advanced-ai-models-us-government-order) [around](https://www.axios.com/2026/08/07/openai-astra-model-delay-cybersecurity-risks) [pacing](https://ai-frontiers.org/articles/us-chip-export-controls-china-ai). Developers [delay releases](https://www.anthropic.com/research/glasswing-initial-update), [roll back deployments](https://openai.com/index/expanding-on-sycophancy/), and even [pause training](https://openai.com/index/pacing-model-development-cyber-capabilities/) in response to harms that they are not equipped to mitigate. In the coming years, these choices will become far higher-stakes, as AI systems become more advanced, more embedded in society, and [more](https://openai.com/index/ai-policy-window/) [regulated](https://www.anthropic.com/policy-on-the-ai-exponential), and as AI development takes on greater geostrategic significance.
