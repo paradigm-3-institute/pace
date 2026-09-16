@@ -1,8 +1,10 @@
 // @ts-check
 import { defineConfig, fontProviders } from "astro/config";
+import { unified } from "@astrojs/markdown-remark";
 import tailwindcss from "@tailwindcss/vite";
 import rehypeSectionizeH3 from "./src/plugins/rehype-sectionize-h3.js";
 import rehypeExternalLinks from "./src/plugins/rehype-external-links.js";
+import rehypeImagePerformance from "./src/plugins/rehype-image-performance.js";
 
 import preact from "@astrojs/preact";
 
@@ -11,7 +13,9 @@ export default defineConfig({
   site: "https://pacing.tech",
 
   markdown: {
-    rehypePlugins: [rehypeSectionizeH3, rehypeExternalLinks],
+    processor: unified({
+      rehypePlugins: [rehypeSectionizeH3, rehypeExternalLinks, rehypeImagePerformance],
+    }),
   },
 
   vite: {
