@@ -26,7 +26,10 @@
   --color-appendices-bg: rgb(4, 35, 1);
 
   --x-padding: 32px;
-  --x-padding-inside: calc(var(--x-padding) - 8px);
+  /* Full-bleed elements (sticky headings, images, collapsibles) run out to
+     this. It once stopped short of an inset outline; with the frame now on
+     the article's edge, they run all the way to it. */
+  --x-padding-inside: var(--x-padding);
 }
 
 @media (width >= 48rem) {
@@ -35,11 +38,7 @@
   }
 }
 
-@media (width >= 64rem) {
-  :root {
-    --x-padding-inside: calc(var(--x-padding) - 6px);
-  }
-}
+
 
 html {
   scroll-behavior: smooth;
