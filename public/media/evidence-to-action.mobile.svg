@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="1208" viewBox="0 0 480 1208" role="img" aria-labelledby="ttl dsc">
+  <title id="ttl">How evidence can become action, and where it can stall</title>
+  <desc id="dsc">Six steps from evidence to action: detect, interpret, decide, execute, check, and retarget or exit, grouped into before pacing, activation, and during or ending. Between each step the process can stall: no recognised recipient, no usable basis for a call, no one able or willing to act, no observation or verification, no review or exit rule.</desc>
+  <defs>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#e2e8ee" stroke-width="1"/>
+    </pattern>
+    <style>
+      .hd { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; fill: #1e2833; }
+      .hs { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; fill: #1e2833; }
+      .lb { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 10px; font-weight: 700; letter-spacing: 1px; fill: #6b7482; }
+      .ph { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; fill: #4f6a8a; }
+      .rd { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9.5px; font-weight: 700; letter-spacing: 1px; fill: #c0392b; }
+      .bl { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9.5px; font-weight: 700; letter-spacing: 1px; fill: #3f5f85; }
+      .bd { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 16px; fill: #2f3b4b; }
+      .b2 { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 14px; fill: #2f3b4b; }
+      .b3 { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 12px; fill: #2f3b4b; }
+      .bi { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 13px; font-style: italic; fill: #6b7482; }
+      .ef { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 12px; font-weight: 700; fill: #1e2833; }
+      .box { fill: #fdfdfe; stroke: #1e2833; stroke-width: 2.5; }
+      .box-out { fill: #d6e4f2; stroke: #1e2833; stroke-width: 2.5; }
+      .outline { fill: none; stroke: #1e2833; stroke-width: 2.5; }
+      .cell { stroke: #1e2833; stroke-width: 1.5; }
+      .sep { stroke: #1e2833; stroke-width: 2; }
+      .thin { stroke: #c5ccd4; stroke-width: 1; }
+      .arr { stroke: #1e2833; stroke-width: 3.5; fill: none; }
+      .head { fill: #1e2833; }
+      .fb { stroke: #7d8794; stroke-width: 2.5; fill: none; stroke-dasharray: 8 6; }
+      .fbhead { fill: #7d8794; }
+      .sm { stroke: #8a95a3; stroke-width: 2; fill: none; }
+      .smhead { fill: #8a95a3; }
+      .band { fill: #eef3f8; stroke: #9fb3c8; stroke-width: 1.2; }
+      .note { fill: #fbeae6; stroke: #d0503c; stroke-width: 1.2; }
+      .noteb { fill: #eaf0f6; stroke: #4a6b8f; stroke-width: 1.2; }
+      .rl { stroke: #d0503c; stroke-width: 1.2; fill: none; stroke-dasharray: 4 3; }
+      .bll { stroke: #4a6b8f; stroke-width: 1.2; fill: none; stroke-dasharray: 4 3; }
+      .dn { fill: #f7f9fb; stroke: #8a95a3; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .red { fill: #fdfdfe; stroke: #c0392b; stroke-width: 2; }
+      .redt { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; fill: #c0392b; }
+      .redl { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; fill: #c0392b; }
+      .ghost { fill: #eceff2; stroke: #8a95a3; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .ghostt { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; fill: #8a95a3; }
+      .cross { stroke: #b5bcc5; stroke-width: 1.2; stroke-dasharray: 4 3; }
+      .cap { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; letter-spacing: 0.3px; fill: #2f3b4b; }
+      .dot-b { fill: #5b7fa6; }
+      .dot-g { fill: #a9a9a9; }
+      .cons { fill: #dfe7ef; }
+      .open { fill: #ebe9e5; }
+      .line { stroke: #1e2833; stroke-width: 1.8; fill: none; stroke-dasharray: 6 4; }
+      .st { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9px; font-weight: 700; letter-spacing: 1px; fill: #4f6a8a; }
+      .sv { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 13px; font-weight: 700; fill: #1e2833; }
+      .th { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.5px; fill: #2b3a55; }
+      .rh { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 13px; font-weight: 700; fill: #2b3a55; }
+      .tv { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 14px; fill: #2b3a55; }
+    </style>
+  </defs>
+  <rect width="480" height="1208" fill="#f3f6f9"/>
+  <rect width="480" height="1208" fill="url(#grid)"/>
+  <text class="hd" x="240.0" y="27.0" text-anchor="middle" dominant-baseline="central" >HOW EVIDENCE CAN BECOME ACTION —</text>
+  <text class="hd" x="240.0" y="45.0" text-anchor="middle" dominant-baseline="central" >AND WHERE IT CAN STALL</text>
+  <rect class="band" x="14" y="76" width="22" height="316" />
+  <text class="ph" x="25" y="234.0" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 25 234.0)">BEFORE PACING</text>
+  <rect class="band" x="14" y="472" width="22" height="316" />
+  <text class="ph" x="25" y="630.0" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 25 630.0)">ACTIVATION</text>
+  <rect class="band" x="14" y="868" width="22" height="316" />
+  <text class="ph" x="25" y="1026.0" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 25 1026.0)">DURING / ENDING</text>
+  <rect class="box" x="52" y="76" width="400" height="118" />
+  <rect class="" x="52" y="160" width="400" height="34" fill="#e4ebf2"/>
+  <rect class="outline" x="52" y="76" width="400" height="118" />
+  <line class="sep" x1="52" y1="110" x2="452" y2="110"/>
+  <text class="hd" x="252.0" y="93" text-anchor="middle" dominant-baseline="central" >DETECT</text>
+  <text class="b2" x="252.0" y="127.0" text-anchor="middle" dominant-baseline="central" >Forecasts, evaluations</text>
+  <text class="b2" x="252.0" y="145.0" text-anchor="middle" dominant-baseline="central" >or incidents</text>
+  <text class="lb" x="252.0" y="170" text-anchor="middle" dominant-baseline="central" font-size="7px">OUTPUT</text>
+  <text class="ef" x="252.0" y="184" text-anchor="middle" dominant-baseline="central" >RECOGNISED SIGNAL</text>
+  <line class="arr" x1="110" y1="194" x2="110" y2="262"/>
+  <polygon class="head" points="102,260 118,260 110,274"/>
+  <circle class="note" cx="110" cy="234.0" r="9"/>
+  <path d="M106 230.0 L114 238.0 M114 230.0 L106 238.0" stroke="#d0503c" stroke-width="1.6"/>
+  <line class="rl" x1="119" y1="234.0" x2="150" y2="234.0"/>
+  <rect class="note" x="150.0" y="216.0" width="302" height="36" />
+  <text class="rd" x="301" y="228.0" text-anchor="middle" dominant-baseline="central" >NO RECOGNISED</text>
+  <text class="rd" x="301" y="240.0" text-anchor="middle" dominant-baseline="central" >RECIPIENT</text>
+  <rect class="box" x="52" y="274" width="400" height="118" />
+  <rect class="" x="52" y="358" width="400" height="34" fill="#e4ebf2"/>
+  <rect class="outline" x="52" y="274" width="400" height="118" />
+  <line class="sep" x1="52" y1="308" x2="452" y2="308"/>
+  <text class="hd" x="252.0" y="291" text-anchor="middle" dominant-baseline="central" >INTERPRET</text>
+  <text class="b2" x="252.0" y="325.0" text-anchor="middle" dominant-baseline="central" >Assess the signal</text>
+  <text class="b2" x="252.0" y="343.0" text-anchor="middle" dominant-baseline="central" >against a trigger</text>
+  <text class="lb" x="252.0" y="368" text-anchor="middle" dominant-baseline="central" font-size="7px">OUTPUT</text>
+  <text class="ef" x="252.0" y="382" text-anchor="middle" dominant-baseline="central" >DECISION BASIS</text>
+  <line class="arr" x1="110" y1="392" x2="110" y2="460"/>
+  <polygon class="head" points="102,458 118,458 110,472"/>
+  <circle class="note" cx="110" cy="432.0" r="9"/>
+  <path d="M106 428.0 L114 436.0 M114 428.0 L106 436.0" stroke="#d0503c" stroke-width="1.6"/>
+  <line class="rl" x1="119" y1="432.0" x2="150" y2="432.0"/>
+  <rect class="note" x="150.0" y="414.0" width="302" height="36" />
+  <text class="rd" x="301" y="426.0" text-anchor="middle" dominant-baseline="central" >NO USABLE BASIS</text>
+  <text class="rd" x="301" y="438.0" text-anchor="middle" dominant-baseline="central" >FOR A CALL</text>
+  <rect class="box" x="52" y="472" width="400" height="118" />
+  <rect class="" x="52" y="556" width="400" height="34" fill="#e4ebf2"/>
+  <rect class="outline" x="52" y="472" width="400" height="118" />
+  <line class="sep" x1="52" y1="506" x2="452" y2="506"/>
+  <text class="hd" x="252.0" y="489" text-anchor="middle" dominant-baseline="central" >DECIDE</text>
+  <text class="b2" x="252.0" y="523.0" text-anchor="middle" dominant-baseline="central" >Someone able to affect conduct</text>
+  <text class="b2" x="252.0" y="541.0" text-anchor="middle" dominant-baseline="central" >makes a meaningful call</text>
+  <text class="lb" x="252.0" y="566" text-anchor="middle" dominant-baseline="central" font-size="7px">OUTPUT</text>
+  <text class="ef" x="252.0" y="580" text-anchor="middle" dominant-baseline="central" >ACTIONABLE DECISION</text>
+  <line class="arr" x1="110" y1="590" x2="110" y2="658"/>
+  <polygon class="head" points="102,656 118,656 110,670"/>
+  <circle class="note" cx="110" cy="630.0" r="9"/>
+  <path d="M106 626.0 L114 634.0 M114 626.0 L106 634.0" stroke="#d0503c" stroke-width="1.6"/>
+  <line class="rl" x1="119" y1="630.0" x2="150" y2="630.0"/>
+  <rect class="note" x="150.0" y="612.0" width="302" height="36" />
+  <text class="rd" x="301" y="624.0" text-anchor="middle" dominant-baseline="central" >NO ONE ABLE OR</text>
+  <text class="rd" x="301" y="636.0" text-anchor="middle" dominant-baseline="central" >WILLING TO ACT</text>
+  <rect class="box" x="52" y="670" width="400" height="118" />
+  <rect class="" x="52" y="754" width="400" height="34" fill="#e4ebf2"/>
+  <rect class="outline" x="52" y="670" width="400" height="118" />
+  <line class="sep" x1="52" y1="704" x2="452" y2="704"/>
+  <text class="hd" x="252.0" y="687" text-anchor="middle" dominant-baseline="central" >EXECUTE</text>
+  <text class="b2" x="252.0" y="721.0" text-anchor="middle" dominant-baseline="central" >Covered actors</text>
+  <text class="b2" x="252.0" y="739.0" text-anchor="middle" dominant-baseline="central" >change conduct</text>
+  <text class="lb" x="252.0" y="764" text-anchor="middle" dominant-baseline="central" font-size="7px">OUTPUT</text>
+  <text class="ef" x="252.0" y="778" text-anchor="middle" dominant-baseline="central" >OPERATIONAL EFFECT</text>
+  <line class="arr" x1="110" y1="788" x2="110" y2="856"/>
+  <polygon class="head" points="102,854 118,854 110,868"/>
+  <circle class="note" cx="110" cy="828.0" r="9"/>
+  <path d="M106 824.0 L114 832.0 M114 824.0 L106 832.0" stroke="#d0503c" stroke-width="1.6"/>
+  <line class="rl" x1="119" y1="828.0" x2="150" y2="828.0"/>
+  <rect class="note" x="150.0" y="810.0" width="302" height="36" />
+  <text class="rd" x="301" y="822.0" text-anchor="middle" dominant-baseline="central" >NO OBSERVATION</text>
+  <text class="rd" x="301" y="834.0" text-anchor="middle" dominant-baseline="central" >OR VERIFICATION</text>
+  <rect class="box" x="52" y="868" width="400" height="118" />
+  <rect class="" x="52" y="952" width="400" height="34" fill="#e4ebf2"/>
+  <rect class="outline" x="52" y="868" width="400" height="118" />
+  <line class="sep" x1="52" y1="902" x2="452" y2="902"/>
+  <text class="hd" x="252.0" y="885" text-anchor="middle" dominant-baseline="central" >CHECK</text>
+  <text class="b2" x="252.0" y="919.0" text-anchor="middle" dominant-baseline="central" >Verify compliance;</text>
+  <text class="b2" x="252.0" y="937.0" text-anchor="middle" dominant-baseline="central" >assess new evidence</text>
+  <text class="lb" x="252.0" y="962" text-anchor="middle" dominant-baseline="central" font-size="7px">OUTPUT</text>
+  <text class="ef" x="252.0" y="976" text-anchor="middle" dominant-baseline="central" >REVIEW FINDING</text>
+  <line class="arr" x1="110" y1="986" x2="110" y2="1054"/>
+  <polygon class="head" points="102,1052 118,1052 110,1066"/>
+  <circle class="note" cx="110" cy="1026.0" r="9"/>
+  <path d="M106 1022.0 L114 1030.0 M114 1022.0 L106 1030.0" stroke="#d0503c" stroke-width="1.6"/>
+  <line class="rl" x1="119" y1="1026.0" x2="150" y2="1026.0"/>
+  <rect class="note" x="150.0" y="1008.0" width="302" height="36" />
+  <text class="rd" x="301" y="1020.0" text-anchor="middle" dominant-baseline="central" >NO REVIEW OR</text>
+  <text class="rd" x="301" y="1032.0" text-anchor="middle" dominant-baseline="central" >EXIT RULE</text>
+  <rect class="box" x="52" y="1066" width="400" height="118" />
+  <rect class="" x="52" y="1150" width="400" height="34" fill="#e4ebf2"/>
+  <rect class="outline" x="52" y="1066" width="400" height="118" />
+  <line class="sep" x1="52" y1="1100" x2="452" y2="1100"/>
+  <text class="hd" x="252.0" y="1083" text-anchor="middle" dominant-baseline="central" >RETARGET OR EXIT</text>
+  <text class="b2" x="252.0" y="1117.0" text-anchor="middle" dominant-baseline="central" >Continue · retarget</text>
+  <text class="b2" x="252.0" y="1135.0" text-anchor="middle" dominant-baseline="central" >Stage resumption · end</text>
+  <text class="lb" x="252.0" y="1160" text-anchor="middle" dominant-baseline="central" font-size="7px">OUTPUT</text>
+  <text class="ef" x="252.0" y="1174" text-anchor="middle" dominant-baseline="central" >REVISED DIRECTION</text>
+
+</svg>

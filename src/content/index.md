@@ -45,7 +45,7 @@ For each topic, we include recommended reading and starting points below. We als
     </a>
     <a class="ai-summary" href="https://themultiplicity.ai/room/b9745af8-4d93-4ba8-bd51-757e3301c2a0">
       <img src="/media/summary-multiplicity.png" alt="" width="128" height="128">
-      <span><strong>A Council</strong></span>
+      <span><strong>Council</strong></span>
     </a>
   </div>
 </div>

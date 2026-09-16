@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="510" height="630" viewBox="0 0 510 630" role="img" aria-labelledby="ttl dsc">
+  <title id="ttl">Causal graph of a pacing intervention</title>
+  <desc id="dsc">Pacing intervention causes a response, which causes AI slowdown, which causes risk mitigation. Pacing intervention also causes safety progress, which causes risk mitigation without going through slowdown. AI slowdown also delays benefits.</desc>
+  <defs>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#e2e8ee" stroke-width="1"/>
+    </pattern>
+    <style>
+      .hd { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; fill: #1e2833; }
+      .hs { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; fill: #1e2833; }
+      .lb { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 10px; font-weight: 700; letter-spacing: 1px; fill: #6b7482; }
+      .ph { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; fill: #4f6a8a; }
+      .rd { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9.5px; font-weight: 700; letter-spacing: 1px; fill: #c0392b; }
+      .bl { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9.5px; font-weight: 700; letter-spacing: 1px; fill: #3f5f85; }
+      .bd { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 16px; fill: #2f3b4b; }
+      .b2 { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 14px; fill: #2f3b4b; }
+      .b3 { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 12px; fill: #2f3b4b; }
+      .bi { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 13px; font-style: italic; fill: #6b7482; }
+      .ef { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 12px; font-weight: 700; fill: #1e2833; }
+      .box { fill: #fdfdfe; stroke: #1e2833; stroke-width: 2.5; }
+      .box-out { fill: #d6e4f2; stroke: #1e2833; stroke-width: 2.5; }
+      .outline { fill: none; stroke: #1e2833; stroke-width: 2.5; }
+      .cell { stroke: #1e2833; stroke-width: 1.5; }
+      .sep { stroke: #1e2833; stroke-width: 2; }
+      .thin { stroke: #c5ccd4; stroke-width: 1; }
+      .arr { stroke: #1e2833; stroke-width: 3.5; fill: none; }
+      .head { fill: #1e2833; }
+      .fb { stroke: #7d8794; stroke-width: 2.5; fill: none; stroke-dasharray: 8 6; }
+      .fbhead { fill: #7d8794; }
+      .sm { stroke: #8a95a3; stroke-width: 2; fill: none; }
+      .smhead { fill: #8a95a3; }
+      .band { fill: #eef3f8; stroke: #9fb3c8; stroke-width: 1.2; }
+      .note { fill: #fbeae6; stroke: #d0503c; stroke-width: 1.2; }
+      .noteb { fill: #eaf0f6; stroke: #4a6b8f; stroke-width: 1.2; }
+      .rl { stroke: #d0503c; stroke-width: 1.2; fill: none; stroke-dasharray: 4 3; }
+      .bll { stroke: #4a6b8f; stroke-width: 1.2; fill: none; stroke-dasharray: 4 3; }
+      .dn { fill: #f7f9fb; stroke: #8a95a3; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .red { fill: #fdfdfe; stroke: #c0392b; stroke-width: 2; }
+      .redt { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; fill: #c0392b; }
+      .redl { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; fill: #c0392b; }
+      .ghost { fill: #eceff2; stroke: #8a95a3; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .ghostt { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; fill: #8a95a3; }
+      .cross { stroke: #b5bcc5; stroke-width: 1.2; stroke-dasharray: 4 3; }
+      .cap { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; letter-spacing: 0.3px; fill: #2f3b4b; }
+      .dot-b { fill: #5b7fa6; }
+      .dot-g { fill: #a9a9a9; }
+      .cons { fill: #dfe7ef; }
+      .open { fill: #ebe9e5; }
+      .line { stroke: #1e2833; stroke-width: 1.8; fill: none; stroke-dasharray: 6 4; }
+      .st { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9px; font-weight: 700; letter-spacing: 1px; fill: #4f6a8a; }
+      .sv { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 13px; font-weight: 700; fill: #1e2833; }
+      .th { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.5px; fill: #2b3a55; }
+      .rh { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 13px; font-weight: 700; fill: #2b3a55; }
+      .tv { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 14px; fill: #2b3a55; }
+    </style>
+  </defs>
+  <rect width="510" height="630" fill="#f3f6f9"/>
+  <rect width="510" height="630" fill="url(#grid)"/>
+  <rect class="box" x="24" y="40" width="250" height="100" />
+  <line class="sep" x1="24" y1="76" x2="274" y2="76"/>
+  <text class="hd" x="149.0" y="58.0" text-anchor="middle" dominant-baseline="central" >PACING INTERVENTION</text>
+  <text class="bd" x="149.0" y="108.0" text-anchor="middle" dominant-baseline="central" >caps · monitors · rules</text>
+  <rect class="box" x="24" y="190" width="250" height="100" />
+  <line class="sep" x1="24" y1="226" x2="274" y2="226"/>
+  <text class="hd" x="149.0" y="208.0" text-anchor="middle" dominant-baseline="central" >RESPONSE</text>
+  <text class="bd" x="149.0" y="258.0" text-anchor="middle" dominant-baseline="central" >actors re-optimise</text>
+  <rect class="box" x="24" y="340" width="250" height="100" />
+  <line class="sep" x1="24" y1="376" x2="274" y2="376"/>
+  <text class="hd" x="149.0" y="358.0" text-anchor="middle" dominant-baseline="central" >AI SLOWDOWN</text>
+  <text class="bd" x="149.0" y="408.0" text-anchor="middle" dominant-baseline="central" >net of substitution</text>
+  <rect class="box-out" x="24" y="490" width="250" height="100" />
+  <line class="sep" x1="24" y1="526" x2="274" y2="526"/>
+  <text class="hd" x="149.0" y="508.0" text-anchor="middle" dominant-baseline="central" >RISK MITIGATION</text>
+  <text class="bd" x="149.0" y="558.0" text-anchor="middle" dominant-baseline="central" >less threat</text>
+  <rect class="box" x="300" y="150" width="170" height="100" />
+  <line class="sep" x1="300" y1="186" x2="470" y2="186"/>
+  <text class="hd" x="385.0" y="168.0" text-anchor="middle" dominant-baseline="central" >SAFETY PROGRESS</text>
+  <text class="bd" x="385.0" y="207.5" text-anchor="middle" dominant-baseline="central" >defenses and</text>
+  <text class="bd" x="385.0" y="228.5" text-anchor="middle" dominant-baseline="central" >diffusion</text>
+  <rect class="box-out" x="300" y="340" width="170" height="100" />
+  <line class="sep" x1="300" y1="376" x2="470" y2="376"/>
+  <text class="hd" x="385.0" y="358.0" text-anchor="middle" dominant-baseline="central" >DELAYED BENEFITS</text>
+  <text class="bd" x="385.0" y="408.0" text-anchor="middle" dominant-baseline="central" >growth · science</text>
+  <line class="arr" x1="149" y1="140" x2="149" y2="178"/>
+  <polygon class="head" points="141,176 157,176 149,190"/>
+  <line class="arr" x1="149" y1="290" x2="149" y2="328"/>
+  <polygon class="head" points="141,326 157,326 149,340"/>
+  <line class="arr" x1="149" y1="440" x2="149" y2="478"/>
+  <polygon class="head" points="141,476 157,476 149,490"/>
+  <path class="arr" d="M274 90 H373 Q385 90 385 102 V138"/>
+  <polygon class="head" points="377,136 393,136 385,150"/>
+  <path class="arr" d="M385 250 V268 Q385 280 397 280 H478 Q490 280 490 292 V528 Q490 540 478 540 H286"/>
+  <polygon class="head" points="288,532 288,548 274,540"/>
+  <line class="arr" x1="274" y1="390" x2="288" y2="390"/>
+  <polygon class="head" points="286,382 286,398 300,390"/>
+
+</svg>

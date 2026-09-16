@@ -442,10 +442,24 @@
   margin-left: calc(-1 * var(--x-padding-inside));
 }
 
+.prose figure picture {
+  display: block;
+}
+
 .prose figure img,
 .prose figure video {
   margin: 0;
   width: 100%;
+}
+
+/* Narrow viewports get the portrait figure variants (see
+   rehype-figure-captions.js, which must use the same breakpoint). They are
+   tall, so keep them from growing huge on tablet-width articles. */
+@media (max-width: 1023px) {
+  .prose figure img {
+    max-width: 540px;
+    margin-inline: auto;
+  }
 }
 
 .prose figcaption {
@@ -454,6 +468,7 @@
   padding: 8px var(--x-padding-inside);
   line-height: 1.4em;
   text-align: center;
+  text-wrap: balance;
 }
 
 /* Figures are numbered across the whole article, not per section, so the
@@ -564,6 +579,7 @@
   background-color: var(--color-pace-what-bg);
   color: var(--color-call-to-action-bg);
   font-size: 1.2em;
+  line-height: 1.3em;
   font-weight: 600;
   list-style: none;
   cursor: pointer;
