@@ -14,9 +14,11 @@ Companies and governments are already haphazardly pacing AI. To make good decisi
 * **Precedents are being set whether we like it or not.** How AI progress is paced now will shape how it is paced in future. We can learn from the shortcomings of existing attempts, and think about what precedents we are now setting for higher-stakes cases.  
 * **Rapid, unpredictable progress requires an existing body of research to navigate well.** Pre-specified proposals aren’t enough when key decisions often depend on sensitive information, have to be made quickly, and are responses to surprises.
 
-Given all of this, we think it is time for pacing to be a dedicated research area. Though there have been many specific proposals, and though many subfields of AI risk largely exist to feed into pacing decisions, pacing as a whole has not yet cohered into a clear field of study. There are massive gaps in our understanding of pacing as a whole. Here we highlight three topics to illustrate the work that needs doing: 
+Given all of this, we think it is time for pacing to be a dedicated research area.
 
-* **Mechanism design.** The practical effects of an intervention will depend substantially on how the affected parties respond to them, including the actors who enforce the intervention. We recommend prioritizing research on:  
+Though there have been many specific proposals, and though many subfields of AI risk largely exist to feed into pacing decisions, pacing as a whole has not yet cohered into a clear field of study. There are massive gaps in our understanding of pacing as a whole. Here we highlight three topics to illustrate the work that needs doing: 
+
+* **Understanding incentives.** The practical effects of an intervention will depend substantially on how the affected parties respond to them, including the actors who enforce the intervention. We recommend prioritizing research on:  
   * How different forms of transparency about capabilities can help or hurt coordination;
   * How to prevent mission creep among whoever is empowered to oversee pacing interventions;
   * Ways to align the incentives of different actors around pacing, e.g. by predictably compensating for losses with minimal moral hazard.  
