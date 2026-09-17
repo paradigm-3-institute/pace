@@ -1,6 +1,7 @@
 ---
 import Layout from "./Layout.astro";
 import NavItem from "../components/NavItem.astro";
+import NavToggle from "../components/NavToggle.astro";
 import { sectionMeta, navHref, sectionTitle } from "../sections";
 
 interface Props {
@@ -54,28 +55,32 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
   <div id="nav-scrim" class="nav-scrim"></div>
 
   <main class="w-full md:pl-70 lg:pl-77 lg:pr-6 lg:py-24">
-    <!-- Below the breakpoint the sidebar is a drawer, and this is its handle:
-         a tab peeking out of the left edge that rides out with the panel when
-         it opens. It sits outside the article so that it stays live while the
-         article behind the drawer is inert, and before it so that it comes
-         first for a keyboard. It is hidden until the document is marked as
-         having JS, so without it the sidebar stays the block at the top of
-         the page it has always been. -->
-    <button
-      id="nav-toggle"
-      type="button"
-      class="nav-toggle"
-      aria-controls="site-nav"
-      aria-expanded="false"
-      aria-label="Open menu"
-    >
-      <svg class="nav-toggle-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true">
-        <path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path>
-      </svg>
-      <svg class="nav-toggle-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true">
-        <path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path>
-      </svg>
-    </button>
+    <!-- Below the breakpoint the sidebar is a drawer, and these open it.
+         They sit outside the article so that they stay live while the article
+         behind the drawer is inert, and before it so that they come first for
+         a keyboard. Neither shows until the document is marked as having JS,
+         so without it the sidebar stays the block at the top of the page it
+         has always been.
+
+         The bar is the head of the page: before the reader has scrolled,
+         nothing else says the drawer is there, and the tab on its own reads
+         as a sticker rather than the end of a header — it only works further
+         down because there is a banner for it to be the end of. It carries
+         the two ways out of the essay, and no title: the piece's own is
+         directly beneath it. A page that opens on a banner has the tab at the
+         top already and needs neither. -->
+    {!flushTop && (
+      <div class="nav-topbar">
+        <NavToggle id="nav-toggle-top" class="nav-topbar-toggle" label="Contents" />
+        <a class="nav-topbar-link" href="/quiz">
+          Choose your pace
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+            <path d="M184.49,136.49l-80,80a12,12,0,0,1-17-17L159,128,87.51,56.49a12,12,0,1,1,17-17l80,80A12,12,0,0,1,184.49,136.49Z"></path>
+          </svg>
+        </a>
+      </div>
+    )}
+    <NavToggle id="nav-toggle" class="nav-toggle" />
     <article
       class:list={[
         "prose max-w-222 2xl:max-w-260 bg-background mx-auto pb-8 md:pb-16 lg:border-2 border-sidebar md:-outline-offset-8 md:outline-2 outline-sidebar rounded-sm",
@@ -94,26 +99,42 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
      first paint; with no JS neither script runs, and the sidebar stays in the
      page with every section one tap away. */
   const nav = document.getElementById("site-nav");
+  /* The one that rests at the first banner; the copy at the head of the page
+     needs no measuring, so only this one is placed below. */
   const toggle = document.getElementById("nav-toggle");
+  const toggles = [...document.querySelectorAll<HTMLButtonElement>("[data-nav-toggle]")];
   const scrim = document.getElementById("nav-scrim");
   const main = document.querySelector("main");
   const article = document.querySelector("main > article");
   const compact = window.matchMedia("(width < 48rem)");
 
   if (nav && toggle && scrim) {
+    /* Whichever tab opened the drawer is the one the reader is looking at, so
+       it is the one focus goes back to when the drawer closes. */
+    let opener = toggle;
+
     const setOpen = (open: boolean) => {
       document.documentElement.toggleAttribute("data-nav-open", open);
-      toggle.setAttribute("aria-expanded", String(open));
-      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      for (const tab of toggles) {
+        tab.setAttribute("aria-expanded", String(open));
+        /* The one in the bar says "Contents" on its face, which is its name;
+           only the bare tab needs one given to it. */
+        if (!tab.querySelector(".nav-toggle-label")) {
+          tab.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        }
+      }
       /* Nothing under the scrim should take focus while the drawer is over it;
-         the tab is outside the article so that it keeps working. */
+         the tabs are outside the article so that they keep working. */
       article?.toggleAttribute("inert", open);
-      if (!open && nav.contains(document.activeElement)) toggle.focus();
+      if (!open && nav.contains(document.activeElement)) opener.focus();
     };
 
-    toggle.addEventListener("click", () => {
-      setOpen(!document.documentElement.hasAttribute("data-nav-open"));
-    });
+    for (const tab of toggles) {
+      tab.addEventListener("click", () => {
+        opener = tab;
+        setOpen(!document.documentElement.hasAttribute("data-nav-open"));
+      });
+    }
 
     scrim.addEventListener("click", () => setOpen(false));
 
@@ -135,8 +156,17 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
     const first = document.querySelector(".prose .exec-summary, .prose > section");
 
     if (first && main) {
+      const bar = document.querySelector(".nav-topbar");
+
       const place = () => {
-        const top = main.getBoundingClientRect().top + parseFloat(getComputedStyle(main).paddingTop);
+        /* The distance is from where the tab itself starts, which is under the
+           bar at the head of the page when there is one — measuring from the
+           top of main instead would count the bar's height twice and leave the
+           tab resting that far below the banner. */
+        const top =
+          main.getBoundingClientRect().top +
+          parseFloat(getComputedStyle(main).paddingTop) +
+          (bar?.getBoundingClientRect().height ?? 0);
         const rest = Math.max(0, first.getBoundingClientRect().top - top);
         toggle.style.setProperty("--nav-tab-rest", `${Math.round(rest)}px`);
         /* Only now is it safe to show: a resize observation is delivered before

@@ -1,0 +1,34 @@
+---
+/* The control that opens the drawer below the breakpoint. Two of them are on
+   the page: the tab that rests at the first banner and locks to the top of
+   the screen from there, and the one in the bar at the head of the page.
+   `data-nav-toggle` is what the layout's script binds to; the classes are
+   only for the two shapes. */
+interface Props {
+  id: string;
+  class?: string;
+  /* Visible text beside the icon. Without one the button is labelled for a
+     screen reader instead, and the label follows the drawer's state. */
+  label?: string;
+}
+
+const { id, class: className, label } = Astro.props;
+---
+
+<button
+  id={id}
+  type="button"
+  data-nav-toggle
+  class={className}
+  aria-controls="site-nav"
+  aria-expanded="false"
+  aria-label={label ? undefined : "Open menu"}
+>
+  <svg class="nav-toggle-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true">
+    <path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path>
+  </svg>
+  <svg class="nav-toggle-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true">
+    <path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path>
+  </svg>
+  {label && <span class="nav-toggle-label">{label}</span>}
+</button>
