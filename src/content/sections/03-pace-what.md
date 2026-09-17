@@ -151,8 +151,7 @@ There is also a risk that, once an open model with a given level of capabilities
 * **How can we permit exceptions to allow useful work, without being so permeable that it makes the rule useless?** In the case of compute controls, it now seems technologically feasible, to some extent, to identify what uses a GPU is being put to. What other technical advances can allow interventions to be less blunt and more narrowly scoped?  
   * [*Gargiulo & Kulp (2026), Workload Identification with Physical Side Channels for AI Governance*](https://arxiv.org/abs/2609.00309)  
 * **What are the tradeoffs between verification and invasiveness for different interventions?** How can we push the frontier forward?  
-  * [*Scher & Thiergart (2025), Mechanisms to Verify International Agreements About AI Development*](https://arxiv.org/abs/2506.15867)  
-  * We believe the proposal would be technically sufficient to forestall the development of ASI if implemented today, but advancements in AI capabilities or development methods could hurt its efficacy. Additionally, there does not yet exist the political will to put such an agreement in place. Despite these challenges, we hope this agreement can provide direction for AI governance research and policy.  
+  * [*Scher & Thiergart (2024), Mechanisms to Verify International Agreements About AI Development*](https://arxiv.org/abs/2506.15867). Gives an overview of different verification mechanisms and what they require.  
   * [*Petrie et al. (2025), Flexible Hardware-Enabled Guarantees for AI Compute*](https://arxiv.org/abs/2506.15093)*.* Proposes verifying compliance without exposing sensitive information about AI development.
 
   </div>
