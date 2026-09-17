@@ -78,9 +78,10 @@ const socialImageURL = new URL("/card.png", Astro.url);
          of the table of contents. Fixed down the left from md; a block
          across the top below it, where the title runs on one line to
          leave room for the screen beneath. -->
-    <!-- Below md it is one short bar: the title on a line with the back
-         link, and none of the paragraphs, which the intro screen repeats.
-         The quiz itself should be in view when the page opens on a phone. -->
+    <!-- Below md it is one short bar with the title, and none of the
+         paragraphs, which the intro screen repeats; the link back to the
+         paper is at the foot of the page instead. The quiz itself should
+         be in view when the page opens on a phone. -->
     <aside class="select-none bg-sidebar text-background font-sans text-base md:fixed md:inset-y-0 md:left-0 md:w-70 md:overflow-hidden md:flex md:flex-col">
       <!-- The title block, subtitle and button are the essay sidebar's
            (src/layouts/EssayLayout.astro), class for class, so the two
@@ -94,13 +95,13 @@ const socialImageURL = new URL("/card.png", Astro.url);
         </h1>
         <div class="hidden md:block md:mt-[clamp(0.75rem,1.8vh,1.25rem)] md:text-[clamp(1rem,2.4vh,1.5rem)] font-light">A Quiz</div>
         <a
-          class="inline-flex items-center gap-2 shrink-0 text-sm px-3 py-1.5 md:text-base md:px-4 md:py-2 md:mt-[clamp(1.2rem,3.4vh,3rem)] md:mb-[clamp(0.6rem,1.8vh,1.75rem)] border rounded-md border-(--color-pace-how-bg) text-(--color-pace-how-bg) hover:border-(--color-why-pace-bg) hover:text-(--color-why-pace-bg) transition-colors"
+          class="hidden md:inline-flex items-center gap-2 md:mt-[clamp(1.2rem,3.4vh,3rem)] md:mb-[clamp(0.6rem,1.8vh,1.75rem)] px-4 py-2 border rounded-md border-(--color-pace-how-bg) text-(--color-pace-how-bg) hover:border-(--color-why-pace-bg) hover:text-(--color-why-pace-bg) transition-colors"
           href="/"
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true">
             <path d="M168.49,199.51a12,12,0,0,1-17,17l-80-80a12,12,0,0,1,0-17l80-80a12,12,0,0,1,17,17L97,128Z"></path>
           </svg>
-          <span class="hidden md:inline">Back to paper</span><span class="md:hidden">Paper</span>
+          Back to paper
         </a>
       </div>
       <div class="hidden md:grid px-6 md:mt-[clamp(0.5rem,1.8vh,1.25rem)] md:gap-[clamp(0.5rem,1.8vh,1.5rem)] md:text-[clamp(0.88rem,2.1vh,1.1rem)] md:leading-[1.45] antialiased">
@@ -127,5 +128,19 @@ const socialImageURL = new URL("/card.png", Astro.url);
     >
       <Quiz client:only="preact" />
     </main>
+
+    <!-- On a phone the way back to the paper is at the foot of the page,
+         past the quiz; from md the sidebar carries it. -->
+    <footer class="md:hidden bg-sidebar text-background font-sans px-(--x-padding) pt-5 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
+      <a
+        class="inline-flex items-center gap-2 px-4 py-2 border rounded-md border-(--color-pace-how-bg) text-(--color-pace-how-bg) hover:border-(--color-why-pace-bg) hover:text-(--color-why-pace-bg) transition-colors"
+        href="/"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+          <path d="M168.49,199.51a12,12,0,0,1-17,17l-80-80a12,12,0,0,1,0-17l80-80a12,12,0,0,1,17,17L97,128Z"></path>
+        </svg>
+        Back to paper
+      </a>
+    </footer>
   </body>
 </html>

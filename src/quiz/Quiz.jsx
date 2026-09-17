@@ -264,14 +264,9 @@ export default function Quiz() {
       <div ref={host} class="flex flex-auto flex-col justify-start" aria-live="polite">
         {screen}
       </div>
-      {/* Back and Skip. On a phone they are a bar stuck to the foot of
-          the screen, above the home indicator, so going back never means
-          scrolling past every answer; from md they sit under the screen. */}
-      {controls && (
-        <div class="sticky bottom-0 -mx-(--x-padding) mt-6 px-(--x-padding) pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] bg-background/95 backdrop-blur-sm border-t border-(--color-why-pace-bg) flex flex-wrap justify-center gap-3 md:static md:justify-start md:mx-0 md:mt-auto md:px-0 md:pt-6 md:pb-0 md:bg-transparent md:backdrop-blur-none md:border-0">
-          {controls}
-        </div>
-      )}
+      {/* Back and Skip, under the screen: on a phone the reader scrolls
+          past the answers to them; from md they sit at the foot. */}
+      {controls && <div class="mt-8 md:mt-auto md:pt-6 flex flex-wrap justify-center gap-3 md:justify-start">{controls}</div>}
       {state.screen === "map" && sidebarFoot && createPortal(<SidebarFoot onRestart={() => go(T.restart)} />, sidebarFoot)}
     </>
   );
