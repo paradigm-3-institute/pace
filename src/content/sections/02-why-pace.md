@@ -98,7 +98,7 @@ In such situations, the natural incentives would pull toward a lot of value bein
 
 Beyond the reasons humanity has for favoring or opposing pacing interventions, individual actors will naturally weigh their own self-interest when considering interventions. Managing AI progress is difficult due to this tension between one’s own interests and those of the collective (e.g. when frontier labs must decide how much detail to share about internal safety incidents, or when states choose how much to automate their military).
 
-Here we look at some of the major types of actors involved in AI progress and the factors that shape their incentives to pace or not pace. These actors’ and a broader list of actors’ incentives are discussed in more detail in §5.
+Here we look at some of the major types of actors involved in AI progress and the factors that shape their incentives to pace or not pace. These actors’ and a broader list of actors’ incentives are discussed in more detail in §5. But the history of technology nonetheless contains [many examples](https://verfassungsblog.de/paths-untaken/) of powerful actors restraining technology, against their apparent narrow self-interest.
 
 #### Governments
 

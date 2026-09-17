@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="1423" viewBox="0 0 480 1423" role="img" aria-labelledby="ttl dsc">
+  <title id="ttl">Failure modes in pacing governance structures</title>
+  <desc id="dsc">The rule creates enforcement machinery: a new actor with power and information. Its predictable failure modes are control, capture and misuse (used for purposes beyond the rule that justified it, such as surveillance powers turned on lawful research); behavioural distortions (optimised for the test, not the underlying risk); and persistence and precedent (outlasting the rule that created it, with emergency powers outstaying their welcome, though sometimes with useful spillover into diplomacy and national strategy).</desc>
+  <defs>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#e2e8ee" stroke-width="1"/>
+    </pattern>
+    <style>
+      .hd { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; fill: #1e2833; }
+      .hs { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; fill: #1e2833; }
+      .lb { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 10px; font-weight: 700; letter-spacing: 1px; fill: #6b7482; }
+      .ph { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; fill: #4f6a8a; }
+      .rd { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9.5px; font-weight: 700; letter-spacing: 1px; fill: #c0392b; }
+      .bl { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9.5px; font-weight: 700; letter-spacing: 1px; fill: #3f5f85; }
+      .bd { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 16px; fill: #2f3b4b; }
+      .b2 { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 14px; fill: #2f3b4b; }
+      .b3 { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 12px; fill: #2f3b4b; }
+      .bi { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 13px; font-style: italic; fill: #6b7482; }
+      .ef { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 12px; font-weight: 700; fill: #1e2833; }
+      .box { fill: #fdfdfe; stroke: #1e2833; stroke-width: 2.5; }
+      .box-out { fill: #d6e4f2; stroke: #1e2833; stroke-width: 2.5; }
+      .outline { fill: none; stroke: #1e2833; stroke-width: 2.5; }
+      .cell { stroke: #1e2833; stroke-width: 1.5; }
+      .sep { stroke: #1e2833; stroke-width: 2; }
+      .thin { stroke: #c5ccd4; stroke-width: 1; }
+      .arr { stroke: #1e2833; stroke-width: 3.5; fill: none; }
+      .head { fill: #1e2833; }
+      .fb { stroke: #7d8794; stroke-width: 2.5; fill: none; stroke-dasharray: 8 6; }
+      .fbhead { fill: #7d8794; }
+      .sm { stroke: #8a95a3; stroke-width: 2; fill: none; }
+      .smhead { fill: #8a95a3; }
+      .band { fill: #eef3f8; stroke: #9fb3c8; stroke-width: 1.2; }
+      .note { fill: #fbeae6; stroke: #d0503c; stroke-width: 1.2; }
+      .noteb { fill: #eaf0f6; stroke: #4a6b8f; stroke-width: 1.2; }
+      .rl { stroke: #d0503c; stroke-width: 1.2; fill: none; stroke-dasharray: 4 3; }
+      .bll { stroke: #4a6b8f; stroke-width: 1.2; fill: none; stroke-dasharray: 4 3; }
+      .dn { fill: #f7f9fb; stroke: #8a95a3; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .red { fill: #fdfdfe; stroke: #c0392b; stroke-width: 2; }
+      .redt { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; fill: #c0392b; }
+      .redl { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; fill: #c0392b; }
+      .ghost { fill: #eceff2; stroke: #8a95a3; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .ghostt { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; fill: #8a95a3; }
+      .cross { stroke: #b5bcc5; stroke-width: 1.2; stroke-dasharray: 4 3; }
+      .cap { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 11px; letter-spacing: 0.3px; fill: #2f3b4b; }
+      .dot-b { fill: #5b7fa6; }
+      .dot-g { fill: #a9a9a9; }
+      .cons { fill: #dfe7ef; }
+      .open { fill: #ebe9e5; }
+      .line { stroke: #1e2833; stroke-width: 1.8; fill: none; stroke-dasharray: 6 4; }
+      .st { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9px; font-weight: 700; letter-spacing: 1px; fill: #4f6a8a; }
+      .sv { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 13px; font-weight: 700; fill: #1e2833; }
+      .th { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.5px; fill: #2b3a55; }
+      .rh { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 13px; font-weight: 700; fill: #2b3a55; }
+      .tv { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 14px; fill: #2b3a55; }
+    </style>
+  </defs>
+  <rect width="480" height="1423" fill="#f3f6f9"/>
+  <rect width="480" height="1423" fill="url(#grid)"/>
+  <rect class="band" x="52" y="20" width="400" height="30" />
+  <text class="ph" x="252.0" y="35" text-anchor="middle" dominant-baseline="central" >CREATED BY THE RULE</text>
+  <rect class="box" x="52" y="62" width="400" height="205" />
+  <rect class="" x="52" y="215" width="400" height="52" fill="#e4ebf2"/>
+  <rect class="outline" x="52" y="62" width="400" height="205" />
+  <line class="sep" x1="52" y1="98" x2="452" y2="98"/>
+  <text class="hd" x="252.0" y="80" text-anchor="middle" dominant-baseline="central" >THE MACHINERY</text>
+  <text class="b2" x="252.0" y="119.0" text-anchor="middle" dominant-baseline="central" >Enforcement power vested in a governing body</text>
+  <text class="b2" x="252.0" y="138.0" text-anchor="middle" dominant-baseline="central" >(§4): some mix of access to private</text>
+  <text class="b2" x="252.0" y="157.0" text-anchor="middle" dominant-baseline="central" >information, discretionary power to restrict</text>
+  <text class="b2" x="252.0" y="176.0" text-anchor="middle" dominant-baseline="central" >other actors, and infrastructure for</text>
+  <text class="b2" x="252.0" y="195.0" text-anchor="middle" dominant-baseline="central" >observation or verification.</text>
+  <text class="lb" x="252.0" y="227" text-anchor="middle" dominant-baseline="central" font-size="7px">EFFECT</text>
+  <text class="ef" x="252.0" y="247.0" text-anchor="middle" dominant-baseline="central" >A NEW ACTOR WITH POWER AND INFORMATION</text>
+  <line class="arr" x1="252.0" y1="267" x2="252.0" y2="299"/>
+  <polygon class="head" points="244.0,297 260.0,297 252.0,311"/>
+  <rect class="band" x="52" y="311" width="400" height="30" />
+  <text class="ph" x="252.0" y="326" text-anchor="middle" dominant-baseline="central" >PREDICTABLE FAILURE MODES</text>
+  <rect class="box" x="52" y="361" width="400" height="224" />
+  <rect class="" x="52" y="533" width="400" height="52" fill="#e4ebf2"/>
+  <rect class="outline" x="52" y="361" width="400" height="224" />
+  <line class="sep" x1="52" y1="397" x2="452" y2="397"/>
+  <text class="hd" x="252.0" y="379" text-anchor="middle" dominant-baseline="central" >CONTROL, CAPTURE &amp; MISUSE</text>
+  <text class="b2" x="252.0" y="418.0" text-anchor="middle" dominant-baseline="central" >Actors pursue their own goals. Access to</text>
+  <text class="b2" x="252.0" y="437.0" text-anchor="middle" dominant-baseline="central" >private information and power to restrict</text>
+  <text class="b2" x="252.0" y="456.0" text-anchor="middle" dominant-baseline="central" >others invite influence: firms lobby for</text>
+  <text class="b2" x="252.0" y="475.0" text-anchor="middle" dominant-baseline="central" >exemptions, agencies compete for</text>
+  <text class="b2" x="252.0" y="494.0" text-anchor="middle" dominant-baseline="central" >jurisdiction, and governments push shifting</text>
+  <text class="b2" x="252.0" y="513.0" text-anchor="middle" dominant-baseline="central" >political priorities.</text>
+  <text class="lb" x="252.0" y="545" text-anchor="middle" dominant-baseline="central" font-size="7px">EFFECT</text>
+  <text class="ef" x="252.0" y="557.5" text-anchor="middle" dominant-baseline="central" >USED FOR PURPOSES BEYOND</text>
+  <text class="ef" x="252.0" y="572.5" text-anchor="middle" dominant-baseline="central" >THE RULE THAT JUSTIFIED IT</text>
+  <line class="rl" x1="252.0" y1="585" x2="252.0" y2="597"/>
+  <circle class="note" cx="252.0" cy="606" r="9"/>
+  <path d="M248.0 602 L256.0 610 M256.0 602 L248.0 610" stroke="#d0503c" stroke-width="1.6"/>
+  <line class="rl" x1="252.0" y1="615" x2="252.0" y2="627"/>
+  <rect class="note" x="52.0" y="627" width="400" height="48" />
+  <text class="rd" x="252.0" y="645.0" text-anchor="middle" dominant-baseline="central" >SURVEILLANCE POWERS TURNED</text>
+  <text class="rd" x="252.0" y="657.0" text-anchor="middle" dominant-baseline="central" >ON LAWFUL RESEARCH</text>
+  <rect class="box" x="52" y="711" width="400" height="224" />
+  <rect class="" x="52" y="883" width="400" height="52" fill="#e4ebf2"/>
+  <rect class="outline" x="52" y="711" width="400" height="224" />
+  <line class="sep" x1="52" y1="747" x2="452" y2="747"/>
+  <text class="hd" x="252.0" y="729" text-anchor="middle" dominant-baseline="central" >BEHAVIOURAL DISTORTIONS</text>
+  <text class="b2" x="252.0" y="777.5" text-anchor="middle" dominant-baseline="central" >Surveillance, leaks and misinterpretation can</text>
+  <text class="b2" x="252.0" y="796.5" text-anchor="middle" dominant-baseline="central" >deter reputationally risky research without</text>
+  <text class="b2" x="252.0" y="815.5" text-anchor="middle" dominant-baseline="central" >deliberate abuse. Easily audited or publicly</text>
+  <text class="b2" x="252.0" y="834.5" text-anchor="middle" dominant-baseline="central" >salient measures attract effort, even when</text>
+  <text class="b2" x="252.0" y="853.5" text-anchor="middle" dominant-baseline="central" >they poorly track the underlying risk.</text>
+  <text class="lb" x="252.0" y="895" text-anchor="middle" dominant-baseline="central" font-size="7px">EFFECT</text>
+  <text class="ef" x="252.0" y="907.5" text-anchor="middle" dominant-baseline="central" >OPTIMISED FOR THE TEST,</text>
+  <text class="ef" x="252.0" y="922.5" text-anchor="middle" dominant-baseline="central" >NOT THE UNDERLYING RISK</text>
+  <line class="rl" x1="252.0" y1="935" x2="252.0" y2="947"/>
+  <circle class="note" cx="252.0" cy="956" r="9"/>
+  <path d="M248.0 952 L256.0 960 M256.0 952 L248.0 960" stroke="#d0503c" stroke-width="1.6"/>
+  <line class="rl" x1="252.0" y1="965" x2="252.0" y2="977"/>
+  <rect class="note" x="52.0" y="977" width="400" height="48" />
+  <text class="rd" x="252.0" y="995.0" text-anchor="middle" dominant-baseline="central" >PASSING TESTS DRIFTS</text>
+  <text class="rd" x="252.0" y="1007.0" text-anchor="middle" dominant-baseline="central" >FROM REDUCING RISK</text>
+  <rect class="box" x="52" y="1061" width="400" height="224" />
+  <rect class="" x="52" y="1233" width="400" height="52" fill="#e4ebf2"/>
+  <rect class="outline" x="52" y="1061" width="400" height="224" />
+  <line class="sep" x1="52" y1="1097" x2="452" y2="1097"/>
+  <text class="hd" x="252.0" y="1079" text-anchor="middle" dominant-baseline="central" >PERSISTENCE &amp; PRECEDENT</text>
+  <text class="b2" x="252.0" y="1118.0" text-anchor="middle" dominant-baseline="central" >Powers and machinery are not necessarily</text>
+  <text class="b2" x="252.0" y="1137.0" text-anchor="middle" dominant-baseline="central" >dismantled at exit (§4.4). Information, once</text>
+  <text class="b2" x="252.0" y="1156.0" text-anchor="middle" dominant-baseline="central" >collected, is hard to keep out of other</text>
+  <text class="b2" x="252.0" y="1175.0" text-anchor="middle" dominant-baseline="central" >decisions, and a remit widens simply because</text>
+  <text class="b2" x="252.0" y="1194.0" text-anchor="middle" dominant-baseline="central" >the body already exists, even when it is</text>
+  <text class="b2" x="252.0" y="1213.0" text-anchor="middle" dominant-baseline="central" >poorly suited to new tasks.</text>
+  <text class="lb" x="252.0" y="1245" text-anchor="middle" dominant-baseline="central" font-size="7px">EFFECT</text>
+  <text class="ef" x="252.0" y="1257.5" text-anchor="middle" dominant-baseline="central" >OUTLASTS THE RULE</text>
+  <text class="ef" x="252.0" y="1272.5" text-anchor="middle" dominant-baseline="central" >THAT CREATED IT</text>
+  <line class="rl" x1="147.0" y1="1285" x2="147.0" y2="1297"/>
+  <circle class="note" cx="147.0" cy="1306" r="9"/>
+  <path d="M143.0 1302 L151.0 1310 M151.0 1302 L143.0 1310" stroke="#d0503c" stroke-width="1.6"/>
+  <line class="rl" x1="147.0" y1="1315" x2="147.0" y2="1327"/>
+  <rect class="note" x="52.0" y="1327" width="190.0" height="60" />
+  <text class="rd" x="147.0" y="1351.0" text-anchor="middle" dominant-baseline="central" >EMERGENCY POWERS</text>
+  <text class="rd" x="147.0" y="1363.0" text-anchor="middle" dominant-baseline="central" >OUTSTAY THEIR WELCOME</text>
+  <line class="bll" x1="357.0" y1="1285" x2="357.0" y2="1297"/>
+  <circle class="noteb" cx="357.0" cy="1306" r="9"/>
+  <path d="M357.0 1301 V1311 M352.0 1306 H362.0" stroke="#4a6b8f" stroke-width="1.6"/>
+  <line class="bll" x1="357.0" y1="1315" x2="357.0" y2="1327"/>
+  <rect class="noteb" x="262.0" y="1327" width="190.0" height="60" />
+  <text class="bl" x="357.0" y="1345.0" text-anchor="middle" dominant-baseline="central" >USEFUL SPILLOVER: REUSE IN</text>
+  <text class="bl" x="357.0" y="1357.0" text-anchor="middle" dominant-baseline="central" >DIPLOMACY; EXPERTISE INTO</text>
+  <text class="bl" x="357.0" y="1369.0" text-anchor="middle" dominant-baseline="central" >NATIONAL STRATEGY</text>
+
+</svg>

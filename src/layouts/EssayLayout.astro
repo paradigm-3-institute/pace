@@ -18,7 +18,7 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
-  <aside class="md:fixed w-full pb-2 md:pb-0 md:w-70 md:h-dvh md:overflow-hidden md:flex md:flex-col bg-sidebar text-background md:border-r-2 border-sidebar select-none">
+  <aside id="site-nav" class="site-nav md:fixed w-full pb-2 md:pb-0 md:w-70 md:h-dvh md:overflow-hidden md:flex md:flex-col bg-sidebar text-background md:border-r-2 border-sidebar select-none">
     <a href={homeHref}>
       <div class="p-6 pt-10 pb-2 md:pt-[clamp(1.25rem,3vh,2.25rem)] md:pb-[clamp(0.5rem,1.6vh,1.25rem)]">
         <div class="text-4xl md:text-[clamp(1.6rem,5.2vh,3rem)] font-light grid gap-2 md:gap-[clamp(0.15rem,0.5vh,0.5rem)] md:leading-none">
@@ -51,8 +51,31 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
       </ul>
     </nav>
   </aside>
+  <div id="nav-scrim" class="nav-scrim"></div>
 
   <main class="w-full md:pl-70 lg:pl-77 lg:pr-6 lg:py-24">
+    <!-- Below the breakpoint the sidebar is a drawer, and this is its handle:
+         a tab peeking out of the left edge that rides out with the panel when
+         it opens. It sits outside the article so that it stays live while the
+         article behind the drawer is inert, and before it so that it comes
+         first for a keyboard. It is hidden until the document is marked as
+         having JS, so without it the sidebar stays the block at the top of
+         the page it has always been. -->
+    <button
+      id="nav-toggle"
+      type="button"
+      class="nav-toggle"
+      aria-controls="site-nav"
+      aria-expanded="false"
+      aria-label="Open menu"
+    >
+      <svg class="nav-toggle-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true">
+        <path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path>
+      </svg>
+      <svg class="nav-toggle-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true">
+        <path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path>
+      </svg>
+    </button>
     <article
       class:list={[
         "prose max-w-222 2xl:max-w-260 bg-background mx-auto pb-8 md:pb-16 lg:border-2 border-sidebar md:-outline-offset-8 md:outline-2 outline-sidebar rounded-sm",
@@ -62,22 +85,78 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
       <slot />
     </article>
   </main>
-
-  <a
-    href="#"
-    class="md:hidden fixed bottom-3 right-3 bg-background p-2 border-2 border-sidebar text-sidebar rounded-sm z-100"
-    aria-label="Back to top"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <path d="M10.586 3l-6.586 6.586a2 2 0 0 0 -.434 2.18l.068 .145a2 2 0 0 0 1.78 1.089h2.586v7a2 2 0 0 0 2 2h4l.15 -.005a2 2 0 0 0 1.85 -1.995l-.001 -7h2.587a2 2 0 0 0 1.414 -3.414l-6.586 -6.586a2 2 0 0 0 -2.828 0z"></path>
-    </svg>
-  </a>
 </Layout>
+
+<script>
+  /* Below the breakpoint the sidebar slides in from the left instead of
+     standing between the reader and the first paragraph. It is a drawer only
+     while the html element is marked, which Layout's head does before the
+     first paint; with no JS neither script runs, and the sidebar stays in the
+     page with every section one tap away. */
+  const nav = document.getElementById("site-nav");
+  const toggle = document.getElementById("nav-toggle");
+  const scrim = document.getElementById("nav-scrim");
+  const main = document.querySelector("main");
+  const article = document.querySelector("main > article");
+  const compact = window.matchMedia("(width < 48rem)");
+
+  if (nav && toggle && scrim) {
+    const setOpen = (open: boolean) => {
+      document.documentElement.toggleAttribute("data-nav-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      /* Nothing under the scrim should take focus while the drawer is over it;
+         the tab is outside the article so that it keeps working. */
+      article?.toggleAttribute("inert", open);
+      if (!open && nav.contains(document.activeElement)) toggle.focus();
+    };
+
+    toggle.addEventListener("click", () => {
+      setOpen(!document.documentElement.hasAttribute("data-nav-open"));
+    });
+
+    scrim.addEventListener("click", () => setOpen(false));
+
+    /* Every link in here goes to a section of this page or the next one;
+       either way the drawer has done its job. */
+    nav.addEventListener("click", (event) => {
+      if ((event.target as Element).closest("a")) setOpen(false);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setOpen(false);
+    });
+
+    /* The tab rests at the first banner and locks to the top of the screen
+       from there, the way the banner itself does, so it needs to know how far
+       down the page that banner starts. The distance goes on as a margin and
+       comes straight back off below, so the tab keeps a place in the flow
+       without taking any room in it. */
+    const first = document.querySelector(".prose .exec-summary, .prose > section");
+
+    if (first && main) {
+      const place = () => {
+        const top = main.getBoundingClientRect().top + parseFloat(getComputedStyle(main).paddingTop);
+        const rest = Math.max(0, first.getBoundingClientRect().top - top);
+        toggle.style.setProperty("--nav-tab-rest", `${Math.round(rest)}px`);
+        /* Only now is it safe to show: a resize observation is delivered before
+           the frame it belongs to is painted, so the tab's first appearance is
+           already in the right place. */
+        document.documentElement.dataset.navPlaced = "";
+      };
+
+      /* Fires once to place it, and again whenever the page above it reflows:
+         a rotation, a font arriving late. */
+      new ResizeObserver(place).observe(main);
+    } else {
+      /* Nothing to rest at: better at the top of the page than not at all. */
+      document.documentElement.dataset.navPlaced = "";
+    }
+
+    /* Rotating to a wide screen would otherwise leave the page inert behind a
+       sidebar that is on screen anyway. */
+    compact.addEventListener("change", () => {
+      if (!compact.matches) setOpen(false);
+    });
+  }
+</script>

@@ -46,6 +46,16 @@ const socialImageURL = new URL("/card.png", Astro.url);
     <title>{title}</title>
     <Font cssVariable="--font-satoshi" preload />
     <Font cssVariable="--font-body-serif" preload />
+
+    <!-- The sidebar becomes a drawer below the breakpoint, and that has to be
+         true at the first paint: the module script that works it is deferred,
+         so leaving the mark to it would show the full-width sidebar at the top
+         of the page and then snap it away. The test is for module support,
+         since a browser that skipped that script would be left with a drawer
+         and no way to open it. -->
+    <script is:inline>
+      if ("noModule" in HTMLScriptElement.prototype) document.documentElement.dataset.nav = "";
+    </script>
   </head>
   <body>
     <slot />

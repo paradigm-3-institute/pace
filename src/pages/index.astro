@@ -28,9 +28,9 @@ const appendices = sectionMeta.find(({ page }) => page === "/appendices")!;
       <h1>Pacing the Frontier</h1>
       <p>A Framework & Research Agenda</p>
     </hgroup>
-    <div class="grid gap-2 md:gap-6 mb-12 md:mb-16 font-sans text-(--color-conclusion-bg)">
+    <div id="byline" class="grid gap-2 md:gap-6 mb-12 md:mb-16 font-sans text-(--color-conclusion-bg) max-md:cursor-pointer">
       <div class="text-right font-semibold text-balance">
-        by Raymond Douglas, Charles Dillon, Nikola Moore, Gavin Leech, Shahar Avin<sup>✝</sup>
+        by Raymond Douglas, Charles Dillon, Nikola Moore, Gavin Leech, Shahar Avin
       </div>
       <div class="text-right ml-auto max-w-lg text-balance">
         ...and Mathias&nbsp;Kirk&nbsp;Bonde, Rohit&nbsp;Krishnan, Noah&nbsp;Perez, Nathan&nbsp;Young,
@@ -79,21 +79,60 @@ const appendices = sectionMeta.find(({ page }) => page === "/appendices")!;
       <a href={appendices.page}>on their own page</a>.
     </p>
   </Section>
+  <div class="padded">
+    <section class="cite-box" id="cite" aria-label="How to cite this work">
+      <h4>How to cite this work</h4>
+      <p>
+        Douglas, R., Dillon, C., Moore, N., Leech, G., Bonde, M.&nbsp;K., Krishnan, R., Perez, N., Young, N.,
+        Slade&nbsp;Byrd, C., Casper, S., Kulveit, J., Duvenaud, D., &amp; Avin, S. (2026).{" "}
+        <em>Pacing the Frontier: A Framework and Research Agenda</em>.{" "}
+        <a href="https://pacing.tech">pacing.tech</a>.
+      </p>
+      <pre id="bibtex" is:raw><code>@misc{douglas2026pacing,
+  title  = {Pacing the Frontier: A Framework and Research Agenda},
+  author = {Douglas, Raymond and Dillon, Charles and Moore, Nikola and
+            Leech, Gavin and Bonde, Mathias Kirk and Krishnan, Rohit and
+            Perez, Noah and Young, Nathan and Slade Byrd, Cormac and
+            Casper, Stephen and Kulveit, Jan and Duvenaud, David and
+            Avin, Shahar},
+  year   = {2026},
+  url    = {https://pacing.tech}
+}</code></pre>
+      <button type="button" class="copy-bibtex" id="copy-bibtex">Copy BibTeX</button>
+    </section>
+  </div>
+  <script>
+    const copyButton = document.getElementById("copy-bibtex");
+    const bibtex = document.getElementById("bibtex");
+    copyButton?.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(bibtex?.textContent?.trim() ?? "");
+        copyButton.textContent = "Copied";
+        setTimeout(() => (copyButton.textContent = "Copy BibTeX"), 2000);
+      } catch {
+        /* Clipboard unavailable (e.g. insecure context); the text is still selectable. */
+      }
+    });
+  </script>
 </EssayLayout>
 
 <script>
   /* On phones the affiliations footnote opens as a lightbox over the byline
-     instead of sending the reader to the bottom of the intro. Wide screens
-     keep the ordinary footnote jump, and so does anyone without JS: the
-     footnote stays in the page and is only hidden once this has run. */
+     instead of sending the reader to the bottom of the intro, and the whole
+     byline opens it: the marker is a small target for a thumb, and everything
+     around it is the list of names the affiliations are for. Wide screens keep
+     the ordinary footnote jump, and so does anyone without JS: the footnote
+     stays in the page and is only hidden once this has run. */
   const dialog = document.getElementById("affiliations-dialog") as HTMLDialogElement | null;
-  const ref = document.getElementById("user-content-fnref-1");
+  const byline = document.getElementById("byline");
   const compact = window.matchMedia("(width < 48rem)");
 
-  if (dialog && ref && typeof dialog.showModal === "function") {
+  if (dialog && byline && typeof dialog.showModal === "function") {
     document.documentElement.dataset.affiliationsDialog = "";
 
-    ref.addEventListener("click", (event) => {
+    /* The marker's own jump to the footnote included, since the click reaches
+       here either way. */
+    byline.addEventListener("click", (event) => {
       if (!compact.matches) return;
       event.preventDefault();
       dialog.showModal();

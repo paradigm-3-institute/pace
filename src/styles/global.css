@@ -73,3 +73,135 @@ html {
   background-color: var(--color-call-to-action-bg);
   color: var(--color-background);
 }
+
+/* ---------- The section navigation ----------
+   From the breakpoint up the sidebar is fixed down the left of the page.
+   Below it, its title block and eight section bars would fill the screen
+   before a word of the essay, so the same panel slides in over the page
+   instead, from the same side it lives on.
+
+   None of this applies until the html element is marked, which only happens
+   with JS, so otherwise the sidebar stays where it was: a block at the top of
+   the page that you scroll past. */
+
+.nav-toggle,
+.nav-scrim {
+  display: none;
+}
+
+@media (width < 48rem) {
+  html[data-nav] {
+    --nav-width: min(20rem, 85vw);
+  }
+
+  /* The margin below would otherwise collapse out of here and move the page
+     instead of the tab. */
+  html[data-nav] main {
+    display: flow-root;
+  }
+
+  /* The handle: a tab of the drawer's own colour peeking out of the edge it
+     slides from, which rides out on the panel's transform when it opens and
+     turns into the way back.
+
+     It is the height of a section banner and locks to the top of the screen
+     the way one does, so for most of the essay it reads as the left end of
+     the header frozen there. Above that it rests at the first banner rather
+     than floating over the title: --nav-tab-rest is the distance down to it,
+     measured by the script, and the margin below takes that and the tab's own
+     height back out of the flow. Narrow enough that it clears the text, which
+     starts at --x-padding. */
+  html[data-nav] .nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 120;
+    width: 26px;
+    height: var(--h2-height);
+    margin-top: var(--nav-tab-rest, 0px);
+    margin-bottom: calc(-1 * (var(--nav-tab-rest, 0px) + var(--h2-height)));
+    padding: 0;
+    color: var(--color-dark);
+    background: var(--color-sidebar);
+    border: 0;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+    /* Held back until the script has measured where it rests, so it is never
+       painted at the top of the page on the way to its place. */
+    visibility: hidden;
+  }
+
+  html[data-nav][data-nav-placed] .nav-toggle {
+    visibility: visible;
+  }
+
+  html[data-nav][data-nav-open] .nav-toggle {
+    transform: translateX(var(--nav-width));
+  }
+
+  html[data-nav] .nav-scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 105;
+    /* --color-sidebar, dimmed. */
+    background: rgb(59 13 3 / 0.55);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  html[data-nav][data-nav-open] .nav-scrim {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  html[data-nav] .site-nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 110;
+    width: var(--nav-width);
+    /* The edge the sidebar has from the breakpoint up. Over the dimmed page it
+       is what caps the section bars, which otherwise run into it. */
+    border-right: 2px solid var(--color-sidebar);
+    /* Taller than a short screen, and than a phone held sideways. */
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    /* Hidden rather than merely off-screen, so nothing in it takes focus or
+       reaches a screen reader while it is closed. */
+    visibility: hidden;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease, visibility 0s 0.25s;
+  }
+
+  html[data-nav][data-nav-open] .site-nav {
+    visibility: visible;
+    transform: none;
+    transition: transform 0.25s ease;
+  }
+
+  /* The page behind a drawer should stay where the reader left it. */
+  html[data-nav][data-nav-open] {
+    overflow: hidden;
+  }
+
+  html[data-nav][data-nav-open] .nav-toggle-open,
+  html[data-nav]:not([data-nav-open]) .nav-toggle-close {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-nav] .site-nav,
+  html[data-nav][data-nav-open] .site-nav,
+  html[data-nav] .nav-toggle,
+  html[data-nav][data-nav-open] .nav-toggle,
+  html[data-nav] .nav-scrim {
+    transition: none;
+  }
+}
