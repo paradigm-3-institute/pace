@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1500" height="588.5" viewBox="0 0 1500 588.5" role="img" aria-labelledby="ttl dsc">
   <title id="ttl">Failure modes in pacing governance structures</title>
-  <desc id="dsc">The rule creates enforcement machinery: a new actor with power and information. Its predictable failure modes are control, capture and misuse (used for purposes beyond the rule that justified it, such as surveillance powers turned on lawful research); behavioural distortions (optimised for the test, not the underlying risk); and persistence and precedent (outlasting the rule that created it, with emergency powers outstaying their welcome, though sometimes with useful spillover into diplomacy and national strategy).</desc>
+  <desc id="dsc">The rule creates enforcement machinery: a new actor with power and information. Its predictable failure modes are control, capture and misuse (used for purposes beyond the rule that justified it, such as surveillance powers turned on lawful research); behavioral distortions (optimized for the test, not the underlying risk); and persistence and precedent (outlasting the rule that created it, with emergency powers outstaying their welcome, though sometimes with useful spillover into diplomacy and national strategy).</desc>
   <defs>
     <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
       <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#e2e8ee" stroke-width="1"/>
@@ -125,7 +125,7 @@
   <rect class="outline" x="770" y="84" width="330" height="323" />
   <line class="sep" x1="770" y1="132" x2="1100" y2="132"/>
 <g id="mode-1-heading" data-bounds="790 96 290 24">
-  <text class="hd" x="935.0" y="108.0" text-anchor="middle" dominant-baseline="central" >BEHAVIOURAL DISTORTIONS</text>
+  <text class="hd" x="935.0" y="108.0" text-anchor="middle" dominant-baseline="central" >BEHAVIORAL DISTORTIONS</text>
 </g>
 <g id="mode-1-body" data-bounds="794 154 282 152">
   <text class="b2" x="935.0" y="161.0" text-anchor="middle" dominant-baseline="central" >Surveillance, leaks and</text>
@@ -140,7 +140,7 @@
   <text class="lb" x="935.0" y="344.0" text-anchor="middle" dominant-baseline="central" >EFFECT</text>
 </g>
 <g id="mode-1-effect" data-bounds="794 360 282 33">
-  <text class="ef" x="935.0" y="367.0" text-anchor="middle" dominant-baseline="central" >OPTIMISED FOR THE TEST, NOT THE</text>
+  <text class="ef" x="935.0" y="367.0" text-anchor="middle" dominant-baseline="central" >OPTIMIZED FOR THE TEST, NOT THE</text>
   <text class="ef" x="935.0" y="386.0" text-anchor="middle" dominant-baseline="central" >UNDERLYING RISK</text>
 </g>
   <line class="rl" x1="935.0" y1="407" x2="935.0" y2="421"/>

@@ -1,7 +1,7 @@
 
 <h4 class="abstract-header" style="text-align: center; margin-top: 44px; margin-bottom: 24px; font-size: 32px"> Abstract </h4>
 
-Companies and governments are already haphazardly pacing AI. To make good decisions about the pace of AI progress, practitioners, policymakers, and the public need a richer understanding of the options and dynamics that pacing interventions create. This piece surveys the range of interventions aimed at moderating the pace of AI development, deployment, and diffusion, and proposes a detailed research agenda to clarify the tradeoffs and likely effects of each. Now is the time for a dedicated field of pacing research, moving beyond one-off proposals and scenarios towards a flexible capacity to quickly and effectively intervene.
+Companies and governments are already haphazardly pacing AI. To make good decisions about the pace of AI progress, practitioners, policymakers, and the public need a richer understanding of the options and dynamics that pacing interventions create. This piece surveys the range of interventions aimed at moderating the pace of AI development, deployment, and diffusion, and proposes a detailed research agenda to clarify the tradeoffs and likely effects of each. Now is the time for a dedicated field of pacing research, moving beyond one-off proposals and scenarios toward a flexible capacity to quickly and effectively intervene.
 
 <div class="exec-summary">
 
@@ -25,7 +25,7 @@ Though there have been many specific proposals, and though many subfields of AI 
 * **Improving technical and regulatory interventions.** All interventions face tradeoffs, but new coordination and oversight mechanisms and prior planning can allow strictly better options.  For example:  
   * Designing regulatory structures that allow for rapid but limited interventions which can make room for more careful deliberation;
   * Technical pathways to getting high assurance with minimal invasiveness, like LLM-based oversight and cryptographic guarantees;
-  * Modelling the consequences of indirect interventions like buyouts, liability, and taxes. 
+  * Modeling the consequences of indirect interventions like buyouts, liability, and taxes. 
 * **Investigating the full lifecycle of a pacing intervention.** By considering the full sequence from before to after, we can spot gaps. For example:  
   * Mapping different ways that interventions can end, and what this implies about different actors’ willingness to participate;
   * Figuring out how to make interventions which are more robust to premature endings or imperfect execution, intentional or otherwise;
