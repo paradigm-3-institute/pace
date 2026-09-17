@@ -48,6 +48,7 @@ const tagNumber = (tag) => String(tag).replace(/^\s*branching\s+point\s*/i, "");
    ------------------------------------------------------------------- */
 
 const FLOOR = 0.5; /* never render smaller than this; pan instead */
+const NARROW_ZOOM = 0.75; /* a phone opens on the reader's camp at this */
 const MIN_ZOOM = 0.25;
 const MAX_ZOOM = 2.5;
 const ACCENT = "oklch(0.55 0.17 28)";
@@ -59,9 +60,68 @@ const ACCENT = "oklch(0.55 0.17 28)";
    `feedback` is an element the Map component renders the "did we get
    that right?" box into; the panel keeps it at its foot through every
    redraw. */
+/* Turns [words](https://...) into a link on those words, and a bare
+   https://... into a link shown as a short citation ("arxiv.org/…").
+   Everything else stays plain text: nothing is ever parsed as HTML,
+   and only http and https addresses are linked. */
+const LINK =
+  /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)|(https?:\/\/[^\s)]+)|([\w.+-]+@[\w-]+(?:\.[\w-]+)+)/g;
+
+export function richText(node, source) {
+  let at = 0;
+  for (const match of String(source).matchAll(LINK)) {
+    if (match.index > at) {
+      node.append(source.slice(at, match.index));
+    }
+
+    let label, href, tail = "";
+    if (match[1]) {
+      label = match[1];
+      href = match[2];
+    } else if (match[4]) {
+      /* a bare email address, shown as itself */
+      label = match[4];
+      href = `mailto:${match[4]}`;
+    } else {
+      href = match[3];
+      /* a full stop or comma after a bare address belongs to the
+         sentence, not the link */
+      const punct = href.match(/[.,;:]+$/);
+      if (punct) {
+        tail = punct[0];
+        href = href.slice(0, -tail.length);
+      }
+      try {
+        const u = new URL(href);
+        label = u.hostname.replace(/^www\./, "") + (u.pathname.length > 1 ? "/…" : "");
+      } catch {
+        label = href;
+      }
+    }
+
+    const link = el("a", null, label);
+    link.href = href;
+    link.title = href;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    node.append(link);
+    if (tail) node.append(tail);
+    at = match.index + match[0].length;
+  }
+  node.append(source.slice(at));
+  return node;
+}
+
 export function mountMap(container, state, { onRestart, feedback }) {
   let stopWatching = () => {};
   const MAP = QUIZ_DATA.map;
+
+  /* Below 900px the map sits in the page under the phone's result
+     screen: it starts on the reader's camp at a legible size, is
+     pinched and dragged with two fingers (one finger scrolls the page
+     past it), and its panel is a sheet that rises from its foot when
+     something is tapped. */
+  const narrow = window.matchMedia("(width < 900px)").matches;
 
   const view = el("div", "map-view");
   const pane = el("div", "map-pane");
@@ -79,6 +139,25 @@ export function mountMap(container, state, { onRestart, feedback }) {
   panel.tabIndex = 0;
   view.append(pane, panel);
   container.append(view);
+
+  if (narrow) {
+    const bar = el("div", "map-bar");
+    /* The icon classes are written out in full so quiz.astro's scan
+       inlines them. */
+    const button = (label, iconClass, onClick) => {
+      const b = el("button", "map-bar-button");
+      b.type = "button";
+      const icon = el("i", iconClass);
+      icon.setAttribute("aria-hidden", "true");
+      b.append(icon, label);
+      b.addEventListener("click", onClick);
+      return b;
+    };
+    const mine = button(UI.myCampButton, "ph-light ph-magnifying-glass-plus", () => place(false));
+    const fit = button(UI.fitMapButton, "ph-light ph-magnifying-glass-minus", () => place(true));
+    bar.append(mine, fit);
+    pane.append(bar);
+  }
 
   /* ---- nodes ------------------------------------------------------ */
 
@@ -548,19 +627,42 @@ export function mountMap(container, state, { onRestart, feedback }) {
     };
   }
 
+  let placed = false;
   function frame() {
     const box = bounds();
     if (!isFinite(box.w)) return;
     drawArms(box);
+    /* On a phone the reader's pinch and drag are theirs to keep: the
+       map is placed once, and again only when asked. */
+    if (narrow && placed) return;
+    place(false, box);
+  }
 
+  /* `whole` fits the whole map in the pane. Otherwise, from md the map
+     fits across and the floor buys legibility; on a phone it opens on
+     the reader's own camp at a size the names can be read at. */
+  function place(whole, box = bounds()) {
     const w = pane.clientWidth;
     const h = pane.clientHeight;
     const wFit = (w / box.w) * 0.94;
     const hFit = (h / box.h) * 0.94;
+    placed = true;
+
+    const mine = narrow && !whole && state.campId && nodes.get(state.campId);
+    if (mine) {
+      vp.zoom = NARROW_ZOOM;
+      const b = mine.box;
+      const cx = b.offsetLeft + b.offsetWidth / 2;
+      const cy = b.offsetTop + b.offsetHeight / 2;
+      vp.x = w / 2 - cx * vp.zoom;
+      vp.y = h / 2 - cy * vp.zoom;
+      applyViewport();
+      return;
+    }
 
     /* Always fit across; the floor only buys legibility, by letting the
        map run past the bottom and be panned to. */
-    vp.zoom = Math.min(wFit, Math.max(FLOOR, hFit));
+    vp.zoom = whole ? Math.min(wFit, hFit) : Math.min(wFit, Math.max(FLOOR, hFit));
     vp.x = w / 2 - (box.x0 + box.w / 2) * vp.zoom;
     vp.y =
       vp.zoom > hFit
@@ -572,15 +674,58 @@ export function mountMap(container, state, { onRestart, feedback }) {
   /* Drag to pan, wheel to zoom — the map is bigger than the pane
      whenever the floor is holding it above the fitting zoom. */
   let dragging = null;
+  /* Every finger or button currently down on the pane. One drags; two
+     pinch, zooming about the point between them. */
+  const fingers = new Map();
+  let pinch = null;
+  const zoomAbout = (next, cx, cy) => {
+    next = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, next));
+    vp.x = cx - (cx - vp.x) * (next / vp.zoom);
+    vp.y = cy - (cy - vp.y) * (next / vp.zoom);
+    vp.zoom = next;
+  };
+  const pinchOf = () => {
+    const [a, b] = [...fingers.values()];
+    const rect = pane.getBoundingClientRect();
+    return {
+      dist: Math.hypot(a.x - b.x, a.y - b.y),
+      cx: (a.x + b.x) / 2 - rect.left,
+      cy: (a.y + b.y) / 2 - rect.top,
+    };
+  };
+
   pane.addEventListener("pointerdown", (event) => {
-    if (event.button !== 0) return;
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+    fingers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    if (fingers.size === 2) {
+      pinch = pinchOf();
+      pinch.zoom = vp.zoom;
+      for (const id of fingers.keys()) pane.setPointerCapture(id);
+      dragging = null;
+      return;
+    }
     dragging = { x: event.clientX, y: event.clientY, moved: false };
     /* Deliberately no setPointerCapture here. Capturing on every press
        retargets the click that follows to the pane, so a click on a
-       branching point or a camp never reaches it. The capture is taken below, once
-       the pointer has actually moved and this is really a drag. */
+       branching point or a camp never reaches it. The capture is taken
+       below, once the pointer has actually moved and this is really a
+       drag. */
   });
   pane.addEventListener("pointermove", (event) => {
+    if (!fingers.has(event.pointerId)) return;
+    fingers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    if (pinch && fingers.size === 2) {
+      const now = pinchOf();
+      vp.x += now.cx - pinch.cx;
+      vp.y += now.cy - pinch.cy;
+      zoomAbout(pinch.zoom * (now.dist / pinch.dist), now.cx, now.cy);
+      pinch.cx = now.cx;
+      pinch.cy = now.cy;
+      pinch.zoom = vp.zoom;
+      pinch.dist = now.dist;
+      applyViewport();
+      return;
+    }
     if (!dragging) return;
     const dx = event.clientX - dragging.x;
     const dy = event.clientY - dragging.y;
@@ -596,12 +741,15 @@ export function mountMap(container, state, { onRestart, feedback }) {
     applyViewport();
   });
   const endDrag = (event) => {
+    fingers.delete(event.pointerId);
     if (pane.hasPointerCapture(event.pointerId)) {
       pane.releasePointerCapture(event.pointerId);
     }
-    /* A drag must not also read as a click on whatever was underneath. */
-    const moved = dragging && dragging.moved;
+    /* A drag or a pinch must not also read as a click on whatever was
+       underneath. */
+    const moved = (dragging && dragging.moved) || pinch;
     dragging = null;
+    if (fingers.size < 2) pinch = null;
     if (moved) {
       pane.addEventListener("click", (e) => e.stopPropagation(), {
         capture: true,
@@ -619,14 +767,8 @@ export function mountMap(container, state, { onRestart, feedback }) {
       const rect = pane.getBoundingClientRect();
       const cx = event.clientX - rect.left;
       const cy = event.clientY - rect.top;
-      const next = Math.min(
-        MAX_ZOOM,
-        Math.max(MIN_ZOOM, vp.zoom * Math.exp(-event.deltaY * 0.0012)),
-      );
       /* Keep the point under the cursor where it is. */
-      vp.x = cx - (cx - vp.x) * (next / vp.zoom);
-      vp.y = cy - (cy - vp.y) * (next / vp.zoom);
-      vp.zoom = next;
+      zoomAbout(vp.zoom * Math.exp(-event.deltaY * 0.0012), cx, cy);
       applyViewport();
     },
     { passive: false },
@@ -636,7 +778,7 @@ export function mountMap(container, state, { onRestart, feedback }) {
 
   /* The panel opens on the reader's own camp; clicking the map or the
      empty space around it takes over from there. */
-  let chosen = state.campId || null;
+  let chosen = narrow ? null : state.campId || null;
   let tallies = null;
 
   function select(id) {
@@ -652,60 +794,24 @@ export function mountMap(container, state, { onRestart, feedback }) {
     }
   });
 
-  /* Turns [words](https://...) into a link on those words, and a bare
-     https://... into a link shown as a short citation ("arxiv.org/…").
-     Everything else stays plain text: nothing is ever parsed as HTML,
-     and only http and https addresses are linked. */
-  const LINK =
-    /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)|(https?:\/\/[^\s)]+)|([\w.+-]+@[\w-]+(?:\.[\w-]+)+)/g;
-
-  function richText(node, source) {
-    let at = 0;
-    for (const match of String(source).matchAll(LINK)) {
-      if (match.index > at) {
-        node.append(source.slice(at, match.index));
-      }
-
-      let label, href, tail = "";
-      if (match[1]) {
-        label = match[1];
-        href = match[2];
-      } else if (match[4]) {
-        /* a bare email address, shown as itself */
-        label = match[4];
-        href = `mailto:${match[4]}`;
-      } else {
-        href = match[3];
-        /* a full stop or comma after a bare address belongs to the
-           sentence, not the link */
-        const punct = href.match(/[.,;:]+$/);
-        if (punct) {
-          tail = punct[0];
-          href = href.slice(0, -tail.length);
-        }
-        try {
-          const u = new URL(href);
-          label = u.hostname.replace(/^www\./, "") + (u.pathname.length > 1 ? "/…" : "");
-        } catch {
-          label = href;
-        }
-      }
-
-      const link = el("a", null, label);
-      link.href = href;
-      link.title = href;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      node.append(link);
-      if (tail) node.append(tail);
-      at = match.index + match[0].length;
-    }
-    node.append(source.slice(at));
-    return node;
-  }
 
   function drawPanel() {
     panel.replaceChildren();
+    /* On a phone the panel is a sheet, there only while something is
+       chosen; the result screen has already shown the reader's camp. */
+    if (narrow) {
+      panel.hidden = !chosen;
+      if (!chosen) return;
+      const close = el("button", "map-sheet-close");
+      close.type = "button";
+      close.setAttribute("aria-label", "Close");
+      close.textContent = "\u00d7";
+      close.addEventListener("click", () => {
+        chosen = null;
+        drawPanel();
+      });
+      panel.append(close);
+    }
 
     const q = chosen && QUIZ_DATA.questions[chosen];
     const camp = chosen && QUIZ_DATA.camps[chosen];

@@ -16,6 +16,8 @@
        kicker  the small label above the title.
        title   the big serif title.
        text    a short paragraph — one to three sentences — setting up the walk.
+               Shown on the title card on phones; from a tablet up the
+               sidebar carries the introduction instead (quiz.astro).
        note    OPTIONAL. A smaller, lighter line beneath the text.
        button  the words on the button that starts the walk.
        buttonIcon  OPTIONAL. A Phosphor icon shown just before those
@@ -65,6 +67,12 @@
        detailWord          the heading over the side panel before anything is
                            clicked, and detailEmpty the line beneath it.
        campWord            the heading over the panel when a camp is open.
+       resultKicker        on a phone, the line over the camp's name on the
+                           result screen.
+       seeMapButton        on a phone, the button that scrolls to the map.
+       fitMapButton        on the phone map, the button that shows all of it.
+       myCampButton        on the phone map, the button that returns to the
+                           reader's own camp.
        treeOffline         shown under the tree when no database is connected.
 
    start: "c1"
@@ -258,6 +266,10 @@ export const QUIZ_DATA = {
     detailWord: `The Pacing Decision Tree`,
     detailEmpty: `Click any question or camp on the map.`,
     campWord: `CAMP`,
+    resultKicker: `Your camp is`,
+    seeMapButton: `See where you sit on the map`,
+    fitMapButton: `Whole map`,
+    myCampButton: `My camp`,
     treeOffline: `Counts appear once this is connected to a database — see SUPABASE.md.`,
   },
 
