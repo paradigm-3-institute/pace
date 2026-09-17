@@ -12,7 +12,7 @@ export function Intro({ onBegin }) {
       <Rise at={1}>
         {/* The title on a phone, where the header is a bare bar; from md
             the sidebar shows the title, so the kicker heads the card. */}
-        <h2 class="font-sans text-[2.2em] md:text-[2.6em] text-center font-semibold tracking-[-0.02em] leading-[1.1] text-(--color-conclusion-bg) mt-6">
+        <h2 class="font-sans text-[1.8em] md:text-[2.6em] text-center font-semibold tracking-[-0.02em] leading-[1.1] text-(--color-conclusion-bg) mt-6">
           <span class="md:hidden">{intro.title || intro.kicker}</span>
           <span class="hidden md:inline">{intro.kicker || intro.title}</span>
         </h2>

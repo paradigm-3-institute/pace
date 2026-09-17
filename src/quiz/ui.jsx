@@ -61,7 +61,7 @@ export function Stem({ children, at }) {
   return (
     <h2
       class={join(
-        "font-sans text-[1.3em] md:text-[1.6em] font-semibold tracking-[-0.01em] leading-[1.2] text-(--color-conclusion-bg) text-balance mt-4 md:mt-6",
+        "font-sans text-[1.15em] md:text-[1.6em] font-semibold tracking-[-0.01em] leading-[1.2] text-(--color-conclusion-bg) text-balance mt-4 md:mt-6",
         r.class,
       )}
       style={r.style}
@@ -122,14 +122,14 @@ export function Card({ class: className, at, children, ...rest }) {
 
 export function CardLabel({ children }) {
   return (
-    <span class="block font-serif text-[1.25em] font-bold leading-[1.25] text-(--color-conclusion-bg) text-balance">
+    <span class="block font-serif text-[1.1em] md:text-[1.25em] font-bold leading-[1.25] text-(--color-conclusion-bg) text-balance">
       {children}
     </span>
   );
 }
 
 export function CardText({ children }) {
-  return <p class="font-serif text-[0.95em] md:text-[1em] leading-[1.55] md:leading-[1.6] text-foreground text-pretty">{children}</p>;
+  return <p class="font-serif text-[0.9em] md:text-[1em] leading-[1.55] md:leading-[1.6] text-foreground text-pretty">{children}</p>;
 }
 
 /* The one button: sidebar green, the page's cream for the label, which
