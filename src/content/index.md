@@ -16,7 +16,7 @@ Companies and governments are already haphazardly pacing AI. To make good decisi
 
 Given all of this, we think it is time for pacing to be a dedicated research area. Though there have been many specific proposals, and though many subfields of AI risk largely exist to feed into pacing decisions, pacing as a whole has not yet cohered into a clear field of study. There are massive gaps in our understanding of pacing as a whole. Here we highlight three topics to illustrate the work that needs doing: 
 
-* **Mechanism design.** The practical effects of an intervention will depend substantially on how the affected parties respond to them, including the actors who enforce the intervention. We recommend prioritizing research on:  
+* **Understanding incentives.** The practical effects of an intervention will depend substantially on how the affected parties respond to them, including the actors who enforce the intervention. We recommend prioritizing research on:  
   * How different forms of transparency about capabilities can help or hurt coordination;
   * How to prevent mission creep among whoever is empowered to oversee pacing interventions;
   * Ways to align the incentives of different actors around pacing, e.g. by predictably compensating for losses with minimal moral hazard.  
