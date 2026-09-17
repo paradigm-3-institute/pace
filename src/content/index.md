@@ -34,6 +34,16 @@ Though there have been many specific proposals, and though many subfields of AI 
 
 For each topic, we include recommended reading and starting points below. We invite readers to [reach out](https://docs.google.com/forms/d/e/1FAIpQLSeZCo85Uz9eIXjkPRl3F3lZJGObg4P3_4BgIoy40-m1EVBqhg/viewform?usp=publish-editor) if they are interested in further work. 
 
+<div class="ai-summaries pdf-download">
+  <p class="ai-summaries-label">download a PDF version</p>
+  <a class="ai-summary pdf-download-button" href="/pacing-the-frontier.pdf" download>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+      <path d="M228,152v56a20,20,0,0,1-20,20H48a20,20,0,0,1-20-20V152a12,12,0,0,1,24,0v52H204V152a12,12,0,0,1,24,0Zm-108.49,8.49a12,12,0,0,0,17,0l40-40a12,12,0,0,0-17-17L140,123V40a12,12,0,0,0-24,0v83L96.49,103.51a12,12,0,0,0-17,17Z"></path>
+    </svg>
+    <span><strong>PDF</strong></span>
+  </a>
+</div>
+
 <div class="ai-summaries">
   <p class="ai-summaries-label">hear it from the machines...</p>
   <div class="ai-summaries-row">

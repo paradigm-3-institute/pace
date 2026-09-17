@@ -500,6 +500,22 @@
 
 /* Links to third-party AI summaries of the piece, at the end of the
    executive summary: a centred label over a row of icon pills. */
+/* The paper as a PDF (public/pacing-the-frontier.pdf): set like the
+   machines' block below it at the foot of the executive summary, a
+   label over a pill. */
+.prose .pdf-download {
+  margin-bottom: 0;
+}
+
+.prose .pdf-download-button {
+  padding: 8px 18px 8px 14px;
+  font-size: 1.2em;
+}
+
+.prose .pdf-download-button svg {
+  font-size: 1.1em;
+}
+
 .prose .ai-summaries {
   margin: 40px 0 8px;
   text-align: center;
