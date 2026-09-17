@@ -16,6 +16,13 @@
   /* The h2 is sticky and the h3 sticks beneath it, so the h3's offset is
      the h2's rendered height: line box + padding + 2px borders. */
   --h2-height: calc(var(--h2-line, calc(var(--h2-size) * 1.6)) + 2 * var(--h2-pad) + 4px);
+  /* Where a heading stacks under the banner it sits a pixel inside it rather
+     than exactly on its edge. A joint that lands mid-device-pixel — a display
+     running at 1.8x, a zoomed window — rounds the two boxes apart, and a row
+     of the text scrolling behind shows through the hairline between them. The
+     banner is above these in the stacking order, so the pixel it takes back
+     is never seen. */
+  --h2-stack: calc(var(--h2-height) - 1px);
 }
 
 .prose {
@@ -128,11 +135,38 @@
   }
 }
 
+/* A section ends in a paragraph or a collapsible, whose bottom margin would
+   otherwise collapse out through the section's own edge: the section would
+   stop 20 or 24px short of the next one, and so would the banner stuck to it,
+   leaving a strip of the page between the outgoing banner and the arriving
+   one for the whole of the handover. Kept inside, the two boxes meet and so
+   do the banners. The spacing itself is unchanged; it is only on the other
+   side of the boundary. */
+.prose > section {
+  display: flow-root;
+}
+
 /* Each h3 + its content is wrapped in section.h3-section (rehype-sectionize-h3)
    so the sticky heading below is bound to its own section and scrolls out of
    view instead of stacking on the next one. */
 .prose .h3-section {
   display: flow-root;
+  /* How far past its own end the heading has to reach to meet the one that
+     takes over from it, which is however far in that one starts. The last
+     subsection of a section hands over to the next section's banner, and that
+     begins where the section ends: nothing to reach for, and reaching anyway
+     would only leave the banner to cover the heading instead of push it. */
+  --h3-reach: 0px;
+}
+
+/* The next subsection's heading starts 32px into it. */
+.prose .h3-section:has(+ .h3-section) {
+  --h3-reach: 32px;
+}
+
+/* A collapsible starts 36px in. */
+.prose .h3-section:has(+ details) {
+  --h3-reach: 36px;
 }
 
 .prose h3 {
@@ -150,7 +184,7 @@
   margin-left: calc(-1 * var(--x-padding-inside));
   padding: 10px var(--x-padding-inside) 14px;
   position: sticky;
-  top: var(--h2-height);
+  top: var(--h2-stack);
   z-index: 1;
   background-color: var(--color-background);
   border-bottom: 2px solid var(--color-sidebar);
@@ -199,8 +233,21 @@
   margin-top: 48px;
 }
 
+/* A sticky box is held inside its containing block by its *margin* box, so a
+   negative bottom margin lets the heading follow the page that far past the
+   end of its own subsection. Without it the h3 stops short and the arriving
+   heading comes up to meet a strip of the page between them; past it, the
+   arriving heading — which paints over this one — would cover the rule under
+   it as the two touch. Exactly as far as the next heading, and no further.
+
+   It comes straight back off the next element, where the spacing it gave up
+   already lives, so the two collapse to the 24px this has always been. */
+.prose .h3-section > h3 {
+  margin-bottom: calc(-1 * var(--h3-reach));
+}
+
 .prose .h3-section > h3 + * {
-  margin-top: 24px;
+  margin-top: calc(24px + var(--h3-reach));
 }
 
 @media (width >= 48rem) {
@@ -213,6 +260,22 @@
   .prose h3 {
     font-size: 1.6em;
     padding: 10px var(--x-padding-inside) 12px;
+    /* From here up there is a frame, and the heading runs out to the inner
+       line of it. Ending exactly on that line is what rounds onto it where
+       device pixels don't divide CSS ones evenly — the left edge rounds
+       outward and washes the line out, while the right edge rounds the same
+       way and lands clear of it, which is why it shows down one side only.
+       So the fill stops a pixel short at each end while the box stays where
+       it is: the rule under the heading still runs out to meet the line, and
+       the pixel the fill gives up is the same white as the page behind it. */
+    background-color: transparent;
+    background-image: linear-gradient(
+      to right,
+      transparent 1px,
+      var(--color-background) 1px,
+      var(--color-background) calc(100% - 1px),
+      transparent calc(100% - 1px)
+    );
   }
 }
 
@@ -397,8 +460,13 @@
     z-index: 2;
     width: calc(100% + 2 * var(--x-padding-inside));
     /* Out to the edges the box gives up its padding for, and up to the top of
-       it, where the box has given up its border for this one. */
-    margin: -24px 0 24px calc(-1 * var(--x-padding-inside));
+       it, where the box has given up its border for this one. The bottom one
+       goes negative for a different reason: a sticky box is held inside its
+       containing block by its margin box, and the summary's bottom padding is
+       outside that block, so the heading would stop 48px short of the banner
+       that takes over from it and the two would pass each other across a
+       strip of the box. The spacing it gives up is re-applied below. */
+    margin: -24px 0 -24px calc(-1 * var(--x-padding-inside));
     padding: var(--h2-pad);
     padding-left: var(--x-padding-inside);
     text-align: left;
@@ -411,6 +479,10 @@
     background-color: var(--color-why-pace-bg);
     border-top: solid 2px var(--color-sidebar);
     border-bottom: solid 2px var(--color-sidebar);
+  }
+
+  .prose .exec-summary-header + * {
+    margin-top: 48px;
   }
 
   /* The summary's banner hands straight over to the first section's, the way
@@ -768,7 +840,7 @@
    confined to its own details element. */
 .prose details > summary {
   position: sticky;
-  top: var(--h2-height);
+  top: var(--h2-stack);
   z-index: 1;
   border-top: solid 2px var(--color-conclusion-bg);
 }
