@@ -243,6 +243,8 @@ One simple task for the pacing field is to have serious up-to-date research on e
 * Fist et al (2026). *How Should the US Prepare for Increasingly Automated AI R\&D?*. [Institute for Progress](https://ifp.org/preparing-for-ai-research-automation/).  
 * Koopmanschap, Barten (2026), *How to Catch a GPU: A Taxonomy of Verification and Enforcement Mechanisms for International AI Agreements.* [arXiv](https://arxiv.org/abs/2607.22619)
 
+* Institute for Progress (2026). *Funding for CAISI*. [ifp.org](https://ifp.org/funding-for-caisi/)
+
 #### Foundations
 
 * Bostrom (2002). *Existential Risks: Analyzing Human Extinction Scenarios and Related Hazards*. Journal of Evolution and Technology 9\. [nickbostrom.com](https://nickbostrom.com/existential/risks)  
@@ -257,12 +259,43 @@ One simple task for the pacing field is to have serious up-to-date research on e
 * Barnett & Scher (2025). *AI Governance to Avoid Extinction: The Strategic Landscape and Actionable Research Questions*. MIRI Technical Governance Team. [arXiv:2505.04592](https://arxiv.org/abs/2505.04592)  
 * Favaro & Clark (2026). *When AI Builds Itself*. Anthropic Institute. [anthropic.com](https://www.anthropic.com/institute/recursive-self-improvement)
 
+* Bostrom (2017). *Strategic Implications of Openness in AI Development*. Global Policy 8(2). [wiley.com](https://onlinelibrary.wiley.com/doi/full/10.1111/1758-5899.12403), [pdf](https://nickbostrom.com/papers/openness.pdf)  
+* Drexler (2019). *Reframing Superintelligence: Comprehensive AI Services as General Intelligence*. FHI. [ora.ox.ac.uk](https://ora.ox.ac.uk/objects/uuid:9c05427a-6390-4b42-9c55-ee45f73a26ad)  
+* Garfinkel & Dafoe (2019). *How Does the Offense-Defense Balance Scale?* Journal of Strategic Studies 42(6). [tandfonline.com](https://www.tandfonline.com/doi/full/10.1080/01402390.2019.1631810)  
+* Shevlane & Dafoe (2020). *The Offense-Defense Balance of Scientific Knowledge: Does Publishing AI Research Reduce Misuse?* [arXiv:2001.00463](https://arxiv.org/abs/2001.00463)  
+* Leech et al. (2024). *Shallow Review of Technical AI Safety*: "Make AI Solve It". [shallowreview.ai](https://shallowreview.ai/Make_AI_solve_it)  
+* MacAskill & Moorhouse (2025). *Preparing for the Intelligence Explosion*. Forethought. [forethought.org](https://www.forethought.org/research/preparing-for-the-intelligence-explosion)  
+* Hobbhahn (2025). *What's the Short Timeline Plan?* [lesswrong.com](https://www.lesswrong.com/posts/bb5Tnjdrptu89rcyY/what-s-the-short-timeline-plan)
+
 #### Economics
 
 * Aschenbrenner (2020). *Existential Risk and Growth*. GPI Working Paper 6-2020. [leopoldaschenbrenner.github.io](https://leopoldaschenbrenner.github.io/xriskandgrowth/ExistentialRiskAndGrowth050.pdf)  
 * Sandbrink, Hobbs, Swett, Dafoe & Sandberg (2022). *Differential Technology Development: An Innovation Governance Consideration for Navigating Technology Risks*. SSRN. [ssrn.com](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4213670)  
 * Jones (2024). *The A.I. Dilemma: Growth versus Existential Risk*. AER: Insights 6(4). [nber.org (WP 31837\)](https://www.nber.org/papers/w31837)   
 * Trammell & Aschenbrenner (2024). *Existential Risk and Growth*. GPI Working Paper 13-2024. [philiptrammell.com](https://philiptrammell.com/static/Existential_Risk_and_Growth.pdf) 
+
+* Salop & Scheffman (1983). *Raising Rivals' Costs*. American Economic Review 73(2). [repec.org](https://ideas.repec.org/a/aea/aecrev/v73y1983i2p267-71.html)  
+* Acemoglu (2002). *Directed Technical Change*. Review of Economic Studies 69(4). [mit.edu](https://economics.mit.edu/sites/default/files/publications/directed-technical-change.pdf)  
+* Bostrom (2003). *Astronomical Waste: The Opportunity Cost of Delayed Technological Development*. Utilitas 15(3). [nickbostrom.com](https://nickbostrom.com/optimal.pdf)  
+* Bostrom (2005). *The Fable of the Dragon-Tyrant*. Journal of Medical Ethics 31(5). [nickbostrom.com](https://nickbostrom.com/papers/the-fable-of-the-dragon-tyrant/)  
+* Heitzig, Lessmann & Zou (2011). *Self-Enforcing Strategies to Deter Free-Riding in the Climate Change Mitigation Game and Other Repeated Public Good Games*. PNAS 108(38). [pnas.org](https://www.pnas.org/doi/abs/10.1073/pnas.1106265108)  
+* Garicano, Lelarge & Van Reenen (2016). *Firm Size Distortions and the Productivity Distribution: Evidence from France*. American Economic Review 106(11). [aeaweb.org](https://www.aeaweb.org/articles?id=10.1257/aer.20130232)  
+* Johnson, Shriver & Goldberg (2023). *Privacy and Market Concentration: Intended and Unintended Consequences of the GDPR*. Management Science 69(10). [informs.org](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2023.4709)  
+* Merali (2024). *Scaling Laws for Economic Productivity: Experimental Evidence in LLM-Assisted Translation*. [arXiv:2409.02391](https://arxiv.org/abs/2409.02391)  
+* Srivastav & Zaehringer (2024). *The Economics of Coal Phaseouts*. [arXiv:2406.14238](https://arxiv.org/abs/2406.14238)  
+* Weil (2024). *Tort Law as a Tool for Mitigating Catastrophic Risk from Artificial Intelligence*. [SSRN](https://ssrn.com/abstract=4694006)  
+* Google (2024). *AI in Science*. [ai.google](https://ai.google/static/documents/AI-in-Science.pdf)  
+* Tomei, Jain & Franklin (2025). *AI Governance through Markets*. [arXiv:2501.17755](https://arxiv.org/abs/2501.17755)  
+* Gundlach, Lynch, Mertens & Thompson (2025). *The Price of Progress: Price Performance and the Future of AI*. [arXiv:2511.23455](https://arxiv.org/pdf/2511.23455)  
+* Yan & Morck (2025). *Who's Afraid of Tariffs? The Geographic Distribution of Fear and Loss*. NBER WP 34299. [nber.org](https://www.nber.org/papers/w34299)  
+* Aubakirova, Atallah, Clark, Summerville & Midha (2026). *State of AI: An Empirical 100 Trillion Token Study with OpenRouter*. [arXiv:2601.10088](https://arxiv.org/abs/2601.10088)  
+* Brynjolfsson, Collis, Eggers, Kazinnik & Nguyen (2026). *What is Generative AI Worth?* [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6569938)  
+* Demirer, Musolff & Yang (2026). *Writing Code vs. Shipping Code: Productivity Effects Across Generations of AI Coding Tools*. NBER WP 35275. [nber.org](https://www.nber.org/papers/w35275)  
+* Forecasting Research Institute (2026). *Experts Forecast Rapid AI Progress Could Bring Health and Wealth Without Happiness*. [forecastingresearch.substack.com](https://forecastingresearch.substack.com/p/forecasting-ai-benefits)  
+* IntuitionLabs (2026). *AI-Discovered Drugs in Clinical Trials*. [intuitionlabs.ai](https://intuitionlabs.ai/articles/ai-discovered-drugs-clinical-trials-2026)
+
+* Trout (2024). *Insuring Uninsurable Risks from AI: Government as Insurer of Last Resort*. [arXiv:2409.06672](https://arxiv.org/abs/2409.06672)  
+* Irwin, Wu & Barez (2026). *Position: Token Taxes Can Mitigate AI's Economic Risks*. [arXiv:2603.04555](https://arxiv.org/abs/2603.04555)
 
 #### The pause debate
 
@@ -273,6 +306,18 @@ One simple task for the pacing field is to have serious up-to-date research on e
 * Katzke & Futerman (2024). *The Manhattan Trap: Why a Race to Artificial Superintelligence Is Self-Defeating*. Convergence Analysis. [arXiv:2501.14749](https://arxiv.org/abs/2501.14749)  
 * Larsen, Dean, Halstead, Lifland, Greenblatt & Kokotajlo (2026). *AI 2040: Plan A*. AI Futures Project. [ai-2040.com](https://ai-2040.com/)
 
+* AI Impacts. *Hardware Overhang*. [aiimpacts.org](https://aiimpacts.org/hardware-overhang/)  
+* AI Impacts (2023). *Are There Examples of Overhang for Other Technologies?* [blog.aiimpacts.org](https://blog.aiimpacts.org/p/are-there-examples-of-overhang-for)  
+* Miotti et al. (2024). *A Narrow Path*. ControlAI. [narrowpath.co](https://www.narrowpath.co/)  
+* Felstead (2025). *Enabling Frontier Lab Collaboration to Mitigate AI Safety Risks*. [arXiv:2511.08631](https://arxiv.org/pdf/2511.08631)  
+* Felstead (2026). *Can Frontier AI Labs Lawfully Agree to Pause?* Lawfare. [lawfaremedia.org](https://www.lawfaremedia.org/article/can-frontier-ai-labs-lawfully-agree-to-pause)  
+* Employees of frontier AI companies (2026). *Pacing the Frontier* (open statement). [pacingthefrontier.com](https://www.pacingthefrontier.com/)
+
+* Karnofsky (2022). *Racing through a Minefield: The AI Deployment Problem*. Cold Takes. [cold-takes.com](https://www.cold-takes.com/racing-through-a-minefield-the-ai-deployment-problem/)  
+* Future of Life Institute (2023). *Pause Giant AI Experiments: An Open Letter*. [futureoflife.org](https://futureoflife.org/open-letter/pause-giant-ai-experiments/)  
+* Alaga & Schuett (2023). *Coordinated Pausing: An Evaluation-Based Coordination Scheme for Frontier AI Developers*. [arXiv:2310.00374](https://arxiv.org/abs/2310.00374)  
+* Cotra (2026). *Total Research Transparency Would Be Nice*. Planned Obsolescence. [planned-obsolescence.org](https://www.planned-obsolescence.org/p/total-research-transparency-would)
+
 #### International agreements
 
 * Ho, Barnhart, Trager, Bengio, Brundage, Casovan, Haas, Nemitz, Sastry, Weller, Zhang & Zhang (2023). *International Institutions for Advanced AI*. [arXiv:2307.04699](https://arxiv.org/abs/2307.04699)  
@@ -282,6 +327,11 @@ One simple task for the pacing field is to have serious up-to-date research on e
 * Al Ramiah, Koopmanschap, Thorsteinson, Khan, Zhou, Noh, Meindertsma & Shafiq (2025). *Toward a Global Regime for Compute Governance: Building the Pause Button*. [arXiv:2506.20530](https://arxiv.org/abs/2506.20530)  
 * Scher, Abecassis, Barnett & Abeyta (2025). *An International Agreement to Prevent the Premature Creation of Artificial Superintelligence*. [arXiv:2511.10783](https://arxiv.org/abs/2511.10783)  
 * Finke (2026). *International Agreements to Limit Frontier AI: Objectives and Exit*. TAIGR @ ICML 2026\. [arXiv:2607.16224](https://arxiv.org/abs/2607.16224)
+
+* Koremenos (2005). *Contracting around International Uncertainty*. American Political Science Review 99(4). [doi.org](https://doi.org/10.1017/S0003055405051877)  
+* Bartels (2020). *Building Better Games for National Security Policy Analysis*. RAND. [rand.org](https://www.rand.org/pubs/rgs_dissertations/RGSD437.html)  
+* Gruetzemacher et al. (2024). *Strategic Insights from Simulation Gaming of AI Race Dynamics*. [arXiv:2410.03092](https://arxiv.org/abs/2410.03092)  
+* Goldstein & Salib (2025). *How to Stop an AI Arms Race*. [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5369439)
 
 #### Deterrence
 
@@ -301,6 +351,10 @@ One simple task for the pacing field is to have serious up-to-date research on e
 * Koopmanschap & Barten (2026). *How to Catch a GPU: A Taxonomy of Verification and Enforcement Mechanisms for International AI Agreements*. Existential Risk Observatory. [arXiv:2607.22619](https://arxiv.org/abs/2607.22619)  
 * Choussat & Khoja (2026). *An International AI Slowdown Is Ready Whenever Politicians Are*. AI Frontiers. [ai-frontiers.org](https://ai-frontiers.org/articles/an-international-ai-slowdown-is-ready-whenever-politicians-are)
 
+* Baker, Kulp, Marks, Brundage & Heim (2025). *Verifying International Agreements on AI: Six Layers of Verification for Rules on Large-Scale AI Development and Deployment*. [arXiv:2507.15916](https://arxiv.org/pdf/2507.15916)
+
+* The Future Society (2026). *How To Make International AI Verification a Reality*. [thefuturesociety.org](https://thefuturesociety.org/international-ai-verification)
+
 #### Compute governance
 
 * Shavit (2023). *What Does It Take to Catch a Chinchilla? Verifying Rules on Large-Scale Neural Network Training via Compute Monitoring*. [arXiv:2303.11341](https://arxiv.org/abs/2303.11341)  
@@ -315,9 +369,171 @@ One simple task for the pacing field is to have serious up-to-date research on e
 * Hooker (2024). *On the Limitations of Compute Thresholds as a Governance Strategy*. [arXiv:2407.05694](https://arxiv.org/abs/2407.05694)   
 * Ord (2025). *Inference Scaling Reshapes AI Governance.* [arXiv](https://arxiv.org/abs/2503.05705)  
 
+* USITC (2023). *Germanium and Gallium* (Executive Briefing on Trade). [usitc.gov](https://www.usitc.gov/publications/332/executive_briefings/ebot_germanium_and_gallium.pdf)  
+* Ho, Besiroglu, Erdil et al. (2024). *Algorithmic Progress in Language Models*. Epoch AI. [arXiv:2403.05812](https://arxiv.org/abs/2403.05812)  
+* Miller (2025). *How US Export Controls Have (and Haven't) Curbed Chinese AI*. AI Frontiers. [ai-frontiers.org](https://ai-frontiers.org/articles/us-chip-export-controls-china-ai)  
+* O'Gara, Kulp, Hodgkins, Petrie et al. (2025). *Hardware-Enabled Mechanisms for Verifying Responsible AI Development*. [arXiv:2505.03742](https://arxiv.org/abs/2505.03742)  
+* Somala, Ho & Krier (2025). *Three Challenges Facing Compute-Based AI Policies*. Epoch AI. [epochai.substack.com](https://epochai.substack.com/p/three-issues-undermining-compute)  
+* Ansari (2026). *Hardware-Level Governance of AI Compute: A Feasibility Taxonomy for Regulatory Compliance and Treaty Verification*. [arXiv:2604.04712](https://arxiv.org/abs/2604.04712)  
+* Fedasiuk & Torres (2026). *The Lithography Loophole: How China Is Printing Its Way to Chip Self-Sufficiency*. AEI. [aei.org](https://www.aei.org/research-products/report/the-lithography-loophole-how-china-is-printing-its-way-to-chip-self-sufficiency/)  
+* Rahman (2026). *Does Distributed Training Undermine Compute Governance?* [arXiv:2605.29359](https://arxiv.org/abs/2605.29359)  
+* Seferis & Fist (2026). *Detecting Compute Structuring in AI Governance Is Likely Feasible*. AAAI. [aaai.org](https://ojs.aaai.org/index.php/AAAI/article/view/41127)  
+* Gargiulo & Kulp (2026). *Workload Identification with Physical Side Channels for AI Governance*. [arXiv:2609.00309](https://arxiv.org/abs/2609.00309)
+
+* Fist & Grunewald (2023). *Preventing AI Chip Smuggling to China*. CNAS. [cnas.org](https://www.cnas.org/publications/reports/preventing-ai-chip-smuggling-to-china)  
+* Irpan (2024). *Late Takes on OpenAI o1*. Sorta Insightful. [alexirpan.com](https://www.alexirpan.com/2024/12/04/late-o1-thoughts.html)  
+* Epoch AI (2024). *Can AI Scaling Continue Through 2030?* [epoch.ai](https://epoch.ai/blog/can-ai-scaling-continue-through-2030)  
+* Cottier & Owen (2025). *How Many AI Models Will Exceed Compute Thresholds?* Epoch AI. [epoch.ai](https://epoch.ai/blog/model-counts-compute-thresholds)  
+* Epoch AI. *Data on Data Centers*. [epoch.ai](https://epoch.ai/data/data-centers)  
+* Denain & Wu (2026). *Final Training Runs Account for a Minority of R&D Compute Spending*. Epoch AI, Gradient Updates. [epoch.ai](https://epoch.ai/gradient-updates/r-and-d-vs-training-compute)  
+* Ho (2026). *Keeping Up with the GPTs*. Epoch AI, Gradient Updates. [epoch.ai](https://epoch.ai/gradient-updates/keeping-up-with-the-gpts/)  
+* Calero-Forero (2026). *How Should You Slow Down AI Progress, If It Becomes Necessary?* [lesswrong.com](https://www.lesswrong.com/posts/qns9i7RZwxAAGGsjD/how-should-you-slow-down-ai-progress-if-it-becomes-necessary), [substack](https://felipecalerof.substack.com/p/how-should-you-slow-down-ai-progress)  
+* Achiam (2026). On monitoring-to-inference compute ratios. [x.com](https://x.com/jachiam0/status/2099115629626401103)
+
+#### Law and regulation
+
+* Zwetsloot, Dunham, Arnold & Huang (2019). *Keeping Top AI Talent in the United States*. CSET. [cset.georgetown.edu](https://cset.georgetown.edu/publication/keeping-top-ai-talent-in-the-united-states/)  
+* European Union (2023). *Machinery Regulation (EU) 2023/1230*. [eur-lex.europa.eu](https://eur-lex.europa.eu/eli/reg/2023/1230/oj)  
+* The White House (2023). *Executive Order 14110: Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence*. Federal Register. [federalregister.gov](https://www.federalregister.gov/documents/2023/11/01/2023-24283/safe-secure-and-trustworthy-development-and-use-of-artificial-intelligence)  
+* Bureau of Industry and Security (2023). *Implementation of Additional Export Controls: Certain Advanced Computing Items; Supercomputer and Semiconductor End Use*. Federal Register. [federalregister.gov](https://www.federalregister.gov/documents/2023/10/25/2023-23055/implementation-of-additional-export-controls-certain-advanced-computing-items-supercomputer-and)  
+* Bureau of Industry and Security (2023). *Export Controls on Semiconductor Manufacturing Items*. Federal Register. [federalregister.gov](https://www.federalregister.gov/documents/2023/10/25/2023-23049/export-controls-on-semiconductor-manufacturing-items)  
+* Bureau of Industry and Security (2024). *Foreign-Produced Direct Product Rule Additions and Refinements to Controls for Advanced Computing*. Federal Register. [federalregister.gov](https://www.federalregister.gov/documents/2024/12/05/2024-28270/foreign-produced-direct-product-rule-additions-and-refinements-to-controls-for-advanced-computing)  
+* SEC (2023). *SEC Adopts Rules on Cybersecurity Risk Management, Strategy, Governance, and Incident Disclosure by Public Companies*. Press release 2023-139. [sec.gov](https://www.sec.gov/newsroom/press-releases/2023-139)  
+* Anderljung et al. (2023). *Frontier AI Regulation: Managing Emerging Risks to Public Safety*. [arXiv:2307.03718](https://arxiv.org/abs/2307.03718)  
+* European Union (2024). *Artificial Intelligence Act*. [Article 14](https://artificialintelligenceact.eu/article/14/), [Article 53](https://artificialintelligenceact.eu/article/53/), [Code of Practice](https://artificialintelligenceact.eu/introduction-to-code-of-practice/)  
+* California Legislature (2025). *SB 53: Transparency in Frontier Artificial Intelligence Act*. [leginfo.legislature.ca.gov](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53)  
+* U.S. Congress (2025). *Chip Security Act, S.1705*, 119th Congress. [congress.gov](https://www.congress.gov/bill/119th-congress/senate-bill/1705/text)  
+* Sanders & Ocasio-Cortez. *Sanders, Ocasio-Cortez Announce AI Data Center Moratorium Act* (press release). [sanders.senate.gov](https://www.sanders.senate.gov/press-releases/news-sanders-ocasio-cortez-announce-ai-data-center-moratorium-act/)  
+* NIST. *Center for AI Standards and Innovation (CAISI)*. [nist.gov](https://www.nist.gov/caisi)  
+* UK AI Security Institute. [aisi.gov.uk](https://www.aisi.gov.uk)  
+* National Artificial Intelligence Research Resource Pilot. [nairrpilot.org](https://nairrpilot.org)  
+* Foley Hoag (2026). *Trump's New AI Frontier: The Executive Order Regulating Frontier AI Models*. [foleyhoag.com](https://foleyhoag.com/news-and-insights/blogs/security-privacy-and-the-law/2026/june/trump-s-new-ai-frontier-the-executive-order-regulating-frontier-ai-models/)  
+* Statt (2026). *The FRONTIER Act: Federal AI Regulation in 2026*. [statt.com](https://statt.com/blog/frontier-act-federal-ai-regulation-2026/)
+
 #### Developer commitments
 
 * Shevlane, Farquhar, Garfinkel, Phuong, Whittlestone, Leung et al. (2023). *Model Evaluation for Extreme Risks*. [arXiv:2305.15324](https://arxiv.org/abs/2305.15324)  
 * Clymer, Gabrieli, Krueger & Larsen (2024). *Safety Cases: How to Justify the Safety of Advanced AI Systems*. [arXiv:2403.10462](https://arxiv.org/abs/2403.10462)  
 * Karnofsky (2024). *If-Then Commitments for AI Risk Reduction*. Carnegie Endowment. [carnegieendowment.org](https://carnegieendowment.org/research/2024/09/if-then-commitments-for-ai-risk-reduction)  
-* Cârlan, Gomez, Mathew, Krishna, King, Gebauer & Smith (2024). *Dynamic Safety Cases for Frontier AI*. [arXiv:2412.17618](https://arxiv.org/abs/2412.17618)
+* Cârlan, Gomez, Mathew, Krishna, King, Gebauer & Smith (2024). *Dynamic Safety Cases for Frontier AI*. [arXiv:2412.17618](https://arxiv.org/abs/2412.17618)  
+* Christiano (2023). *Thoughts on Responsible Scaling Policies and Regulation*. Alignment Forum. [alignmentforum.org](https://www.alignmentforum.org/posts/dxgEaDrEBkkE96CXr/thoughts-on-responsible-scaling-policies-and-regulation)  
+* OpenAI (2025). *Expanding on What We Missed with Sycophancy*. [openai.com](https://openai.com/index/expanding-on-sycophancy/)  
+* OpenAI (2025). *How We Think About Safety and Alignment*. [openai.com](https://openai.com/safety/how-we-think-about-safety-alignment/)  
+* METR (2025). *Common Elements of Frontier AI Safety Policies*. [metr.org](https://metr.org/blog/2025-12-09-common-elements-of-frontier-ai-safety-policies/)  
+* Anthropic (2026). *Policy on the AI Exponential*. [anthropic.com](https://www.anthropic.com/policy-on-the-ai-exponential)  
+* Anthropic (2026). *Introducing Claude Fable 5 and Claude Mythos 5*. [anthropic.com](https://www.anthropic.com/news/claude-fable-5-mythos-5)  
+* Anthropic (2026). *Project Glasswing*. [anthropic.com](https://www.anthropic.com/glasswing)  
+* Anthropic (2026). *Project Glasswing: Initial Update*. [anthropic.com](https://www.anthropic.com/research/glasswing-initial-update)  
+* OpenAI (2026). *Trusted Access for Cyber*. [openai.com](https://openai.com/index/trusted-access-for-cyber/)  
+* OpenAI (2026). *Pacing Model Development for Cyber Capabilities*. [openai.com](https://openai.com/index/pacing-model-development-cyber-capabilities/)  
+* OpenAI (2026). *The AI Policy Window*. [openai.com](https://openai.com/index/ai-policy-window/)  
+* OpenAI (2026). *GPT-6 Astra Deployment Safety Report*: "Monitorability". [deploymentsafety.openai.com](https://deploymentsafety.openai.com/gpt-6-astra#monitorability)  
+* OpenAI (2026). *Research Acceleration: A View Inside OpenAI*. [openai.com](https://openai.com/index/research-acceleration-view-inside-openai/)
+
+* OpenAI (2023). *Introducing Superalignment*. [openai.com](https://openai.com/index/introducing-superalignment/)  
+* Anthropic. *Responsible Scaling Policy* (updates). [anthropic.com](https://www.anthropic.com/rsp-updates)  
+* Google DeepMind (2024). *Introducing the Frontier Safety Framework*. [deepmind.google](https://deepmind.google/discover/blog/introducing-the-frontier-safety-framework/)  
+* OpenAI. *Preparedness Framework*. [openai.com](https://openai.com/safety/preparedness)  
+* Right to Warn (2024). *A Right to Warn about Advanced Artificial Intelligence* (open letter). [righttowarn.ai](https://righttowarn.ai)  
+* Anthropic (2025). *Activating AI Safety Level 3 Protections*. [anthropic.com](https://www.anthropic.com/news/activating-asl3-protections)  
+* Anthropic (2025). *Commitments on Model Deprecation and Preservation*. [anthropic.com](https://www.anthropic.com/research/deprecation-commitments)  
+* Stein-Perlman. *AI Lab Watch*. [ailabwatch.org](https://ailabwatch.org)
+
+#### Evaluations and forecasting
+
+* Brown et al. (2020). *Language Models are Few-Shot Learners*. NeurIPS. [arXiv:2005.14165](https://arxiv.org/pdf/2005.14165)  
+* Wei et al. (2022). *Chain-of-Thought Prompting Elicits Reasoning in Large Language Models*. NeurIPS. [arXiv:2201.11903](https://arxiv.org/pdf/2201.11903)  
+* Dell'Acqua et al. (2023). *Navigating the Jagged Technological Frontier: Field Experimental Evidence of the Effects of AI on Knowledge Worker Productivity and Quality*. HBS Working Paper 24-013. [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4573321)  
+* UK AI Security Institute (2024). *Pre-Deployment Evaluation of Anthropic's Upgraded Claude 3.5 Sonnet*. [aisi.gov.uk](https://www.aisi.gov.uk/blog/pre-deployment-evaluation-of-anthropics-upgraded-claude-3-5-sonnet)  
+* Pimpale, Højmark, Scheurer & Hobbhahn (2025). *Forecasting Frontier Language Model Agent Capabilities*. [arXiv:2502.15850](https://arxiv.org/abs/2502.15850v2)  
+* Needham, Edkins, Pimpale, Bartsch & Hobbhahn (2025). *Large Language Models Often Know When They Are Being Evaluated*. [arXiv:2505.23836](https://arxiv.org/abs/2505.23836)  
+* Bean et al. (2025). *Measuring What Matters: Construct Validity in Large Language Model Benchmarks*. [arXiv:2511.04703](https://arxiv.org/abs/2511.04703)  
+* Wei & Heim (2025). *Designing Incident Reporting Systems for Harms from General-Purpose AI*. AAAI. [arXiv:2511.05914](https://arxiv.org/abs/2511.05914)  
+* UK AI Security Institute (2025). *More Compute, More Capability: Why AI Agent Evals Need to Account for Test-Time Compute*. [aisi.gov.uk](https://www.aisi.gov.uk/blog/more-compute-more-capability-why-ai-agent-evals-need-to-account-for-test-time-compute)  
+* Epoch AI. *AI Chip Production* (data insight). [epoch.ai](https://epoch.ai/data-insights/ai-chip-production)  
+* Epoch AI. *Benchmarks: Epoch Capabilities Index*. [epoch.ai](https://epoch.ai/benchmarks?view=graph&tab=eci)  
+* Epoch AI (2026). *An Update on AI's Most Important Number*. Gradient Updates. [epoch.ai](https://epoch.ai/gradient-updates/an-update-on-ais-most-important-number)  
+* Mengesha et al. (2026). *A Pragmatic Classification Framework for AI Incident Monitoring*. [arXiv:2604.21412](https://arxiv.org/pdf/2604.21412)  
+* Barrett et al. (2026). *Lessons from External Review of DeepMind's Scheming Inability Safety Case*. [arXiv:2604.21964](https://arxiv.org/pdf/2604.21964)  
+* Guidelight AI Standards (2026). *AI Control: An Assessment of Frontier Practices*. [guidelight.ai](https://guidelight.ai/blog/control-assessment-august-2026)  
+* METR (2026). *Notes on Anthropic Researcher Uplift Estimates*. [metr.org](https://metr.org/notes/2026-07-08-anthropic-researcher-uplift/)
+
+* Casper et al. (2024). *Black-Box Access Is Insufficient for Rigorous AI Audits*. [arXiv:2401.14446](https://arxiv.org/abs/2401.14446)  
+* Barnett & Thiergart (2024). *Declare and Justify: Explicit Assumptions in AI Evaluations Are Necessary for Effective Regulation*. [arXiv:2411.12820](https://arxiv.org/abs/2411.12820)  
+* van der Weij et al. (2024). *AI Sandbagging: Language Models Can Strategically Underperform on Evaluations*. [arXiv:2406.07358](https://arxiv.org/abs/2406.07358)  
+* METR. *Guidelines for Capability Elicitation*. Autonomy Evals Guide. [metr.github.io](https://metr.github.io/autonomy-evals-guide/elicitation-protocol/)  
+* Brundage et al. (2026). *Frontier AI Auditing: Toward Rigorous Third-Party Assessment of Safety and Security Practices at Leading AI Companies*. [arXiv:2601.11699](https://arxiv.org/abs/2601.11699)
+
+#### Safeguards and model security
+
+* Esvelt (2022). *Delay, Detect, Defend: Preparing for a Future in which Thousands Can Release New Pandemics*. GCSP. [gcsp.ch](https://www.gcsp.ch/publications/delay-detect-defend-preparing-future-which-thousands-can-release-new-pandemics)  
+* Kirk et al. (2023). *Understanding the Effects of RLHF on LLM Generalisation and Diversity*. [arXiv:2310.06452](https://arxiv.org/abs/2310.06452)  
+* Nevo et al. (2024). *Securing AI Model Weights*. RAND RR-A2849-1. [rand.org](https://www.rand.org/pubs/research_reports/RRA2849-1.html)  
+* Tamirisa et al. (2024). *Tamper-Resistant Safeguards for Open-Weight LLMs*. [arXiv:2408.00761](https://arxiv.org/abs/2408.00761)  
+* Brent & McKelvey (2025). *Contemporary AI Foundation Models Increase Biological Weapons Risk*. [arXiv:2506.13798](https://arxiv.org/pdf/2506.13798)  
+* Chen, Joshi, Chen, Andriushchenko, Angell & He (2025). *Monitoring Decomposition Attacks in LLMs with Lightweight Sequential Monitors*. [arXiv:2506.10949](https://arxiv.org/abs/2506.10949)  
+* Marshall et al. (2026). *BioTIER: A Refusal Benchmark for Targeted Biological Risk Mitigation*. [arXiv:2607.14479](https://arxiv.org/abs/2607.14479v1)
+
+* Shevlane (2022). *Structured Access: An Emerging Paradigm for Safe AI Deployment*. [arXiv:2201.05159](https://arxiv.org/abs/2201.05159)  
+* Li et al. (2024). *The WMDP Benchmark: Measuring and Reducing Malicious Use with Unlearning*. [arXiv:2403.03218](https://arxiv.org/abs/2403.03218)  
+* O'Brien et al. (2025). *Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs*. [arXiv:2508.06601](https://arxiv.org/abs/2508.06601)  
+* Feng et al. (2025). *Existing Large Language Model Unlearning Evaluations Are Inconclusive*. [arXiv:2506.00688](https://arxiv.org/abs/2506.00688)
+
+#### Agents, oversight and control
+
+* Orseau & Armstrong (2016). *Safely Interruptible Agents*. UAI. [intelligence.org](https://intelligence.org/files/Interruptibility.pdf)  
+* Chan et al. (2023). *Harms from Increasingly Agentic Algorithmic Systems*. FAccT. [arXiv:2302.10329](https://arxiv.org/abs/2302.10329)  
+* Shavit et al. (2023). *Practices for Governing Agentic AI Systems*. OpenAI. [openai.com](https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf)  
+* Berglund et al. (2023). *Taken Out of Context: On Measuring Situational Awareness in LLMs*. [arXiv:2309.00667](https://arxiv.org/abs/2309.00667)  
+* Greenblatt, Shlegeris, Sachan & Roger (2023). *AI Control: Improving Safety Despite Intentional Subversion*. [arXiv:2312.06942](https://arxiv.org/abs/2312.06942)  
+* Chan et al. (2024). *Visibility into AI Agents*. FAccT. [arXiv:2401.13138](https://arxiv.org/abs/2401.13138)  
+* Motwani et al. (2024). *Secret Collusion among AI Agents: Multi-Agent Deception via Steganography*. NeurIPS. [arXiv:2402.07510](https://arxiv.org/abs/2402.07510)  
+* Laine et al. (2024). *Me, Myself, and AI: The Situational Awareness Dataset (SAD) for LLMs*. [arXiv:2407.04694](https://arxiv.org/abs/2407.04694)  
+* Hao et al. (2024). *Training Large Language Models to Reason in a Continuous Latent Space*. [arXiv:2412.06769](https://arxiv.org/abs/2412.06769)  
+* Baker et al. (2025). *Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation*. OpenAI. [arXiv:2503.11926](https://arxiv.org/abs/2503.11926)  
+* Kwa et al. (2025). *Measuring AI Ability to Complete Long Tasks*. METR. [arXiv:2503.14499](https://arxiv.org/abs/2503.14499)  
+* Stix et al. (2025). *AI Behind Closed Doors: A Primer on the Governance of Internal Deployment*. [arXiv:2504.12170](https://arxiv.org/abs/2504.12170)  
+* Korbak et al. (2025). *Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety*. [arXiv:2507.11473](https://arxiv.org/abs/2507.11473)  
+* Charnock et al. (2026). *What Should Frontier AI Developers Disclose About Internal Deployments?* [arXiv:2604.23065](https://arxiv.org/abs/2604.23065)  
+* METR (2026). *Red-Teaming Anthropic's Agent Monitoring*. [metr.org](https://metr.org/blog/2026-03-25-red-teaming-anthropic-agent-monitoring/)
+
+#### Histories and precedents of restraint
+
+* U.S. Naval Institute (1926). *The Washington Treaties of 1922*. Proceedings 52(5). [usni.org](https://www.usni.org/magazines/proceedings/1926/may/washington-treaties-1922)  
+* GlobalSecurity.org. *Treaty Cruisers*. [globalsecurity.org](https://www.globalsecurity.org/military/systems/ship/treaty-cruiser.htm)  
+* Haddon-Cave (2009). *The Nimrod Review*. HC 1025. [gov.uk](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/229037/1025.pdf)  
+* Leveson (2011). *The Use of Safety Cases in Certification and Regulation*. MIT. [mit.edu](http://sunnyday.mit.edu/SafetyCases.pdf)  
+* Goitein & Patel (2015). *What Went Wrong with the FISA Court*. Brennan Center for Justice. [brennancenter.org](https://www.brennancenter.org/our-work/research-reports/what-went-wrong-fisa-court)  
+* Coe & Vaynman (2015). *Collusion and the Nuclear Nonproliferation Regime*. Journal of Politics 77(4). [andrewjcoe.com](https://www.andrewjcoe.com/_files/ugd/c8f493_ad67e13e0bdd4856b3f789dc317b327e.pdf)  
+* China State Council (2017). *A New Generation Artificial Intelligence Development Plan* (FLIA translation). [flia.org](https://flia.org/wp-content/uploads/2017/07/A-New-Generation-of-Artificial-Intelligence-Development-Plan-1.pdf)  
+* Casey (2021). *A Reckoning Looms for America's 50-Year Financial Surveillance System*. Cato Journal 41. [cato.org](https://www.cato.org/cato-journal/spring/summer-2021/reckoning-looms-americas-50-year-financial-surveillance-system)  
+* Molloy (2021). *Approach with Caution: Sunset Clauses as Safeguards of Democracy?* [northumbria.ac.uk](https://researchportal.northumbria.ac.uk/en/publications/approach-with-caution-sunset-clauses-as-safeguards-of-democracy/)  
+* Romano & Levin (2021). *Sunsetting as an Adaptive Strategy*. PNAS. [ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC8256028/)  
+* Maas (2022). *Paths Untaken: The History, Epistemology and Strategy of Technological Restraint, and Lessons for AI*. Verfassungsblog. [verfassungsblog.de](https://verfassungsblog.de/paths-untaken/)  
+* Cassata & de Chadarevian (2025). *Asilomar Across the Atlantic*. [ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC12098474/)  
+* Columbia Academic Commons. On the environmental costs of the slowed rollout of nuclear power. [doi:10.7916/d8-qez9-6m49](https://academiccommons.columbia.edu/doi/10.7916/d8-qez9-6m49)  
+* 31 U.S.C. §5324. *Structuring Transactions to Evade Reporting Requirement Prohibited*. [law.cornell.edu](https://www.law.cornell.edu/uscode/text/31/5324)  
+* Wikipedia. *Year 2000 Problem*. [wikipedia.org](https://en.wikipedia.org/wiki/Year_2000_problem)
+
+#### News and incidents
+
+* CNBC (2025). *Nvidia on Track to Hit Historic $5 Trillion Valuation amid AI Rally*. [cnbc.com](https://www.cnbc.com/2025/10/29/nvidia-on-track-to-hit-historic-5-trillion-valuation-amid-ai-rally.html)  
+* The Legal Wire (2025). *CAC Launches Special Campaign to Clear Up and Rectify the Abuse of AI Technology*. [thelegalwire.ai](https://thelegalwire.ai/cac-launches-special-campaign-to-clear-up-and-rectify-the-abuse-of-ai-technology/)  
+* STAT News (2026). *AI Ambient Scribes Bring Modest Time Savings in Clinical Documentation*. [statnews.com](https://www.statnews.com/2026/04/01/ai-ambient-scribes-modest-time-savings-clinical-documentation/)  
+* Axios (2026). *Anthropic's Revenue Growth*. [axios.com](https://www.axios.com/2026/04/13/anthropic-revenue-growth-ai)  
+* CNBC (2026). *Micron Reaches a Trillion-Dollar Market Cap*. [cnbc.com](https://www.cnbc.com/2026/05/26/micron-stock-trillion-market-cap.html)  
+* The Guardian (2026). *Anthropic Disables Advanced AI Models after US Government Order*. [theguardian.com](https://www.theguardian.com/technology/2026/jun/13/anthropic-disable-advanced-ai-models-us-government-order)  
+* Observer (2026). *Anthropic Delays AI Model It Deems Too Powerful for Public Use*. [observer.co.uk](https://observer.co.uk/news/technology/article/anthropic-delays-ai-model-it-deems-too-powerful-for-public-use)  
+* Nature (2026). *AI Researchers Reckon with the $1.5 Million 'Academia Tax'*. [nature.com](https://www.nature.com/articles/d41586-026-02026-1)  
+* The Motley Fool (2026). *Broadcom Is Less Than 5% from the $2 Trillion Club*. [fool.com](https://www.fool.com/investing/2026/07/09/broadcom-is-less-than-5-from-the-2-trillion-club-a/)  
+* Axios (2026). *OpenAI's GPT-5.6 Ban Lifted*. [axios.com](https://www.axios.com/2026/07/08/openai-gpt-trump-ban-lifted)  
+* Axios (2026). *OpenAI Delays Astra Model over Cybersecurity Risks*. [axios.com](https://www.axios.com/2026/08/07/openai-astra-model-delay-cybersecurity-risks)  
+* METR (2026). *OpenAI / Hugging Face Incident Investigation*. [metr.org](https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/)  
+* SANS Institute (2026). *"The Models Said No": Inside the Hugging Face Post-Mortem*. [sans.org](https://www.sans.org/blog/models-said-no-inside-hugging-face-post-mortem)  
+* Toh (2026). *The AI Chip Wars' New Front: Control the Cloud, Not the Silicon*. Forbes. [forbes.com](https://www.forbes.com/sites/viviantoh/2026/08/31/the-ai-chip-wars-new-front-control-the-cloud-not-the-silicon/)  
+* TechCrunch (2026). *Group Funded by Andreessen Horowitz and Brockman Plans Data Center Ads to Sway Midterms*. [techcrunch.com](https://techcrunch.com/2026/08/31/a-group-funded-by-andreessen-horowitz-and-brockman-plan-data-center-ads-to-sway-midterms/)  
+* Public First Action (2026). *Public First Action and Defending Our Values PAC Launch First Ads Supporting Responsible AI Regulation*. [publicfirstaction.us](https://publicfirstaction.us/news/public-first-action-and-defending-our-values-pac-launch-first-ads-supporting-responsible-ai-regulation-cgpew)  
+* CNBC (2026). *OpenAI's Astra Model Rated "Critical" for Cyber Risk*. [cnbc.com](https://www.cnbc.com/2026/09/01/open-ai-astra-cyber-model.html)  
+* Yahoo Finance (2026). *OpenAI Burning $12.3 Billion*. [yahoo.com](https://finance.yahoo.com/technology/ai/articles/openai-burning-12-3-billion-135516997.html)  
+* The Verge (2026). *Fable Won't Answer Basic Biology Questions*. [theverge.com](https://www.theverge.com/ai-artificial-intelligence/947973/fable-wont-answer-basic-biology-questions)  
+* The Wall Street Journal (2026). *Anthropic Researcher Quits over Out-of-Control AI Fears*. [wsj.com](https://www.wsj.com/tech/ai/anthropic-researcher-quits-over-out-of-control-ai-fears-707b7628)
