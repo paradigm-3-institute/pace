@@ -723,6 +723,31 @@
   }
 }
 
+/* Extend the grid to the article borders around a smaller, centered Venn.
+   Match the SVG's 30-unit grid so the added background joins seamlessly. */
+.prose #fig-pacing-tradeoffs-venn picture {
+  --venn-width: min(calc((100% - 2 * var(--x-padding-inside)) * 0.8), 512px);
+  --venn-grid-columns: 30;
+  background-color: #f3f6f9;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath d='M15 0V30M0 0H30' fill='none' stroke='%23e2e8ee' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: calc(var(--venn-width) / var(--venn-grid-columns)) auto;
+  background-position: center top;
+  border-block: 2px solid var(--color-conclusion-bg);
+}
+
+.prose #fig-pacing-tradeoffs-venn img {
+  width: var(--venn-width);
+  margin-inline: auto;
+  border: 0;
+}
+
+@media (max-width: 1023px) {
+  .prose #fig-pacing-tradeoffs-venn picture {
+    --venn-width: min(calc((100% - 2 * var(--x-padding-inside)) * 0.8), 432px);
+    --venn-grid-columns: 20;
+  }
+}
+
 .prose figcaption {
   font-size: 0.84em;
   font-family: var(--font-sans);
