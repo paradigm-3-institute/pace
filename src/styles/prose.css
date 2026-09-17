@@ -1,4 +1,6 @@
-.prose {
+/* On the root rather than on .prose because the navigation tab, which is
+   fixed outside the article, sizes itself to the section banner it sits in. */
+:root {
   /* The body size, and the one number the headings scale from. It is a
      variable in px rather than an em so it can be reused in calc()
      below: an em inside a custom property resolves where the property
@@ -6,9 +8,17 @@
   --prose-size: 17px;
   --h2-size: calc(var(--prose-size) * 1.4);
   --h2-pad: 6px;
+  /* A sticky box whose height lands on a fraction of a pixel leaves a seam at
+     its edge, and a row of the text scrolling behind shows through it. So the
+     line box is rounded to a whole pixel, and the offsets below are built
+     from it. Every fallback here is the unrounded value this replaced. */
+  --h2-line: round(calc(var(--h2-size) * 1.6), 1px);
   /* The h2 is sticky and the h3 sticks beneath it, so the h3's offset is
      the h2's rendered height: line box + padding + 2px borders. */
-  --h2-height: calc(var(--h2-size) * 1.6 + 2 * var(--h2-pad) + 4px);
+  --h2-height: calc(var(--h2-line, calc(var(--h2-size) * 1.6)) + 2 * var(--h2-pad) + 4px);
+}
+
+.prose {
   font-family: var(--font-serif);
   font-size: var(--prose-size);
   line-height: 1.6;
@@ -50,6 +60,7 @@
   .prose .abstract-header {
     display: none;
   }
+
 }
 
 .prose h1 {
@@ -65,6 +76,7 @@
    leave a gap at the top until the next banner arrives. */
 .prose h2 {
   font-size: var(--h2-size);
+  line-height: var(--h2-line, 1.6);
   margin: 24px 6px 0 6px;
   letter-spacing: -0.01em;
   padding: var(--h2-pad);
@@ -96,6 +108,26 @@
   margin-top: -2px;
 }
 
+/* No frame to stand inside on a phone, so the banners run to both edges; a
+   gap at the end of one would only show beside the navigation tab. The side
+   borders go with the gap, as they do on everything else that runs full
+   width: the figures, the collapsibles, the executive summary.
+
+   And the label gives up the middle. Indented to the text below it, it puts
+   the banner, the h3 under it and every paragraph on one left edge, and the
+   navigation tab at the head of that row rather than to one side of a
+   centred line. */
+@media (width < 48rem) {
+  .prose h2 {
+    margin-left: 0;
+    margin-right: 0;
+    border-left: 0;
+    border-right: 0;
+    text-align: left;
+    padding-left: var(--x-padding-inside);
+  }
+}
+
 /* Each h3 + its content is wrapped in section.h3-section (rehype-sectionize-h3)
    so the sticky heading below is bound to its own section and scrolls out of
    view instead of stacking on the next one. */
@@ -122,6 +154,15 @@
   z-index: 1;
   background-color: var(--color-background);
   border-bottom: 2px solid var(--color-sidebar);
+}
+
+/* Rounded to a whole pixel for the same reason as the banner it sticks under.
+   Behind @supports because the line-height above is what it replaces: without
+   round() the heading should stay as it was. */
+@supports (line-height: round(1.2em, 1px)) {
+  .prose h3 {
+    line-height: round(1.2em, 1px);
+  }
 }
 
 .prose h4 {
@@ -163,7 +204,7 @@
 }
 
 @media (width >= 48rem) {
-  .prose {
+  :root {
     --prose-size: 19px;
     --h2-size: calc(var(--prose-size) * 1.6);
     --h2-pad: 12px;
@@ -176,7 +217,7 @@
 }
 
 @media (width >= 96rem) {
-  .prose {
+  :root {
     --prose-size: 21px;
   }
 }
@@ -311,7 +352,9 @@
   background-color: color-mix(in oklab, var(--color-why-pace-bg), white 60%);
   border: 2px solid var(--color-why-pace-bg);
   border-radius: 6px;
-  overflow: hidden;
+  /* Clipped rather than hidden: hidden would make this the scrollport for the
+     sticky heading below and the heading would never stick. */
+  overflow: clip;
 }
 
 .prose .exec-summary-header {
@@ -329,7 +372,11 @@
   margin-bottom: 0;
 }
 
-/* On phones the summary runs edge to edge, like the figures. */
+/* On phones the summary runs edge to edge, like the figures, and its heading
+   takes the shape of a section banner and sticks like one, for as long as the
+   summary lasts. It is the first thing on the page tall enough to scroll
+   through, so it is also what gives the navigation tab a header to sit in
+   near the top. */
 @media (width < 48rem) {
   .prose .exec-summary {
     width: calc(100% + 2 * var(--x-padding-inside));
@@ -337,7 +384,45 @@
     padding: 24px var(--x-padding-inside);
     border-left: 0;
     border-right: 0;
+    /* The heading below supplies the line across the top instead. Its own is
+       given up rather than covered: the box clips at its padding box, so a
+       heading pulled up into the border would lose that edge to the clip. */
+    border-top: 0;
     border-radius: 0;
+  }
+
+  .prose .exec-summary-header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    width: calc(100% + 2 * var(--x-padding-inside));
+    /* Out to the edges the box gives up its padding for, and up to the top of
+       it, where the box has given up its border for this one. */
+    margin: -24px 0 24px calc(-1 * var(--x-padding-inside));
+    padding: var(--h2-pad);
+    padding-left: var(--x-padding-inside);
+    text-align: left;
+    /* The section banners' box exactly, so the tab is the height of both. */
+    font-size: var(--h2-size);
+    line-height: var(--h2-line, 1.6);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--color-sidebar);
+    background-color: var(--color-why-pace-bg);
+    border-top: solid 2px var(--color-sidebar);
+    border-bottom: solid 2px var(--color-sidebar);
+  }
+
+  /* The summary's banner hands straight over to the first section's, the way
+     one section's banner sits straight on the section before it, so the top of
+     the screen is never without a header between them. The overlap puts the
+     arriving banner's border over the box's own, rather than stacking two. */
+  .prose .exec-summary {
+    margin-bottom: 0;
+  }
+
+  .prose > section:first-of-type > h2 {
+    margin-top: -2px;
   }
 }
 
@@ -667,6 +752,14 @@
   gap: 0.4em;
 }
 
+/* As with the h3: a whole-pixel line box, or the text behind shows through
+   the seam where this sticks. */
+@supports (line-height: round(1.3em, 1px)) {
+  .prose summary {
+    line-height: round(1.3em, 1px);
+  }
+}
+
 .prose summary::-webkit-details-marker {
   display: none;
 }
@@ -686,6 +779,21 @@
 
 .prose details[open] > summary::before {
   transform: rotate(90deg);
+}
+
+/* On phones the chevron takes a gutter of its own, as wide as the text is
+   inset, so the summary's words start on the same left edge as the body, the
+   h3s and the banner labels — and the chevron sits in the lane the navigation
+   tab runs in. The mask stays its own size inside the wider box. */
+@media (width < 48rem) {
+  .prose summary {
+    padding-left: 0;
+    gap: 0;
+  }
+
+  .prose summary::before {
+    width: var(--x-padding-inside);
+  }
 }
 
 /* ---------- Footnotes ----------
