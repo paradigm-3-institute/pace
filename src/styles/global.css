@@ -129,6 +129,13 @@ html {
     border-radius: 0 4px 4px 0;
     cursor: pointer;
     transition: transform 0.25s ease;
+    /* Held back until the script has measured where it rests, so it is never
+       painted at the top of the page on the way to its place. */
+    visibility: hidden;
+  }
+
+  html[data-nav][data-nav-placed] .nav-toggle {
+    visibility: visible;
   }
 
   html[data-nav][data-nav-open] .nav-toggle {

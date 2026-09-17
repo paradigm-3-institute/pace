@@ -28,7 +28,7 @@ const appendices = sectionMeta.find(({ page }) => page === "/appendices")!;
       <h1>Pacing the Frontier</h1>
       <p>A Framework & Research Agenda</p>
     </hgroup>
-    <div class="grid gap-2 md:gap-6 mb-12 md:mb-16 font-sans text-(--color-conclusion-bg)">
+    <div id="byline" class="grid gap-2 md:gap-6 mb-12 md:mb-16 font-sans text-(--color-conclusion-bg) max-md:cursor-pointer">
       <div class="text-right font-semibold text-balance">
         by Raymond Douglas, Charles Dillon, Nikola Moore, Gavin Leech, Shahar Avin<sup>✝</sup>
       </div>
@@ -118,17 +118,21 @@ const appendices = sectionMeta.find(({ page }) => page === "/appendices")!;
 
 <script>
   /* On phones the affiliations footnote opens as a lightbox over the byline
-     instead of sending the reader to the bottom of the intro. Wide screens
-     keep the ordinary footnote jump, and so does anyone without JS: the
-     footnote stays in the page and is only hidden once this has run. */
+     instead of sending the reader to the bottom of the intro, and the whole
+     byline opens it: the marker is a small target for a thumb, and everything
+     around it is the list of names the affiliations are for. Wide screens keep
+     the ordinary footnote jump, and so does anyone without JS: the footnote
+     stays in the page and is only hidden once this has run. */
   const dialog = document.getElementById("affiliations-dialog") as HTMLDialogElement | null;
-  const ref = document.getElementById("user-content-fnref-1");
+  const byline = document.getElementById("byline");
   const compact = window.matchMedia("(width < 48rem)");
 
-  if (dialog && ref && typeof dialog.showModal === "function") {
+  if (dialog && byline && typeof dialog.showModal === "function") {
     document.documentElement.dataset.affiliationsDialog = "";
 
-    ref.addEventListener("click", (event) => {
+    /* The marker's own jump to the footnote included, since the click reaches
+       here either way. */
+    byline.addEventListener("click", (event) => {
       if (!compact.matches) return;
       event.preventDefault();
       dialog.showModal();

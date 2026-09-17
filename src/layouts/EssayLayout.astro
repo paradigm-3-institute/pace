@@ -139,11 +139,18 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
         const top = main.getBoundingClientRect().top + parseFloat(getComputedStyle(main).paddingTop);
         const rest = Math.max(0, first.getBoundingClientRect().top - top);
         toggle.style.setProperty("--nav-tab-rest", `${Math.round(rest)}px`);
+        /* Only now is it safe to show: a resize observation is delivered before
+           the frame it belongs to is painted, so the tab's first appearance is
+           already in the right place. */
+        document.documentElement.dataset.navPlaced = "";
       };
 
       /* Fires once to place it, and again whenever the page above it reflows:
          a rotation, a font arriving late. */
       new ResizeObserver(place).observe(main);
+    } else {
+      /* Nothing to rest at: better at the top of the page than not at all. */
+      document.documentElement.dataset.navPlaced = "";
     }
 
     /* Rotating to a wide screen would otherwise leave the page inert behind a
