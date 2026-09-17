@@ -355,17 +355,33 @@ export function mountMap(container, state, { onRestart, feedback }) {
     return { x: x + w, y: y + h / 2, dx: 1, dy: 0 };
   }
 
-  function orthogonal(a, b, turn) {
-    const STUB = 20;
+  function orthogonal(a, b, turn, stub) {
+    /* How far an arm runs straight out of its port before it may turn.
+       An arm can ask for more in content.js, to keep a long run clear
+       of the boxes it leaves. */
+    const STUB = stub || 20;
     /* Camps are bare words with no box, so an arrow that runs to the
        node's edge lands on the glyphs. Stop it a little short. */
     const GAP = 7;
     const end = { x: b.x + b.dx * GAP, y: b.y + b.dy * GAP };
     const p1 = { x: a.x + a.dx * STUB, y: a.y + a.dy * STUB };
     const p2 = { x: b.x + b.dx * STUB, y: b.y + b.dy * STUB };
-    const points = [a, p1];
     const aV = a.dx === 0;
     const bV = b.dx === 0;
+
+    /* Ports facing each other and all but aligned get a straight line
+       on the source's own axis, rather than a jog of a few pixels
+       halfway along. A camp is a bare word, so the arrow still lands
+       on it when the tip is a little off its centre. */
+    const SNAP = 40;
+    if (aV && bV && a.dy !== b.dy && Math.abs(a.x - b.x) <= SNAP) {
+      return [a, { x: a.x, y: end.y }];
+    }
+    if (!aV && !bV && a.dx !== b.dx && Math.abs(a.y - b.y) <= SNAP) {
+      return [a, { x: end.x, y: a.y }];
+    }
+
+    const points = [a, p1];
     if (aV && bV) {
       /* Facing each other, meet in the middle. Pointing the same way —
          both out of the bottom, say — go round the outside instead, or
@@ -401,8 +417,9 @@ export function mountMap(container, state, { onRestart, feedback }) {
     return points;
   }
 
-  /* Halfway along the path, so a label always lands on its own line. */
-  function midpoint(points) {
+  /* A point along the path: halfway by default, so a label lands on
+     its own line, or `dist` pixels from the start when an arm asks. */
+  function along(points, dist) {
     const lengths = [];
     let total = 0;
     for (let i = 0; i < points.length - 1; i++) {
@@ -412,10 +429,11 @@ export function mountMap(container, state, { onRestart, feedback }) {
       lengths.push(len);
       total += len;
     }
+    const target = dist === undefined ? total / 2 : Math.min(dist, total);
     let walked = 0;
     for (let i = 0; i < lengths.length; i++) {
-      if (walked + lengths[i] >= total / 2) {
-        const t = lengths[i] ? (total / 2 - walked) / lengths[i] : 0;
+      if (walked + lengths[i] >= target) {
+        const t = lengths[i] ? (target - walked) / lengths[i] : 0;
         return {
           x: points[i].x + (points[i + 1].x - points[i].x) * t,
           y: points[i].y + (points[i + 1].y - points[i].y) * t,
@@ -456,6 +474,7 @@ export function mountMap(container, state, { onRestart, feedback }) {
         port(arm.from, arm.sh),
         port(arm.to, arm.th),
         arm.turn,
+        arm.stub,
       );
       const line = document.createElementNS(NS, "path");
       line.setAttribute(
@@ -468,7 +487,7 @@ export function mountMap(container, state, { onRestart, feedback }) {
       svg.append(line);
 
       if (!arm.label) continue;
-      const at = midpoint(points);
+      const at = along(points, arm.labelAt);
       const tag = el("div", "arm-label", arm.label);
       tag.style.left = `${at.x}px`;
       tag.style.top = `${at.y + (arm.dy || 0)}px`;
@@ -509,7 +528,7 @@ export function mountMap(container, state, { onRestart, feedback }) {
     /* An arm can swing wide of every node — 1C's run down the far left
        to pause now — so the paths count too. */
     for (const arm of arms) {
-      for (const p of orthogonal(port(arm.from, arm.sh), port(arm.to, arm.th), arm.turn)) {
+      for (const p of orthogonal(port(arm.from, arm.sh), port(arm.to, arm.th), arm.turn, arm.stub)) {
         x0 = Math.min(x0, p.x);
         y0 = Math.min(y0, p.y);
         x1 = Math.max(x1, p.x);
