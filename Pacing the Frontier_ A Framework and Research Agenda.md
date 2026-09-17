@@ -780,7 +780,7 @@ Research into pacing will fundamentally be a matter of triage. We do not have th
 
 ## **7\. Call to action** {#7.-call-to-action}
 
-If you are interested in working on any of the open questions we lay out above, [**we’d like to help**](https://docs.google.com/forms/d/e/1FAIpQLSeZCo85Uz9eIXjkPRl3F3lZJGObg4P3_4BgIoy40-m1EVBqhg/viewform?usp=publish-editor). For instance, we can connect you with expertise and potential funders. We’re also happy to help people in policy use this framework. Please contact us at [hello@pacing.tech](mailto:gavin@pacing.tech).
+If you are interested in working on any of the open questions we lay out above, [**we’d like to help**](https://docs.google.com/forms/d/e/1FAIpQLSeZCo85Uz9eIXjkPRl3F3lZJGObg4P3_4BgIoy40-m1EVBqhg/viewform?usp=publish-editor). For instance, we can connect you with expertise and potential funders. We’re also happy to help people in policy use this framework. Please contact us at [hello@pacing.tech](mailto:hello@pacing.tech).
 
 See also the calls to action from other organizations:
 
