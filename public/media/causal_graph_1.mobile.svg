@@ -63,7 +63,7 @@
   <rect class="box" x="24" y="190" width="250" height="100" />
   <line class="sep" x1="24" y1="226" x2="274" y2="226"/>
   <text class="hd" x="149.0" y="208.0" text-anchor="middle" dominant-baseline="central" >RESPONSE</text>
-  <text class="bd" x="149.0" y="258.0" text-anchor="middle" dominant-baseline="central" >actors re-optimise</text>
+  <text class="bd" x="149.0" y="258.0" text-anchor="middle" dominant-baseline="central" >actors re-optimize</text>
   <rect class="box" x="24" y="340" width="250" height="100" />
   <line class="sep" x1="24" y1="376" x2="274" y2="376"/>
   <text class="hd" x="149.0" y="358.0" text-anchor="middle" dominant-baseline="central" >AI SLOWDOWN</text>

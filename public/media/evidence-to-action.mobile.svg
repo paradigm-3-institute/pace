@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="480" height="1152" viewBox="0 0 480 1152" role="img" aria-labelledby="ttl dsc">
   <title id="ttl">How evidence can become action, and where it can stall</title>
-  <desc id="dsc">Six steps from evidence to action: detect, interpret, decide, execute, check, and retarget or exit, grouped into before pacing, activation, and during or ending. Between each step the process can stall: no recognised recipient, no usable basis for a call, no one able or willing to act, no observation or verification, no review or exit rule.</desc>
+  <desc id="dsc">Six steps from evidence to action: detect, interpret, decide, execute, check, and retarget or exit, grouped into before pacing, activation, and during or ending. Between each step the process can stall: no recognized recipient, no usable basis for a call, no one able or willing to act, no observation or verification, no review or exit rule.</desc>
   <defs>
     <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
       <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#e2e8ee" stroke-width="1"/>
@@ -70,14 +70,14 @@
   <text class="b2" x="252.0" y="71.0" text-anchor="middle" dominant-baseline="central" >Forecasts, evaluations</text>
   <text class="b2" x="252.0" y="89.0" text-anchor="middle" dominant-baseline="central" >or incidents</text>
   <text class="lb" x="252.0" y="114" text-anchor="middle" dominant-baseline="central" font-size="7px">OUTPUT</text>
-  <text class="ef" x="252.0" y="128" text-anchor="middle" dominant-baseline="central" >RECOGNISED SIGNAL</text>
+  <text class="ef" x="252.0" y="128" text-anchor="middle" dominant-baseline="central" >RECOGNIZED SIGNAL</text>
   <line class="arr" x1="110" y1="138" x2="110" y2="206"/>
   <polygon class="head" points="102,204 118,204 110,218"/>
   <circle class="note" cx="110" cy="178.0" r="9"/>
   <path d="M106 174.0 L114 182.0 M114 174.0 L106 182.0" stroke="#d0503c" stroke-width="1.6"/>
   <line class="rl" x1="119" y1="178.0" x2="150" y2="178.0"/>
   <rect class="note" x="150.0" y="160.0" width="302" height="36" />
-  <text class="rd" x="301" y="172.0" text-anchor="middle" dominant-baseline="central" >NO RECOGNISED</text>
+  <text class="rd" x="301" y="172.0" text-anchor="middle" dominant-baseline="central" >NO RECOGNIZED</text>
   <text class="rd" x="301" y="184.0" text-anchor="middle" dominant-baseline="central" >RECIPIENT</text>
   <rect class="box" x="52" y="218" width="400" height="118" />
   <rect class="" x="52" y="302" width="400" height="34" fill="#e4ebf2"/>

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="480" height="1978.0" viewBox="0 0 480 1978.0" role="img" aria-labelledby="ttl dsc">
   <title id="ttl">Effects of a pacing intervention, outward through society</title>
-  <desc id="dsc">Six stages, outward through society and forward in time: the rule as written; covered developers re-optimising; relative power shifting as others read the pace; governance machinery that may outlast the rule; investment and markets repricing on expectation; and norms and culture that set the terms for the next intervention.</desc>
+  <desc id="dsc">Six stages, outward through society and forward in time: the rule as written; covered developers re-optimizing; relative power shifting as others read the pace; governance machinery that may outlast the rule; investment and markets repricing on expectation; and norms and culture that set the terms for the next intervention.</desc>
   <defs>
     <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
       <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#e2e8ee" stroke-width="1"/>
@@ -63,7 +63,7 @@
   <rect width="480" height="1978.0" fill="url(#grid)"/>
   <rect class="band" x="52" y="20" width="400" height="44" />
 <g id="direction" data-bounds="64 32 376 20">
-  <text class="ph" x="252.0" y="42.0" text-anchor="middle" dominant-baseline="central" >OUTWARDS THROUGH SOCIETY</text>
+  <text class="ph" x="252.0" y="42.0" text-anchor="middle" dominant-baseline="central" >OUTWARD THROUGH SOCIETY</text>
 </g>
   <rect class="box" x="52" y="92" width="400" height="189.5" />
   <rect class="" x="52" y="221.5" width="400" height="60" fill="#e4ebf2"/>
@@ -128,12 +128,12 @@
   <text class="lb" x="252.0" y="875.5" text-anchor="middle" dominant-baseline="central" >EFFECT · §5.2</text>
 </g>
 <g id="stage-2-effect" data-bounds="76 891.5 352 33">
-  <text class="ef" x="252.0" y="898.5" text-anchor="middle" dominant-baseline="central" >FRONTIER COMMODITISES; MORE ACTORS TO</text>
+  <text class="ef" x="252.0" y="898.5" text-anchor="middle" dominant-baseline="central" >FRONTIER COMMODITIZES; MORE ACTORS TO</text>
   <text class="ef" x="252.0" y="917.5" text-anchor="middle" dominant-baseline="central" >MONITOR</text>
 </g>
   <rect class="band" x="52" y="958.5" width="400" height="38.5" />
 <g id="timing-2" data-bounds="66 972.5 372 10.5">
-  <text class="ph" x="252.0" y="977.75" text-anchor="middle" dominant-baseline="central" >FROM ENACTMENT ONWARDS</text>
+  <text class="ph" x="252.0" y="977.75" text-anchor="middle" dominant-baseline="central" >FROM ENACTMENT ONWARD</text>
 </g>
   <line class="arr" x1="252.0" y1="997.0" x2="252.0" y2="1033.0"/>
   <polygon class="head" points="244.0,1031.0 260.0,1031.0 252.0,1045.0"/>
@@ -205,7 +205,7 @@
 </g>
   <rect class="band" x="52" y="1915.5" width="400" height="38.5" />
 <g id="timing-5" data-bounds="66 1929.5 372 10.5">
-  <text class="ph" x="252.0" y="1934.75" text-anchor="middle" dominant-baseline="central" >AFTERWARDS; SHAPES THE NEXT INTERVENTION</text>
+  <text class="ph" x="252.0" y="1934.75" text-anchor="middle" dominant-baseline="central" >AFTERWARD; SHAPES THE NEXT INTERVENTION</text>
 </g>
   <line class="arr" x1="30" y1="86" x2="30" y2="1938.0"/>
   <polygon class="head" points="22,1936.0 38,1936.0 30,1950.0"/>
