@@ -12,7 +12,7 @@ export const sectionMeta = [
   {
     slug: "07-call-to-action", number: 7,
     id: "call-to-action",
-    label: "Call To Action",
+    label: "Do Something",
     textClass: "text-dark antialiased",
     page: "/",
   },
