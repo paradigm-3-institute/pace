@@ -161,6 +161,14 @@ export default function Quiz() {
   };
 
   useEffect(() => {
+    /* On a phone the page opens on the quiz itself, scrolled just past
+       the title bar, which is then a scroll up away rather than the
+       first thing on screen. From md the sidebar is fixed and the page
+       doesn't scroll, so this does nothing there. */
+    if (window.scrollY === 0 && !window.matchMedia("(width >= 48rem)").matches) {
+      const main = host.current?.closest("main");
+      if (main) window.scrollTo({ top: main.getBoundingClientRect().top + window.scrollY, behavior: "auto" });
+    }
     history.replaceState({ ...state, depth: 0 }, "");
     const onPop = (event) => {
       const { pending, trapped } = nav.current;
