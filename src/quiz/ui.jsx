@@ -35,7 +35,7 @@ export function Icon({ name, class: className, at }) {
 
 /* The large icon at the top of a screen. */
 export function ScreenIcon({ name, at }) {
-  return <Icon name={name} class="block text-[3.8em] leading-none text-(--color-conclusion-bg) mb-3" at={at} />;
+  return <Icon name={name} class="block mx-auto md:mx-0 text-[2.6em] md:text-[3.8em] leading-none text-(--color-conclusion-bg) mb-2 md:mb-3" at={at} />;
 }
 
 /* "Branching Point 01 · Transformation" on two lines. */
@@ -61,7 +61,7 @@ export function Stem({ children, at }) {
   return (
     <h2
       class={join(
-        "font-sans text-[1.3em] md:text-[1.6em] font-semibold tracking-[-0.01em] leading-[1.2] text-(--color-conclusion-bg) text-balance mt-6",
+        "font-sans text-[1.15em] md:text-[1.6em] font-semibold tracking-[-0.01em] leading-[1.2] text-(--color-conclusion-bg) text-balance mt-4 md:mt-6",
         r.class,
       )}
       style={r.style}
@@ -76,7 +76,7 @@ export function Help({ children, at }) {
   const r = rise(at);
   return (
     <p
-      class={join("font-sans text-[0.9em] leading-normal text-(--color-then-what-bg) text-balance mt-4", r.class)}
+      class={join("font-sans text-[0.85em] md:text-[0.9em] leading-normal text-(--color-then-what-bg) text-balance mt-3 md:mt-4", r.class)}
       style={r.style}
     >
       {children}
@@ -90,7 +90,7 @@ export function Frame({ cols = 1, class: className, children }) {
   return (
     <div
       class={join(
-        "grid gap-4 mt-10 grid-cols-1 lg:grid-cols-[repeat(var(--cols),1fr)]",
+        "grid gap-3 md:gap-4 mt-6 md:mt-10 grid-cols-1 lg:grid-cols-[repeat(var(--cols),1fr)]",
         className,
       )}
       style={{ "--cols": cols }}
@@ -108,7 +108,7 @@ export function Card({ class: className, at, children, ...rest }) {
     <button
       type="button"
       class={join(
-        "cursor-pointer border-2 border-(--color-conclusion-bg) outline-2 -outline-offset-6 outline-(--color-conclusion-bg) bg-background text-left transition-colors duration-120 hover:bg-(--color-why-pace-bg) focus-visible:bg-(--color-why-pace-bg) focus-visible:outline-none",
+        "cursor-pointer border-2 border-(--color-conclusion-bg) outline-2 -outline-offset-6 outline-(--color-conclusion-bg) bg-background text-left transition-colors duration-120 hover:bg-(--color-why-pace-bg) active:bg-(--color-why-pace-bg) focus-visible:bg-(--color-why-pace-bg) focus-visible:outline-none",
         className,
         r.class,
       )}
@@ -122,14 +122,14 @@ export function Card({ class: className, at, children, ...rest }) {
 
 export function CardLabel({ children }) {
   return (
-    <span class="block font-serif text-[1.25em] font-bold leading-[1.25] text-(--color-conclusion-bg) text-balance">
+    <span class="block font-serif text-[1.1em] md:text-[1.25em] font-bold leading-[1.25] text-(--color-conclusion-bg) text-balance">
       {children}
     </span>
   );
 }
 
 export function CardText({ children }) {
-  return <p class="font-serif text-[1em] leading-[1.6] text-foreground text-pretty">{children}</p>;
+  return <p class="font-serif text-[0.9em] md:text-[1em] leading-[1.55] md:leading-[1.6] text-foreground text-pretty">{children}</p>;
 }
 
 /* The one button: sidebar green, the page's cream for the label, which
@@ -141,9 +141,12 @@ export const BUTTON =
 export function Button({ icon, trailingIcon, class: className, children, ...rest }) {
   return (
     <button type="button" class={join(BUTTON, className)} {...rest}>
-      {icon && <Icon name={icon} class="text-[1.3em] leading-none -mt-px antialiased" />}
+      {/* A Phosphor glyph sits inside its own box with air either side;
+          the negative margin takes that air back, so the chevron sits as
+          far from the edge as the word does. */}
+      {icon && <Icon name={icon} class="text-[1.3em] leading-none -mt-px -ml-1 antialiased" />}
       {children}
-      {trailingIcon && <Icon name={trailingIcon} class="text-[1.3em] leading-none -mt-px antialiased" />}
+      {trailingIcon && <Icon name={trailingIcon} class="text-[1.3em] leading-none -mt-px -mr-1 antialiased" />}
     </button>
   );
 }

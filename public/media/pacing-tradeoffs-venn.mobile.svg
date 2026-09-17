@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="510" height="630" viewBox="0 0 510 630" role="img" aria-labelledby="ttl dsc">
-  <title id="ttl">Causal graph of a pacing intervention</title>
-  <desc id="dsc">Pacing intervention causes a response, which causes AI slowdown, which causes risk mitigation. Pacing intervention also causes safety progress, which causes risk mitigation without going through slowdown. AI slowdown also delays benefits.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="560" viewBox="0 0 600 560" role="img" aria-labelledby="ttl dsc">
+  <title id="ttl">Speed, legitimacy and precision — Venn diagram</title>
+  <desc id="dsc">Three overlapping circles represent speed, legitimacy and precision. Speed and legitimacy overlap at automatic triggers, with a risk of mistargeting. Speed and precision overlap at expert discretion, with a risk of overreach. Legitimacy and precision overlap at deliberation and authorization, with a risk of slow response. A question mark sits in the central overlap of all three qualities.</desc>
   <defs>
     <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
       <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#e2e8ee" stroke-width="1"/>
@@ -52,46 +52,35 @@
       .th { font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Courier New", Courier, monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.5px; fill: #2b3a55; }
       .rh { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 13px; font-weight: 700; fill: #2b3a55; }
       .tv { font-family: Charter, "Source Serif 4", "Source Serif Pro", Georgia, "DejaVu Serif", serif; font-size: 14px; fill: #2b3a55; }
+
+      .hd { font-size: 16px; letter-spacing: 1px; }
+      .bd { font-size: 20px; }
+      .b2 { font-size: 18px; }
+      .bi { font-size: 16px; }
+      .ph { font-size: 12px; letter-spacing: .6px; }
+      .rd { font-size: 11px; letter-spacing: .5px; }
+      .axis { stroke: #1e2833; stroke-width: 2; fill: none; }
+      .trajectory { stroke: #4a6b8f; stroke-width: 4; fill: none; }
+      .catchup { stroke: #d0503c; stroke-width: 4; fill: none; }
     </style>
   </defs>
-  <rect width="510" height="630" fill="#f3f6f9"/>
-  <rect width="510" height="630" fill="url(#grid)"/>
-  <rect class="box" x="24" y="40" width="250" height="100" />
-  <line class="sep" x1="24" y1="76" x2="274" y2="76"/>
-  <text class="hd" x="149.0" y="58.0" text-anchor="middle" dominant-baseline="central" >PACING INTERVENTION</text>
-  <text class="bd" x="149.0" y="108.0" text-anchor="middle" dominant-baseline="central" >caps · monitors · rules</text>
-  <rect class="box" x="24" y="190" width="250" height="100" />
-  <line class="sep" x1="24" y1="226" x2="274" y2="226"/>
-  <text class="hd" x="149.0" y="208.0" text-anchor="middle" dominant-baseline="central" >RESPONSE</text>
-  <text class="bd" x="149.0" y="258.0" text-anchor="middle" dominant-baseline="central" >actors re-optimize</text>
-  <rect class="box" x="24" y="340" width="250" height="100" />
-  <line class="sep" x1="24" y1="376" x2="274" y2="376"/>
-  <text class="hd" x="149.0" y="358.0" text-anchor="middle" dominant-baseline="central" >AI SLOWDOWN</text>
-  <text class="bd" x="149.0" y="408.0" text-anchor="middle" dominant-baseline="central" >net of substitution</text>
-  <rect class="box-out" x="24" y="490" width="250" height="100" />
-  <line class="sep" x1="24" y1="526" x2="274" y2="526"/>
-  <text class="hd" x="149.0" y="508.0" text-anchor="middle" dominant-baseline="central" >RISK MITIGATION</text>
-  <text class="bd" x="149.0" y="558.0" text-anchor="middle" dominant-baseline="central" >less threat</text>
-  <rect class="box" x="300" y="150" width="170" height="100" />
-  <line class="sep" x1="300" y1="186" x2="470" y2="186"/>
-  <text class="hd" x="385.0" y="168.0" text-anchor="middle" dominant-baseline="central" >SAFETY PROGRESS</text>
-  <text class="bd" x="385.0" y="207.5" text-anchor="middle" dominant-baseline="central" >defenses and</text>
-  <text class="bd" x="385.0" y="228.5" text-anchor="middle" dominant-baseline="central" >diffusion</text>
-  <rect class="box-out" x="300" y="340" width="170" height="100" />
-  <line class="sep" x1="300" y1="376" x2="470" y2="376"/>
-  <text class="hd" x="385.0" y="358.0" text-anchor="middle" dominant-baseline="central" >DELAYED BENEFITS</text>
-  <text class="bd" x="385.0" y="408.0" text-anchor="middle" dominant-baseline="central" >growth · science</text>
-  <line class="arr" x1="149" y1="140" x2="149" y2="178"/>
-  <polygon class="head" points="141,176 157,176 149,190"/>
-  <line class="arr" x1="149" y1="290" x2="149" y2="328"/>
-  <polygon class="head" points="141,326 157,326 149,340"/>
-  <line class="arr" x1="149" y1="440" x2="149" y2="478"/>
-  <polygon class="head" points="141,476 157,476 149,490"/>
-  <path class="arr" d="M274 90 H373 Q385 90 385 102 V138"/>
-  <polygon class="head" points="377,136 393,136 385,150"/>
-  <path class="arr" d="M385 250 V268 Q385 280 397 280 H478 Q490 280 490 292 V528 Q490 540 478 540 H286"/>
-  <polygon class="head" points="288,532 288,548 274,540"/>
-  <line class="arr" x1="274" y1="390" x2="288" y2="390"/>
-  <polygon class="head" points="286,382 286,398 300,390"/>
+  <rect width="600" height="560" fill="#f3f6f9"/>
+  <rect width="600" height="560" fill="url(#grid)"/>
+<circle cx="300" cy="195" r="180" fill="#9fb3c8" fill-opacity="0.16"/><circle cx="205" cy="350" r="180" fill="#9fb3c8" fill-opacity="0.16"/><circle cx="395" cy="350" r="180" fill="#9fb3c8" fill-opacity="0.16"/><circle cx="300" cy="195" r="180" class="outline"/><circle cx="205" cy="350" r="180" class="outline"/><circle cx="395" cy="350" r="180" class="outline"/>  <text class="hd" x="300" y="88" text-anchor="middle" dominant-baseline="central" >SPEED</text>
+  <text class="hd" x="128" y="385" text-anchor="middle" dominant-baseline="central" >LEGITIMACY</text>
+  <text class="hd" x="472" y="385" text-anchor="middle" dominant-baseline="central" >PRECISION</text>
+  <text class="b2" x="186" y="195.0" text-anchor="middle" dominant-baseline="central" >Automatic</text>
+  <text class="b2" x="186" y="219.0" text-anchor="middle" dominant-baseline="central" >triggers</text>
+  <text class="rd" x="186" y="243.5" text-anchor="middle" dominant-baseline="central" >RISK:</text>
+  <text class="rd" x="186" y="258.5" text-anchor="middle" dominant-baseline="central" >MISTARGETING</text>
+  <text class="b2" x="414" y="195.0" text-anchor="middle" dominant-baseline="central" >Expert</text>
+  <text class="b2" x="414" y="219.0" text-anchor="middle" dominant-baseline="central" >discretion</text>
+  <text class="rd" x="414" y="243.5" text-anchor="middle" dominant-baseline="central" >RISK:</text>
+  <text class="rd" x="414" y="258.5" text-anchor="middle" dominant-baseline="central" >OVERREACH</text>
+  <text class="b2" x="300" y="392.0" text-anchor="middle" dominant-baseline="central" >Deliberation and</text>
+  <text class="b2" x="300" y="416.0" text-anchor="middle" dominant-baseline="central" >authorization</text>
+  <text class="rd" x="300" y="440.5" text-anchor="middle" dominant-baseline="central" >RISK:</text>
+  <text class="rd" x="300" y="455.5" text-anchor="middle" dominant-baseline="central" >SLOW RESPONSE</text>
+  <text class="hd" x="300.0" y="309" text-anchor="middle" dominant-baseline="central" style="font-size:58px;letter-spacing:0">?</text>
 
 </svg>

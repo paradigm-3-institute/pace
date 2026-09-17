@@ -13,9 +13,12 @@
 
    intro — the title card shown before the first question.
        icon    a Phosphor icon class, drawn large in ochre — as above.
-       kicker  the small label above the title.
-       title   the big serif title.
+       kicker  the heading of the title card from a tablet up, where the
+               sidebar carries the title.
+       title   the heading of the title card on a phone.
        text    a short paragraph — one to three sentences — setting up the walk.
+               Shown on the title card on phones; from a tablet up the
+               sidebar carries the introduction instead (quiz.astro).
        note    OPTIONAL. A smaller, lighter line beneath the text.
        button  the words on the button that starts the walk.
        buttonIcon  OPTIONAL. A Phosphor icon shown just before those
@@ -65,6 +68,12 @@
        detailWord          the heading over the side panel before anything is
                            clicked, and detailEmpty the line beneath it.
        campWord            the heading over the panel when a camp is open.
+       resultKicker        on a phone, the line over the camp's name on the
+                           result screen.
+       seeMapButton        on a phone, the button that scrolls to the map.
+       fitMapButton        on the phone map, the button that shows all of it.
+       myCampButton        on the phone map, the button that returns to the
+                           reader's own camp.
        treeOffline         shown under the tree when no database is connected.
 
    start: "c1"
@@ -173,7 +182,7 @@ export const QUIZ_DATA = {
   intro: {
     icon: "ph-light ph-compass",
     kicker: `Quiz`,
-    title: `Ways to Pace`,
+    title: `Ways to Pace Quiz`,
     text: `Experts who mostly agree that unrestricted AI progress poses significant risks to human societies still disagree on major branching points of the pacing debate. We created this interactive tool as an invitation for you to consider your position on these branching points and to give you an opportunity to compare others' views with your own.`,
     note: `You'll be presented with up to 6 questions about your predictions of AI futures. If you're on the fence or believe the answer is somewhere along the lines of "it depends", go with your gut or whatever option feels like a better fit.`,
     button: `Let's begin`,
@@ -210,6 +219,7 @@ export const QUIZ_DATA = {
           { label: `Am AI-safety-curious` },
           { label: `Heard of it, not involved` },
           { label: `Never heard` },
+          { label: `Am sceptical` },
         ],
       },
       {
@@ -258,6 +268,10 @@ export const QUIZ_DATA = {
     detailWord: `The Pacing Decision Tree`,
     detailEmpty: `Click any question or camp on the map.`,
     campWord: `CAMP`,
+    resultKicker: `Your camp is`,
+    seeMapButton: `See where you sit on the map`,
+    fitMapButton: `Whole map`,
+    myCampButton: `My camp`,
     treeOffline: `Counts appear once this is connected to a database — see SUPABASE.md.`,
   },
 

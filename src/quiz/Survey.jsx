@@ -39,16 +39,18 @@ export function Survey({ state, onAnswer }) {
 
   return (
     <>
-      <div class="flex-none">
+      <div class="flex-none text-center md:text-left">
         {q.icon && <ScreenIcon name={q.icon} at={0} />}
         <Kicker text={kicker} at={1} />
       </div>
 
       <div class="flex flex-auto flex-col justify-start">
-        <Stem at={2}>{q.stem}</Stem>
-        {q.help && <Help at={3}>{q.help}</Help>}
+        <div class="text-center md:text-left">
+          <Stem at={2}>{q.stem}</Stem>
+          {q.help && <Help at={3}>{q.help}</Help>}
+        </div>
 
-        <Frame class="max-w-[30em] gap-3 mt-8">
+        <Frame class="max-w-[30em] mx-auto md:mx-0 w-full gap-3 mt-8">
           {q.options.map((option, i) => (
             <Card
               key={i}
@@ -69,7 +71,7 @@ export function Survey({ state, onAnswer }) {
             not it is showing, so nothing shifts when it appears. */}
         {
           <div
-            class={`flex gap-2.5 max-w-[30em] w-full mt-3.5 transition-opacity duration-180 ${other ? "" : "invisible opacity-0"}`}
+            class={`flex gap-2.5 max-w-[30em] mx-auto md:mx-0 w-full mt-3.5 transition-opacity duration-180 ${other ? "" : "invisible opacity-0"}`}
           >
             <input
               type="text"

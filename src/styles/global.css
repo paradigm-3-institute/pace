@@ -85,6 +85,7 @@ html {
    the page that you scroll past. */
 
 .nav-toggle,
+.nav-topbar,
 .nav-scrim {
   display: none;
 }
@@ -92,6 +93,12 @@ html {
 @media (width < 48rem) {
   html[data-nav] {
     --nav-width: min(20rem, 85vw);
+    /* The tab's width, and the icon centred in it. The bar at the head of the
+       page sets its ends from these, so its hamburger lands exactly where the
+       tab's does further down and its chevron mirrors it on the other side. */
+    --nav-tab-width: 26px;
+    --nav-icon: 18px;
+    --nav-icon-inset: calc((var(--nav-tab-width) - var(--nav-icon)) / 2);
   }
 
   /* The margin below would otherwise collapse out of here and move the page
@@ -118,7 +125,7 @@ html {
     position: sticky;
     top: 0;
     z-index: 120;
-    width: 26px;
+    width: var(--nav-tab-width);
     height: var(--h2-height);
     margin-top: var(--nav-tab-rest, 0px);
     margin-bottom: calc(-1 * (var(--nav-tab-rest, 0px) + var(--h2-height)));
@@ -138,6 +145,91 @@ html {
     visibility: visible;
   }
 
+  /* The bar at the head of the page. The tab below only reads as a handle
+     because it looks like the left end of the header frozen at the top of the
+     screen; up here there is no header for it to be the end of, and on its own
+     it reads as a sticker in the corner. So it gets one — the sidebar's own
+     colour, the height of a banner, carrying the two ways out of the essay.
+     No title in it: the piece's is directly beneath.
+
+     It stays at the head of the page rather than following it. By the time it
+     has scrolled off the top the tab has taken over, and it needs no measuring,
+     so it is painted with the first frame rather than waiting on the script.
+
+     Under the scrim rather than over it, so the drawer covers it the way it
+     covers the page; with the hamburger under the panel, a tap on what is left
+     of the bar lands on the scrim and closes the drawer. */
+  html[data-nav] .nav-topbar {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    position: relative;
+    z-index: 100;
+    height: var(--h2-height);
+    /* The summary's banner, which is the first of the bars the tab spends the
+       rest of the essay at the end of: the same fill, the same dark on it, and
+       the rule along the bottom that every banner has. */
+    background: var(--color-why-pace-bg);
+    color: var(--color-sidebar);
+    border-bottom: solid 2px var(--color-sidebar);
+    font-family: var(--font-sans);
+    transition: opacity 0.25s ease;
+  }
+
+  /* With the drawer open what is left of the bar beside the panel is a word
+     cut in half, and no use to anyone while the whole of the contents is on
+     screen. It goes with the page it belongs to, and comes back when the
+     drawer closes. */
+  html[data-nav][data-nav-open] .nav-topbar {
+    opacity: 0;
+  }
+
+  /* The title below gives up the air it had, since the bar is now what holds
+     it off the top of the screen. */
+  html[data-nav] main > article:not(.flush-top) {
+    padding-top: 20px;
+  }
+
+  /* Each end is laid out the way a banner is: the icon in the tab's gutter,
+     the words on the page's. So the gap between them is whatever is left of
+     the text inset once the icon has taken its place. */
+  html[data-nav] .nav-topbar-toggle,
+  html[data-nav] .nav-topbar-link {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--x-padding-inside) - var(--nav-icon-inset) - var(--nav-icon));
+    padding: 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: inherit;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+
+  html[data-nav] .nav-topbar-toggle {
+    padding-left: var(--nav-icon-inset);
+  }
+
+  /* A step back from the contents, which is the one of the two that belongs
+     to the page you are on. */
+  html[data-nav] .nav-topbar-link {
+    padding-right: var(--nav-icon-inset);
+    color: var(--color-conclusion-bg);
+  }
+
+  html[data-nav] .nav-topbar-link svg {
+    width: var(--nav-icon);
+    height: var(--nav-icon);
+  }
+
+  html[data-nav] .nav-topbar .nav-toggle-close {
+    display: none;
+  }
+
+  /* Riding out on the drawer's transform is what turns the tab into the way
+     back: it ends up against the panel's edge, where the chevron it swaps to
+     points home. */
   html[data-nav][data-nav-open] .nav-toggle {
     transform: translateX(var(--nav-width));
   }
@@ -201,6 +293,7 @@ html {
   html[data-nav][data-nav-open] .site-nav,
   html[data-nav] .nav-toggle,
   html[data-nav][data-nav-open] .nav-toggle,
+  html[data-nav] .nav-topbar,
   html[data-nav] .nav-scrim {
     transition: none;
   }

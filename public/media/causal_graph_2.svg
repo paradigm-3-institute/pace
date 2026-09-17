@@ -40,7 +40,7 @@
     <rect class="box" x="316" y="270" width="210" height="140"/>
     <line class="sep" x1="316" y1="312" x2="526" y2="312"/>
     <text class="hd" x="421.0" y="291" text-anchor="middle" dominant-baseline="central">RESPONSE</text>
-    <text class="bd" x="421.0" y="361.0" text-anchor="middle" dominant-baseline="central">actors re-optimise</text>
+    <text class="bd" x="421.0" y="361.0" text-anchor="middle" dominant-baseline="central">actors re-optimize</text>
   </g>
 
   <g>

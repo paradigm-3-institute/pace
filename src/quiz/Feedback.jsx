@@ -9,8 +9,10 @@ const OTHER = 2; /* the reason that opens a box */
    right? A thumbs up sends at once; a thumbs down asks for a reason
    first. After either it thanks the reader and goes away. `onSend` gets
    the answer in the shape state.js's answerFit stores: { answer: "yes" }
-   or { answer: "no", reason, index, detail? }. */
-export function Feedback({ campId, onSend }) {
+   or { answer: "no", reason, index, detail? }. With `inline`, for the
+   phone's result screen, it is a plain block rather than a strip bled
+   to the panel's edges. */
+export function Feedback({ campId, onSend, inline }) {
   const [phase, setPhase] = useState("ask"); /* "ask" | "reasons" | "done" */
   const [picked, setPicked] = useState(null);
   const [detail, setDetail] = useState("");
@@ -40,7 +42,13 @@ export function Feedback({ campId, onSend }) {
   if (!camp || gone) return null;
 
   return (
-    <div class="-mx-[26px] border-t-sidebar border-t mt-5 bg-(--color-pace-what-bg) px-[26px] pt-4 pb-5 font-sans">
+    <div
+      class={
+        inline
+          ? "rounded-md bg-(--color-pace-what-bg) px-5 py-4 font-sans"
+          : "-mx-[26px] border-t-sidebar border-t mt-5 bg-(--color-pace-what-bg) px-[26px] pt-4 pb-5 font-sans"
+      }
+    >
       {phase === "ask" && (
         <>
           <div>Your camp is...</div>

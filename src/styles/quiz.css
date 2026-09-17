@@ -124,10 +124,49 @@ body {
     left: 17.5rem;
   }
 
+  /* On a phone the map is a block in the page, under the result screen:
+     the pane fills it and the panel is a sheet laid over its foot. One
+     finger scrolls the page past it; two pan and pinch the map. */
   @media (width < 900px) {
+    position: relative;
+    inset: auto;
+    height: 78dvh;
     flex-direction: column;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    overflow: hidden;
   }
 }
+
+/* The phone map's two buttons, top right: fit the whole map, and close. */
+.map-bar {
+  position: absolute;
+  top: max(12px, env(safe-area-inset-top));
+  right: 12px;
+  z-index: 3;
+  display: flex;
+  gap: 8px;
+}
+
+.map-bar-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font: 500 14px/1 var(--font-sans);
+  color: var(--color-background);
+  background: var(--color-conclusion-bg);
+  border: 0;
+  border-radius: 9px;
+  padding: 10px 14px;
+  min-height: 40px;
+  cursor: pointer;
+}
+
+.map-bar-button i {
+  font-size: 18px;
+  line-height: 1;
+}
+
 
 /* ---- the stage ---- */
 
@@ -140,6 +179,10 @@ body {
   touch-action: none;
   /* Dragging to pan must not select the labels it passes over. */
   user-select: none;
+
+  @media (width < 900px) {
+    touch-action: pan-y;
+  }
 }
 
 button {
@@ -354,11 +397,32 @@ button {
   gap: 14px;
 
   @media (width < 900px) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
     width: auto;
-    max-height: 40vh;
+    max-height: 60vh;
+    padding: 22px 22px max(22px, env(safe-area-inset-bottom));
     border-left: 0;
     border-top: 1px solid var(--ink);
+    border-radius: 14px 14px 0 0;
+    box-shadow: 0 -8px 30px rgb(0 0 0 / 0.12);
   }
+}
+
+.map-sheet-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: transparent;
+  color: var(--color-conclusion-bg);
+  font: 400 26px/1 var(--font-sans);
+  cursor: pointer;
 }
 
 /* The panel is set like the quiz's screens, not like the diagram: the

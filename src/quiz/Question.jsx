@@ -37,14 +37,18 @@ export function Question({ id, onChoose }) {
   const q = QUIZ_DATA.questions[id];
   return (
     <>
-      <div class="flex-none">
+      {/* Centred on a phone, like the title card; set left from md. The
+          answers keep their text left, which reads better in a card. */}
+      <div class="flex-none text-center md:text-left">
         <ScreenIcon name={q.icon} at={0} />
         <Kicker text={q.kicker} at={1} />
       </div>
 
       <div class="flex flex-col justify-start">
-        <Stem at={2}>{q.stem}</Stem>
-        {q.help && <Help at={3}>{q.help}</Help>}
+        <div class="text-center md:text-left">
+          <Stem at={2}>{q.stem}</Stem>
+          {q.help && <Help at={3}>{q.help}</Help>}
+        </div>
 
         {/* The cards come last, one after another, so the eye reaches the
             question before the answers arrive. */}
@@ -54,7 +58,7 @@ export function Question({ id, onChoose }) {
             return (
               <Card
                 key={index}
-                class="flex flex-col gap-4 px-5 py-4 lg:min-h-[16em]"
+                class="flex flex-col gap-3 md:gap-4 px-4 py-3.5 md:px-5 md:py-4 lg:min-h-[16em]"
                 at={4 + i}
                 onClick={() => onChoose(index)}
               >

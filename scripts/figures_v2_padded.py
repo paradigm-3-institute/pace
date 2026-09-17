@@ -126,7 +126,7 @@ def then_what(mobile=False):
     bx, band_w = (52, 400) if mobile else (15, 300)
     b = rect(bx, 20, band_w, 44, "band")
     b += label("direction", bx + 12, 32, band_w - 24, 20,
-               "OUTWARDS THROUGH SOCIETY", "ph", 15)
+               "OUTWARD THROUGH SOCIETY", "ph", 15)
     if not mobile:
         b += harrow(42, 330, 1485)
     y = 92

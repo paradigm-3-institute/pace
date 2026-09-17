@@ -61,15 +61,20 @@ function SidebarFoot({ onRestart }) {
   );
 }
 
-/* A way to see the end screen without walking the tree or touching the
-   database, for the dev server only: /quiz?preview=halt jumps to the map
+/* A way to see any screen without walking the tree or touching the
+   database, for the dev server only. /quiz?preview=halt jumps to the map
    with made-up tallies, ?preview=halt&n=10000 with that many responses
-   spread across the camps. Ignored in the built site. */
+   spread across the camps; ?preview=c2 opens that question, and
+   ?preview=divider or ?preview=survey those screens. Ignored in the
+   built site. */
 function preview() {
   if (!import.meta.env.DEV || typeof window === "undefined") return null;
   const params = new URLSearchParams(window.location.search);
   const campId = params.get("preview");
-  if (!campId || !QUIZ_DATA.camps[campId]) return null;
+  if (!campId) return null;
+  if (QUIZ_DATA.questions[campId]) return { ...T.initialState(), screen: "question", currentId: campId };
+  if (campId === "divider" || campId === "survey") return { ...T.initialState(), screen: campId };
+  if (!QUIZ_DATA.camps[campId]) return null;
   const total = Number(params.get("n")) || 1200;
   const ids = Object.keys(QUIZ_DATA.camps);
   const weights = ids.map((id, i) => (id === campId ? 2.5 : 1) * (0.6 + ((i * 7) % 5) / 5));
@@ -83,10 +88,10 @@ function preview() {
   return { ...T.initialState(), screen: "map", campId };
 }
 
-/* Back and Skip: the same size on every screen, the chevron beside its
-   word. Sized in fixed units, not em: the fit pass shrinks the page's
-   type per screen, and the buttons shouldn't follow. */
-const CONTROL = "w-30 text-[17px] md:text-[19px] justify-center";
+/* Back and Skip: the chevron beside its word. Sized in fixed units,
+   not em: the fit pass shrinks the page's type per screen, and the
+   buttons shouldn't follow. */
+const CONTROL = "text-[17px] md:text-[19px]";
 
 export default function Quiz() {
   const [state, setState] = useState(() => preview() || T.initialState());
@@ -156,6 +161,14 @@ export default function Quiz() {
   };
 
   useEffect(() => {
+    /* On a phone the page opens on the quiz itself, scrolled just past
+       the title bar, which is then a scroll up away rather than the
+       first thing on screen. From md the sidebar is fixed and the page
+       doesn't scroll, so this does nothing there. */
+    if (window.scrollY === 0 && !window.matchMedia("(width >= 48rem)").matches) {
+      const main = host.current?.closest("main");
+      if (main) window.scrollTo({ top: main.getBoundingClientRect().top + window.scrollY, behavior: "auto" });
+    }
     history.replaceState({ ...state, depth: 0 }, "");
     const onPop = (event) => {
       const { pending, trapped } = nav.current;
@@ -259,7 +272,9 @@ export default function Quiz() {
       <div ref={host} class="flex flex-auto flex-col justify-start" aria-live="polite">
         {screen}
       </div>
-      {controls && <div class="mt-6 md:mt-auto md:pt-6 flex flex-wrap gap-3">{controls}</div>}
+      {/* Back and Skip, under the screen: on a phone the reader scrolls
+          past the answers to them; from md they sit at the foot. */}
+      {controls && <div class="mt-8 md:mt-auto md:pt-6 flex flex-wrap justify-center gap-3 md:justify-start">{controls}</div>}
       {state.screen === "map" && sidebarFoot && createPortal(<SidebarFoot onRestart={() => go(T.restart)} />, sidebarFoot)}
     </>
   );
