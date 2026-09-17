@@ -506,6 +506,16 @@ export function mountMap(container, state, { onRestart, feedback }) {
         y1 = Math.max(y1, cy + part.offsetHeight);
       }
     }
+    /* An arm can swing wide of every node — 1C's run down the far left
+       to pause now — so the paths count too. */
+    for (const arm of arms) {
+      for (const p of orthogonal(port(arm.from, arm.sh), port(arm.to, arm.th), arm.turn)) {
+        x0 = Math.min(x0, p.x);
+        y0 = Math.min(y0, p.y);
+        x1 = Math.max(x1, p.x);
+        y1 = Math.max(y1, p.y);
+      }
+    }
     const PAD = 30;
     return {
       x0: x0 - PAD,

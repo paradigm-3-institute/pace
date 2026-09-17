@@ -299,8 +299,7 @@ export const QUIZ_DATA = {
           label: `Yes`,
           short: `yes!`,
           text: `We see worrisome impacts on labour, privacy, power, and discourse today. The damage will compound if left unaddressed.`,
-          next: null,
-          camp: "presentHarms",
+          next: "c1c",
         },
         {
           label: `Not really`,
@@ -308,6 +307,36 @@ export const QUIZ_DATA = {
           text: `AI does not cause more harm than any other technology—and if it does, the harm does not outweigh the benefits of AI progress or justify the cost of intervening.`,
           next: null,
           camp: "normalTech",
+        },
+      ],
+    },
+
+    c1c: {
+      tag: `BRANCHING POINT 1C`,
+      icon: "ph-light ph-bank",
+      kicker: `Branching Point 01C · Government`,
+      stem: `In what capacity, if at all, should the government step in?`,
+      options: [
+        {
+          label: `Govern the observable`,
+          short: `govern the observable`,
+          text: `Regulate the harms we can already see and measure, through the institutions and laws that already exist.`,
+          next: null,
+          camp: "presentHarms",
+        },
+        {
+          label: `Stop until we know better`,
+          short: `stop until we know better`,
+          text: `The harm is real and we cannot yet tell how far it goes. Development should pause until we can.`,
+          next: null,
+          camp: "pauseNow",
+        },
+        {
+          label: `Not the government's job`,
+          short: `not the government's job`,
+          text: `Governments are too slow and too blunt. The answer is to build the defences and the resilience ourselves.`,
+          next: null,
+          camp: "dacc",
         },
       ],
     },
@@ -462,19 +491,20 @@ export const QUIZ_DATA = {
     nodes: {
       c1: { x: 350, y: -60 },
       c1b: { x: -60, y: 120 },
+      c1c: { x: -554, y: 250 },
       c2: { x: 350, y: 200 },
       c3: { x: 350, y: 570 },
       c4: { x: 350, y: 400 },
       c5: { x: 350, y: 740 },
       c6: { x: 350, y: 990 },
 
-      presentHarms: { x: -250, y: 410, place: "below", imagePlace: "below" },
-      normalTech: { x: 43, y: 430, place: "below", imagePlace: "below" },
+      presentHarms: { x: -457, y: 470, place: "below", imagePlace: "below" },
+      normalTech: { x: 10, y: 430, place: "below", imagePlace: "below" },
       accelerate: { x: 1120, y: 215, place: "above", imagePlace: "right" },
-      halt: { x: -200, y: 735, place: "left", imagePlace: "below" },
+      halt: { x: -100, y: 690, place: "below", imagePlace: "below" },
       entente: { x: 990, y: 410, place: "above" },
-      dacc: { x: 896, y: 880, place: "above" },
-      buildOption: { x: -80, y: 840, place: "below", imagePlace: "below" },
+      dacc: { x: 940, y: 880, place: "above", imagePlace: "right" },
+      buildOption: { x: -80, y: 985, place: "below", imagePlace: "below" },
       pauseNow: { x: 203, y: 1240, place: "below", imagePlace: "below" },
       coordinatedDelay: { x: 453, y: 1240, place: "below", imagePlace: "below" },
       tripwires: { x: 743, y: 1240, place: "below", imagePlace: "below" },
@@ -485,6 +515,9 @@ export const QUIZ_DATA = {
       "c1:1": { sh: "l", th: "t" },
       "c1b:0": { sh: "l", th: "t" },
       "c1b:1": { sh: "b", th: "t" },
+      "c1c:0": { sh: "b", th: "t" },
+      "c1c:1": { sh: "l", th: "t", turn: "early", dash: true },
+      "c1c:2": { sh: "r", th: "b", dash: true },
       "c2:0": { sh: "b", th: "t" },
       "c2:1": { sh: "r", th: "l" },
       "c2:2": { sh: "l", th: "t", turn: "early" },
@@ -506,13 +539,13 @@ export const QUIZ_DATA = {
   camps: {
     presentHarms: {
       image: "/media/camps/presentHarms.png",
-      title: `present harm`,
+      title: `present harm only`,
       details: `People in this house generally agree that AI is a tool too powerful to turn a blind eye to as is—either because it has already reached sufficient capability to significantly destabilise societies, or because it doesn’t need to be super powerful to cause harm. Examples of present-day harm from AI that are arguably harmful enough to justify an intervention include: cybersecurity, labour displacement, human oversight on AI-made or AI-assisted decisions, inaccuracy, mental health implications, etc. This house might warn against the development of [fully autonomous agents](https://arxiv.org/abs/2502.02649), [implications of AI in consequential decision-making](https://arxiv.org/abs/2608.23642), or [impacts on the mental health of human societies](https://www.rand.org/news/press/2026/06/nearly-1-in-5-us-adolescents-and-young-adults-use-ai.html). An important critique of this house is that the argument often does not look past the current capability, and any catastrophic outcomes, however improbable, fall outside its threat model. Pacing based on harm society could reasonably absorb in time furthermore blocks the feedback loop through which emerging harm would be identified, studied, and managed/prevented.`,
     },
 
     normalTech: {
       image: "/media/camps/normalTech.png",
-      title: `normal technology`,
+      title: `normal tech, normal regulation`,
       details: `This impact-centred approach mostly considers the impact of AI on human societies rather than properties of the technology itself, and argues that the relevance of AI comes from adoption/diffusion of capabilities rather than research and development itself. This means that typical evidence of skyrocketing capability (e.g. benchmarks), amongst other things, does not alter the position because it rarely measures real-life use; despite steep development, the impacts on e.g. labour or education have been rather slow/gradual. It follows that AI is best understood the way we understand any prior technology. This leads to two main implications on regulating AI: (1) tools to regulate (e.g. policies) are already available and not dependent on defensive and control innovation, and (2) any regulation should be [targeted at use, not development](https://knightcolumbia.org/content/ai-as-normal-technology). Critics reply that just because adoption is slow and historically unexceptional, doesn’t mean the technology itself should be treated the same. Unlike previous technologies, which ran on deterministic steps a (trained) human could follow, AI reaches decisions in ways we cannot yet explain or backtrack. This means that harmful capability invisible before (and sometimes even at) inference may do its damage before any use-based regulations apply (see recent sandbox escapes).`,
     },
 
