@@ -197,7 +197,7 @@ def causal_graph_1():
     sx, sw, sc = 300, 170, 385
     b = ""
     b += node(mx, 40, mw, 100, "PACING INTERVENTION", "caps · monitors · rules")
-    b += node(mx, 190, mw, 100, "RESPONSE", "actors re-optimise")
+    b += node(mx, 190, mw, 100, "RESPONSE", "actors re-optimize")
     b += node(mx, 340, mw, 100, "AI SLOWDOWN", "net of substitution")
     b += node(mx, 490, mw, 100, "RISK MITIGATION", "less threat", "box-out")
     b += node(sx, 150, sw, 100, "SAFETY PROGRESS", ["defenses and", "diffusion"])
@@ -230,7 +230,7 @@ def causal_graph_2():
     L = [40 + 160 * i for i in range(6)]
     b = ""
     b += node(mx, L[0], mw, 100, "PACING INTERVENTION", "caps · monitors · rules")
-    b += node(mx, L[1], mw, 100, "RESPONSE", "actors re-optimise")
+    b += node(mx, L[1], mw, 100, "RESPONSE", "actors re-optimize")
     b += node(mx, L[2], mw, 100, "AI SLOWDOWN", "net of substitution")
     b += node(mx, L[3], mw, 100, "TIME & RESOURCES", ["time to act", "freed compute"])
     b += node(mx, L[4], mw, 100, "COMPLEMENTARY ACTIVITY", ["safety research", "evals · oversight"])
@@ -527,7 +527,7 @@ def draw_the_line():
 # ---------------------------------------------------------------------------
 
 STEPS = [
-    ("DETECT", ["Forecasts, evaluations", "or incidents"], "RECOGNISED SIGNAL"),
+    ("DETECT", ["Forecasts, evaluations", "or incidents"], "RECOGNIZED SIGNAL"),
     ("INTERPRET", ["Assess the signal", "against a trigger"], "DECISION BASIS"),
     ("DECIDE", ["Someone able to affect conduct", "makes a meaningful call"], "ACTIONABLE DECISION"),
     ("EXECUTE", ["Covered actors", "change conduct"], "OPERATIONAL EFFECT"),
@@ -535,7 +535,7 @@ STEPS = [
     ("RETARGET OR EXIT", ["Continue · retarget", "Stage resumption · end"], "REVISED DIRECTION"),
 ]
 STALLS = [
-    ["NO RECOGNISED", "RECIPIENT"], ["NO USABLE BASIS", "FOR A CALL"], ["NO ONE ABLE OR", "WILLING TO ACT"],
+    ["NO RECOGNIZED", "RECIPIENT"], ["NO USABLE BASIS", "FOR A CALL"], ["NO ONE ABLE OR", "WILLING TO ACT"],
     ["NO OBSERVATION", "OR VERIFICATION"], ["NO REVIEW OR", "EXIT RULE"],
 ]
 PHASES = [("BEFORE PACING", 0, 1), ("ACTIVATION", 2, 3), ("DURING / ENDING", 4, 5)]
@@ -571,7 +571,7 @@ def evidence_to_action():
         W, tops[-1] + bh + 24, "How evidence can become action, and where it can stall",
         "Six steps from evidence to action: detect, interpret, decide, execute, check, and retarget or "
         "exit, grouped into before pacing, activation, and during or ending. Between each step the "
-        "process can stall: no recognised recipient, no usable basis for a call, no one able or "
+        "process can stall: no recognized recipient, no usable basis for a call, no one able or "
         "willing to act, no observation or verification, no review or exit rule.", b,
     )
 
@@ -603,12 +603,12 @@ def effect_box(x, y, w, title, body, label, effect):
 STAGES = [
     ("THE RULE", ["A pacing intervention as written: scope,", "trigger, control surface, exit."],
      "CHANGES", "CONSTRAINTS, NOT OBJECTIVES", ["WHEN IT LANDS"]),
-    ("COVERED DEVELOPERS", ["New constraints, unchanged objectives:", "developers re-optimise, adapting within the",
+    ("COVERED DEVELOPERS", ["New constraints, unchanged objectives:", "developers re-optimize, adapting within the",
                             "rule, working around it, or working on the", "rule itself."],
      "EFFECT · §5.1", ["THE RULE IN PRACTICE =", "RULE + BEST RESPONSE"], ["ON ENACTMENT"]),
     ("RELATIVE POWER", ["Governments, non-covered developers and", "adversaries read the pace as opportunity or",
                         "obstacle, and exploit, absorb or evade it."],
-     "EFFECT · §5.2", ["FRONTIER COMMODITISES;", "MORE ACTORS TO MONITOR"], ["FROM ENACTMENT ONWARDS"]),
+     "EFFECT · §5.2", ["FRONTIER COMMODITIZES;", "MORE ACTORS TO MONITOR"], ["FROM ENACTMENT ONWARD"]),
     ("GOVERNANCE MACHINERY", ["The main effect is to make it exist: new", "powers to inspect and enforce, which become",
                               "a target for capture and a source of", "distortion."],
      "EFFECT · §5.3", ["MAY OUTLAST THE RULE", "THAT JUSTIFIED IT"], ["AT ACTIVATION; MAY PERSIST PAST EXIT"]),
@@ -617,14 +617,14 @@ STAGES = [
      "EFFECT · §5.4", "LIKELY THE MOST IMMEDIATE EFFECT", ["ON EXPECTATION, BEFORE ANY DIRECT EFFECT"]),
     ("NORMS & CULTURE", ["Frontier prestige falls and talent", "self-selects; credit for prevention is",
                          "invisible while blame for harm is not."],
-     "EFFECT · §5.5", ["SETS THE TERMS FOR", "THE NEXT INTERVENTION"], ["AFTERWARDS; SHAPES THE", "NEXT INTERVENTION"]),
+     "EFFECT · §5.5", ["SETS THE TERMS FOR", "THE NEXT INTERVENTION"], ["AFTERWARD; SHAPES THE", "NEXT INTERVENTION"]),
 ]
 
 
 def then_what():
     W = 480
     x, w = 52, 400
-    b = rect(x, 20, w, 34, "band") + text(x + w / 2, 37, "OUTWARDS THROUGH SOCIETY", "ph")
+    b = rect(x, 20, w, 34, "band") + text(x + w / 2, 37, "OUTWARD THROUGH SOCIETY", "ph")
     y = 74
     for i, (title, body, label, effect, timing) in enumerate(STAGES):
         box, y = effect_box(x, y, w, title, body, label, effect)
@@ -639,7 +639,7 @@ def then_what():
     return svg(
         W, y + 20, "Effects of a pacing intervention, outward through society",
         "Six stages, outward through society and forward in time: the rule as written; covered developers "
-        "re-optimising; relative power shifting as others read the pace; governance machinery that may "
+        "re-optimizing; relative power shifting as others read the pace; governance machinery that may "
         "outlast the rule; investment and markets repricing on expectation; and norms and culture that set "
         "the terms for the next intervention.", b,
     )
@@ -656,11 +656,11 @@ MODES = [
       "for jurisdiction, and governments push it as", "political priorities shift."],
      ["USED FOR PURPOSES BEYOND", "THE RULE THAT JUSTIFIED IT"],
      [("x", ["SURVEILLANCE POWERS TURNED", "ON LAWFUL RESEARCH"])]),
-    ("BEHAVIOURAL DISTORTIONS",
+    ("BEHAVIORAL DISTORTIONS",
      ["No deliberate abuse required. Being watched,", "with the risk of leaks and misreading, deters",
       "research that looks reputationally risky.", "Measures that are easy to audit or publicly",
       "salient attract the effort, even where they", "track the underlying risk only imperfectly."],
-     ["OPTIMISED FOR THE TEST,", "NOT THE UNDERLYING RISK"],
+     ["OPTIMIZED FOR THE TEST,", "NOT THE UNDERLYING RISK"],
      [("x", ["PASSING TESTS DRIFTS", "FROM REDUCING RISK"])]),
     ("PERSISTENCE & PRECEDENT",
      ["Powers and machinery are not necessarily", "dismantled at exit (§4.4). Information, once",
@@ -705,7 +705,7 @@ def failure_modes():
         W, y, "Failure modes in pacing governance structures",
         "The rule creates enforcement machinery: a new actor with power and information. Its predictable "
         "failure modes are control, capture and misuse (used for purposes beyond the rule that justified "
-        "it, such as surveillance powers turned on lawful research); behavioural distortions (optimised "
+        "it, such as surveillance powers turned on lawful research); behavioral distortions (optimized "
         "for the test, not the underlying risk); and persistence and precedent (outlasting the rule that "
         "created it, with emergency powers outstaying their welcome, though sometimes with useful "
         "spillover into diplomacy and national strategy).", b,
@@ -948,7 +948,7 @@ def evidence_to_action_wide():
 ETA_DESC = (
     "Six steps from evidence to action: detect, interpret, decide, execute, check, and retarget or "
     "exit, grouped into before pacing, activation, and during or ending. Between each step the "
-    "process can stall: no recognised recipient, no usable basis for a call, no one able or "
+    "process can stall: no recognized recipient, no usable basis for a call, no one able or "
     "willing to act, no observation or verification, no review or exit rule."
 )
 
@@ -975,7 +975,7 @@ def then_what_wide():
     bw, gap, y = 220, 30, 75
     bodies = [wrap(" ".join(body), 26) for _, body, *_ in STAGES]
     n = max(map(len, bodies))
-    b = rect(15, 20, 300, 34, "band") + text(165, 37, "OUTWARDS THROUGH SOCIETY", "ph")
+    b = rect(15, 20, 300, 34, "band") + text(165, 37, "OUTWARD THROUGH SOCIETY", "ph")
     b += harrow(37, 330, 1485)
     for i, ((title, _, label, effect, timing), body) in enumerate(zip(STAGES, bodies)):
         x = 15 + i * (bw + gap)
@@ -989,7 +989,7 @@ def then_what_wide():
 
 TW_DESC = (
     "Six stages, outward through society and forward in time: the rule as written; covered developers "
-    "re-optimising; relative power shifting as others read the pace; governance machinery that may "
+    "re-optimizing; relative power shifting as others read the pace; governance machinery that may "
     "outlast the rule; investment and markets repricing on expectation; and norms and culture that set "
     "the terms for the next intervention."
 )
@@ -1032,7 +1032,7 @@ def failure_modes_wide():
 FM_DESC = (
     "The rule creates enforcement machinery: a new actor with power and information. Its predictable "
     "failure modes are control, capture and misuse (used for purposes beyond the rule that justified "
-    "it, such as surveillance powers turned on lawful research); behavioural distortions (optimised "
+    "it, such as surveillance powers turned on lawful research); behavioral distortions (optimized "
     "for the test, not the underlying risk); and persistence and precedent (outlasting the rule that "
     "created it, with emergency powers outstaying their welcome, though sometimes with useful "
     "spillover into diplomacy and national strategy)."
