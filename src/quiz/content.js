@@ -219,6 +219,7 @@ export const QUIZ_DATA = {
           { label: `Am AI-safety-curious` },
           { label: `Heard of it, not involved` },
           { label: `Never heard` },
+          { label: `Am sceptical` },
         ],
       },
       {
