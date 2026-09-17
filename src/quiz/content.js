@@ -13,8 +13,9 @@
 
    intro — the title card shown before the first question.
        icon    a Phosphor icon class, drawn large in ochre — as above.
-       kicker  the small label above the title.
-       title   the big serif title.
+       kicker  the heading of the title card from a tablet up, where the
+               sidebar carries the title.
+       title   the heading of the title card on a phone.
        text    a short paragraph — one to three sentences — setting up the walk.
                Shown on the title card on phones; from a tablet up the
                sidebar carries the introduction instead (quiz.astro).
@@ -181,7 +182,7 @@ export const QUIZ_DATA = {
   intro: {
     icon: "ph-light ph-compass",
     kicker: `Quiz`,
-    title: `Ways to Pace`,
+    title: `Ways to Pace Quiz`,
     text: `Experts who mostly agree that unrestricted AI progress poses significant risks to human societies still disagree on major branching points of the pacing debate. We created this interactive tool as an invitation for you to consider your position on these branching points and to give you an opportunity to compare others' views with your own.`,
     note: `You'll be presented with up to 6 questions about your predictions of AI futures. If you're on the fence or believe the answer is somewhere along the lines of "it depends", go with your gut or whatever option feels like a better fit.`,
     button: `Let's begin`,

@@ -10,8 +10,11 @@ export function Intro({ onBegin }) {
     <div class="flex flex-auto flex-col items-center justify-start md:justify-center max-w-md mx-auto">
       <Icon name={intro.icon} class="block text-[56px] md:text-[72px] leading-none text-(--color-conclusion-bg)" at={0} />
       <Rise at={1}>
+        {/* The title on a phone, where the header is a bare bar; from md
+            the sidebar shows the title, so the kicker heads the card. */}
         <h2 class="font-sans text-[2.2em] md:text-[2.6em] text-center font-semibold tracking-[-0.02em] leading-[1.1] text-(--color-conclusion-bg) mt-6">
-          {intro.kicker || intro.title}
+          <span class="md:hidden">{intro.title || intro.kicker}</span>
+          <span class="hidden md:inline">{intro.kicker || intro.title}</span>
         </h2>
       </Rise>
       {/* The introduction: on a phone it is here, since the header above
