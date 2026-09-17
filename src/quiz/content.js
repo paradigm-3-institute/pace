@@ -54,17 +54,14 @@
                          that don't set their own `placeholder`.
        surveyKicker      the small line above an extra question; {n} and
                          {total} become the numbers.
-       mapNote           the small line at the foot of the map's side panel.
+       mapNote           the small line at the foot of the sidebar while the
+                         map is showing, over the Start again button.
                          An email address in it becomes a link.
 
        The remaining labels appear only when live results are switched on in
        config.js.
        resultsWaiting      shown instead of bars while too few have walked.
        resultsUnavailable  shown if the results can't be reached.
-       mapCaption          the line under the map's population count, used
-                           when one dot stands for one response.
-       mapCaptionMany      the same line when one dot stands for several;
-                           {per} becomes how many.
        detailWord          the heading over the side panel before anything is
                            clicked, and detailEmpty the line beneath it.
        campWord            the heading over the panel when a camp is open.
@@ -119,6 +116,15 @@
 
    camps — a list of destinations, each with its own id.
        title      the camp's name.
+       image      OPTIONAL. A picture shown beside the camp on the map. A
+                  path under public/, e.g. "/media/camps/halt.png" (the
+                  originals live in src/quiz/pics; the map shows each one's
+                  icon square, so every camp reserves the same space). Delete the line for no
+                  picture. It goes on the opposite side of
+                  the name from the dots unless the camp's entry in
+                  map.nodes says otherwise with imagePlace: "above" /
+                  "below" / "left" / "right" — on the dots' own side it
+                  sits beyond them.
        details    The passage shown in the panel a camp opens on the map.
                   Write a link as [the words](https://...) — square brackets
                   round the words, round brackets round the address, nothing
@@ -249,8 +255,6 @@ export const QUIZ_DATA = {
 
     resultsWaiting: `The live tally appears once a few more people have walked the tree.`,
     resultsUnavailable: `The live tally can't be reached right now.`,
-    mapCaption: `one dot = one response`,
-    mapCaptionMany: `one dot = {per} responses`,
     detailWord: `The Pacing Decision Tree`,
     detailEmpty: `Click any question or camp on the map.`,
     campWord: `CAMP`,
@@ -464,16 +468,16 @@ export const QUIZ_DATA = {
       c5: { x: 350, y: 740 },
       c6: { x: 350, y: 990 },
 
-      presentHarms: { x: -250, y: 410, place: "below" },
-      normalTech: { x: 43, y: 430, place: "below" },
-      accelerate: { x: 1120, y: 215, place: "above" },
-      halt: { x: -200, y: 735, place: "left" },
+      presentHarms: { x: -250, y: 410, place: "below", imagePlace: "below" },
+      normalTech: { x: 43, y: 430, place: "below", imagePlace: "below" },
+      accelerate: { x: 1120, y: 215, place: "above", imagePlace: "right" },
+      halt: { x: -200, y: 735, place: "left", imagePlace: "below" },
       entente: { x: 990, y: 410, place: "above" },
       dacc: { x: 896, y: 880, place: "above" },
-      buildOption: { x: -80, y: 840, place: "below" },
-      pauseNow: { x: 203, y: 1240, place: "below" },
-      coordinatedDelay: { x: 453, y: 1240, place: "below" },
-      tripwires: { x: 743, y: 1240, place: "below" },
+      buildOption: { x: -80, y: 840, place: "below", imagePlace: "below" },
+      pauseNow: { x: 203, y: 1240, place: "below", imagePlace: "below" },
+      coordinatedDelay: { x: 453, y: 1240, place: "below", imagePlace: "below" },
+      tripwires: { x: 743, y: 1240, place: "below", imagePlace: "below" },
     },
 
     arms: {
@@ -501,51 +505,61 @@ export const QUIZ_DATA = {
 
   camps: {
     presentHarms: {
+      image: "/media/camps/presentHarms.png",
       title: `present harm`,
       details: `People in this house generally agree that AI is a tool too powerful to turn a blind eye to as is—either because it has already reached sufficient capability to significantly destabilise societies, or because it doesn’t need to be super powerful to cause harm. Examples of present-day harm from AI that are arguably harmful enough to justify an intervention include: cybersecurity, labour displacement, human oversight on AI-made or AI-assisted decisions, inaccuracy, mental health implications, etc. This house might warn against the development of [fully autonomous agents](https://arxiv.org/abs/2502.02649), [implications of AI in consequential decision-making](https://arxiv.org/abs/2608.23642), or [impacts on the mental health of human societies](https://www.rand.org/news/press/2026/06/nearly-1-in-5-us-adolescents-and-young-adults-use-ai.html). An important critique of this house is that the argument often does not look past the current capability, and any catastrophic outcomes, however improbable, fall outside its threat model. Pacing based on harm society could reasonably absorb in time furthermore blocks the feedback loop through which emerging harm would be identified, studied, and managed/prevented.`,
     },
 
     normalTech: {
+      image: "/media/camps/normalTech.png",
       title: `normal technology`,
       details: `This impact-centred approach mostly considers the impact of AI on human societies rather than properties of the technology itself, and argues that the relevance of AI comes from adoption/diffusion of capabilities rather than research and development itself. This means that typical evidence of skyrocketing capability (e.g. benchmarks), amongst other things, does not alter the position because it rarely measures real-life use; despite steep development, the impacts on e.g. labour or education have been rather slow/gradual. It follows that AI is best understood the way we understand any prior technology. This leads to two main implications on regulating AI: (1) tools to regulate (e.g. policies) are already available and not dependent on defensive and control innovation, and (2) any regulation should be [targeted at use, not development](https://knightcolumbia.org/content/ai-as-normal-technology). Critics reply that just because adoption is slow and historically unexceptional, doesn’t mean the technology itself should be treated the same. Unlike previous technologies, which ran on deterministic steps a (trained) human could follow, AI reaches decisions in ways we cannot yet explain or backtrack. This means that harmful capability invisible before (and sometimes even at) inference may do its damage before any use-based regulations apply (see recent sandbox escapes).`,
     },
 
     accelerate: {
+      image: "/media/camps/accelerate.png",
       title: `accelerate`,
       details: `People in this camp see AI as the route to [greater prosperity, scientific progress](https://a16z.com/the-techno-optimist-manifesto/) and [freedom from work](https://www.mechanize.work/blog/life-after-work/). They either see the risks associated as negligible, or think that the cost of slowing down is too great given the benefits they expect. A consequence of this is that while mitigations of particular risks may be acceptable to this camp, slowing down progress is a moral disaster, as it puts cures for diseases and improvements in the human condition further from reach, and out of reach entirely of those who will die in the lag between when the benefits would have arrived in the counterfactual, and when they actually do. Some of this camp do see non-negligible risks of extinction, but due to either a belief that slowing down would achieve very little, or particular views on population ethics which make extinction seem relatively less bad (see [Schubert](https://futureoflife.org/recent-news/the-psychology-of-existential-risk/), also [Frick](https://www.cambridge.org/core/journals/canadian-journal-of-philosophy/article/abs/on-the-survival-of-humanity/16497F49E0133310FD5D8372E5DBE0F1) for plausible counterarguments). One objection to this position is that it lacks informed consent from its subjects (few claim to hold this position) and also that they think citizens generally hold similar views (rather, they make normative claims themselves).`,
     },
 
     halt: {
+      image: "/media/camps/halt.png",
       title: `halt`,
       details: `People in this camp argue that the current AI research and development necessarily creates a race dynamic that ends only with the development of artificial superintelligence, which, if developed, is likely to [pursue undesirable goals](https://intelligence.org/the-problem/) and, by extension, harms (or kills) many humans. With the same breath, people in this camp often add that to prevent the development of ASI before we know how to control it, we need to complement technical research with [policy solutions](https://intelligence.org/wp-content/uploads/2025/05/AI-Governance-to-Avoid-Extinction.pdf), as frontier AI labs [will not regulate on their own accord](https://theconversation.com/if-we-dont-control-the-ai-industry-it-could-end-up-controlling-us-warn-two-chilling-new-books-266067). A standing problem for this camp is that most of its arguments only hold if we assume that humanity will in fact develop superintelligence—but most fail for regular use. The problem with ASI, however, is that it is generally quite hard to define (e.g. AI that has superhuman capability in maths could be very underwhelming at planning; ASI could be a moving goalpost; etc.), and therefore it is difficult to create policies targeted at preventing the invention of ASI. This camp often ends up using proxies like compute usage at frontier labs to specify when the halt should trigger; yet (a) the threshold’s significance decays as compute efficiency increases, and (b) the industry has no incentive to obey.`,
     },
 
     entente: {
+      image: "/media/camps/entente.png",
       title: `entente`,
       details: `This camp considers who will win the AI race to be of paramount importance in whether it will result in good outcomes (Amodei). They worry that unilateral restraint by responsible actors could lead to less responsible ones racing ahead—and that coordinated restraint is not achievable (or at least not soon enough). They see a coalition led by the US exercising greater control over supply chains and securing its technological advantage over its rivals (China) (Aschenbrenner). Critiques state that achieving technological advantage can backfire if states have no means (policies and/or institutions) to force powerful actors to use the accumulated wealth for the betterment of human societies—and mechanisms like this (beyond regular corporate taxes or reputational pressure) do not yet exist.`,
     },
 
     dacc: {
+      image: "/media/camps/dacc.png",
       title: `d/acc`,
       details: `People in this camp typically don’t expect AI development to stop: either because we can’t (e.g. coordination demands make it infeasible) or because we shouldn’t ([the cost of foregone benefits is too high](https://vitalik.eth.limo/general/2023/11/27/techno_optimism.html)). However, they also recognise that our current technologies will not suffice to protect humanity from the harm AI can potentially create and want a future with [maximum AI benefit and least possible downside](https://defacc.substack.com/p/what-is-defacc-anyway). The strategy that follows is differential acceleration: let AI development progress (incl. at a rapid pace) but channel a growing share of effort into building resilient societies (e.g. accelerating defensive capability in cyber and bio, or developing infrastructure that contains failures instead of propagating/cascading them). In order for this strategy to work, however, it must deliver fast, and that often disqualifies coordinated, government-run or government-mediated efforts. Main critiques of this camp include: (1) the fact that many dangerous AI capabilities are dual-use, and it would be non-trivial to accelerate defensive capabilities only, (2) claims that defence is only good if diffused, and diffusion may be too slow to outpace dangerous capabilities, and (3) scepticism that defensive infrastructure developed outside frontier labs can be competitive with offensive capabilities developed on the inside.`,
     },
 
     buildOption: {
+      image: "/media/camps/buildOption.png",
       title: `build the option`,
       details: `This camp sees it as prudent to build the machinery for pacing before circumstances force us into a decision to pace (and we potentially do a worse job due to being unprepared). This agreement on preparation can cut across wide differences in opinion on how and when pacing would be appropriate. The canonical statement of this position comes from the Pacing the Frontier statement signed by employees of leading AI labs. Useful preparation could be infrastructure for verifying and monitoring compute usage, international agreements on governance and triggers for pacing. A weakness of this approach is that a lack of agreement on triggers for pacing and appropriate measures means the steps taken may prove less useful when they are needed—an intervention prepared now might not meet the challenge of having the necessary impact when needed.`,
     },
 
     pauseNow: {
+      image: "/media/camps/pauseNow.png",
       title: `pause now`,
       details: `This camp views AI development as a disaster in the making: AI’s present and near-future impacts on many/all aspects of society are [substantial](https://pauseai.info/risks) as is, and yet it is the best it will ever be. AI is too powerful and unpredictable for anyone (incl. people who built it!) to understand or control it. This camp calls for an [immediate, global, verifiable pause on further frontier development](https://pauseai.info/). The target of this intervention is frontier developers of general-purpose AI—not small- and mid-scale developers, narrow AI applications, or safety research. On this account, [compute trackability](https://futureoflife.org/open-letter/pause-giant-ai-experiments/) makes pausing feasible, though to enforce it over time requires more [cooperation on governance](https://report2025.seismic.org/media/documents/On_the_Razors_Edge_Seismic_Report_2025.pdf) measures that may not yet exist. A weakness of an immediate blanket pause, however feasible and verifiable, is that pausing at every cost doesn’t guarantee that the time will be used wisely and/or that there will be any improvements after the pause’s end. Furthermore, compute is just a proxy for capability, which may decay over time as compute efficiency improves or fail from the outset due to existing latent capabilities.`,
     },
 
     coordinatedDelay: {
+      image: "/media/camps/coordinatedDelay.png",
       title: `coordinated delay`,
       details: `On the one hand, this camp’s main premise is that it is in no one’s best interest to [race towards ASI under the current conditions](https://ai-2040.com/). On the other hand, people in this camp typically expect unilateral regulation not to be particularly helpful in preventing the race to the bottom: they create unnecessary distrust, and actors will find their way around regulations they’re unhappy with anyway. This does not mean there is no hope—merely that this hope would need to be coordinated and, by extension, difficult to secure and probably expensive (e.g. require political will, durable institutions, and infrastructure that may not be there). Because of the high expected returns, though, proponents of this camp may find the cost justified. This camp has two main weaknesses: a thin discourse (few concrete proposals for how coordination would work are on the table, some of which we’re hoping to address through our work), and, more pragmatically, the absence of infrastructure to enforce compliance (or timely plans to build it).`,
     },
 
     tripwires: {
+      image: "/media/camps/tripwires.png",
       title: `if-then tripwires`,
       details: `This camp holds that there isn’t necessarily a need to universally hold off on AI R&D, but some exceptionally dangerous capabilities call for (and justify) exceptionally strong interventions. Such interventions (a.k.a. tripwires) must be specified now, for a couple of reasons: (a) harm from advanced AI may be too large and arrive too fast for reactive interventions to matter, and (b) pre-agreed interventions are actionable even in crises (e.g. during chaos or disagreement). Tripwires also answer the sceptics’ concern that top-down interventions are too intrusive, for they never trigger unless a pre-agreed concern becomes real. Furthermore, because tripwires restrict particular activities at particular companies—rather than blanket-constrain all actors—they may attract trailing competitors: the rules slow their faster rivals and give them room to close the gap. Tripwires' major weakness is that they only guard against harm we could imagine, arriving by routes we could imagine, potentially yielding many false negatives; and that they rely on proxies for danger (eval scores, [compute thresholds](https://metr.org/blog/2023-09-26-rsp/)) rather than danger itself, potentially yielding many false positives (each weakening the will to maintain them). Additionally, tripwires today exist only as voluntary frameworks, self-monitored by frontier developers, and a path to making compliance mandatory remains unspecified.`,
     },

@@ -109,6 +109,10 @@ const socialImageURL = new URL("/card.png", Astro.url);
           and to give you an opportunity to compare others' views with your own.
         </p>
       </div>
+      <!-- The map's foot: Quiz.jsx renders the note and Start again here
+           while the map is showing. Hidden below md, where the map covers
+           the whole screen and the sidebar with it. -->
+      <div id="sidebar-foot" class="hidden md:block mt-auto px-6 pb-[clamp(0.75rem,2.4vh,1.5rem)] pt-4"></div>
     </aside>
 
     <!-- client:only, not client:load: the option order is shuffled per

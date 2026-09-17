@@ -15,6 +15,7 @@
    ------------------------------------------------------------------- */
 
 import { useState, useEffect, useLayoutEffect, useRef } from "preact/hooks";
+import { createPortal } from "preact/compat";
 import { QUIZ_DATA } from "./content.js";
 import * as T from "./state.js";
 import { Button } from "./ui.jsx";
@@ -27,13 +28,69 @@ import { live } from "./live.js";
 
 const UI = QUIZ_DATA.ui;
 
+/* The foot of the sidebar while the map is showing: the note, with any
+   email in it made a link, and Start again — the only move from the
+   map, since the walk is recorded by the time it is drawn. Rendered
+   into quiz.astro's #sidebar-foot. */
+function SidebarFoot({ onRestart }) {
+  const note = String(UI.mapNote || "");
+  const parts = note.split(/(\S+@\S+\.\S+)/);
+  return (
+    <div class="grid gap-4 font-sans text-[clamp(0.85rem,2vh,1rem)] leading-[1.45] text-(--color-why-pace-bg) antialiased opacity-60">
+      {note && (
+        <p class="text-pretty">
+          {parts.map((part, i) =>
+            i % 2 ? (
+              <a key={i} class="font-bold text-background underline underline-offset-[3px] decoration-[1.5px]" href={`mailto:${part}`}>
+                {part}
+              </a>
+            ) : (
+              part
+            ),
+          )}
+        </p>
+      )}
+      <button
+        type="button"
+        class="justify-self-start inline-flex items-center gap-2 px-4 py-2 border rounded-md border-(--color-pace-how-bg) text-(--color-pace-how-bg) hover:border-(--color-why-pace-bg) hover:text-(--color-why-pace-bg) transition-colors cursor-pointer text-base"
+        onClick={onRestart}
+      >
+        {UI.restartButton}
+      </button>
+    </div>
+  );
+}
+
+/* A way to see the end screen without walking the tree or touching the
+   database, for the dev server only: /quiz?preview=halt jumps to the map
+   with made-up tallies, ?preview=halt&n=10000 with that many responses
+   spread across the camps. Ignored in the built site. */
+function preview() {
+  if (!import.meta.env.DEV || typeof window === "undefined") return null;
+  const params = new URLSearchParams(window.location.search);
+  const campId = params.get("preview");
+  if (!campId || !QUIZ_DATA.camps[campId]) return null;
+  const total = Number(params.get("n")) || 1200;
+  const ids = Object.keys(QUIZ_DATA.camps);
+  const weights = ids.map((id, i) => (id === campId ? 2.5 : 1) * (0.6 + ((i * 7) % 5) / 5));
+  const sum = weights.reduce((a, b) => a + b, 0);
+  const camps = Object.fromEntries(ids.map((id, i) => [id, Math.round((total * weights[i]) / sum)]));
+  live.configured = () => true;
+  live.init = async () => true;
+  live.record = async () => {};
+  live.tallies = async () => ({ total, camps });
+  live.watch = () => () => {};
+  return { ...T.initialState(), screen: "map", campId };
+}
+
 /* Back and Skip: the same size on every screen, the chevron beside its
    word. Sized in fixed units, not em: the fit pass shrinks the page's
    type per screen, and the buttons shouldn't follow. */
 const CONTROL = "w-30 text-[17px] md:text-[19px] justify-center";
 
 export default function Quiz() {
-  const [state, setState] = useState(T.initialState);
+  const [state, setState] = useState(() => preview() || T.initialState());
+  const [sidebarFoot] = useState(() => document.getElementById("sidebar-foot"));
 
   /* Every screen before the map is a browser history entry holding the
      state that drew it, so the back button does what the on-page Back
@@ -203,6 +260,7 @@ export default function Quiz() {
         {screen}
       </div>
       {controls && <div class="mt-6 md:mt-auto md:pt-6 flex flex-wrap gap-3">{controls}</div>}
+      {state.screen === "map" && sidebarFoot && createPortal(<SidebarFoot onRestart={() => go(T.restart)} />, sidebarFoot)}
     </>
   );
 }

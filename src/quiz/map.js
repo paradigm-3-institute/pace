@@ -1,10 +1,12 @@
 import { QUIZ_DATA } from "./content.js";
 import { CONFIG } from "./config.js";
 import { live } from "./live.js";
-import { BUTTON } from "./ui.jsx";
 
 const UI = QUIZ_DATA.ui;
 const NS = "http://www.w3.org/2000/svg";
+
+/* The camp pictures, as a fraction of their file's pixels (which are 2x). */
+const IMAGE_SCALE = 0.34;
 
 const el = (tag, className, text) => {
   const node = document.createElement(tag);
@@ -55,7 +57,7 @@ const ACCENT = "oklch(0.55 0.17 28)";
    live updates; the Map component calls it on unmount.
 
    `feedback` is an element the Map component renders the "did we get
-   that right?" box into; the panel keeps it at its head through every
+   that right?" box into; the panel keeps it at its foot through every
    redraw. */
 export function mountMap(container, state, { onRestart, feedback }) {
   let stopWatching = () => {};
@@ -111,6 +113,26 @@ export function mountMap(container, state, { onRestart, feedback }) {
     cloud.dataset.cloud = "1";
     const label = el("div", "camp-label", camp.title);
     box.append(cloud, label);
+
+    /* The camp's picture sits on the far side of the label from its
+       cloud, placed once the image has a size (see placeImage). */
+    let image = null;
+    if (camp.image) {
+      image = el("img", "camp-image");
+      image.src = camp.image;
+      image.alt = "";
+      image.draggable = false;
+      /* Every picture is the same 2x square, the icon placed within it
+         by design, so each camp reserves the same space on the map.
+         IMAGE_SCALE sets how big: 0.5 shows it at its drawn size. */
+      image.addEventListener("load", () => {
+        image.style.width = `${image.naturalWidth * IMAGE_SCALE}px`;
+        image.style.height = `${image.naturalHeight * IMAGE_SCALE}px`;
+        placeImage(nodes.get(id));
+        frame();
+      });
+      box.append(image);
+    }
     box.addEventListener("click", () => select(id));
     space.append(box);
 
@@ -118,10 +140,58 @@ export function mountMap(container, state, { onRestart, feedback }) {
       box,
       cloud,
       label,
+      image,
       kind: "camp",
       seed,
       place: at.place || "above",
+      imagePlace: at.imagePlace,
     });
+  }
+
+  /* The picture goes on the side named by imagePlace, or else opposite
+     the cloud. On the cloud's own side it sits past the cloud, so the
+     two never overlap. Numeric like the cloud, so bounds() folds it in. */
+  const OPPOSITE = { above: "below", below: "above", left: "right", right: "left" };
+  function placeImage(node) {
+    const img = node.image;
+    if (!img || !img.offsetWidth) return;
+    const w = img.offsetWidth;
+    const h = img.offsetHeight;
+    const lw = node.label.offsetWidth;
+    const lh = node.label.offsetHeight;
+    const side = node.imagePlace || OPPOSITE[node.place] || "below";
+    const cloud = node.cloud;
+    const past = side === node.place && !cloud.hidden;
+    const cw = past ? cloud.offsetWidth + 6 : 0;
+    const ch = past ? cloud.offsetHeight + 6 : 0;
+    const spot = {
+      above: [(lw - w) / 2, -h - 8 - ch],
+      below: [(lw - w) / 2, lh + 8 + ch],
+      left: [-w - 12 - cw, (lh - h) / 2],
+      right: [lw + 12 + cw, (lh - h) / 2],
+    };
+    let [x, y] = spot[side];
+
+    /* On a side at right angles to the cloud (halt: dots left, picture
+       below), a tall or wide cloud can still reach the picture's corner.
+       Nudge the picture sideways, away from the cloud, until it clears. */
+    if (!cloud.hidden && cloud.offsetWidth && side !== node.place) {
+      const cx = cloud.offsetLeft, cy = cloud.offsetTop;
+      const cw2 = cloud.offsetWidth, ch2 = cloud.offsetHeight;
+      const GAP = 6;
+      const hits = () =>
+        x < cx + cw2 + GAP && x + w + GAP > cx &&
+        y < cy + ch2 + GAP && y + h + GAP > cy;
+      if (hits()) {
+        if (side === "above" || side === "below") {
+          x = node.place === "left" ? cx + cw2 + GAP : cx - w - GAP;
+        } else {
+          y = node.place === "above" ? cy + ch2 + GAP : cy - h - GAP;
+        }
+      }
+    }
+    img.style.left = `${x}px`;
+    img.style.top = `${y}px`;
   }
 
   /* ---- arms ------------------------------------------------------- */
@@ -192,6 +262,7 @@ export function mountMap(container, state, { onRestart, feedback }) {
       cloud.hidden = true;
       cloud.style.width = "0px";
       cloud.style.height = "0px";
+      placeImage(node);
       return;
     }
     cloud.hidden = false;
@@ -267,6 +338,7 @@ export function mountMap(container, state, { onRestart, feedback }) {
     const [cx, cy] = spot[node.place] || spot.above;
     cloud.style.left = `${cx}px`;
     cloud.style.top = `${cy}px`;
+    placeImage(node);
   }
 
   /* ---- routing ---------------------------------------------------- */
@@ -424,13 +496,14 @@ export function mountMap(container, state, { onRestart, feedback }) {
 
       /* Clouds sit outside their node's box; without this, halt (cloud
          on the left) and entente (right-most) get clipped. */
-      if (node.cloud && !node.cloud.hidden && node.cloud.offsetWidth) {
-        const cx = b.offsetLeft + node.cloud.offsetLeft;
-        const cy = b.offsetTop + node.cloud.offsetTop;
+      for (const part of [node.cloud, node.image]) {
+        if (!part || part.hidden || !part.offsetWidth) continue;
+        const cx = b.offsetLeft + part.offsetLeft;
+        const cy = b.offsetTop + part.offsetTop;
         x0 = Math.min(x0, cx);
         y0 = Math.min(y0, cy);
-        x1 = Math.max(x1, cx + node.cloud.offsetWidth);
-        y1 = Math.max(y1, cy + node.cloud.offsetHeight);
+        x1 = Math.max(x1, cx + part.offsetWidth);
+        y1 = Math.max(y1, cy + part.offsetHeight);
       }
     }
     const PAD = 30;
@@ -601,8 +674,6 @@ export function mountMap(container, state, { onRestart, feedback }) {
   function drawPanel() {
     panel.replaceChildren();
 
-    if (feedback) panel.append(feedback);
-
     const q = chosen && QUIZ_DATA.questions[chosen];
     const camp = chosen && QUIZ_DATA.camps[chosen];
 
@@ -627,16 +698,9 @@ export function mountMap(container, state, { onRestart, feedback }) {
       panel.append(el("div", "panel-title", UI.detailEmpty));
     }
 
-    /* No way back from the map: the walk is recorded by the time it
-       is drawn, so the only move from here is to start again. */
-    const actions = el("div", "panel-actions");
-    const again = el("button", BUTTON, UI.restartButton);
-    again.type = "button";
-    again.addEventListener("click", onRestart);
-    actions.append(again);
-    panel.append(actions);
-    if (UI.mapNote) panel.append(richText(el("div", "panel-foot"), UI.mapNote));
+    if (feedback) panel.append(feedback);
   }
+
 
   /* ---- the numbers -------------------------------------------------- */
 
@@ -661,12 +725,7 @@ export function mountMap(container, state, { onRestart, feedback }) {
     if (!live.configured()) caption.textContent = UI.treeOffline;
     else if (!tallies) caption.textContent = "";
     else if (!enough) caption.textContent = UI.resultsWaiting;
-    else {
-      caption.textContent = String(
-        perDot === 1 ? UI.mapCaption : UI.mapCaptionMany,
-      )
-        .replace("{per}", String(perDot));
-    }
+    else caption.textContent = "";
 
     frame();
     drawPanel();

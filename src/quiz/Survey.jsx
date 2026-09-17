@@ -65,13 +65,11 @@ export function Survey({ state, onAnswer }) {
           ))}
         </Frame>
 
-        {/* The box an "other" answer opens. On a phone it keeps its space
-            whether or not it is showing, so nothing below it shifts when it
-            appears; from md the buttons below are pinned to the foot of the
-            page, and the space isn't needed. */}
+        {/* The box an "other" answer opens. It keeps its space whether or
+            not it is showing, so nothing shifts when it appears. */}
         {
           <div
-            class={`flex gap-2.5 max-w-[30em] w-full mt-3.5 transition-opacity duration-180 ${other ? "" : "invisible opacity-0 md:hidden"}`}
+            class={`flex gap-2.5 max-w-[30em] w-full mt-3.5 transition-opacity duration-180 ${other ? "" : "invisible opacity-0"}`}
           >
             <input
               type="text"

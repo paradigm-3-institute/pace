@@ -189,7 +189,7 @@ button {
   left: 20px;
   margin: 0;
   font: 400 14px/1.4 var(--font-sans);
-  color: var(--color-foreground);
+  color: var(--dim);
   pointer-events: none;
 }
 
@@ -239,7 +239,14 @@ button {
   border: 1px solid var(--ink);
   border-radius: 0;
   text-align: left;
-  cursor: default;
+  cursor: pointer;
+  transition: background-color 120ms;
+}
+
+/* Hovering a question or a camp tints it, as the quiz's cards do, so
+   the reader can tell they open the panel. */
+.branching-point:hover {
+  background: var(--color-why-pace-bg);
 }
 
 .branching-point-q {
@@ -282,17 +289,44 @@ button {
   -webkit-text-stroke: 0.3px var(--color-conclusion-bg);
   white-space: nowrap;
   text-align: center;
-  cursor: default;
+  cursor: pointer;
 }
 
+/* The name takes the same tint as a hovered question. The tint is a
+   layer behind the text rather than padding on it, so the label keeps
+   the size the cloud and picture are placed from. */
 .camp-label {
   position: relative;
   z-index: 1;
 }
 
+.camp-label::before {
+  content: "";
+  position: absolute;
+  inset: -2px -8px;
+  z-index: -1;
+  background: transparent;
+  transition: background-color 120ms;
+}
+
+.camp:hover .camp-label::before {
+  background: var(--color-why-pace-bg);
+}
+
+/* The cloud and the picture are part of the camp: hovering or clicking
+   either does what hovering or clicking the name does. */
 .camp-cloud {
   position: absolute;
-  pointer-events: none;
+}
+
+/* The camp's picture, opposite its cloud. Its size comes from the file
+   (map.js halves the 2x export), so the icons share one scale. */
+.camp-image {
+  position: absolute;
+  /* Tailwind's reset caps images at their parent's width, and the
+     parent here is only as wide as the camp's name. */
+  max-width: none;
+  user-select: none;
 }
 
 .dot {
@@ -364,25 +398,3 @@ button {
   text-decoration-thickness: 1px;
 }
 
-.panel-actions {
-  margin-top: auto;
-  padding-top: 20px;
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-
-.panel-foot {
-  margin-top: 20px;
-  font: 400 15px/1.4 var(--font-sans);
-  color: var(--color-then-what-bg);
-  text-wrap: pretty;
-}
-
-.panel-foot a {
-  color: var(--color-conclusion-bg);
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1.5px;
-}
