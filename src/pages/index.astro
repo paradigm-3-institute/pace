@@ -2,6 +2,7 @@
 import { getEntry, render } from "astro:content";
 import EssayLayout from "../layouts/EssayLayout.astro";
 import Section from "../components/Section.astro";
+import Affiliations from "../components/Affiliations.astro";
 import { sectionMeta } from "../sections";
 import { Content as Intro } from "../content/index.md";
 
@@ -27,7 +28,7 @@ const appendices = sectionMeta.find(({ page }) => page === "/appendices")!;
       <h1>Pacing the Frontier</h1>
       <p>A Framework & Research Agenda</p>
     </hgroup>
-    <div class="grid gap-2 md:gap-6 mb-16 font-sans text-(--color-conclusion-bg)">
+    <div class="grid gap-2 md:gap-6 mb-12 md:mb-16 font-sans text-(--color-conclusion-bg)">
       <div class="text-right font-semibold text-balance">
         by Raymond Douglas, Charles Dillon, Nikola Moore, Gavin Leech, Shahar Avin<sup>✝</sup>
       </div>
@@ -42,52 +43,32 @@ const appendices = sectionMeta.find(({ page }) => page === "/appendices")!;
     </div>
     <Intro />
     <!-- Hand-rendered copy of the GFM footnote markup, since this byline
-         lives in the template rather than in a markdown section. -->
-    <section data-footnotes class="footnotes">
+         lives in the template rather than in a markdown section. Below the
+         breakpoint the same content opens as a lightbox instead, so the
+         affiliations are one tap away rather than a scroll down the page. -->
+    <section data-footnotes class="footnotes byline-footnotes">
       <h2 class="sr-only" id="footnote-label">
         Footnotes
       </h2>
       <ol>
         <li id="user-content-fn-1">
-          <dl class="affiliations">
-            <dt>✝</dt>
-            <dd>Senior author</dd>
-            <dt>Raymond Douglas, Jan Kulveit</dt>
-            <dd>ACS Research</dd>
-            <dt>Raymond Douglas, David Duvenaud</dt>
-            <dd>University of Toronto</dd>
-            <dt>Charles Dillon, Nikola Moore, Gavin Leech, Noah Perez</dt>
-            <dd>Arb Research</dd>
-            <dt>Gavin Leech</dt>
-            <dd>Paradigm 3 Institute</dd>
-            <dt>Rohit Krishnan</dt>
-            <dd>The Wharton School, University of Pennsylvania</dd>
-            <dt>Mathias Kirk Bonde</dt>
-            <dd>Independent</dd>
-            <dt>Nathan Young</dt>
-            <dd>Goodheart Labs</dd>
-            <dt>Cormac Slade Byrd</dt>
-            <dd>Trajectory Institute</dd>
-            <dt>Stephen Casper</dt>
-            <dd>Harvard University and Harvard Kennedy School</dd>
-            <dt>Shahar Avin</dt>
-            <dd>University of Cambridge</dd>
-          </dl>
-          <p>
-            This work is funded by <a href="https://acsresearch.org/about">ACS Research</a> and the{" "}
-            <a href="https://www.paradigm3.org/">Paradigm 3 Institute</a>.
-            <a
-              href="#user-content-fnref-1"
-              data-footnote-backref
-              aria-label="Back to reference 1"
-              class="data-footnote-backref"
-            >
-              ↩
-            </a>
-          </p>
+          <Affiliations backref />
         </li>
       </ol>
     </section>
+    <dialog id="affiliations-dialog" class="affiliations-dialog" aria-label="Author affiliations">
+      <div class="affiliations-dialog-body">
+        <form method="dialog">
+          <button class="affiliations-dialog-close" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+              <path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path>
+            </svg>
+          </button>
+        </form>
+        <p class="affiliations-dialog-title">Affiliations</p>
+        <Affiliations />
+      </div>
+    </dialog>
   </div>
   {sections.map(({ id, label, textClass, content }) => (
     <Section id={id} title={label} textClass={textClass} content={content} />
@@ -99,3 +80,35 @@ const appendices = sectionMeta.find(({ page }) => page === "/appendices")!;
     </p>
   </Section>
 </EssayLayout>
+
+<script>
+  /* On phones the affiliations footnote opens as a lightbox over the byline
+     instead of sending the reader to the bottom of the intro. Wide screens
+     keep the ordinary footnote jump, and so does anyone without JS: the
+     footnote stays in the page and is only hidden once this has run. */
+  const dialog = document.getElementById("affiliations-dialog") as HTMLDialogElement | null;
+  const ref = document.getElementById("user-content-fnref-1");
+  const compact = window.matchMedia("(width < 48rem)");
+
+  if (dialog && ref && typeof dialog.showModal === "function") {
+    document.documentElement.dataset.affiliationsDialog = "";
+
+    ref.addEventListener("click", (event) => {
+      if (!compact.matches) return;
+      event.preventDefault();
+      dialog.showModal();
+    });
+
+    /* A click that lands on the dialog itself came from the backdrop, since
+       the card's own padding is on the panel inside it. */
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+
+    /* Rotating to a wide screen with it open would leave a lightbox on a
+       layout that shows the footnote anyway. */
+    compact.addEventListener("change", () => {
+      if (!compact.matches && dialog.open) dialog.close();
+    });
+  }
+</script>

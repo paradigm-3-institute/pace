@@ -754,6 +754,95 @@
   }
 }
 
+/* ---------- The affiliations lightbox ----------
+   On phones the byline's footnote marker opens the affiliations over the
+   page instead of sending the reader to the bottom of the intro. The
+   footnote itself stays in the document and is only hidden once the script
+   has marked the html element, so it still works without JS. */
+
+@media (width < 48rem) {
+  html[data-affiliations-dialog] .byline-footnotes {
+    display: none;
+  }
+
+  /* A modal dialog does not stop the page behind it from scrolling. */
+  html:has(.affiliations-dialog[open]) {
+    overflow: hidden;
+  }
+}
+
+.prose .affiliations-dialog {
+  width: min(30rem, 100vw - 32px);
+  max-height: min(80dvh, 34rem);
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  border: 2px solid var(--color-sidebar);
+  border-radius: 4px;
+  /* Matches the footnote it stands in for. */
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.prose .affiliations-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.prose .affiliations-dialog::backdrop {
+  /* --color-sidebar; a custom property is not reliably visible here. */
+  background: rgb(59 13 3 / 0.6);
+}
+
+.prose .affiliations-dialog-body {
+  min-height: 0;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/* Positioned against the dialog, which the UA already positions, so it stays
+   in the corner while the body scrolls under it. */
+.prose .affiliations-dialog-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  padding: 8px;
+  font-size: 1.25rem;
+  line-height: 0;
+  color: var(--color-conclusion-bg);
+  background: var(--color-background);
+  border: 0;
+  cursor: pointer;
+}
+
+.prose .affiliations-dialog-title {
+  margin-bottom: 14px;
+  /* Clear of the close button. */
+  padding-right: 32px;
+  font-size: 1.05em;
+  font-weight: 600;
+  color: var(--color-conclusion-bg);
+}
+
+/* Narrow enough that the names never share a line with the institution. */
+.prose .affiliations-dialog .affiliations {
+  grid-template-columns: 1fr;
+  row-gap: 0;
+  margin-bottom: 1.2em;
+}
+
+.prose .affiliations-dialog .affiliations dd {
+  margin-bottom: 0.5em;
+}
+
+.prose .affiliations-dialog p:last-child {
+  margin-bottom: 0;
+}
+
 .prose .footnotes p {
   margin-bottom: 0;
 }

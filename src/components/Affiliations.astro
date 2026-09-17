@@ -1,0 +1,49 @@
+---
+/* The author affiliations, shown in two places: as the byline's footnote on
+   wide screens, and inside the lightbox that replaces it on phones. */
+interface Props {
+  /* The footnote copy ends with the ↩ link back to the byline marker; the
+     lightbox, which is already over the byline, does not. */
+  backref?: boolean;
+}
+
+const { backref = false } = Astro.props;
+
+const affiliations: [string, string][] = [
+  ["✝", "Senior author"],
+  ["Raymond Douglas, Jan Kulveit", "ACS Research"],
+  ["Raymond Douglas, David Duvenaud", "University of Toronto"],
+  ["Charles Dillon, Nikola Moore, Gavin Leech, Noah Perez", "Arb Research"],
+  ["Gavin Leech", "Paradigm 3 Institute"],
+  ["Rohit Krishnan", "The Wharton School, University of Pennsylvania"],
+  ["Mathias Kirk Bonde", "Independent"],
+  ["Nathan Young", "Goodheart Labs"],
+  ["Cormac Slade Byrd", "Trajectory Institute"],
+  ["Stephen Casper", "Harvard University and Harvard Kennedy School"],
+  ["Shahar Avin", "University of Cambridge"],
+];
+---
+
+<dl class="affiliations">
+  {affiliations.map(([who, where]) => (
+    <Fragment>
+      <dt>{who}</dt>
+      <dd>{where}</dd>
+    </Fragment>
+  ))}
+</dl>
+<p>
+  This work is funded by <a href="https://acsresearch.org/about">ACS Research</a> and the{" "}
+  <a href="https://www.paradigm3.org/">Paradigm 3 Institute</a>.{
+    backref && (
+      <a
+        href="#user-content-fnref-1"
+        data-footnote-backref
+        aria-label="Back to reference 1"
+        class="data-footnote-backref"
+      >
+        ↩
+      </a>
+    )
+  }
+</p>
