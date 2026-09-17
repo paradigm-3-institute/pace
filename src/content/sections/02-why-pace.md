@@ -10,7 +10,7 @@ From the global perspective, the question is: Given the current state of AI prog
 
 More pragmatically, pacing will only happen if actors make effective pacing interventions. If the actors are rational, such actions will be taken if the actors view them as having a positive impact in expectation. In §2.3, we consider the perspectives and cost-benefit calculus of different actors.
 
-Section §5 gives a more comprehensive assessment of the benefits and costs of pacing, taking into account second-order effects of the interventions required to make pacing effective.
+§5 gives a more comprehensive assessment of the benefits and costs of pacing, taking into account second-order effects of the interventions required to make pacing effective.
 
 ![Simple causal graph of how pacing interventions work](/media/causal_graph_1.svg)
 
