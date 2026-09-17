@@ -166,16 +166,19 @@ html {
     position: relative;
     z-index: 100;
     height: var(--h2-height);
-    background: var(--color-sidebar);
-    color: var(--color-dark);
+    /* The summary's banner, which is the first of the bars the tab spends the
+       rest of the essay at the end of: the same fill, the same dark on it, and
+       the rule along the bottom that every banner has. */
+    background: var(--color-why-pace-bg);
+    color: var(--color-sidebar);
+    border-bottom: solid 2px var(--color-sidebar);
     font-family: var(--font-sans);
     transition: opacity 0.25s ease;
   }
 
-  /* The drawer is this same brown, so with it open the strip of bar left
-     beside it reads as part of the panel with a word cut in half rather than
-     as the page behind it — the scrim is that brown too, and dims it to
-     nothing. So it goes with the page it belongs to, and comes back when the
+  /* With the drawer open what is left of the bar beside the panel is a word
+     cut in half, and no use to anyone while the whole of the contents is on
+     screen. It goes with the page it belongs to, and comes back when the
      drawer closes. */
   html[data-nav][data-nav-open] .nav-topbar {
     opacity: 0;
@@ -212,7 +215,7 @@ html {
      to the page you are on. */
   html[data-nav] .nav-topbar-link {
     padding-right: var(--nav-icon-inset);
-    color: var(--color-why-pace-bg);
+    color: var(--color-conclusion-bg);
   }
 
   html[data-nav] .nav-topbar-link svg {
