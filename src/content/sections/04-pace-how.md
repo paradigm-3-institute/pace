@@ -7,7 +7,7 @@ A pacing intervention is ultimately a sequence of steps; we reason about an inte
 
 ![How evidence can fail to influence pacing action.](/media/evidence-to-action.svg)
 
-### 4.1 Before pacing
+### 4.1. Before pacing
 
 The main challenge before intervening is recognizing where there’s a need to intervene and how to time it. Intervening too late means letting the threat play out with potentially irreversible consequences; intervening too early means sacrificing potential benefits and political capital, and in some cases being less able to carry out complementary activities that depend on access to advanced AI (accelerated safety research, empirical study of emerging threat models, etc.), or to the benefits from conducting the complementary activities in a setting with more talent, capital, and data from deployment settings.
 
@@ -27,7 +27,7 @@ Evaluations, forecasting, incident reports, and safety cases perform different f
 
 Coordinated pacing comes with extra challenges: the different actors need to be able to converge on their understanding of the relevant information and what constitutes meaningful evidence, which in turn typically requires some bandwidth between them. In situations where they have competing incentives, some will also have individual incentives to withhold information. For example, frontier developers might not want to be overly restricted by governments, and so they might not want governments to have the information that would warrant such restriction. Those considering pacing interventions may need to think about what infrastructure needs developing in advance to get around such dynamics.
 
-### 4.2 Triggering and enacting pacing
+### 4.2. Triggering and enacting pacing
 
 The challenge in deciding to trigger a pacing intervention is negotiating the tension between speed, legitimacy, and precision. It is easy to have two but more difficult to have three:
 
@@ -45,7 +45,7 @@ The next decision is execution: the intervention must somehow affect live system
 
 Again, coordinated pacing comes with extra challenges. It will typically take a lot more time for several actors to form a consensus on whether an intervention should be triggered, especially if there is a range of options to choose from. One potential solution is to give several parties the ability to unilaterally trigger time-bounded interventions which can buy time for more careful discussion. Another is to spend time in advance mapping out the likely space of mutually beneficial interventions.
 
-### 4.3 During pacing
+### 4.3. During pacing
 
 During pacing, it can be difficult to sustain the efficacy of an intervention in an ever-evolving environment. There are four notable challenges: whether the relevant parties are still complying; whether the initial threat is still effectively targeted; whether the threat is still a threat; and whether the suspension in activity is being used effectively.
 
@@ -59,7 +59,7 @@ There is a danger that pacing weakens the infrastructure it is designed to stren
 
 A potential solution could be to separate retargeting by scale and reversibility. Operators could have the authority to make temporary and bounded adjustments; external reviewers could implement wider and more durable policies. As in the activation procedure, tradeoffs cannot be wholly eliminated, only managed across the model lifecycle. 
 
-### 4.4 Ending pacing
+### 4.4. Ending pacing
 
 A major difficulty with any kind of temporary intervention is ending it at an appropriate time. Restrictions can become entrenched and persist past the point they are no longer justified, or can be abandoned while other actors are relying on them. So interventions which depend on precise exit conditions are less attractive than plans which are more robust to poor exit management.
 

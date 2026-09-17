@@ -14,7 +14,7 @@ In general, interventions that target control surfaces [earlier in the AI R\&D p
 
 A longlist of 83 possible interventions can be found [here](/appendices/#82-appendix-longlist-of-pacing-interventions).
 
-### 3.1 Control surfaces of AI progress
+### 3.1. Control surfaces of AI progress
 
 #### The AI development and deployment chain
 
@@ -52,7 +52,7 @@ This highlights a recurring tradeoff. Control surfaces earlier in the chain are 
 
 ![Control surfaces for AI development across the chain of developing and deploying systems.](/media/control-surfaces.svg)
 
-### 3.2 Targeting and tradeoffs
+### 3.2. Targeting and tradeoffs
 
 Consider a pacing intervention targeting some subset of inputs to the production of dangerous AI capability. Its effects extend beyond the inputs it directly restricts. Inputs that *substitute* for the targeted one absorb the freed compute, labor and so on, and receive more investment, while inputs that *complement* it contract along with the restricted ones. Capping, e.g. frontier training runs does not slow AI development in strict proportion to the amount of training forgone; rather, it slows by that amount net of whatever the developers recover by substituting with algorithmic efficiency, data-quality and inference-time scaling. The effectiveness of an intervention therefore depends on how easily developers can substitute other inputs for those being restricted. Where those alternatives inputs are non-rival and harder to observe, an intervention may have the effect of pushing more effort towards less governable inputs.
 
@@ -81,7 +81,7 @@ The correct balance between tolerating false positives, false negatives and intr
 
 Since essentially all control surfaces suffer from these tradeoffs, often the best route to a given outcome will involve several different control surfaces working in parallel, such as a cheap intervention with few false positives and many false negatives, coupled with a more demanding one that can catch some of the false negatives which slip through the previous one. Relatedly, in fast-moving situations it may be preferable to quickly enforce conservative interventions with many false positives, and use the breathing room to implement more careful and calibrated ones.
 
-### 3.3 Coordinated interventions
+### 3.3. Coordinated interventions
 
 In cases where an intervention requires coordination among multiple actors, some control surfaces and interventions make this easier than others.
 

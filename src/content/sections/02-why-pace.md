@@ -16,7 +16,7 @@ More pragmatically, pacing will only happen if actors make effective pacing inte
 
 
 
-### 2.1 Why pace less?
+### 2.1. Why pace less?
 
 #### 2.1.1 Pacing means waiting longer for very good things
 
@@ -56,7 +56,7 @@ But beyond this, it burned investor trust and disincentivized investments in nuc
 
 It is likewise possible that pacing will not have the trust of those in AI, because they correctly predict it will be hard to undo, even if the risk is found to be low.
 
-### 2.2 Why pace more?
+### 2.2. Why pace more?
 
 #### 2.2.1 AI threats take time to understand and mitigate
 

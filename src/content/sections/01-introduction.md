@@ -31,7 +31,7 @@ Mountains of research exist on specific topics relevant to pacing (e.g. [model e
 
 Inquiries into pacing are naturally in danger of being politicized: indeed, hundreds of millions of dollars have already been spent on advocacy on [both](https://techcrunch.com/2026/08/31/a-group-funded-by-andreessen-horowitz-and-brockman-plan-data-center-ads-to-sway-midterms/) [sides](https://publicfirstaction.us/news/public-first-action-and-defending-our-values-pac-launch-first-ads-supporting-responsible-ai-regulation-cgpew) of the debate. But that is all the more reason to encourage dispassionate research and a shared understanding of the practical implications.
 
-### 1.1 Structure of the piece
+### 1.1. Structure of the piece
 
 This piece is structured around a series of questions intended to mirror how one might develop or evaluate a given intervention:
 

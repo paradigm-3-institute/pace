@@ -13,7 +13,7 @@ We consider these impacts radiating outward from the pacing intervention through
 
 ![The effects of a pacing intervention radiating outward through society and forward in time.](/media/then-what-v2-padded.svg)
 
-### 5.1 Covered developers
+### 5.1. Covered developers
 
 As the center of AI progress, frontier model developers are the most directly impacted by pacing interventions. Intervention changes the constraints these developers face, but not their objectives: the competitive pressures described in §2.3 persist, and developers will re-optimize against the new rules. The practical effect of an intervention is therefore the rule, *plus* developers' responses to it. But we can anticipate the form of such responses from earlier attempts to restrain arms races: for instance, when the 1922 Washington Treaty [capped](https://www.usni.org/magazines/proceedings/1926/may/washington-treaties-1922) naval cruisers at 10,000 tons and 8-inch guns, the signatories built "[treaty cruisers](https://www.globalsecurity.org/military/systems/ship/treaty-cruiser.htm)" that sat exactly at those limits.
 
@@ -59,7 +59,7 @@ Shaping can be prosocial: developers may plug loopholes in the monitoring mechan
 
 **Seeking compensation.** Those who are affected by interventions may make efforts to secure compensation for losses they incur. See §5.4.2.
 
-### 5.2 Shifts in relative power
+### 5.2. Shifts in relative power
 
 #### National governments and international competition
 
@@ -87,7 +87,7 @@ There may also be a chilling effect from the existence proof provided by the pac
 
 Many interventions (e.g. our worked example on biological threats) will also have to contend with misuse: third parties who use diffused AI capabilities to ill ends, for instance by developing biological weapons or committing cybercrimes. These actors can also be expected to adapt to any intervention, though primarily by trying to circumvent it from the outside.
 
-### 5.3 Pacing governance structures
+### 5.3. Pacing governance structures
 
 The main effect of pacing on the new governance mechanisms is to make them exist, or to invest new powers in existing bodies.
 
@@ -119,7 +119,7 @@ But there is a clear risk to contend with: crises can justify legitimately neces
 
 In general, how competently the governing machinery is run and how well received its actions are will affect its durability and popularity. The machinery should thus be thought of not just as a means of carrying out the intervention, but also as one of its effects, and predictable failure modes should be weighed against expected benefits in deciding whether to implement it. 
 
-### 5.4 Impact on AI investment and global markets
+### 5.4. Impact on AI investment and global markets
 
 AI capital investments are already a major factor in the global economy. Investment in the inputs to AI progress (chips, datacenter construction, power infrastructure, and the AI developers themselves) is heavily contingent on the expected benefits and usefulness of the outputs, and so anything which affects the pace of capabilities progress will bear heavily on these investment decisions, and shift their attractiveness. 
 
@@ -145,7 +145,7 @@ Anticipating these effects and carefully designing rules can help minimize the d
 
 Actors whose assets are stranded or whose expected revenue is cut will seek compensation. This could take the form of direct payments, buyout of their compute stock (see §3.2), tax treatment, government contracts, guaranteed access to restricted markets, or exemptions. Compensation reduces the incentive to defect, and could be framed as public procurement if the freed compute goes to safety or defensive research. But it has three costs: (1) it transfers public funds to the actors being restrained; (2) it creates a constituency with an interest in the intervention continuing, which bears on the exit problems in §4.4; and (3) it creates moral hazard: actors who expect compensation may invest in anticipation of a buyout.
 
-### 5.5 Impact on norms and culture
+### 5.5. Impact on norms and culture
 
 And lastly, how does the pacing intervention reshape the norms and culture surrounding interventions in R\&D, both future interventions in frontier AI R\&D and interventions in R\&D more broadly? If an intervention yields intended and desirable outcomes, is it making it easier for future regulations to land well? In other words, are “good” interventions being normalized? How much of a risk is there that pacing interventions in AI R\&D might have a global chilling effect on growth and progress?
 

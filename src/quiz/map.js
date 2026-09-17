@@ -417,8 +417,10 @@ export function mountMap(container, state, { onRestart, feedback }) {
     return points;
   }
 
-  /* A point along the path: halfway by default, so a label lands on
-     its own line, or `dist` pixels from the start when an arm asks. */
+  /* Where a label sits on its arm: NEAR pixels from the start, so it
+     reads as the answer leaving that question, or halfway on an arm too
+     short for that. An arm can name its own distance in content.js. */
+  const NEAR = 70;
   function along(points, dist) {
     const lengths = [];
     let total = 0;
@@ -429,7 +431,7 @@ export function mountMap(container, state, { onRestart, feedback }) {
       lengths.push(len);
       total += len;
     }
-    const target = dist === undefined ? total / 2 : Math.min(dist, total);
+    const target = dist === undefined ? Math.min(NEAR, total / 2) : Math.min(dist, total);
     let walked = 0;
     for (let i = 0; i < lengths.length; i++) {
       if (walked + lengths[i] >= target) {
@@ -526,12 +528,14 @@ export function mountMap(container, state, { onRestart, feedback }) {
       }
     }
     /* An arm can swing wide of every node — 1C's run down the far left
-       to pause now — so the paths count too. */
+       to pause now — so the paths count too, with room either side for
+       a label straddling the line. */
+    const LABEL = 60;
     for (const arm of arms) {
       for (const p of orthogonal(port(arm.from, arm.sh), port(arm.to, arm.th), arm.turn, arm.stub)) {
-        x0 = Math.min(x0, p.x);
+        x0 = Math.min(x0, p.x - LABEL);
         y0 = Math.min(y0, p.y);
-        x1 = Math.max(x1, p.x);
+        x1 = Math.max(x1, p.x + LABEL);
         y1 = Math.max(y1, p.y);
       }
     }

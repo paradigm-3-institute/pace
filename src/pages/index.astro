@@ -3,15 +3,16 @@ import { getEntry, render } from "astro:content";
 import EssayLayout from "../layouts/EssayLayout.astro";
 import Section from "../components/Section.astro";
 import Affiliations from "../components/Affiliations.astro";
-import { sectionMeta } from "../sections";
+import { sectionMeta, sectionTitle } from "../sections";
 import { Content as Intro } from "../content/index.md";
 
 const sections = await Promise.all(
   sectionMeta
     .filter(({ page }) => page === "/")
-    .map(async ({ slug, ...meta }) => ({
-      ...meta,
-      content: await render(await getEntry("sections", slug)),
+    .map(async (section) => ({
+      ...section,
+      label: sectionTitle(section),
+      content: await render(await getEntry("sections", section.slug)),
     })),
 );
 

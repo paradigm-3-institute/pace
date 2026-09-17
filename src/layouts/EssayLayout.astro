@@ -1,7 +1,7 @@
 ---
 import Layout from "./Layout.astro";
 import NavItem from "../components/NavItem.astro";
-import { sectionMeta, navHref } from "../sections";
+import { sectionMeta, navHref, sectionTitle } from "../sections";
 
 interface Props {
   title: string;
@@ -43,7 +43,7 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
         {sectionMeta.map((section) => (
           <NavItem
             href={navHref(section)}
-            label={section.label}
+            label={sectionTitle(section)}
             textClass={section.textClass}
             sectionId={section.id}
           />

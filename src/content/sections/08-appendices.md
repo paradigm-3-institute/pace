@@ -3,7 +3,7 @@ title: "Appendices"
 order: 8
 ---
 
-### 8.1 Appendix: All open questions
+### 8.1. Appendix: All open questions
 
 #### 2: Why pace?
 
@@ -81,7 +81,7 @@ order: 8
   * *Romano & Levin (2021), [Sunsetting as an Adaptive Strategy](https://pmc.ncbi.nlm.nih.gov/articles/PMC8256028/)*  
   * *Molloy (2021), [Approach with Caution: Sunset Clauses as Safeguards of Democracy?](https://researchportal.northumbria.ac.uk/en/publications/approach-with-caution-sunset-clauses-as-safeguards-of-democracy/)*
 
-### 8.2 Appendix: longlist of pacing interventions
+### 8.2. Appendix: longlist of pacing interventions
 
 For concreteness, the following attempts to list the levers we have available to pace AI. Note that a lever’s inclusion here is not an argument in favour of acting on it.
 
@@ -233,7 +233,7 @@ One simple task for the pacing field is to have serious up-to-date research on e
 82. Training-run declarations exchanged between states ([Shavit 2023](https://arxiv.org/abs/2303.11341); [Baker et al. 2025](https://arxiv.org/abs/2507.15916))  
 83. Verification R\&D budget and a frontier-state incident hotline ([Future Society 2026](https://thefuturesociety.org/international-ai-verification))
 
-### 8.3 Appendix: Bibliography
+### 8.3. Appendix: Bibliography
 
 #### Recent
 
