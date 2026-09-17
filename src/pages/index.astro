@@ -79,6 +79,41 @@ const appendices = sectionMeta.find(({ page }) => page === "/appendices")!;
       <a href={appendices.page}>on their own page</a>.
     </p>
   </Section>
+  <div class="padded">
+    <section class="cite-box" id="cite" aria-label="How to cite this work">
+      <h4>How to cite this work</h4>
+      <p>
+        Douglas, R., Dillon, C., Moore, N., Leech, G., Bonde, M.&nbsp;K., Krishnan, R., Perez, N., Young, N.,
+        Slade&nbsp;Byrd, C., Casper, S., Kulveit, J., Duvenaud, D., &amp; Avin, S. (2026).{" "}
+        <em>Pacing the Frontier: A Framework and Research Agenda</em>.{" "}
+        <a href="https://pacing.tech">pacing.tech</a>.
+      </p>
+      <pre id="bibtex" is:raw><code>@misc{douglas2026pacing,
+  title  = {Pacing the Frontier: A Framework and Research Agenda},
+  author = {Douglas, Raymond and Dillon, Charles and Moore, Nikola and
+            Leech, Gavin and Bonde, Mathias Kirk and Krishnan, Rohit and
+            Perez, Noah and Young, Nathan and Slade Byrd, Cormac and
+            Casper, Stephen and Kulveit, Jan and Duvenaud, David and
+            Avin, Shahar},
+  year   = {2026},
+  url    = {https://pacing.tech}
+}</code></pre>
+      <button type="button" class="copy-bibtex" id="copy-bibtex">Copy BibTeX</button>
+    </section>
+  </div>
+  <script>
+    const copyButton = document.getElementById("copy-bibtex");
+    const bibtex = document.getElementById("bibtex");
+    copyButton?.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(bibtex?.textContent?.trim() ?? "");
+        copyButton.textContent = "Copied";
+        setTimeout(() => (copyButton.textContent = "Copy BibTeX"), 2000);
+      } catch {
+        /* Clipboard unavailable (e.g. insecure context); the text is still selectable. */
+      }
+    });
+  </script>
 </EssayLayout>
 
 <script>

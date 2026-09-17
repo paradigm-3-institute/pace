@@ -531,6 +531,49 @@
   font-family: var(--font-sans);
 }
 
+/* ---------- Citation box ---------- */
+
+/* "How to cite" box at the foot of the essay: light ground so the dark
+   BibTeX panel inside reads as a block of its own. */
+.prose .cite-box {
+  margin: 48px 0 0;
+  padding: 24px 28px;
+  background-color: var(--color-introduction-bg);
+  border: 2px solid var(--color-conclusion-bg);
+  border-radius: 6px;
+}
+
+.prose .cite-box h4 {
+  margin: 0 0 12px;
+  font-family: var(--font-sans);
+  color: var(--color-conclusion-bg);
+}
+
+.prose .cite-box pre {
+  margin: 16px 0 0;
+}
+
+.prose .cite-box .copy-bibtex {
+  margin-top: 12px;
+  padding: 6px 14px;
+  font-family: var(--font-sans);
+  font-size: 0.8em;
+  font-weight: 600;
+  color: var(--color-conclusion-bg);
+  background-color: var(--color-background);
+  border: 2px solid var(--color-conclusion-bg);
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    background-color 120ms ease,
+    color 120ms ease;
+}
+
+.prose .cite-box .copy-bibtex:hover {
+  background-color: var(--color-conclusion-bg);
+  color: var(--color-from);
+}
+
 /* ---------- Rules ---------- */
 
 .prose hr {
