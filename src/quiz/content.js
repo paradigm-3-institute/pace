@@ -289,7 +289,7 @@ export const QUIZ_DATA = {
         {
           label: `Yes, plausibly`,
           short: `yes`,
-          text: `AI capabilities will keep hitting milestones predicted by scaling and task-horizon forecasts.`,
+          text: `AI capabilities will keep hitting milestones predicted by scaling and task-horizon forecasts OR the industry will invent new training methods fast enough to keep the trends going.`,
           next: "c2",
         },
         {
