@@ -42,8 +42,7 @@ order: 8
 * **How can we permit exceptions to allow useful work, without being so permeable that it makes the rule useless?** In the case of compute controls, it now seems technologically feasible, to some extent, to identify what uses a GPU is being put to. What other technical advances can allow interventions to be less blunt and more narrowly scoped?  
   * *Gargiulo & Kulp (2026), [Workload Identification with Physical Side Channels for AI Governance](https://arxiv.org/abs/2609.00309)*  
 * **What are the tradeoffs between verification and invasiveness for different interventions?** How can we push the frontier forward?  
-  * *Scher & Thiergart (2025), [Mechanisms to Verify International Agreements About AI Development](https://arxiv.org/abs/2506.15867)*  
-  * *We believe the proposal would be technically sufficient to forestall the development of ASI if implemented today, but advancements in AI capabilities or development methods could hurt its efficacy. Additionally, there does not yet exist the political will to put such an agreement in place. Despite these challenges, we hope this agreement can provide direction for AI governance research and policy.*  
+  * *Scher & Thiergart (2024), [Mechanisms to Verify International Agreements About AI Development](https://arxiv.org/abs/2506.15867)*. Gives an overview of different verification mechanisms and what they require.  
   * *Petrie et al. (2025), [Flexible Hardware-Enabled Guarantees for AI Compute](https://arxiv.org/abs/2506.15093).* Proposes verifying compliance without exposing sensitive information about AI development.
 
 #### 4: Pace how?
@@ -280,6 +279,8 @@ One simple task for the pacing field is to have serious up-to-date research on e
 * Trager, Harack, Reuel, Carnegie, Heim, Ho, Kreps, Lall, Larter, Ó hÉigeartaigh, Staffell & Villalobos (2023). *International Governance of Civilian AI: A Jurisdictional Certification Approach*. [arXiv:2308.15514](https://arxiv.org/abs/2308.15514)  
 * Hausenloy, Miotti & Dennis (2023). *Multinational AGI Consortium (MAGIC): A Proposal for International Coordination on AI*. [arXiv:2310.09217](https://arxiv.org/abs/2310.09217)  
 * Emery-Xu, Jordan & Trager (2025). *International Governance of Advancing Artificial Intelligence*. AI & Society 40\. [doi:10.1007/s00146-024-02050-7](https://doi.org/10.1007/s00146-024-02050-7)  
+* Al Ramiah, Koopmanschap, Thorsteinson, Khan, Zhou, Noh, Meindertsma & Shafiq (2025). *Toward a Global Regime for Compute Governance: Building the Pause Button*. [arXiv:2506.20530](https://arxiv.org/abs/2506.20530)  
+* Scher, Abecassis, Barnett & Abeyta (2025). *An International Agreement to Prevent the Premature Creation of Artificial Superintelligence*. [arXiv:2511.10783](https://arxiv.org/abs/2511.10783)  
 * Finke (2026). *International Agreements to Limit Frontier AI: Objectives and Exit*. TAIGR @ ICML 2026\. [arXiv:2607.16224](https://arxiv.org/abs/2607.16224)
 
 #### Deterrence
@@ -313,8 +314,6 @@ One simple task for the pacing field is to have serious up-to-date research on e
 * Heim & Koessler (2024). *Training Compute Thresholds: Features and Functions in AI Regulation*. [arXiv:2405.10799](https://arxiv.org/abs/2405.10799)  
 * Hooker (2024). *On the Limitations of Compute Thresholds as a Governance Strategy*. [arXiv:2407.05694](https://arxiv.org/abs/2407.05694)   
 * Ord (2025). *Inference Scaling Reshapes AI Governance.* [arXiv](https://arxiv.org/abs/2503.05705)  
-* Al Ramiah (2025), *Toward a Global Regime for Compute Governance: Building the Pause Button*, [arXiv](https://arxiv.org/abs/2506.20530)  
-* Scher et al (2025), *An International Agreement to Prevent the Premature Creation of Artificial Superintelligence*, [arXiv](https://arxiv.org/abs/2511.10783)
 
 #### Developer commitments
 

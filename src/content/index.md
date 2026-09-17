@@ -1,5 +1,5 @@
 
-<h4 style="text-align: center; margin-top: 44px; margin-bottom: 24px; font-size: 32px"> Abstract </h4>
+<h4 class="abstract-header" style="text-align: center; margin-top: 44px; margin-bottom: 24px; font-size: 32px"> Abstract </h4>
 
 Companies and governments are already haphazardly pacing AI. To make good decisions about the pace of AI progress, practitioners, policymakers, and the public need a richer understanding of the options and dynamics that pacing interventions create. This piece surveys the range of interventions aimed at moderating the pace of AI development, deployment, and diffusion, and proposes a detailed research agenda to clarify the tradeoffs and likely effects of each. Now is the time for a dedicated field of pacing research, moving beyond one-off proposals and scenarios towards a flexible capacity to quickly and effectively intervene.
 
