@@ -35,7 +35,12 @@
 /* ---------- Headings ---------- */
 
 .prose hgroup {
-  font-size: 3em;
+  /* The title is set to the page, not to a fixed size: just above the
+     breakpoint the sidebar has taken 224px out of a screen that had none a
+     pixel earlier, and a flat 3em there put the title on two lines and the
+     line under it on three. It reaches full size at about 1100px, which is
+     where the column is wide enough to hold it on one. */
+  font-size: clamp(2.2em, 5.2vw, 3em);
   font-family: var(--font-sans);
   margin-bottom: 72px;
   display: flex;
@@ -1005,6 +1010,22 @@
 
 .prose .affiliations dd {
   margin: 0;
+}
+
+/* The left column is as wide as the longest row of names, and between the
+   breakpoint and 900px that row leaves the institutions beside it a ribbon
+   about one word across: "The Wharton School, University of Pennsylvania"
+   comes out five lines deep next to it. So in that band the longest row
+   breaks in two and gives the width back. Wider than that the column has
+   room for it on one line, and narrower the grid is one column anyway. */
+.prose .affiliations .aff-break {
+  display: none;
+}
+
+@media (width >= 48rem) and (width < 900px) {
+  .prose .affiliations .aff-break {
+    display: inline;
+  }
 }
 
 @media (width < 40rem) {

@@ -9,10 +9,14 @@ interface Props {
 
 const { backref = false } = Astro.props;
 
+/* The names carry markup, so the rows are written out rather than set as
+   text: Arb's four are the longest row here and set the width of the whole
+   left column, and where the column is tight they have to break in two.
+   Which widths those are is prose.css's business, not the list's. */
 const affiliations: [string, string][] = [
   ["Raymond Douglas, Jan Kulveit", "ACS Research"],
   ["Raymond Douglas, David Duvenaud", "University of Toronto"],
-  ["Charles Dillon, Nikola Moore, Gavin Leech, Noah Perez", "Arb Research"],
+  ['Charles Dillon, Nikola Moore,<br class="aff-break" /> Gavin Leech, Noah Perez', "Arb Research"],
   ["Gavin Leech", "Paradigm 3 Institute"],
   ["Rohit Krishnan", "The Wharton School, University of Pennsylvania"],
   ["Mathias Kirk Bonde", "Independent"],
@@ -26,7 +30,7 @@ const affiliations: [string, string][] = [
 <dl class="affiliations">
   {affiliations.map(([who, where]) => (
     <Fragment>
-      <dt>{who}</dt>
+      <dt set:html={who} />
       <dd>{where}</dd>
     </Fragment>
   ))}

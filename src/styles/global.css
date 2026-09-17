@@ -35,15 +35,20 @@
   --x-padding-inside: var(--x-padding);
 }
 
+/* The band between the breakpoint and the wide layout is where the column is
+   narrowest: the sidebar has appeared and taken its width out of the page, but
+   the page is not yet wide enough to spare it. So the gutters only open part of
+   the way here, and take the rest at 64rem along with everything else. */
 @media (width >= 48rem) {
   :root {
-    --x-padding: 64px;
+    --x-padding: 44px;
     --x-padding-inside: calc(var(--x-padding) - 8px);
   }
 }
 
 @media (width >= 64rem) {
   :root {
+    --x-padding: 64px;
     --x-padding-inside: calc(var(--x-padding) - 6px);
   }
 }
