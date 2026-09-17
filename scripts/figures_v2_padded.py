@@ -224,7 +224,7 @@ def review_pages():
     parts = []
     md = ["# Figures 8 and 9: v2 padded", "",
           "The approved v2 copy and design, with larger internal padding, more line spacing, "
-          "and taller boxes. Existing v2s and article references are unchanged.", "",
+          "and taller boxes. The article uses these padded figures; unpadded v2s remain available for comparison.", "",
           "Comparisons use equal widths: v2 above padded on desktop, v2 left of padded on mobile.", ""]
     for number, stem in [(8, "then-what"), (9, "failure-modes")]:
         md += [f"## Figure {number}", ""]

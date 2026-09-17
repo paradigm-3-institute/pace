@@ -1,6 +1,6 @@
 # Figures 8 and 9: comparison
 
-Original figures alongside the v2 candidates. The article still uses the originals.
+Original figures alongside the unpadded v2 candidates. The article uses the padded v2 figures.
 Desktop pairs are stacked; mobile pairs are side by side, with the original on the left.
 Each pair uses equal display widths. Open an image to view it at full size.
 
