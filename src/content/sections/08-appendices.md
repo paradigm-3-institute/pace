@@ -121,6 +121,7 @@ One simple task for the pacing field is to have serious up-to-date research on e
 
 19. Publication embargo on frontier algorithmic results ([Bostrom 2017](https://nickbostrom.com/papers/openness.pdf); [Shevlane & Dafoe 2020](https://arxiv.org/abs/2001.00463))  
 20. Total Research Transparency: mandatory disclosure of all frontier research ([AI Futures Project 2026](https://www.planned-obsolescence.org/p/total-research-transparency-would))  
+21. Internal model transparency: mandatory sharing of all internal models with researchers at other labs ([Tadepalli 2026](https://blog.karthiktadepalli.com/p/internal-model-transparency)).
 21. Structured access to code and checkpoints via vetted institutions ([Shevlane 2022](https://arxiv.org/abs/2201.05159))  
 22. Classification regime for capability-elicitation techniques ([Shevlane & Dafoe 2020](https://arxiv.org/abs/2001.00463))
 
