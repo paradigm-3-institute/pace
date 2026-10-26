@@ -1,0 +1,9 @@
+# Brakethrough Fellowship: built from github.com/nowemoore/brakethrough, hosted on GitHub Pages, shown here at /fellowship.
+# The app's own pages are sent to its index.html. Proxying them straight through doesn't work: the app has
+# image folders with the same names, so GitHub Pages would redirect visitors to its own address.
+# A new page in the app needs a line here.
+/fellowship            https://nowemoore.github.io/brakethrough/         200
+/fellowship/about      https://nowemoore.github.io/brakethrough/         200
+/fellowship/programme  https://nowemoore.github.io/brakethrough/         200
+/fellowship/team       https://nowemoore.github.io/brakethrough/         200
+/fellowship/*          https://nowemoore.github.io/brakethrough/:splat   200
