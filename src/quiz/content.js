@@ -361,7 +361,7 @@ export const QUIZ_DATA = {
       kicker: `Branching Point 02 · Default risk`,
       stem: `If AI development continues at default speed, how likely is it to lead to lasting, irreversible, society-wide harm?`,
       details: `This branching point calls into question whether it’s AI development that’s the problem. Do the current race dynamics leave no room for defences to keep up? Is there an alternative reality where identical AI development paired with adequate misuse controls and resilience measures effectively prevent catastrophic harm? Is the risk from current AI development likely? How about significant?`,
-      help: `This includes harm from misalignment (model doing bad stuff) or misuse (humans using models for bad stuff).`,
+      help: `This includes harm from misalignment (model doing bad stuff) or misuse (humans using models for bad stuff). Default speed = current trajectory of progress (without any top-down intervention).`,
       options: [
         {
           label: `Substantial (1-50%)`,
