@@ -66,6 +66,7 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
   <div id="nav-scrim" class="nav-scrim"></div>
 
   <main class="w-full md:pl-60 lg:pl-77 lg:pr-6 lg:py-24">
+    <slot name="banner" />
     <!-- Below the breakpoint the sidebar is a drawer, and these open it.
          They sit outside the article so that they stay live while the article
          behind the drawer is inert, and before it so that they come first for
@@ -168,6 +169,7 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
 
     if (first && main) {
       const bar = document.querySelector(".nav-topbar");
+      const banner = document.querySelector(".site-banner");
 
       const place = () => {
         /* The distance is from where the tab itself starts, which is under the
@@ -177,7 +179,8 @@ const { title, description, homeHref = "/", flushTop = false } = Astro.props;
         const top =
           main.getBoundingClientRect().top +
           parseFloat(getComputedStyle(main).paddingTop) +
-          (bar?.getBoundingClientRect().height ?? 0);
+          (bar?.getBoundingClientRect().height ?? 0) +
+          (banner?.getBoundingClientRect().height ?? 0);
         const rest = Math.max(0, first.getBoundingClientRect().top - top);
         toggle.style.setProperty("--nav-tab-rest", `${Math.round(rest)}px`);
         /* Only now is it safe to show: a resize observation is delivered before

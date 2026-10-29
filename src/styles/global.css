@@ -69,6 +69,55 @@ html {
   }
 }
 
+/* The announcement strip across the top of the index. It runs the width of
+   the page beside the sidebar. From 64rem up it sits in the air main already
+   leaves above the article, taken out of the flow so nothing below it moves;
+   narrower than that there is no air to sit in, and it takes its own room. */
+.site-banner {
+  position: relative;
+  z-index: 1;
+  padding: 10px 16px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: center;
+  text-wrap: balance;
+  color: var(--color-from);
+  background: var(--color-conclusion-bg);
+  border-bottom: 2px solid var(--color-sidebar);
+}
+
+@media (width >= 64rem) {
+  .site-banner {
+    position: absolute;
+    top: 0;
+    /* The sidebar's width at this size (lg:w-70). */
+    left: 17.5rem;
+    right: 0;
+  }
+}
+
+.site-banner a {
+  font-weight: 700;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgb(247 245 243 / 0.45);
+  text-underline-offset: 3px;
+  white-space: nowrap;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.site-banner a:hover {
+  text-decoration-color: currentColor;
+}
+
+.site-banner .substack-logo {
+  display: inline-block;
+  margin-right: 0.3em;
+  vertical-align: -0.12em;
+  color: #ff6719;
+}
+
 .padded {
   padding-left: var(--x-padding);
   padding-right: var(--x-padding);
